@@ -11,41 +11,10 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/cuerpoWeb.css" />
 
+
 </head>
 <header>
-  <div id="container">
-    <div class="top">
-      <div class="nav">
-        <div class="logoDiv">
-          <a class="navbar-logo" href="#">
-            <img src="img/Logo.png" />
-          </a>
-        </div>
-        <div class="opciones">
-          <a href="#" class="NavItem NavButton">
-            <ion-icon name="settings"></ion-icon>
-            </ion-icon>
-          </a>
-          <a href="#" class="NavItem NavButton">
-            <ion-icon name="person"></ion-icon> CUENTA
-          </a>
-          <a href="#" class="NavItem NavButton">
-            <ion-icon name="wallet"></ion-icon> PAGOS
-          </a>
-          <a href="#" class="NavItem NavButton">
-            <ion-icon name="book"></ion-icon> JUGADAS
-          </a>
-          <a href="#" class="NavItem NavButton">
-            <ion-icon name="apps"></ion-icon> DASHBOARD
-          </a>
-          <a href="#" class="NavItem NavButton">
-            <ion-icon name="home"></ion-icon> INICIO
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
+<?php include('navVacio.php');?>
 </header>
 
 <body>
@@ -184,6 +153,6 @@
 
 </body>
 <footer>
-  <?php include("Footer.php") ?>
+  <?php include("footer.php") ?>
 </footer>
 </html>

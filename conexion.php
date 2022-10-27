@@ -8,18 +8,19 @@ function conectar(){
 	$clavedb = "ca4df059";    // sera el PASS de nuestra BD 
 	$port ="3306";
     
-    $tabla_db1 = "empleados"; 	   //Campo no necesario solo utilizo para pruebas  GADIEL CASCANTE 
+ 	   //Campo no necesario solo utilizo para pruebas  GADIEL CASCANTE 
 	
 
 	
 	
-	$conexion = new mysqli($host,$usuariodb,$clavedb,$basededatos,$port );
+	$conexion = new mysqli($host,$usuariodb,$clavedb,$basededatos);
 	return $conexion;
+	
 
 
 	if  ($conexion->connect_errno) {
 	    echo "Nuestro sitio experimenta fallos....";
-		die('Connect Error (' . $dblink->connect_errno . ') '. $dblink->connect_error);
+		die("Connection failed: " . $conexion->connect_error);
               #TODO agregar formulario de error
               
 	    exit();
