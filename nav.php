@@ -12,7 +12,7 @@
             <ion-icon name="settings"></ion-icon>
             </ion-icon>
           </a>
-          <a href="#" class="NavItem NavButton">
+          <a href="usuarioRegistrarseOLogin.php" class="NavItem NavButton">
             <ion-icon name="person"></ion-icon> CUENTA
           </a>
           <a href="#" class="NavItem NavButton">
