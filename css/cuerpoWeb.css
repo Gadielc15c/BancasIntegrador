@@ -96,7 +96,7 @@ z-index: 1;
   background-color: rgb(255, 255, 255);
   display: flex;
   padding-left: 0;
-  margin-bottom: 0;
+  margin-bottom: 10%;
   list-style: none;
   -webkit-box-shadow: 1px 10px 3px -2px rgba(190, 190, 190, 0.67);
   box-shadow: 1px 10px 3px -2px rgba(190, 190, 190, 0.67);
@@ -234,3 +234,4 @@ footer {
   display: flex;
   border-color: #292929;
 }
+

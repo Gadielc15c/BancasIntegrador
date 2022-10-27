@@ -4,7 +4,7 @@
       <div class="nav">
         <div class="logoDiv">
           <a class="navbar-logo" href="#">
-            <img src="img/Logo.png" />
+            <img class="logo" src="img/Logo.png" />
           </a>
         </div>
         <div class="opciones">
