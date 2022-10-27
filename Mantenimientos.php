@@ -11,7 +11,7 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/cuerpoWeb.css" />
 
-  
+
 </head>
 <header>
   <div id="container">
@@ -185,6 +185,6 @@
 
 </body>
 <footer>
-  <?php include("Footer.php") ?>
+  <?php include("footer.php") ?>
 </footer>
 </html>

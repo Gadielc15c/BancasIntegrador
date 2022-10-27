@@ -34,7 +34,6 @@
 
 </body>
 <footer>
-    <center>Bancas Integrador</center>
-    <center>PROYECTO INTEGRADOR GRUPO #6</center>
+    <?php include("Footer.php") ?>
 </footer>
 </html>
