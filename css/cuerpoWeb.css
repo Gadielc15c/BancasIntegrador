@@ -1,0 +1,249 @@
+:root {
+  --Principal: rgba(245, 167, 37, 1);
+  --Secundario: rgb(190, 130, 27);
+  --Blanco: #ffffff;
+  --Gris: #dbdada;
+}
+p {
+  padding: 0 10px;
+  line-height: 1.8;
+}
+
+ul li {
+  padding-right: 10px;
+  line-height: 1.6;
+}
+
+h3 {
+  padding: 5px 20px;
+  margin: 0;
+}
+
+div#header {
+  position: relative;
+}
+
+div#header h1 {
+  height: 80px;
+  line-height: 80px;
+  margin: 0;
+  padding-left: 10px;
+  color: #292929;
+}
+
+div#header a {
+  position: absolute;
+  right: 0;
+  top: 23px;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+}
+
+div#extra {
+  background: #ffffff;
+}
+
+div#footer {
+  background: #42444e;
+  color: rgb(0, 0, 0);
+}
+
+div#footer p {
+  padding: 20px 10px;
+}
+
+div#wrapper {
+  width: 100%;
+  margin-left: -370px;
+  margin-top: 100px;
+}
+
+div#navigation {
+  float: left;
+  width: 10.9%;
+  margin-top: 50px;
+}
+
+div#extra {
+  clear: both;
+  width: 100%;
+}
+.cuadrado{
+  height: 500px;
+  width: 500px;
+  position: fixed;
+  top: 0;
+  background-color: rgb(181, 6, 6);
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  -webkit-box-shadow: 1px 10px 3px -2px rgba(190, 190, 190, 0.67);
+  box-shadow: 1px 10px 3px -2px rgba(190, 190, 190, 0.67);
+  border-bottom: 19px solid var(--Principal);
+}
+.nav {
+  /*Barra superior*/
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  -webkit-box-shadow: 1px 10px 3px -2px rgba(190, 190, 190, 0.67);
+  box-shadow: 1px 10px 3px -2px rgba(190, 190, 190, 0.67);
+  border-bottom: 19px solid var(--Principal);
+}
+.logoDiv {
+  width: 200px;
+  float: left;
+  margin-right: 40%;
+}
+
+.navbar-logo {
+  display: inline-block;
+  vertical-align: left;
+  width: 200px;
+  margin-right: 10%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--Principal)
+}
+
+.navbar-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.NAV-padding {
+  padding: 8px 16px;
+}
+
+.opciones {
+  margin-top: 70px;
+}
+
+.NavButton:hover {
+  color:var(--Principal)
+}
+
+.NavButton {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+  white-space: normal;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 10%;
+}
+
+.NavButton,
+.NavButton {
+  color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+a {
+  color: inherit;
+}
+
+.NavButton {
+  white-space: normal;
+}
+
+.NavItem {
+  padding: 8px 16px;
+  float: right;
+  width: auto;
+  border: #fff;
+  border-width: 4px;
+  display: block;
+  outline: 0;
+}
+
+a:active,
+a:hover {
+  outline-width: 0;
+  text-decoration: none;
+}
+
+.NavButton {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a {
+  color: inherit;
+}
+
+a {
+  background-color: transparent;
+}
+
+html,
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #d5d5d5;
+}
+
+footer {
+  margin-top: 50%;
+  border: #d07616 solid;
+  background-color: rgba(245, 167, 37, 1);
+  color: rgba(0, 0, 0, 0.524);
+  height: 30px;
+  padding: 50px;
+  font-weight: bolder;
+}
+
+aside {
+
+  width: 80px;
+  height: 300px;
+  position: fixed;
+  
+}
+
+aside div {
+  height: 73.5px;
+  border-radius: 55%;
+}
+
+aside div img {
+  width: 60px;
+  height: 60px;
+}
+section {
+  width: 1300px;
+  height: 350px;
+  margin-left: auto;
+  margin-top: 50px;
+  margin-right: auto;
+  padding: 5px;
+}
