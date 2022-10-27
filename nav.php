@@ -18,8 +18,8 @@
           <a href="#" class="NavItem NavButton">
             <ion-icon name="wallet"></ion-icon> PAGOS
           </a>
-          <a href="#" class="NavItem NavButton">
-            <ion-icon name="wallet"></ion-icon> Mantenimientos
+          <a href="Mantenimientos.php" class="NavItem NavButton">
+          <ion-icon name="construct"></ion-icon> MANTENIMIENTOS
           </a>
           <a href="#" class="NavItem NavButton">
             <ion-icon name="book"></ion-icon> JUGADAS
@@ -27,7 +27,7 @@
           <a href="#" class="NavItem NavButton">
             <ion-icon name="apps"></ion-icon> DASHBOARD
           </a>
-          <a href="#" class="NavItem NavButton">
+          <a href="index.php" class="NavItem NavButton">
             <ion-icon name="home"></ion-icon> INICIO
           </a>
         </div>

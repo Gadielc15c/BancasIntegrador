@@ -21,7 +21,10 @@
 
         <div class="cuadrado">
             <!--PONER AQUI CONTENIDO-->
- 
+            <?php
+include('buscarTicketForm.php');
+?>
+
         </div>
     </div>
     <!--No borrar-->
@@ -30,11 +33,11 @@
     <!--Script de iconos-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--No borrar-->
-  
 
 </body>
 <footer>
     <center>Bancas Integrador</center>
     <center>PROYECTO INTEGRADOR GRUPO #6</center>
 </footer>
+
 </html>

@@ -9,7 +9,7 @@ $query=mysqli_query($con,$sql);
 
 
 
-<body>
+
     <div class="container mt-5">
         <div class="row">
 

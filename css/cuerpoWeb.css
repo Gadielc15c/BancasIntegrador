@@ -72,20 +72,24 @@ div#extra {
   display: flex;
 }
 .cuadrado,.cuadrado2 {
-  height: 800px;
+  height: 700px;
   width: 500px;
   background-color: rgb(255, 255, 255);
   margin: auto;
   margin-top: 3%;
+  margin-top: 3%;
+
   flex: 1;
   margin-right: 20px;
   margin-left: 20px;
   overflow: scroll;
-
+position: relative;
+z-index: 1;
 }
 
 .nav {
   /*Barra superior*/
+  z-index: 2;
   width: 100%;
   position: fixed;
   top: 0;
@@ -101,7 +105,7 @@ div#extra {
 .logoDiv {
   width: 200px;
   float: left;
-  margin-right: 40%;
+  margin-right: 30%;
 }
 
 .navbar-logo {
@@ -210,14 +214,20 @@ a {
 }
 
 footer {
-  margin-top: 25%;
+   
+  padding: 50px;
+  font-weight: bolder;
   border: #d07616 solid;
   background-color: rgba(245, 167, 37, 1);
   color: rgba(0, 0, 0, 0.524);
-  height: 30px;
-  padding: 50px;
-  font-weight: bolder;
-  position: -ms-page;
+
+  
+  z-index: 2;
+ 
+  position:sticky;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;     
 }
 
 #container {
