@@ -14,7 +14,7 @@
 
 </head>
 <header>
-<?php include('navVacio.php');?>
+<?php include('nav.php');?>
 </header>
 
 <body>
