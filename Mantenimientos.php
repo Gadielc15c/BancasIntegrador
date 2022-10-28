@@ -14,7 +14,7 @@
 
 </head>
 <header>
-<?php include('navVacio.php');?>
+<?php include('nav.php');?>
 </header>
 
 <body>
@@ -66,7 +66,7 @@
                                     <div class="col-lg-3 stat my-2" ;">
                                         <button type="button" class="w-100 btn btn-lg btn btn-outline-warning font-weight-bold"
                                             style="padding: 20PX;">
-                                            <i class="icon ion-md-create"></i> Modificar
+                                            <i class="icon ion-md-create"></i> MODIFICAR
                                         </button>
                                     </div>
                                   
@@ -135,11 +135,9 @@
         </div>
     </div>
 
-   
+
 
     </div>
-
-
 
   </div>
 
