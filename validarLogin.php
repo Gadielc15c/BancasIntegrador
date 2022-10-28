@@ -7,17 +7,23 @@ $Clave= $_POST ['Clave'];
 
 
 
-$Consulta= "SELECT * FROM terceros  WHERE nomusario='$Usuario' and  claveusario='$Clave'";
+$Consulta= "SELECT * FROM terceros WHERE nomusuario='$Usuario' and  claveusuario='$Clave'";
 $Resultados=mysqli_query($conexion,$Consulta);
+var_dump($Resultados);
+
 $resultadosEncontrados=mysqli_num_rows($Resultados);
 
-if(!empty($resultadosEncontrados) AND $resultadosEncontrados>0){
-header("Location:mantenimientos.php");
+if($resultadosEncontrados>0){
+    header("Location:mantenimientos.php");
+    
+    }else{
+     echo "No se Ha podido encontrar el user";
+     var_dump(resultadosEncontrados);
+    
+    }
+    mysqli_free_result($Resultados);
+    mysqli_close($conexion);
+    
+    // faltan politicas de nivel de usuario 
 
-}else{
- echo "No se Ha podido encontrar el user";
-
-}
-mysqli_free_result($Resultados);
-mysqli_close($conexion);
-
+?>image.png

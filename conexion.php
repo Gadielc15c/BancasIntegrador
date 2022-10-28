@@ -25,7 +25,16 @@ function conectar(){
               
 	    exit();
 	}
+
 }
+	// Parametros a configurar para la conexion de la base de datos 
+	
+
+
+
+
+
+
 ?>
 
 
