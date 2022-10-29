@@ -1,23 +1,17 @@
 <?php
-
 include("conexion.php");
 $con=conectar();
+$ID=$_POST['idterceros'];
+$NomUser=$_POST['nomusuario'];
+$pass=$_POST['claveusuario'];
+$correo=$_POST['correo'];
+$cedula=$_POST['cedula'];
+$estado=$_POST['estado'];
 
-$cod=$_POST['CodigoArchivo'];
-$CodDepto=$_POST['CodDepto'];
-$AreaReferencia=$_POST['AreaReferencia'];
-$Delivery=$_POST['Delivery'];
-$NumCopias=$_POST['NumCopias'];
-$FechaIn=$_POST['FechaIn'];
-$ArchivoFisico=$_POST['ArchivoFisico'];
-$ArchivoDigital=$_POST['ArchivoDigital'];
-
-$Obser=$_POST['Obser'];
-$tiempo=$_POST['Tiempo'];
-$sql="UPDATE archivos SET  AreaReferencia='$AreaReferencia',Delivery='$Delivery'
-,NumCopias='$Numcopias',FechaIn='$FechaIn',ArchivoFisico='$ArchivoFisico',ArchivoDigital='$ArchivoDigital',Obser='$Obser',CodDepto='$CodDepto',Tiempo='$tiempo' WHERE CodigoArchivo='$cod'";
+$sql="UPDATE terceros SET nomusuario='$NomUser', claveusuario='$pass',correo='$correo'
+,cedula='$cedula',estado='$estado' WHERE idterceros='$ID'";
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: archivos.php");
+        Header("Location:mantenimmientosUsuarios.php");
     }

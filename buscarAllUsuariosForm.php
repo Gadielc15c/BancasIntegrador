@@ -8,10 +8,10 @@ $query=mysqli_query($con,$sql);
 ?>
 <div class="container mt-5">
     <div class="row">
-
+        <!-- Falta Agregar FILTROS POR PHP-->
         <div class="col-md-6">
-            <h1>Buscar User</h1>
-            <form action="insertar.php" method="POST">
+            <h1>Consulta de  User</h1>
+            <form action=" " method="POST">
                 <input type="text" class="form-control mb-3" name="idTercero" placeholder="ID USER">
                 <input type="text" class="form-control mb-3" name="nomUser" placeholder="Nombre de Usuario">
                 <input type="text" class="form-control mb-3" name="claveUsuario" placeholder="Clave Encriptada">
@@ -60,18 +60,13 @@ $query=mysqli_query($con,$sql);
                     while ($row=mysqli_fetch_array($query)){
                         ?>
                     <tr>
-                        <th><?php echo $row['idterceros']?></th>
-                        <th><?php echo $row['nomusuario']?></th>
-                        <th><?php echo $row['claveusuario']?></th>
-                        <th><?php echo $row['correo']?></th>
-                        <th><?php echo $row['cedula']?></th>
-                        <th><?php echo $row['estado']?></th>
-                        <th><a href="UpdateUsuario.php?idterceros=<?php echo $row['idterceros']?>"
-                                class="btn btn-warning">EDITAR</a> </th>
-
-                        <th><a href="delete.php?id=<?php echo $row['idterceros']?>"
-                                class="btn btn-danger">ELIMINAR</a> </th>
-
+                        <th><?php echo $row['idterceros']  ?></th>
+                        <th><?php echo $row['nomusuario']  ?></th>
+                        <th><?php echo $row['claveusuario']  ?></th>
+                        <th><?php echo $row['correo']  ?></th>
+                        <th><?php echo $row['cedula']  ?></th>
+                        <th><?php echo $row['estado']  ?></th>
+                       
 
 
 
