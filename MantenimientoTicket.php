@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>INICIO</title>
+    <title>Mantenimiento Tikcets</title>
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="description" />
     <meta name="generator" content="HAPedit 3.1" />
@@ -18,7 +18,28 @@
 
 <body>
     
-<h1>EN PROGRESO</h1>
+<div class="container mt-5">
+   <div class="row">
+     <div class="col-md-6">
+         
+     <form action="">
+                <input type="text" class="form-control mb-3" name="idticket" placeholder="Id Ticket">
+                <input type="text" class="form-control mb-3" name="monto" placeholder="Monto">
+                <input type="text" class="form-control mb-3" name="fecha" placeholder="Fecha">
+                <input type="email" class="form-control mb-3" name="estado" placeholder="Estado">
+            </form>
+
+
+
+     </div>
+
+
+
+</div>
+
+
+</div>
+
 
 </body>
 
