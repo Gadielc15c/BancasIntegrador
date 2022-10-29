@@ -89,25 +89,35 @@
                     </div>
                 </section>
             <!--Seccion 2-->
-            <section style="margin-bottom: 40PX;display: block;margin-left: auto;margin-right: auto">
+           
+                <!-- Seccion 2 fin-->
+                <section style="margin-bottom: 40PX;display: block;margin-left: auto;margin-right: auto">
                     <div class="container">
                         <div class="card" style="border:none"  >
-                            <h4 id="HEAD_C"> - Opciones de Loterias</h6>
+                            <h4 id="HEAD_C"> - Opciones de User</h6>
 
                             <div class="card-body " ">
                                 <div class="row ">
                                     <div class="col-lg-3 stat my-2" ;">
-                                        <button type="button" class="w-100 btn btn-lg btn btn-outline-warning font-weight-bold"
+                                    
+                                    <form action="buscarAllUsuarios.php">
+                                        <button type="submit" class="w-100 btn btn-lg btn btn-outline-warning font-weight-bold"
                                             style="padding: 20PX;">
-                                            <i class="icon ion-md-search"></i> Inventario
-                                        </button>
+                                            VER USERS
+                                            </button>
+                                            </form>   
+                                         
+                                      
 
                                     </div>
                                     
                                     <div class="col-lg-3 stat my-2" ;">
-                                        <button type="button" class="w-100 btn btn-lg btn btn-outline-warning font-weight-bold"
+                                    <form action="mantenimmientosUsuarios.php">
+                                        <i class="icon ion-md-create"></i> 
+                                        <button type="submit" class="w-100 btn btn-lg btn btn-warning font-weight-bold"
                                             style="padding: 20PX;">
-                                            <i class="icon ion-md-create"></i> Modificar
+                                           ACTUALIZAR
+                                            </form>   
                                         </button>
                                     </div>
                                   
@@ -116,20 +126,21 @@
 
                                 </div>
                                 <div class="row ">
-                                  
-                                <div class="col-lg-4 stat my-3">
-                                        
-                                        <button type="button" class="w-100 btn btn-lg btn btn-outline-warning font-weight-bold"
-                                            style="padding: 20PX; margin-top: 10px;">
-                                            <i class="icon ion-md-close"></i> Salida
+                                <div class="col-lg-3 stat my-2" ;">
+                                    <form action="mantenimmientosUsuarios.php">
+                                        <i class="icon ion-md-create"></i> 
+                                        <button type="submit" class="w-100 btn btn-lg btn btn-warning font-weight-bold"
+                                            style="padding: 20PX;">
+                                           Entrada
+                                            </form>   
                                         </button>
                                     </div>
+                                  
                               </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                
 
             </div>
         </div>
