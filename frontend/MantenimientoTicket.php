@@ -13,14 +13,14 @@
 
 </head>
 <header>
-    <?php include('./frontend/nav.php');?>
+    <?php include('../frontend/nav.php');?>
 </header>
 
 <body>
     
-<div class="container mt-5">
-   <div class="row">
-     <div class="col-md-6">
+<div class="container2">
+   <div class="container" >
+    
          
      <form action="">
                 <input type="text" class="form-control mb-3" name="idticket" placeholder="Id Ticket">
@@ -34,7 +34,7 @@
 
 
 
-     </div>
+   
 
 
 
