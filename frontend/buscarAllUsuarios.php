@@ -36,8 +36,7 @@ include('buscarAllUsuariosForm.php');
 </body>
 
 <footer>
-    <center>Bancas Integrador</center>
-    <center>PROYECTO INTEGRADOR GRUPO #6</center>
+<?php include('/frontend/footer.php');?>
 </footer>
 
 </html>

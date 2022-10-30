@@ -13,16 +13,16 @@
 
 </head>
 <header>
-    <?php include('nav.php');?>
+    <?php include('navCliente.php');?>
 </header>
 
 <body>
     <div class="container2">
 
         <div class="cuadrado">
-            <!--PONER AQUI CONTENIDO-->
+  
             <?php
-include('mantenimmientosUsuariosForm.php');
+include(' ');
 ?>
 
         </div>
@@ -37,7 +37,9 @@ include('mantenimmientosUsuariosForm.php');
 </body>
 
 <footer>
-<?php include('/frontend/footer.php');?>
+<?php
+include('/frontend/footer.php');
+?>
 
 </footer>
 
