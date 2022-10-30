@@ -1,5 +1,6 @@
 <?php
 include_once('conexion.php');
+include_once('../generals.php');
 
 function retornar_seleccion($sql, $input, $type){
     // Types: a, o
@@ -23,7 +24,7 @@ function retornar_seleccion($sql, $input, $type){
 }
 
 function crear_id($id_column, $table){
-    include_once('../generals.php');
+    
 
     $r = ejecutarQuery("SELECT * FROM $table", null);
     $random = crear_numero_random();
@@ -49,6 +50,7 @@ function crear_id($id_column, $table){
     }
     return $random;
 }
+
 
 
 ?>

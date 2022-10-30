@@ -1,11 +1,10 @@
 <?php
-
 include_once('sqlRelated/sqlqueryselect.php');
 
 function validar_login(){
 
     session_start();
-
+    
     if(!isset($_POST['usuario'])){
         return -1; //Campo usuario vacio
     }
@@ -22,7 +21,7 @@ function validar_login(){
     } else {
         return -3; //Usuario o clave incorrecta
     }
-
 }
+
 
 ?>
