@@ -11,39 +11,72 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/cuerpoWeb.css" />
 
+
 </head>
 <header>
 <?php include('../frontend/nav.php');?>
 </header>
 
 <body>
+  
   <div class="container2">
 
-    <div id="container">
-      <div class="top">
-
-      <div class="logoDiv">
-          <a class="navbar-logo" href="#">
-            <h2>MANTENIMIENTO GENERAL</h2>
-          </a>
-        </div>
+    <div class="cuadrado">
+      <div class="d-flex">
        
-        <div class="opciones">
-          <a href="mantenimientoTicket" class="NavItem NavButton">
-            <ion-icon name="book"></ion-icon> TICKETS
-          </a>
-          <a href="#" class="NavItem NavButton">
-            <ion-icon name="book"></ion-icon> LOTERIAS
-          </a>
-          <a href="mantenimmientosUsuarios.php" class="NavItem NavButton">
-            <ion-icon name="person"></ion-icon> USUARIOS
-          </a>
+         
+        <div class="w-100">
+          <div id="content">
+                  <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
+                                    MANTENIMIENTOS GENERALES
+                                </h2>
+                                  <p class="lead text-muted"
+                                    style="font-size:16px; padding-left: 25px; padding-bottom: 25px;">
+                                    Seleccione la Actividad que desea Realizar
+                                  </p>
+                            </div>
+                          </div>            
+                      </div>
+                </section>
+
+<!--seccion -->
+    <section style="margin-bottom: 40PX;display: block;margin-left: auto;margin-right: auto">
+      <div class="container">
+        <div id="container">
+ 
+          <div class="top">
+            <div class="opciones">
+              <a href="mantenimientoTicket" class="NavItem NavButton">
+                <ion-icon name="book"></ion-icon> TICKETS
+              </a>
+              <a href="#" class="NavItem NavButton">
+                <ion-icon name="book"></ion-icon> LOTERIAS
+              </a>
+              <a href="mantenimmientosUsuarios.php" class="NavItem NavButton">
+                <ion-icon name="person"></ion-icon> USUARIOS
+              </a>
+            </div>
+  
           </div>
-       
-      </div>
-   </div>
+        </div>
 
+
+      </div>
+    </section>
+<!--Seccion 2-->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  
+
 
 <!--No borrar-->
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
