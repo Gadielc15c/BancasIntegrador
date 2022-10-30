@@ -19,20 +19,24 @@
 <body>
   <div class="container2">
 
-   <div id="container">
+    <div id="container">
       <div class="top">
+
+      <div class="logoDiv">
+          <a class="navbar-logo" href="#">
+          </a>
+        </div>
        
-          <div class="opciones">
-            
-             <a href="mantenimientoTicket" class="NavItem NavButton">
-             <ion-icon name="book"></ion-icon> TICKETS
-            </a>
-              <a href="#" class="NavItem NavButton">
-               <ion-icon name="book"></ion-icon> LOTERIAS
-              </a>
-             <a href="mantenimmientosUsuarios.php" class="NavItem NavButton">
-               <ion-icon name="person"></ion-icon> CLIENTES
-             </a>
+        <div class="opciones">
+          <a href="mantenimientoTicket" class="NavItem NavButton">
+            <ion-icon name="book"></ion-icon> TICKETS
+          </a>
+          <a href="#" class="NavItem NavButton">
+            <ion-icon name="book"></ion-icon> LOTERIAS
+          </a>
+          <a href="mantenimmientosUsuarios.php" class="NavItem NavButton">
+            <ion-icon name="person"></ion-icon> USUARIOS
+          </a>
           </div>
        
       </div>
