@@ -23,7 +23,7 @@
       <div class="top">
        
           <div class="opciones">
-            <div >
+            <div class="mantenimientoDiv">
               <h1>MANTENIMIENTOS GENERALES</H1>
             </div>
              <a href="mantenimientoTicket" class="NavItem NavButton">
