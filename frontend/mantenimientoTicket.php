@@ -24,7 +24,7 @@
          
      <form action="">
         <h2>Mantenimiento Ticket</h2>
-                <input type="text" class="form-control mb-3" name="idticket" placeholder="Id Ticket">
+                <input type="text" class="form-control mb-3" name="idticket" placeholder="ID Ticket">
                 <input type="text" class="form-control mb-3" name="monto" placeholder="Monto">
                 <input type="date" class="form-control mb-3" name="fecha" placeholder="Fecha">
                 <input type="text" class="form-control mb-3" name="estado" placeholder="Estado">
