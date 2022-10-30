@@ -13,18 +13,17 @@
 
 </head>
 <header>
-    <?php include('../frontend/nav.php');?>
+    <?php include('./frontend/nav.php');?>
 </header>
 
 <body>
     
-<div class="container2">
-   <div class="cuadrado">
-     
+<div class="container mt-5">
+   <div class="row">
+     <div class="col-md-6">
          
      <form action="">
-        <h2>Mantenimiento Ticket</h2> 
-                <input type="text" class="form-control mb-3" name="idticket" placeholder="ID Ticket">
+                <input type="text" class="form-control mb-3" name="idticket" placeholder="Id Ticket">
                 <input type="text" class="form-control mb-3" name="monto" placeholder="Monto">
                 <input type="date" class="form-control mb-3" name="fecha" placeholder="Fecha">
                 <input type="text" class="form-control mb-3" name="estado" placeholder="Estado">
@@ -35,19 +34,6 @@
 
 
 
-        <div class="row-md-7">
-            <table class="table">
-                <thead class="table-warning table-striped">
-                    <tr style="text-align: center;">
-                        <th>ID Ticket</th>
-                        <th>MONTO</th>
-                        <th>FECHA</th>
-                        <th>ESTADO</th>
-                     </tr>
-                 
-                   </thead>
-                </table>
-            
          </div>
 
 
@@ -56,12 +42,7 @@
 
 
 </div>
-<!--No borrar-->
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <!--Script de iconos-->
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <!--No borrar-->
+
 
 </body>
 
