@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,7 +19,11 @@
 <body>
 
 <div id="container">
-        <div class="opciones">
+  <div class="opciones">
+    <div class="top">
+      <div >
+         <h1>MANTENIMIENTOS GENERALES</H1>
+      </div>
           <a href="#" class="NavItem NavButton">
             <ion-icon name="book"></ion-icon> TICKETS
           </a>
@@ -30,6 +34,7 @@
             <ion-icon name="person"></ion-icon> CLIENTES
           </a>
         </div>
+    </div>
 </div>
 
 
