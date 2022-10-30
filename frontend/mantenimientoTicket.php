@@ -19,7 +19,7 @@
 <body>
     
 <div class="container2">
-   <div class="container">
+   <div class="container" >
     
          
      <form action="">
