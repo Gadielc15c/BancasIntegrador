@@ -13,32 +13,34 @@
 
 </head>
 <header>
-<?php include('nav.php');?>
+<?php include('../frontend/nav.php');?>
 </header>
 
 <body>
-<div class="container2">
+  <div class="container2">
 
-<div id="container">
-  <div class="opciones">
-    <div class="top">
-      <div class="nav">
-        <div >
-         <h1>MANTENIMIENTOS GENERALES</H1>
-        </div>
-          <a href="mantenimientoTicket" class="NavItem NavButton">
-            <ion-icon name="book"></ion-icon> TICKETS
-          </a>
-          <a href="#" class="NavItem NavButton">
-            <ion-icon name="book"></ion-icon> LOTERIAS
-          </a>
-          <a href="mantenimmientosUsuarios.php" class="NavItem NavButton">
-            <ion-icon name="person"></ion-icon> CLIENTES
-          </a>
+   <div id="container">
+     <div class="opciones">
+        <div class="top">
+          <div class="nav">
+            <div >
+              <h1>MANTENIMIENTOS GENERALES</H1>
+            </div>
+             <a href="mantenimientoTicket" class="NavItem NavButton">
+             <ion-icon name="book"></ion-icon> TICKETS
+            </a>
+              <a href="#" class="NavItem NavButton">
+               <ion-icon name="book"></ion-icon> LOTERIAS
+              </a>
+             <a href="mantenimmientosUsuarios.php" class="NavItem NavButton">
+               <ion-icon name="person"></ion-icon> CLIENTES
+             </a>
+          </div>
         </div>
       </div>
-    </div>
-</div>
+   </div>
+
+  </div>
 
 <!--No borrar-->
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
