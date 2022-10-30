@@ -34,15 +34,31 @@
 
 
 
-   
+        <div class="row-md-7">
+            <table class="table">
+                <thead class="table-warning table-striped">
+                    <tr style="text-align: center;">
+                        <th>ID TICKET</th>
+                        <th>MONTO</th>
+                        <th>FECHA</th>
+                        <th>ESTADO</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
 
 
+ </div>
 
-</div>
 
+ </div>
 
-</div>
-
+ <!--No borrar-->
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <!--Script de iconos-->
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!--No borrar-->
 
 </body>
 
