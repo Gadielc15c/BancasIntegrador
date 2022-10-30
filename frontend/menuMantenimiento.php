@@ -26,7 +26,7 @@
           <a href="#" class="NavItem NavButton">
             <ion-icon name="book"></ion-icon> LOTERIAS
           </a>
-          <a href="#" class="NavItem NavButton">
+          <a href="mantenimmientosUsuarios.php" class="NavItem NavButton">
             <ion-icon name="person"></ion-icon> CLIENTES
           </a>
         </div>
