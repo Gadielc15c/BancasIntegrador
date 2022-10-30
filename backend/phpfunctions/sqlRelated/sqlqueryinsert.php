@@ -1,5 +1,5 @@
 <?php
-include('sqlquerygenerals.php');
+include_once('sqlquerygenerals.php');
 
 function insertar_usuario($nomuser, $claveuser, $correo){
     $nivelacceso = 4; //4 Pertenece al cliente comun
@@ -10,8 +10,8 @@ function insertar_usuario($nomuser, $claveuser, $correo){
     ejecutarQuery($sql, array($idterceros, $nomuser, $claveuser, $correo, $nivelacceso));
 }
 
-
+/* 
 insertar_usuario("test5", "ok", "a5@hotmail.com");
-
+ */
 ?>
 
