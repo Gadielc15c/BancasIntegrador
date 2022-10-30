@@ -21,7 +21,7 @@
 
    <div id="container">
       <div class="top">
-        <div class="nav">
+       
           <div class="opciones">
             <div >
               <h1>MANTENIMIENTOS GENERALES</H1>
@@ -36,7 +36,7 @@
                <ion-icon name="person"></ion-icon> CLIENTES
              </a>
           </div>
-        </div>
+       
       </div>
    </div>
 
