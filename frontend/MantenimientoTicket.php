@@ -25,9 +25,11 @@
      <form action="">
                 <input type="text" class="form-control mb-3" name="idticket" placeholder="Id Ticket">
                 <input type="text" class="form-control mb-3" name="monto" placeholder="Monto">
-                <input type="text" class="form-control mb-3" name="fecha" placeholder="Fecha">
-                <input type="email" class="form-control mb-3" name="estado" placeholder="Estado">
+                <input type="date" class="form-control mb-3" name="fecha" placeholder="Fecha">
+                <input type="text" class="form-control mb-3" name="estado" placeholder="Estado">
                 <input type="submit" class="btn btn-primary" value="Buscar">
+                <input type="submit" class="btn btn-primary" value="Eliminar">
+                <input type="submit" class="btn btn-primary" value="Modificar">
             </form>
 
 
