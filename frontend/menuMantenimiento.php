@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+  <meta charset="utf-8">
+  <title>INICIO</title>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <meta name="description" />
+  <meta name="generator" content="HAPedit 3.1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/cuerpoWeb.css" />
+
+
+</head>
+<header>
+<?php include('../frontend/nav.php');?>
+</header>
+
 <body>
   
   <div class="container2">
@@ -15,9 +31,13 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8">
-                                <h4 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
+                                <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
                                     MANTENIMIENTOS GENERALES
-                                </h4>
+                                </h2>
+                                  <p class="lead text-muted"
+                                    style="font-size:16px; padding-left: 25px; padding-bottom: 25px;">
+                                    Seleccione la Actividad que desea Realizar
+                                  </p>
                             </div>
                           </div>            
                       </div>
