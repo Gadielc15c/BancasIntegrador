@@ -34,18 +34,8 @@
 
 
 
-        <div class="row-md-7">
-            <table class="table">
-                <thead class="table-warning table-striped">
-                    <tr style="text-align: center;">
-                        <th>ID TICKET</th>
-                        <th>MONTO</th>
-                        <th>FECHA</th>
-                        <th>ESTADO</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
+   
+
 
 
  </div>
