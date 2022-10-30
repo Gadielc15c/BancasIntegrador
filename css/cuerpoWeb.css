@@ -107,6 +107,11 @@ z-index: 1;
   float: left;
   margin-right: 30%;
 }
+.mantenimientoDiv {
+  width: 200px;
+  float: left;
+  margin-right: 30%;
+}
 
 .navbar-logo {
   display: inline-block;

@@ -2,8 +2,8 @@
 
 include('conexion.php');
 $conexion=conectar();
-$Usuario = $_POST ['Usuario'];
-$Clave= $_POST ['Clave'];
+$Usuario = $_POST ['usuario'];
+$Clave= $_POST ['clave'];
 
 
 
@@ -14,16 +14,16 @@ $Clave= $_POST ['Clave'];
     $resultadosEncontrados=mysqli_num_rows($Resultados);
     
 if($resultadosEncontrados>0){
-    header("Location:mantenimientos.php");
-        
-        }else{
-         echo "No se Ha podido encontrar el user";
+    header("Location:../frontend/mantenimientos.php");
+    
+    }else{
+     echo "No se Ha podido encontrar el user";
      var_dump($resultadosEncontrados);
-        
-        }
-        mysqli_free_result($Resultados);
-        mysqli_close($conexion);
-
+    
+    }
+    mysqli_free_result($Resultados);
+    mysqli_close($conexion);
+    
     // faltan politicas de nivel de usuario 
 
 ?>

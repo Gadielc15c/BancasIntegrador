@@ -18,7 +18,7 @@
           <a href="./metodoPagos.php" class="NavItem NavButton">
             <ion-icon name="wallet"></ion-icon> PAGOS
           </a>
-          <a href="Mantenimientos.php" class="NavItem NavButton">
+          <a href="menuMantenimiento.php" class="NavItem NavButton">
           <ion-icon name="construct"></ion-icon> MANTENIMIENTOS
           </a>
           <a href="#" class="NavItem NavButton">
