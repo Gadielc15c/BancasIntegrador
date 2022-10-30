@@ -27,6 +27,7 @@
                 <input type="text" class="form-control mb-3" name="monto" placeholder="Monto">
                 <input type="text" class="form-control mb-3" name="fecha" placeholder="Fecha">
                 <input type="email" class="form-control mb-3" name="estado" placeholder="Estado">
+                <input type="submit" class="btn btn-primary" value="Buscar">
             </form>
 
 
