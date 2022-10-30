@@ -24,26 +24,26 @@
         <tr>
          <center>
             <p>Nombre:</p>
-             <p> <input type="text" placeholder="Tu nombre" name="nombre"required></p>
+             <p> <input type="text" class="form-control mb-3" placeholder="Tu nombre" name="nombre"required></p>
             <p>Correo:</p>
-             <p> <input type="mail" placeholder="Tu correo" name="correo"required></p>
+             <p> <input type="mail" class="form-control mb-3" placeholder="Tu correo" name="correo"required></p>
             <p>Telefono Para Contacto:</p>
-             <p> <input type="phone" placeholder="Tu celular" name="cel" maxlength="10" size="10" required></p>
+             <p> <input type="phone" class="form-control mb-3" placeholder="Tu celular" name="cel" maxlength="10" size="10" required></p>
             <p>Descripcion Del Problema:</p>
-             <p> <input type="text" placeholder="Inserta la queja..." name="descrip"required></p>
+             <p> <input type="text" class="form-control mb-3" placeholder="Inserta la queja..." name="descrip"required></p>
             <p>Adjuntar captura del Error o Queja:</p>
-            <p> <input type="file" placeholder="Insertar archivo..." name="arch"required></p>
+            <p> <input type="file" class="form-control mb-3" placeholder="Insertar archivo..." name="arch"required></p>
          </center>
         </tr>
 
         <tr> 
         <center>
          <t>
-            <input type="submit" Value="Enviar" name="send">
+            <input type="submit" class="btn btn-primary" Value="Enviar" name="send">
         </t>
 
          <t>
-           <input type="button" onclick="location.href='index.php';" value="Inicio" />
+           <input type="button" class="btn btn-primary" onclick="location.href='index.php';" value="Inicio" />
          </t>
          </center>
         </tr>
@@ -51,7 +51,7 @@
 </body>
 
 <footer>
-<?php include('/frontend/footer.php');?>>
+<?php include('/frontend/footer.php');?>
 </footer>
 
 </html>
