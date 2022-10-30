@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/login.css" />
 </head>
 <header>
-    <?php include('navVacio.php');?>
+    <?php include('C:\xampp\htdocs\BancasIntegrador\frontend\navVACIO.php');?>
 </header>
 
 <body>
@@ -22,29 +22,36 @@
 <form action="">
     <table>
         <tr>
+         <center>
             <p>Nombre:</p>
-             <p> <input type="text" placeholder="Tu nombre" name="nombre"></p>
+             <p> <input type="text" placeholder="Tu nombre" name="nombre"required></p>
             <p>Correo:</p>
-             <p> <input type="mail" placeholder="Tu correo" name="correo"></p>
+             <p> <input type="mail" placeholder="Tu correo" name="correo"required></p>
             <p>Telefono Para Contacto:</p>
-             <p> <input type="phone" placeholder="Tu celular" name="cel"></p>
+             <p> <input type="phone" placeholder="Tu celular" name="cel" maxlength="10" size="10" required></p>
             <p>Descripcion Del Problema:</p>
-             <p> <input type="text" placeholder="Inserta la queja..." name="descrip"></p>
+             <p> <input type="text" placeholder="Inserta la queja..." name="descrip"required></p>
+            <p>Adjuntar captura del Error o Queja:</p>
+            <p> <input type="file" placeholder="Insertar archivo..." name="arch"required></p>
+         </center>
         </tr>
 
         <tr> 
-         <p>
+        <center>
+         <t>
             <input type="submit" Value="Enviar" name="send">
-         </p>
+        </t>
 
-         <p>
+         <t>
            <input type="button" onclick="location.href='index.php';" value="Inicio" />
-         </p>
+         </t>
+         </center>
         </tr>
+    <br></br>
 </body>
 
 <footer>
-    <?php include("footer.php") ?>
+    <?php include("C:/xampp/htdocs/BancasIntegrador/frontend/Footer.php") ?>
 </footer>
 
 </html>
