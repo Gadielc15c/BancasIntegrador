@@ -14,44 +14,48 @@
     <link rel="stylesheet" href="/css/login.css" />
 </head>
 <header>
-    <?php include('./frontend/navVACIO.php');?>
+    <?php include('../frontend/nav.php');?>
 </header>
 
-<body>
+ <body>
+ 
+<div class="container2">
+   <div class="cuadrado">
 
-<form action="">
-    <table>
-        <tr>
-         <center>
-            <p>Nombre:</p>
-             <p> <input type="text" class="form-control mb-3" placeholder="Tu nombre" name="nombre"required></p>
-            <p>Correo:</p>
-             <p> <input type="mail" class="form-control mb-3" placeholder="Tu correo" name="correo"required></p>
-            <p>Telefono Para Contacto:</p>
-             <p> <input type="phone" class="form-control mb-3" placeholder="Tu celular" name="cel" maxlength="10" size="10" required></p>
-            <p>Descripcion Del Problema:</p>
-             <p> <input type="text" class="form-control mb-3" placeholder="Inserta la queja..." name="descrip"required></p>
-            <p>Adjuntar captura del Error o Queja:</p>
-            <p> <input type="file" class="form-control mb-3" placeholder="Insertar archivo..." name="arch"required></p>
-         </center>
-        </tr>
+    <form action="">
 
-        <tr> 
-        <center>
-         <t>
-            <input type="submit" class="btn btn-primary" Value="Enviar" name="send">
-        </t>
+     <h2>Formulario de Error</h2>
+     <input type="text" class="form-control mb-3" name="nombre" placeholder="Nombre">
+     <input type="mail" class="form-control mb-3" placeholder="Correo" name="correo"required>
+     <input type="phone" class="form-control mb-3" placeholder="Celular" name="cel" maxlength="10" size="10" required>
+    
 
-         <t>
-           <input type="button" class="btn btn-primary" onclick="location.href='index.php';" value="Inicio" />
-         </t>
-         </center>
-        </tr>
-    <br></br>
+     <center>
+     <textarea name="queja" id="queja" cols="50" rows="10" class="form-control mb-3" placeholder="Escriba su Queja"></textarea>
+     </center>
+     <center>
+     <input type="file" class="btn btn-primary" placeholder="Insertar Archivo..." name="arch"required>
+     </center>
+     <center>
+     <input type="submit" class="btn btn-primary" Value="Enviar" name="send">
+     <input type="button" class="btn btn-primary" onclick="location.href='index.php';" value="Inicio">
+     </center>
+   
+    </form>
+        </div>
+</div>
+    <!--No borrar-->
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!--Script de iconos-->
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!--No borrar-->
+
 </body>
 
 <footer>
-<?php include('./frontend/footer.php');?>
+    <center>Bancas Integrador</center>
+    <center>PROYECTO INTEGRADOR GRUPO #6</center>
 </footer>
 
 </html>
