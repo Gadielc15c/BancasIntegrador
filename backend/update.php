@@ -13,5 +13,5 @@ $sql="UPDATE terceros SET nomusuario='$NomUser', claveusuario='$pass',correo='$c
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location:mantenimmientosUsuarios.php");
+        Header("Location:../frontend/mantenimientosUsuarios.php");
     }

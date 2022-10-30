@@ -13,7 +13,7 @@
 
 </head>
 <header>
-    <?php include('../nav.php');?>
+    <?php include('../frontend/nav.php');?>
 </header>
 
 <body>
@@ -22,7 +22,7 @@
         <div class="cuadrado">
             <!--PONER AQUI CONTENIDO-->
             <?php
-include('../backend/buscarTicketForm.php');
+include('../backend/mantenimientosUsuariosForm.php');
 ?>
 
         </div>
@@ -35,8 +35,10 @@ include('../backend/buscarTicketForm.php');
     <!--No borrar-->
 
 </body>
+
 <footer>
-    <?php include('../frontend/footer.php');?>
+<?php include('../frontend/footer.php');?>
+
 </footer>
 
 </html>
