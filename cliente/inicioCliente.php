@@ -13,7 +13,7 @@
 
 </head>
 <header>
-    <?php include('navCliente.php');?>
+    <?php include('/cliente/navCliente.php');?>
 </header>
 
 <body>

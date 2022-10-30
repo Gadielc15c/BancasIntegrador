@@ -21,7 +21,7 @@
         <div class="cuadrado">
             <!--PONER AQUI CONTENIDO-->
             <?php
-include('buscarAllUsuariosForm.php');
+include('../backend/buscarAllUsuariosForm.php');
 ?>
 
         </div>
@@ -36,7 +36,7 @@ include('buscarAllUsuariosForm.php');
 </body>
 
 <footer>
-<?php include('/frontend/footer.php');?>
+<?php include('../frontend/footer.php');?>
 </footer>
 
 </html>

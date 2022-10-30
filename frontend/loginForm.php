@@ -5,7 +5,7 @@
             <h2 class="active"> Iniciar </h2>
        
 
-        <form action="validarLogin.php" method="post" class="form-grp" onsubmit="validate()">
+        <form action="./backend/validarLogin.php" method="post" class="form-grp" onsubmit="validate()">
             <p id="ERROR"></p>
             <input type="text" id="login" class="fadeIn second" name="usuario" placeholder="Usuario">
             <i class="fa fa-times u_times"></i>

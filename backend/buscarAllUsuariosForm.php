@@ -8,15 +8,9 @@ $query=mysqli_query($con,$sql);
 ?>
 <div class="container mt-5">
     <div class="row">
-<<<<<<< HEAD
         <!-- Falta Agregar FILTROS POR PHP-->
         <div class="col-md-6">
             <h1>Consulta de  User</h1>
-=======
-
-        <div class="col-md-6">
-            <h1>Buscar User</h1>
->>>>>>> 8a09fa71230c22a86803aed2e046a28d59cd2159
             <form action=" " method="POST">
                 <input type="text" class="form-control mb-3" name="idTercero" placeholder="ID USER">
                 <input type="text" class="form-control mb-3" name="nomUser" placeholder="Nombre de Usuario">

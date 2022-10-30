@@ -27,7 +27,8 @@ $row=mysqli_fetch_array($query);
 </header>
 <body>
     <div class="container mt-5" style="padding-bottom: 50px;">
-        <h1 style="center">Actualizar Valores</h1>
+    
+        <h1>Actualizar Valores</h1>
     </div>
     <div class="container mt-5">
         <form action="update.php" method="POST">

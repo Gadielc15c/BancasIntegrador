@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/login.css" />
 </head>
 <header>
-    <?php include('C:\xampp\htdocs\BancasIntegrador\frontend\navVACIO.php');?>
+    <?php include('./frontend/navVACIO.php');?>
 </header>
 
 <body>
@@ -51,7 +51,7 @@
 </body>
 
 <footer>
-<?php include('/frontend/footer.php');?>
+<?php include('./frontend/footer.php');?>
 </footer>
 
 </html>
