@@ -20,9 +20,9 @@
   <div class="container2">
 
    <div id="container">
-     <div class="opciones">
-        <div class="top">
-          <div class="nav">
+      <div class="top">
+        <div class="nav">
+          <div class="opciones">
             <div >
               <h1>MANTENIMIENTOS GENERALES</H1>
             </div>
