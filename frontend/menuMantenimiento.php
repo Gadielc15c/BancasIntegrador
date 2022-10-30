@@ -24,6 +24,7 @@
 
       <div class="logoDiv">
           <a class="navbar-logo" href="#">
+            <h2>MANTENIMIENTO GENERAL</h2>
           </a>
         </div>
        
