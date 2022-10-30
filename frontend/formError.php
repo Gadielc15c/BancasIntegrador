@@ -32,11 +32,7 @@
 
      <center>
      <textarea name="queja" id="queja" cols="50" rows="10" class="form-control mb-3" placeholder="Escriba su Queja"></textarea>
-     </center>
-     <center>
      <input type="file" class="btn btn-primary" placeholder="Insertar Archivo..." name="arch"required>
-     </center>
-     <center>
      <input type="submit" class="btn btn-primary" Value="Enviar" name="send">
      <input type="button" class="btn btn-primary" onclick="location.href='index.php';" value="Inicio">
      </center>

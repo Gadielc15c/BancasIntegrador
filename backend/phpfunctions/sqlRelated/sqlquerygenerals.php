@@ -53,7 +53,7 @@ function crear_id($id_column, $table){
 function switchRol(){
     switch($_SESSION['nivel']){
         case 1:
-            header('location:../frontend/mantenimientos.php');
+            header('location:../frontend/menuMantenimiento.php');
             break;
         case 4:
             header('location:../cliente/inicioCliente.php');
