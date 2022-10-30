@@ -1,6 +1,20 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['nivel'])){
+
+header('location:  ../index.php');
+    
+}else {
+    if($_SESSION['nivel']!=1){
+
+header('location: ../index.php');
+
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>INICIO</title>
@@ -14,7 +28,7 @@
 
 </head>
 <header>
-<?php include('nav.php');?>
+<?php include('../frontend/nav.php');?>
 </header>
 
 <body>
@@ -99,8 +113,8 @@
                             <div class="card-body " ">
                                 <div class="row ">
                                     <div class="col-lg-3 stat my-2" ;">
-                                    
-                                    <form action="buscarAllUsuarios.php">
+                          
+                                    <form action="../frontend/buscarAllUsuarios.php">
                                         <button type="submit" class="w-100 btn btn-lg btn btn-outline-warning font-weight-bold"
                                             style="padding: 20PX;">
                                             VER USERS
@@ -112,7 +126,7 @@
                                     </div>
                                     
                                     <div class="col-lg-3 stat my-2" ;">
-                                    <form action="mantenimmientosUsuarios.php">
+                                    <form action="../frontend/mantenimientosUsuarios.php">
                                         <i class="icon ion-md-create"></i> 
                                         <button type="submit" class="w-100 btn btn-lg btn btn-warning font-weight-bold"
                                             style="padding: 20PX;">
@@ -127,7 +141,7 @@
                                 </div>
                                 <div class="row ">
                                 <div class="col-lg-3 stat my-2" ;">
-                                    <form action="mantenimmientosUsuarios.php">
+                                    <form action="../frontend/mantenimientosUsuarios.php">
                                         <i class="icon ion-md-create"></i> 
                                         <button type="submit" class="w-100 btn btn-lg btn btn-warning font-weight-bold"
                                             style="padding: 20PX;">

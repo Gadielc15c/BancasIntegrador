@@ -1,6 +1,10 @@
+<?php 
+
+include('./backend/phpfunctions/lvlLogValidate.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>INICIO</title>
@@ -14,11 +18,11 @@
     <link rel="stylesheet" href="/css/login.css" />
 </head>
 <header>
-    <?php include('navVacio.php');?>
+    <?php include('./frontend/navVacio.php');?>
 </header>
 
 <body>
-    <?php include('loginForm.php');?>
+    <?php include('./frontend/loginForm.php');?>
 
 
 
@@ -33,7 +37,7 @@
 
 </body>
 <footer>
-    <?php include("footer.php") ?>
+    <?php include("./frontend/footer.php") ?>
 </footer>
 
 </html>

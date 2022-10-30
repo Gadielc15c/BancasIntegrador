@@ -4,13 +4,17 @@
       <div class="nav">
         <div class="logoDiv">
           <a class="navbar-logo" href="#">
-            <img class="logo" src="img/Logo.png" />
+            <img class="logo" src="../img/Logo.png" />
           </a>
         </div>
+        
         <div class="opciones">
+        <a href="" class="NavItem NavButton">
+        <ion-icon name="exit"></ion-icon> SALIR
+          </a>
           <a href="#" class="NavItem NavButton">
-            <ion-icon name="settings"></ion-icon>
-            </ion-icon>
+            <ion-icon name="settings"> </ion-icon>
+            </ion-icon> AJUSTES
           </a>
           <a href="#" class="NavItem NavButton">
             <ion-icon name="person"></ion-icon> CUENTA
@@ -27,6 +31,8 @@
           <a href="index.php" class="NavItem NavButton">
             <ion-icon name="home"></ion-icon> INICIO
           </a>
+      
+ 
         </div>
       </div>
     </div>

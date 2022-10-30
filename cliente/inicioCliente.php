@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['nivel'])){
+
+header('location:  ../index.php');
+    
+}else {
+    if($_SESSION['nivel']!=4){
+
+header('location:  ../index.php');
+
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +28,7 @@
 
 </head>
 <header>
-    <?php include('navCliente.php');?>
+    <?php include('../cliente/navCliente.php');?>
 </header>
 
 <body>
@@ -22,7 +37,7 @@
         <div class="cuadrado">
   
             <?php
-include(' ');
+/*include('');*/
 ?>
 
         </div>
@@ -38,7 +53,7 @@ include(' ');
 
 <footer>
 <?php
-include('/frontend/footer.php');
+include('../frontend/footer.php');
 ?>
 
 </footer>

@@ -22,7 +22,7 @@
         <div class="cuadrado">
             <!--PONER AQUI CONTENIDO-->
             <?php
-include('buscarTicketForm.php');
+include('/backend/buscarTicketForm.php');
 ?>
 
         </div>
