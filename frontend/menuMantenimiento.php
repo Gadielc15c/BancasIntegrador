@@ -11,41 +11,49 @@
          
         <div class="w-100">
           <div id="content">
-                <section>
+                  <section>
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8">
                                 <h4 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
                                     MANTENIMIENTOS GENERALES
                                 </h4>
-
-                                <div id="container">
-                                  <div class="top">
-                                    <div class="opciones">
-                                      <a href="mantenimientoTicket" class="NavItem NavButton">
-                                        <ion-icon name="book"></ion-icon> TICKETS
-                                      </a>
-                                      <a href="#" class="NavItem NavButton">
-                                        <ion-icon name="book"></ion-icon> LOTERIAS
-                                     </a>
-                                      <a href="mantenimmientosUsuarios.php" class="NavItem NavButton">
-                                        <ion-icon name="person"></ion-icon> USUARIOS
-                                      </a>
-                                    </div>
-  
-                                  </div>
-                                </div>
-
                             </div>
                           </div>            
                       </div>
                 </section>
 
+<!--seccion -->
+    <section style="margin-bottom: 40PX;display: block;margin-left: auto;margin-right: auto">
+      <div class="container">
+        <div id="container">
+ 
+          <div class="top">
+            <div class="opciones">
+              <a href="mantenimientoTicket" class="NavItem NavButton">
+                <ion-icon name="book"></ion-icon> TICKETS
+              </a>
+              <a href="#" class="NavItem NavButton">
+                <ion-icon name="book"></ion-icon> LOTERIAS
+              </a>
+              <a href="mantenimmientosUsuarios.php" class="NavItem NavButton">
+                <ion-icon name="person"></ion-icon> USUARIOS
+              </a>
+            </div>
+  
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+<!--Seccion 2-->
+
 
           </div>
         </div>
       </div>
-
+    </div>
   </div>
   
 
