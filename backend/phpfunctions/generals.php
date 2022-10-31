@@ -15,5 +15,12 @@ function fecha_de_hoy(){
     return $dt->format('Y-m-d H:i:s');
 }
 
+function por_estado_activo_inactivo($estado){
+    if ($estado){
+        return "activo";
+    } else {
+        return "inactivo";
+    }
+}
 
 ?>

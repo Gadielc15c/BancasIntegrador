@@ -1,6 +1,7 @@
 <?php 
 
-include('./backend/phpfunctions/lvlLogValidate.php');
+include_once('./backend/phpFunctions/logInOutFunctions.php');
+lvlLogValidate();
 
 ?>
 <!DOCTYPE html>

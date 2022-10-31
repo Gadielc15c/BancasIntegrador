@@ -7,7 +7,7 @@ function seleccionar_un_usuario_por_nombre($nomuser){
 }
 
 function seleccionar_todos_usuario(){
-    $sql = "SELECT nomusuario, correo, cedula, estado FROM terceros";
+    $sql = "SELECT idterceros, nomusuario, correo, cedula, estado FROM terceros";
     return retornar_seleccion($sql, null, "a");
 }
 
@@ -30,5 +30,23 @@ function seleccionar_id_ticket_por_codigobarra($codigobarra){
 
 }
 
+function seleccionar_todos_tickets(){
+
+    $sql = "SELECT idtickets FROM tickets WHERE codigobarra = ?";
+
+
+
+
+}
+
+function seleccionar_moneda_por_idmonedas($idmon){
+    $col = "moneda";
+    $sql = "SELECT $col FROM monedas WHERE idmonedas = ?";
+    return retorno_para_un_select($col, $sql, array($idmon));
+}
+
+
+
+//var_dump(seleccionar_moneda_por_idmonedas(1));
 
 ?>
