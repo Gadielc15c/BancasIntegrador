@@ -7,8 +7,8 @@ function lvlLogValidate(){
 
     if(isset($_GET['cerrarSesion'])){
 
-    session_unset();
-    session_destroy();
+        session_unset();
+        session_destroy();
 
     }
     if(isset($_SESSION['nivel'])){
