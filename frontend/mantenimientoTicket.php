@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['nivel'])){
+
+header('location:  ../index.php');
+    
+}else {
+    if($_SESSION['nivel']!=1){
+
+header('location: ../index.php');
+
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,32 +32,17 @@
 </header>
 
 <body>
-    
 <div class="container2">
-   <div class="container" >
-    
-         
-     <form action="">
-                <input type="text" class="form-control mb-3" name="idticket" placeholder="Id Ticket">
-                <input type="text" class="form-control mb-3" name="monto" placeholder="Monto">
-                <input type="date" class="form-control mb-3" name="fecha" placeholder="Fecha">
-                <input type="text" class="form-control mb-3" name="estado" placeholder="Estado">
-                <input type="submit" class="btn btn-primary" value="Buscar">
-                <input type="submit" class="btn btn-primary" value="Eliminar">
-                <input type="submit" class="btn btn-primary" value="Modificar">
-            </form>
 
-
-
-   
-
-
-
- </div>
-
-
- </div>
-
+    <div class="cuadrado">
+    <h3 style="margin-top:5%; margin-left: 15.5%;">Mantenimiento de Tickets</h3>
+        <?php  
+        
+        include('../backend/mantenimientoTicketForm.php')
+        
+        ?>
+    </div>
+    </div>
  <!--No borrar-->
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

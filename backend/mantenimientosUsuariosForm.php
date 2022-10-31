@@ -10,7 +10,7 @@ $query=mysqli_query($con,$sql);
     <div class="row">
 
         <div class="col-md-6">
-            <h1>Buscar User</h1>
+            <h1>Mantenimiento User</h1>
             <form action="insertar.php" method="POST">
                 <input type="text" class="form-control mb-3" name="idTercero" placeholder="ID USER">
                 <input type="text" class="form-control mb-3" name="nomUser" placeholder="Nombre de Usuario">
@@ -21,23 +21,11 @@ $query=mysqli_query($con,$sql);
                 <input type="submit" class="btn btn-primary" value="Buscar">
             </form>
 
-            <!--
-            <form action="form.php" method="post">
-                Search: <input type="text" name="term" /><br />
-                <input type="submit" value="Submit" />
-            </form>
--->
+          
+
         </div>
 
         <div class="col-md-7 col-md-offset-2"></div>
-
-<!--<input type="text" class="form-control mb-3" name="idTercero" placeholder="ID USER">
-                <input type="text" class="form-control mb-3" name="nomUser" placeholder="Nombre de Usuario">
-                <input type="text" class="form-control mb-3" name="claveUsuario" placeholder="Clave Encriptada">
-                <input type="email" class="form-control mb-3" name="Correo" placeholder="Correo">
-                <input type="text" class="form-control mb-3" name="Cedula" placeholder="Cedula">
-                <input type="text" class="form-control mb-3" name="Estado" placeholder="Estado">-->
-
 
         <div class="row-md-7">
             <table class="table">

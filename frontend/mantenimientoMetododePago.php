@@ -18,7 +18,7 @@ header('location: ../index.php');
 
 <head>
     <meta charset="utf-8">
-    <title>INICIO</title>
+    <title>Mantenimiento Tickets</title>
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="description" />
     <meta name="generator" content="HAPedit 3.1" />
@@ -32,28 +32,29 @@ header('location: ../index.php');
 </header>
 
 <body>
-    <div class="container2">
+<div class="container2">
 
-        <div class="cuadrado">
-            <!--PONER AQUI CONTENIDO-->
-            <?php
-include('../backend/mantenimientosUsuariosForm.php');
-?>
-
-        </div>
+    <div class="cuadrado">
+    <h3 style="margin-top:5%; margin-left: 15.5%;">Mantenimiento de Metodos de Pago</h3>
+        <?php  
+        
+        include('../backend/mantenimientoMetodosDePagoForm.php')
+        
+        ?>
     </div>
-    <!--No borrar-->
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <!--Script de iconos-->
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <!--No borrar-->
+    </div>
+ <!--No borrar-->
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <!--Script de iconos-->
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!--No borrar-->
 
 </body>
 
 <footer>
-<?php include('../frontend/footer.php');?>
-
+    <center>Bancas Integrador</center>
+    <center>PROYECTO INTEGRADOR GRUPO #6</center>
 </footer>
 
 </html>

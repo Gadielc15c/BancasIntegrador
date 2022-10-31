@@ -9,8 +9,9 @@
         </div>
         
         <div class="opciones">
-        <a href="" class="NavItem NavButton">
-        <ion-icon name="exit"></ion-icon> SALIR
+        <a href="../backend/phpfunctions/logOut.php" class="NavItem NavButton">
+          <ion-icon name="exit"></ion-icon>
+           SALIR
           </a>
           <a href="#" class="NavItem NavButton">
             <ion-icon name="settings"> </ion-icon>

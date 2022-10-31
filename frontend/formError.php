@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['nivel'])){
+
+header('location:  ../index.php');
+    
+}else {
+    if($_SESSION['nivel']!=1){
+
+header('location: ../index.php');
+
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,35 +29,34 @@
     <link rel="stylesheet" href="/css/login.css" />
 </head>
 <header>
-    <?php include('..\frontend\navVACIO.php');?>
+    <?php include('..\frontend\nav.php');?>
 </header>
 
  <body>
  
 <div class="container2">
-   <div class="cuadrado">
+   <div class="cuadrado" >
 
-    <form action="">
+    <form action="" style="margin:10% ;">
 
      <h2>Formulario de Error</h2>
-     <input type="text" class="form-control mb-3" name="nombre" placeholder="Nombre">
-     <input type="mail" class="form-control mb-3" placeholder="Correo" name="correo"required>
-     <input type="phone" class="form-control mb-3" placeholder="Celular" name="cel" maxlength="10" size="10" required>
+     <input type="text" class="form-control mb-2" name="nombre" placeholder="Nombre">
+     <input type="mail" class="form-control mb-2" placeholder="Correo" name="correo"required>
+     <input type="phone" class="form-control mb-2" placeholder="Celular" name="cel" maxlength="10" size="10" required>
     
 
      <center>
      <textarea name="queja" id="queja" cols="50" rows="10" class="form-control mb-3" placeholder="Escriba su Queja"></textarea>
-     </center>
-     <center>
-     <input type="file" class="btn btn-primary" placeholder="Insertar Archivo..." name="arch"required>
-     </center>
-     <center>
+    
+    
+     <div class="row">
      <input type="submit" class="btn btn-primary" Value="Enviar" name="send">
      <input type="button" class="btn btn-primary" onclick="location.href='index.php';" value="Inicio">
+      <input type="file" class="" placeholder="Insertar Archivo..." name="archivo"required style="margin-top: 1%;">
+     </div>
      </center>
-   
     </form>
-        </div>
+        </div>  
 </div>
     <!--No borrar-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

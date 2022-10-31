@@ -8,9 +8,9 @@
           </a>
         </div>
         <div class="opciones">
-          <a href="#" class="NavItem NavButton">
-            <ion-icon name="settings"></ion-icon>
-            </ion-icon>
+          <a href="../backend/phpfunctions/logOut.php" class="NavItem NavButton">
+          <ion-icon name="exit"></ion-icon>
+           SALIR
           </a>
           <a href="#" class="NavItem NavButton">
             <ion-icon name="person"></ion-icon> CUENTA
@@ -18,7 +18,7 @@
           <a href="./metodoPagos.php" class="NavItem NavButton">
             <ion-icon name="wallet"></ion-icon> PAGOS
           </a>
-          <a href="menuMantenimiento.php" class="NavItem NavButton">
+          <a href="../frontend/menuMantenimiento.php" class="NavItem NavButton">
           <ion-icon name="construct"></ion-icon> MANTENIMIENTOS
           </a>
           <a href="#" class="NavItem NavButton">

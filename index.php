@@ -18,7 +18,7 @@ include('./backend/phpfunctions/lvlLogValidate.php');
     <link rel="stylesheet" href="/css/login.css" />
 </head>
 <header>
-    <?php include('./frontend/navVacio.php');?>
+    <?php include('./frontend/nav.php');?>
 </header>
 
 <body>

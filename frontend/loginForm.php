@@ -19,10 +19,7 @@
             <a class="underlineHover" href="#">Olvidaste tu contraseña?</a>
 
         </div>
-        <div id="formFooter2">
-
-            <a class="underlineHover2" href="#">Ingresar Como Administrador</a>
-        </div>
+        
     </div>
 </div>
 </div>
