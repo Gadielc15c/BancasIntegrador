@@ -1,9 +1,24 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['nivel'])){
+
+header('location:  ../index.php');
+    
+}else {
+    if($_SESSION['nivel']!=1){
+
+header('location: ../index.php');
+
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Mantenimiento Tikcets</title>
+    <title>Mantenimiento Tickets</title>
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="description" />
     <meta name="generator" content="HAPedit 3.1" />
@@ -13,36 +28,27 @@
 
 </head>
 <header>
-    <?php include('./frontend/nav.php');?>
+    <?php include('../frontend/nav.php');?>
 </header>
 
 <body>
-    
-<div class="container mt-5">
-   <div class="row">
-     <div class="col-md-6">
-         
-     <form action="">
-                <input type="text" class="form-control mb-3" name="idticket" placeholder="Id Ticket">
-                <input type="text" class="form-control mb-3" name="monto" placeholder="Monto">
-                <input type="date" class="form-control mb-3" name="fecha" placeholder="Fecha">
-                <input type="text" class="form-control mb-3" name="estado" placeholder="Estado">
-                <input type="submit" class="btn btn-primary" value="Buscar">
-                <input type="submit" class="btn btn-primary" value="Eliminar">
-                <input type="submit" class="btn btn-primary" value="Modificar">
-            </form>
+<div class="container2">
 
-
-
-     </div>
-
-
-
-</div>
-
-
-</div>
-
+    <div class="cuadrado">
+    <h3 style="margin-top:5%; margin-left: 15.5%;">Mantenimiento de Tickets</h3>
+        <?php  
+        
+        include('../backend/mantenimientoTicketForm.php')
+        
+        ?>
+    </div>
+    </div>
+ <!--No borrar-->
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <!--Script de iconos-->
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!--No borrar-->
 
 </body>
 
