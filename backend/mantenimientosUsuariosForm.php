@@ -44,7 +44,7 @@ $query=seleccionar_todos_usuario();
 
                     <?php 
                     foreach ($query as $row){
-                        ?>
+                    ?>
                     <tr>
                         <th><?php echo $row['idterceros']?></th>
                         <th><?php echo $row['nomusuario']?></th>

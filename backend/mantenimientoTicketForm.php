@@ -1,5 +1,5 @@
 
-         <div class="container mt-3">
+<div class="container mt-3">
      <form action="">
                 <input type="text" class="form-control mb-3" name="idticket" placeholder="Id Ticket">
                 <input type="text" class="form-control mb-3" name="monto" placeholder="Monto">

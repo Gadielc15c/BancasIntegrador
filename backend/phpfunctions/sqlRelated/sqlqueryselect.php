@@ -6,6 +6,11 @@ function seleccionar_un_usuario_por_nombre($nomuser){
     return retornar_seleccion($sql, array($nomuser), "o");
 }
 
+function seleccionar_un_usuario_por_idtercero($id){
+    $sql = "SELECT nomusuario, correo, cedula, estado FROM terceros WHERE idterceros=?";
+    return retornar_seleccion($sql, array($id), "o");
+}
+
 function seleccionar_todos_usuario(){
     $sql = "SELECT idterceros, nomusuario, correo, cedula, estado FROM terceros";
     return retornar_seleccion($sql, null, "a");
