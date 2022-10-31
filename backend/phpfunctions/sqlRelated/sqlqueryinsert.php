@@ -11,7 +11,7 @@ function insertar_usuario($nomuser, $claveuser, $correo){
 }
 
 function insertar_ticket($monto, $nomuser, $fecha, $monedas_fk = 1, $sucursalventa_fk = null, $sucursalpago_fk = null){
-    
+    //incompleto
 
     $id_col = "idtickets";
     $table = "tickets";
@@ -27,6 +27,5 @@ function insertar_ticket($monto, $nomuser, $fecha, $monedas_fk = 1, $sucursalven
 }
 
 
-//insertar_usuario("test4", "ok", "aa4@hotmail.com");
 
 ?>

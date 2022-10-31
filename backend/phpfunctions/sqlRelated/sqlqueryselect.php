@@ -28,15 +28,9 @@ function seleccionar_id_tercero_por_nombre($nomuser){
     if ($row){
         return $row[$column];
     }
-    
     return false;
 }
 
 
-$x = seleccionar_id_tercero_por_nombre("test1");
-echo var_dump($x);
-echo "<pre>";
-print_r($x);
-echo "</pre>";
 
 ?>
