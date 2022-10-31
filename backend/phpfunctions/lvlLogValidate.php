@@ -14,7 +14,6 @@ if(isset($_SESSION['nivel'])){
     
 }
 
-
 if(isset($_POST['usuario']) && isset($_POST['clave'])){
 
     $nomuser = $_POST['usuario'];
