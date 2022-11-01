@@ -74,7 +74,7 @@ header('location: ../index.php');
               </a>
             </div>
             <div class="row">
-              <a href="#" class="NavItem NavButton">
+              <a href="../frontend/mantenimientoLoterias.php" class="NavItem NavButton">
                 <ion-icon name="book"></ion-icon> LOTERIAS
               </a>
             </div>
