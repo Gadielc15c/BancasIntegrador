@@ -77,7 +77,7 @@ function seleccionar_nombre_por_idtipotarjetas($id){
 }
 
 function seleccionar_todos_tipo_tarjeta(){
-    $sql = "SELECT idtipotarjetas, nombre FROM tipotarjetas";
+    $sql = "SELECT idtipotarjetas, nombre,estado FROM tipotarjetas";
     return retornar_seleccion($sql, null, "a");
 }
 

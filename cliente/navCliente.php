@@ -9,24 +9,24 @@
         </div>
         
         <div class="opciones">
-        <a href="../backend/phpfunctions/logOut.php" class="NavItem NavButton">
+        <a href="/backend/phpfunctions/logOutTemporal.php" class="NavItem NavButton">
           <ion-icon name="exit"></ion-icon>
            SALIR
           </a>
-          <a href="#" class="NavItem NavButton">
+          <a href="#" class="NavItem NavButton">  
             <ion-icon name="settings"> </ion-icon>
             </ion-icon> AJUSTES
           </a>
-          <a href="./cliente/cuentasCliente.php" class="NavItem NavButton">
+          <a href="./cuentasCliente.php" class="NavItem NavButton">
             <ion-icon name="person"></ion-icon> CUENTA
           </a>
-          <a href="./cliente/pagosCliente.php" class="NavItem NavButton">
+          <a href="./pagosCliente.php" class="NavItem NavButton">
             <ion-icon name="wallet"></ion-icon> PAGOS
           </a>
           <a href="./cliente/jugadasCliente.php" class="NavItem NavButton">
             <ion-icon name="book"></ion-icon> JUGADAS
           </a>
-          <a href="./cliente/dashboardCliente.php" class="NavItem NavButton">
+          <a href="./dashboardCliente.php" class="NavItem NavButton">
             <ion-icon name="apps"></ion-icon> DASHBOARD
           </a>
           <a href="index.php" class="NavItem NavButton">

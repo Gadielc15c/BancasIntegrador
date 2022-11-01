@@ -1,5 +1,4 @@
 <?php
-
 $path = dirname(__FILE__);
 include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
 
@@ -12,7 +11,6 @@ if (isset($_GET['idterceros'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title></title>
     <meta charset="UTF-8">

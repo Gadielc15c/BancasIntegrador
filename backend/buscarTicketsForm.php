@@ -52,7 +52,6 @@ $query=mysqli_query($con,$sql);
                             <th>Archivo Fisico</th>
                             <th>Tiempo Conservacion</th>
                             <th>Observaciones</th>
-
                             <th></th>
                             <th></th>
                         </tr>
