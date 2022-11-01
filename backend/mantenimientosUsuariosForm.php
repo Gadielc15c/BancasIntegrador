@@ -1,9 +1,7 @@
 <?php
-include("conexion.php");
-$con = conectar();
-$sql= "SELECT * FROM terceros";
-$query=mysqli_query($con,$sql);
-
+$path = dirname(__FILE__);
+include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
+$query=seleccionar_todos_usuario();
 
 ?>
 <div class="container mt-5">
@@ -33,7 +31,7 @@ $query=mysqli_query($con,$sql);
                     <tr style="text-align: center;">
                         <th>ID USUARIO</th>
                         <th>USUARIO</th>
-                        <th>CLAVE</th>
+                        <!-- <th>CLAVE</th> -->
                         <th>CORREO</th>
                         <th>CEDULA</th>
                         <th>ESTADO</th>
@@ -45,23 +43,25 @@ $query=mysqli_query($con,$sql);
                 <tbody>
 
                     <?php 
-                    while ($row=mysqli_fetch_array($query)){
-                        ?>
+                    foreach ($query as $row){
+                    ?>
                     <tr>
                         <th><?php echo $row['idterceros']?></th>
                         <th><?php echo $row['nomusuario']?></th>
-                        <th><?php echo $row['claveusuario']?></th>
+                        <!-- No es necesario mostrar la clave del usuario - Frannie
+                        <th><?php //echo $row['claveusuario']?></th>
+                        -->
                         <th><?php echo $row['correo']?></th>
                         <th><?php echo $row['cedula']?></th>
-                        <th><?php echo $row['estado']?></th>
+                        <th><?php 
+                            $reply = ucfirst(por_estado_activo_inactivo($row['estado']));
+                            echo $reply;
+                        ?></th>
                         <th><a href="../backend/updateUsuario.php?idterceros=<?php echo $row['idterceros']?>"
                                 class="btn btn-warning">EDITAR</a> </th>
 
                         <th><a href="delete.php?idterceros=<?php echo $row['idterceros']?>"
                                 class="btn btn-danger">ELIMINAR</a> </th>
-
-
-
 
                     </tr>
 

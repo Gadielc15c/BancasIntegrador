@@ -1,13 +1,13 @@
 <?php
-include("conexion.php");
-$con = conectar();
+
+$path = dirname(__FILE__);
+include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
 
 if (isset($_GET['idterceros'])) {
     $id = $_GET['idterceros'];
+    $row = seleccionar_un_usuario_por_idtercero($id);
 }
-$sql = "SELECT * FROM terceros WHERE idterceros='$id'";
-$query = mysqli_query($con, $sql);
-$row = mysqli_fetch_array($query);
+
 ?>
 
 <!DOCTYPE html>
@@ -32,14 +32,13 @@ $row = mysqli_fetch_array($query);
     </div>
     <div class="container mt-5">
         <form action="update.php" method="POST">
-            <input type="hidden" class="form-control mb-3" name="CodigoArchivo" placeholder="CodigoArchivo " value="<?php echo $row['idterceros']  ?>">
-            <input type="text" class="form-control mb-3" name="CodDepto" placeholder="Codigo de departamento" value="<?php echo $row['nomusuario']  ?>">
-            <input type="text" class="form-control mb-3" name="AreaReferencia" placeholder="Area de Referencia" value="<?php echo $row['claveusuario']  ?>">
-            <input type="text" class="form-control mb-3" name="Delivery" placeholder="Persona que entrega" value="<?php echo $row['correo']  ?>">
-            <input type="text" class="form-control mb-3" name="Delivery" placeholder="Persona que entrega" value="<?php echo $row['cedula']  ?>">
-            <input type="text" class="form-control mb-3" name="Delivery" placeholder="Persona que entrega" value="<?php echo $row['estado']  ?>">
+            <input type="hidden" class="form-control mb-3" name="IDTercero" placeholder="IDTercero" value="<?php echo $id  ?>">
+            <input type="text" class="form-control mb-3" name="Username" placeholder="Username" value="<?php echo $row['nomusuario']  ?>">
+            <input type="text" class="form-control mb-3" name="Correo" placeholder="Correo" value="<?php echo $row['correo']  ?>">
+            <input type="text" class="form-control mb-3" name="Cedula" placeholder="Cedula" value="<?php echo $row['cedula']  ?>">
+            <input type="text" class="form-control mb-3" name="Estado" placeholder="Estado" value="<?php echo $row['estado']  ?>">
             <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
-
+            
         </form>
 
 

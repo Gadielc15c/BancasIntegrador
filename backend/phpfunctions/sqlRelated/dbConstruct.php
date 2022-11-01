@@ -31,7 +31,14 @@ class dbConstruct{
             print_r('Error connection: ' . $e->getMessage());
         }
     }
-
 }
+
+function ejecutarQuery($query, $inputs){
+    $db_object = new dbConstruct();
+    $qr = $db_object->connect()->prepare($query);
+    $qr->execute($inputs);
+    return $qr;
+}
+     
 
 ?>
