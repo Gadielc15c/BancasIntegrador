@@ -21,10 +21,10 @@
           <a href="../frontend/menuMantenimiento.php" class="NavItem NavButton">
           <ion-icon name="construct"></ion-icon> MANTENIMIENTOS
           </a>
-          <a href="#" class="NavItem NavButton">
+          <a href="./frontend/Jugada.php" class="NavItem NavButton">
             <ion-icon name="book"></ion-icon> JUGADAS
           </a>
-          <a href="#" class="NavItem NavButton">
+          <a href="./frontend/dashBoard.php" class="NavItem NavButton">
             <ion-icon name="apps"></ion-icon> DASHBOARD
           </a>
           <a href="../index.php" class="NavItem NavButton">
