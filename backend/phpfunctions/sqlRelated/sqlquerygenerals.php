@@ -79,7 +79,23 @@ function retorno_booleano_para_updates($ejecucion){
     return false;
 }
 
+function retorno_nombre_columnas($table){
+    $sql = "DESCRIBE $table";
+    $r = ejecutarQuery($sql, null);
+    $num = $r -> rowCount();
+    if ($num > 0){
+        return $r -> fetchAll(PDO::FETCH_COLUMN);
+    }
+    return false;
+    
+}
 
+/* $s = retorno_nombre_columnas("terceros");
+
+foreach($s as $i){
+echo "<br>";
+print_r($i);
+} */
 ?>
 
 
