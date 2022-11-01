@@ -18,7 +18,7 @@ header('location: ../index.php');
 
 <head>
     <meta charset="utf-8">
-    <title>Mantenimiento Tickets</title>
+    <title>Mantenimiento </title>
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="description" />
     <meta name="generator" content="HAPedit 3.1" />
@@ -35,7 +35,7 @@ header('location: ../index.php');
 <div class="container2">
 
     <div class="cuadrado">
-    <h3 style="margin-top:5%; margin-left: 15.5%;">Mantenimiento de Metodos de Pago</h3>
+    <
         <?php  
         
         include('../backend/mantenimientoMetodosDePagoForm.php')
