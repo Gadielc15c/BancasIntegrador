@@ -1,7 +1,5 @@
 <?php
-$path = dirname(__FILE__);
-include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
-$query=seleccionar_todos_usuario();
+
 
 ?>
 <div class="container mt-5">
@@ -32,11 +30,11 @@ $query=seleccionar_todos_usuario();
                     <tr style="text-align: center;">
                         <th>ID LOTERIA</th>
                         <th>NOMBRE LOTERIA</th>
-                        <<th>ESTADO</th>
+                        <th>ESTADO</th>
                         <th>DIAS LABORABLES</th>
                         <th>HORA LABORAL</th>
                         <th>HORA DE CIERRE</th>
-                        <<th>ESTADO</th>
+                        <th>ESTADO</th>
 
                         <th></th>
                         <th></th>
