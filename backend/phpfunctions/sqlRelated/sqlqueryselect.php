@@ -123,7 +123,7 @@ function seleccionar_pagotarjeta_por_idpagometodos_fk($id){
 }
 
 function seleccionar_pagotarjeta_por_idtipotarjetas_fk($id){
-    // Puede teronar varios array
+    // Puede retonar varios array
     $sql = "SELECT idpagotarjetas, nombre, numerotarj, cvc, fechaven, idpagometodos_fk, idtipotarjetas_fk FROM pagotarjetas WHERE idtipotarjetas_fk = ?";
     return retornar_seleccion($sql, array($id), "a");
 }
@@ -131,7 +131,7 @@ function seleccionar_pagotarjeta_por_idtipotarjetas_fk($id){
 function seleccionar_pagotarjeta_por_numerotarj($numerotarj){
     $col = "idpagotarjetas";
     $sql = "SELECT $col, nombre, numerotarj, cvc, fechaven, idpagometodos_fk, idtipotarjetas_fk FROM pagotarjetas WHERE numerotarj = ?";
-    return retornar_seleccion($sql, array($numerotarj), "0");
+    return retornar_seleccion($sql, array($numerotarj), "o");
 }
 
 // Table Tipo Metodo Pago
@@ -144,14 +144,62 @@ function seleccionar_todos_tipometodopago(){
 function seleccionar_tipometodopago_por_nombre($nom){
     $col = "nombre";
     $sql = "SELECT idtipometodopago, $col, estado FROM tipometodopago WHERE $col = ?";
-    return retornar_seleccion($sql, array($nom), "a");
+    return retornar_seleccion($sql, array($nom), "o");
 }
 
 function seleccionar_tipometodopago_por_idtipometodopago($id){
     $col = "idtipometodopago";
     $sql = "SELECT $col, nombre, estado FROM tipometodopago WHERE $col = ?";
-    return retornar_seleccion($sql, array($id), "a");
+    return retornar_seleccion($sql, array($id), "o");
 }
 
+// Table sucursal
 
+function seleccionar_todas_sucursales(){
+    $sql = "SELECT idsucursal, nombresucursal, idterceros_fk, idtelefonos_fk, iddireccion_fk, estado FROM sucursal";
+    return retornar_seleccion($sql, null, "a");
+}
+
+function seleccionar_sucursal_por_idsucursal($id){
+    $col = "idsucursal";
+    $sql = "SELECT $col, nombresucursal, idterceros_fk, idtelefonos_fk, iddireccion_fk, estado FROM sucursal WHERE $col = ?";
+    return retornar_seleccion($sql, array($id), "o");
+}
+
+function seleccionar_sucursal_por_nombresucursal($nom){
+    // Puede retonar varios array
+    $col = "nombresucursal";
+    $sql = "SELECT idsucursal, $col, idterceros_fk, idtelefonos_fk, iddireccion_fk, estado FROM sucursal WHERE $col = ?";
+    return retornar_seleccion($sql, array($nom), "a");
+}
+
+// agregar mas adelante por foreign key: tercero, direccion y telefono
+
+// Table loteria
+
+function seleccionar_todas_loterias(){
+    $sql = "SELECT idloterias, nombre, idlothorarios_fk, idterceros_fk, estado FROM loterias";
+    return retornar_seleccion($sql, null, "a");
+}
+
+function seleccionar_loterias_por_idloterias($id){
+    $col = "idloterias";
+    $sql = "SELECT $col, nombre, idlothorarios_fk, idterceros_fk, estado FROM loterias WHERE $col = ?";
+    return retornar_seleccion($sql, array($id), "0");
+}
+
+function seleccionar_loterias_por_nombre($nom){
+    // Puede retonar varios array
+    $col = "nombre";
+    $sql = "SELECT idloterias, $col, idlothorarios_fk, idterceros_fk, estado FROM loterias WHERE $col = ?";
+    return retornar_seleccion($sql, array($nom), "a");
+    
+}
+
+// agregar mas adelante por foreign key: horario y terceros
+
+
+echo "<br>";
+print_r(seleccionar_loterias_por_nombre("loteka"));
+echo "<br>";
 ?>

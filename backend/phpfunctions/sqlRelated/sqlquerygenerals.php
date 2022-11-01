@@ -56,6 +56,7 @@ function verificar_existencia_de_valor($value, $col, $table){
 
 function retorno_para_un_select($col, $sql, $input = null){
     /* 
+    * Retorna un solo valor de 1 sola columna, no retorna varios valores si hay varias columnas, para eso utiliza retornar_seleccion
     * @param $col       la columna del valor deseado en la BD
     * @param $sql       un SELECT query
     * @param $input     un array con las variables del WHERE o null (por defecto) si no hay un WHERE
@@ -67,6 +68,15 @@ function retorno_para_un_select($col, $sql, $input = null){
     }
     return false;
 
+}
+
+function retorno_booleano_para_updates($ejecucion){
+    // ejecucion debe proveenir de la funcion ejecutarQuery en dbConstruct
+    // Retorna true si el update fue realizado, de lo contrario false
+    if ($ejecucion->rowCount()){
+        return true;
+    }
+    return false;
 }
 
 

@@ -95,5 +95,20 @@ function delete_tipometodopago_por_idtipometodopago($id){
     return ejecutarQuery($sql, array($id));
 }
 
+// table sucursal
+
+// No se deberian borrar por ahora
+
+
+
+
+// table loterias
+
+
+// No se deberian borrar por ahora
+
+
+
+
 
 ?>

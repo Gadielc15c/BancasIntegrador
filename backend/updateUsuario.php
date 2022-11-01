@@ -1,8 +1,29 @@
 <?php
 $path = dirname(__FILE__);
 include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
+$path = dirname(__FILE__);
+include_once($path . "/phpFunctions/sqlRelated/sqlqueryupdate.php");
 
-if (isset($_GET['idterceros'])) {
+if (isset($_POST['submit'])){
+    $id = $_POST['idterceros'];
+    $nomuser = $_POST['nomusuario'];
+    $correo = $_POST['correo'];
+    $cedula = $_POST['cedula'];
+    $estado = $_POST['estado'];
+    $value = update_tercero_por_idtercero($id, $nomuser, $correo, $cedula, $estado);
+    // si value es TRUE, funciono el update, de lo contrario es false
+}
+
+if (isset($value)){
+    // Debe coincidir con las columnas de la BD
+    $row = array();
+    $row['idterceros'] = $id;
+    $row['nomusuario'] = $nomuser;
+    $row['correo'] = $correo;
+    $row['cedula'] = $cedula;
+    $row['estado'] = $estado;
+
+} elseif (isset($_GET['idterceros'])){
     $id = $_GET['idterceros'];
     $row = seleccionar_un_usuario_por_idtercero($id);
 }
@@ -29,13 +50,14 @@ if (isset($_GET['idterceros'])) {
         <h1>Actualizar Valores</h1>
     </div>
     <div class="container mt-5">
-        <form action="/frontend/mantenimientosUsuarios.php" method="POST">
-            <input type="hidden" class="form-control mb-3" name="IDTercero" placeholder="IDTercero" value="<?php echo $id  ?>">
-            <input type="text" class="form-control mb-3" name="Username" placeholder="Username" value="<?php echo $row['nomusuario']  ?>">
-            <input type="text" class="form-control mb-3" name="Correo" placeholder="Correo" value="<?php echo $row['correo']  ?>">
-            <input type="text" class="form-control mb-3" name="Cedula" placeholder="Cedula" value="<?php echo $row['cedula']  ?>">
-            <input type="text" class="form-control mb-3" name="Estado" placeholder="Estado" value="<?php echo $row['estado']  ?>">
-            <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
+        <form action="<?php $_PHP_SELF  ?>" method="POST">
+            <input type="hidden" class="form-control mb-3" name="idterceros" placeholder="IDTerceros" value="<?php echo $id  ?>">
+            <input type="text" class="form-control mb-3" name="nomusuario" placeholder="Username" value="<?php echo $row['nomusuario']  ?>">
+            <input type="text" class="form-control mb-3" name="correo" placeholder="Correo" value="<?php echo $row['correo']  ?>">
+            <input type="text" class="form-control mb-3" name="cedula" placeholder="Cedula" value="<?php echo $row['cedula']  ?>">
+            <input type="text" class="form-control mb-3" name="estado" placeholder="Estado" value="<?php echo $row['estado']  ?>">
+            <input type="submit" name="submit" class="btn btn-primary btn-block" value="Actualizar">
+            
             
         </form>
 
