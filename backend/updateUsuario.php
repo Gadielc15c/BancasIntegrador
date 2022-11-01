@@ -9,7 +9,7 @@ if (isset($_POST['submit'])){
     $nomuser = $_POST['nomusuario'];
     $correo = $_POST['correo'];
     $cedula = $_POST['cedula'];
-    $estado = $_POST['estado'];
+    $estado = $_POST['estado']; 
     $value = update_tercero_por_idtercero($id, $nomuser, $correo, $cedula, $estado);
     // si value es TRUE, funciono el update, de lo contrario es false
 }
