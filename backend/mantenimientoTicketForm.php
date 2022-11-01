@@ -23,7 +23,10 @@ $query=seleccionar_todos_tickets();
                 <tr style="text-align: center;">
                     <th class="Tabla">ID TICKET</th>
                     <th class="Tabla">MONTO</th>
+                    <th class="Tabla">MONEDA</th>
                     <th class="Tabla">FECHA</th>
+                    <th class="Tabla">ID Tercero</th>
+                    <th class="Tabla">CODIGO DE BARRA</th>
                     <th class="Tabla">ESTADO</th>
                     <th class="Tabla"></th>
                     <th class="Tabla"></th>
@@ -37,11 +40,13 @@ $query=seleccionar_todos_tickets();
                 <tr>
                     <th class="Tabla"><?php echo $row['idtickets']?></th>
                     <th class="Tabla"><?php echo $row['monto']?></th>
+                    <th class="Tabla"><?php echo $row['moneda']?></th>
                     <th class="Tabla"><?php echo $row['fecha']?></th>
                     <th><?php 
                             $reply = ucfirst(por_estado_activo_inactivo($row['estado']));
                             echo $reply;
                         ?></th>
+                    
                     <th><a href="../backend/updateTickets.php?idtickets=<?php echo $row['idtickets']?>"
                            class="btn btn-warning">EDITAR</a> </th>
                            
