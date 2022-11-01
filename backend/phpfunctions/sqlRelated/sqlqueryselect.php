@@ -32,7 +32,6 @@ function seleccionar_id_ticket_por_codigobarra($codigobarra){
     $col = "idtickets";
     $sql = "SELECT $col FROM tickets WHERE codigobarra = ?";
     return retorno_para_un_select($col, $sql, array($codigobarra));
-
 }
 
 function seleccionar_todos_tickets(){
