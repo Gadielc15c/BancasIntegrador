@@ -86,7 +86,11 @@ div#extra {
 position: relative;
 z-index: 1;
 }
-
+.rows2{
+  box-shadow: -2px 17px 44px -20px rgba(0,0,0,0.86);
+-webkit-box-shadow: -2px 17px 44px -20px rgba(0,0,0,0.86);
+-moz-box-shadow: -2px 17px 44px -20px rgba(0,0,0,0.86);
+}
 .nav {
   /*Barra superior*/
   z-index: 2;

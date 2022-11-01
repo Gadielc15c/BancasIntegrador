@@ -8,7 +8,6 @@ function retornar_seleccion($sql, $input, $type = null){
     * @param $sql       un SELECT query
     * @param $input     un array con las variables del WHERE o null (por defecto) si no hay un WHERE
     * @param $type      un string con "a" o con "o". "a" significa retornar all (todos) y "o" significa retornar one (uno solo)
-    *
     * @return           Si es "a" retorna un array de array. Si es "o" retorna un array. Si no se encontro el query, retorna false          
     */
     $r = ejecutarQuery($sql, $input);
@@ -54,7 +53,6 @@ function retorno_para_un_select($col, $sql, $input = null){
     * @param $col       la columna del valor deseado en la BD
     * @param $sql       un SELECT query
     * @param $input     un array con las variables del WHERE o null (por defecto) si no hay un WHERE
-    *
     * @return           el valor de la columna o false si no existe
     */
     $row = retornar_seleccion($sql, $input, "o");
