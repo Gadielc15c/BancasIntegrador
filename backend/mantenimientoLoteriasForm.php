@@ -44,33 +44,7 @@ $query=seleccionar_todos_usuario();
                 </thead>
                 <tbody>
 
-                    <?php 
-                    foreach ($query as $row){
-                    ?>
-                    <tr>
-                        <th><?php echo $row['idterceros']?></th>
-                        <th><?php echo $row['nomusuario']?></th>
-                        <!-- No es necesario mostrar la clave del usuario - Frannie
-                        <th><?php //echo $row['claveusuario']?></th>
-                        -->
-                        <th><?php echo $row['correo']?></th>
-                        <th><?php echo $row['cedula']?></th>
-                        <th><?php 
-                            $reply = ucfirst(por_estado_activo_inactivo($row['estado']));
-                            echo $reply;
-                        ?></th>
-                        <th><a href="../backend/updateUsuario.php?idterceros=<?php echo $row['idterceros']?>"
-                                class="btn btn-warning">EDITAR</a> </th>
-
-                        <th><a href="delete.php?idterceros=<?php echo $row['idterceros']?>"
-                                class="btn btn-danger">ELIMINAR</a> </th>
-
-                    </tr>
-
-
-                    <?php
-                    }
-?>
+                   
                     <style>
                     th {
                         text-align: justify;
