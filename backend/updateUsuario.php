@@ -16,6 +16,7 @@ if (isset($_POST['submit'])){
 
 if (isset($value)){
     // Debe coincidir con las columnas de la BD
+    // Esto evita doble llamada a la base de datos (update y select = 2 llamadas)
     $row = array();
     $row['idterceros'] = $id;
     $row['nomusuario'] = $nomuser;
