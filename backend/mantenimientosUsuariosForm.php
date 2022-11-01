@@ -9,7 +9,7 @@ $query=seleccionar_todos_usuario();
 
         <div class="col-md-6">
             <h1>Mantenimiento User</h1>
-            <form action="insertar.php" method="POST">
+            <form action=" " method="POST">
                 <input type="text" class="form-control mb-3" name="idTercero" placeholder="ID USER">
                 <input type="text" class="form-control mb-3" name="nomUser" placeholder="Nombre de Usuario">
                 <input type="text" class="form-control mb-3" name="claveUsuario" placeholder="Clave Encriptada">
@@ -31,7 +31,6 @@ $query=seleccionar_todos_usuario();
                     <tr style="text-align: center;">
                         <th>ID USUARIO</th>
                         <th>USUARIO</th>
-                        <!-- <th>CLAVE</th> -->
                         <th>CORREO</th>
                         <th>CEDULA</th>
                         <th>ESTADO</th>

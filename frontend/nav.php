@@ -8,18 +8,20 @@
                 </a>
              
             </div>
+            <!--
             <small class"Smally"style="margin-top: 5px; margin-left: 3%; font-weight: bolder;"> Fecha: <?php
             
             /*GADIEL VERIFICAR RUTA TAREA PERSONAL*/
+            /*
             include_once('.//backend/phpfunctions/generals.php');
     
         $fecha=$HORA=fecha_de_hoy();
         $newDate = date("d-M-Y", strtotime($fecha)); 
         echo $newDate;
         $TIME= date("h:i A", strtotime($fecha)); 
-       
+       */
         ?> Hora: <?php  echo $TIME; ?>
-       <small>
+       <small>-->
         <div class="opciones">
           <a href="/backend/phpfunctions/logOutTemporal.php" class="NavItem NavButton">
           <ion-icon name="exit"></ion-icon>

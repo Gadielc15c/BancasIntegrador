@@ -1,62 +1,67 @@
+<?php
+$path = dirname(__FILE__);
+include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
+$query=seleccionar_todos_tickets();
+?>
 
 <div class="container mt-3">
-     <form action="">
-                <input type="text" class="form-control mb-3" name="idticket" placeholder="Id Ticket">
-                <input type="text" class="form-control mb-3" name="monto" placeholder="Monto">
-                <input type="date" class="form-control mb-3" name="fecha" placeholder="Fecha">
-                <input type="text" class="form-control mb-3" name="estado" placeholder="Estado">
-                <input type="submit" class="btn btn-primary" value="Buscar">
-                <input type="submit" class="btn btn-primary" value="Eliminar">
-                <input type="submit" class="btn btn-primary" value="Modificar">
-            </form>
+    <form action="">
+        <input type="text" class="form-control mb-3" name="idticket" placeholder="Id Ticket">
+        <input type="text" class="form-control mb-3" name="monto" placeholder="Monto">
+        <input type="date" class="form-control mb-3" name="fecha" placeholder="Fecha">
+        <input type="text" class="form-control mb-3" name="estado" placeholder="Estado">
+        <input type="submit" class="btn btn-primary" value="Buscar">
 
-            <div class="col-md-7 col-md-offset-2"></div>
+    </form>
 
-<div class="row-md-7">
-    <table class="table">
-        <thead class="table-warning table-striped">
-            <tr style="text-align: center;">
-                <th style="text-align: center;">ID  TICKET</th>
-                <th style="text-align: center;">MONTO</th>
-                <th style="text-align: center;">CLAVE</th>
-                <th style="text-align: center;">FECHA</th>
-                <th style="text-align: center;">ESTADO</th>
-                <th style="text-align: center;"></th>
-                <th style="text-align: center;"></th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="col-md-7 col-md-offset-2"></div>
 
-            <?php 
-            while ($row=mysqli_fetch_array($query)){
-                ?>
-            <tr>
-                <th><?php echo $row['idticket']?></th>
-                <th><?php echo $row['monto']?></th>
-                <th><?php echo $row['fecha']?></th>
-                <th><?php echo $row['estado']?></th>
-                <th><a href=""class="btn btn-warning">EDITAR</a> </th>
-                <!--ejemplo--  <../backend/updateUsuario.php?idterceros=<?php echo $row['idterceros']?>  -->
-                <th><a href="#"
-                        class="btn btn-danger">ELIMINAR</a> </th>
+    <div class="row-md-7">
+        <table class="table">
+            <thead class="table-warning table-striped">
+                <tr style="text-align: center;">
+                    <th class="Tabla">ID TICKET</th>
+                    <th class="Tabla">MONTO</th>
+                    <th class="Tabla">FECHA</th>
+                    <th class="Tabla">ESTADO</th>
+                    <th class="Tabla"></th>
+                    <th class="Tabla"></th>
+                </tr>
+            </thead>
+            <tbody>
 
-
-
-
-            </tr>
+                <?php 
+                    foreach ($query as $row){
+                    ?>
+                <tr>
+                    <th class="Tabla"><?php echo $row['idtickets']?></th>
+                    <th class="Tabla"><?php echo $row['monto']?></th>
+                    <th class="Tabla"><?php echo $row['fecha']?></th>
+                    <th><?php 
+                            $reply = ucfirst(por_estado_activo_inactivo($row['estado']));
+                            echo $reply;
+                        ?></th>
+                    <th><a href="../backend/updateTickets.php?idtickets=<?php echo $row['idtickets']?>"
+                           class="btn btn-warning">EDITAR</a> </th>
+                           
+                    <!--ejemplo--  <../backend/updateUsuario.php?idterceros=<?php echo $row['idtickets']?>  -->
+                    <th><a href="#" class="btn btn-danger">ELIMINAR</a> </th>
 
 
-            <?php
+
+
+                </tr>
+
+
+                <?php
             }
 ?>
-            <style>
-            th {
-                text-align: justify;
-            }
-            </style>
-        </tbody>
-    </table>
+                <style>
+                th {
+                    text-align: justify;
+                }
+                </style>
+            </tbody>
+        </table>
+    </div>
 </div>
-         </div>
-
- 
