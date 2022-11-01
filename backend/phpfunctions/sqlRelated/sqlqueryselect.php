@@ -45,5 +45,23 @@ function seleccionar_moneda_por_idmonedas($idmon){
     return retorno_para_un_select($col, $sql, array($idmon));
 }
 
+function seleccionar_id_tipo_tarjeta_por_nombre($nom){
+    $col = "idtipotarjetas";
+    $sql = "SELECT $col FROM tipotarjetas WHERE nombre = ?";
+    return retorno_para_un_select($col, $sql, array($nom));
+}
+
+function seleccionar_todos_tipo_tarjeta(){
+    $sql = "SELECT idtipotarjetas, nombre FROM tipotarjetas";
+    return retornar_seleccion($sql, null, "a");
+}
+
+function seleccionar_idpagometodos_por_idtercero($idter){
+    // Puede retornar varios
+    $sql = "SELECT idpagometodos, metodo, principal FROM pagometodos WHERE idterceros_fk = ?";
+    return retornar_seleccion($sql, array($idter), "a");
+}
+
+
 
 ?>

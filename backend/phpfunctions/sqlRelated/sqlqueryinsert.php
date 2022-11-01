@@ -97,11 +97,20 @@ function insertar_tipo_targeta($tipo){
     return $value; //false
 }
 
+function insertar_pago_tarjeta($nombre, $numerotarj, $cvc, $fechavencimiento, $idpagometodos_fk, $idtipotarjeta_fk){
+    // @param $fechavencimiento         Este valor debe estar encriptado para poder funcionar bien en la BD
+
+    $idcol = "idpagotarjetas";
+    $table = "pagotarjetas";
+    $id = crear_id($idcol, $table);
+    $sql = "INSERT INTO $table ($idcol, nombre, numerotarj, cvc, fechaven, idpagometodos_fk, idtipotarjetas_fk) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    return ejecutarQuery($sql, array($id, $nombre, $numerotarj, $cvc, $fechavencimiento, $idpagometodos_fk, $idtipotarjeta_fk));
 
 
 
-// metodo de pago
-// pagos
+}
+
+
 
 
 
