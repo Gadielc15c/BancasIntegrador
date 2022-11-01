@@ -12,25 +12,14 @@
 
 
 </head>
+
 <header>
 <?php include('../frontend/nav.php');?>
 </header>
+
 <body>
 
-<div class="container2">
 
-<div class="cuadrado">
-  <div class="d-flex">
-   
-    <div class="w-100">
-      <div id="content">
-        <section>
-            
-        </section>
-        </div>
-    <div>   
-    </div>
-</div>
 
 
 
@@ -42,6 +31,7 @@
   <!--No borrar-->
 
 </body>
+
 <footer>
   <?php include("footer.php") ?>
 </footer>
