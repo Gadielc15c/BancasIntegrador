@@ -2,10 +2,50 @@
 
 $path = dirname(__FILE__);
 include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
+$path = dirname(__FILE__);
+include_once($path . "/phpFunctions/sqlRelated/sqlqueryupdate.php");
+
+if (isset($_POST['submit'])){
+    $id = $_POST['idterceros'];
+    $nomuser = $_POST['nomusuario'];
+    $correo = $_POST['correo'];
+    $cedula = $_POST['cedula'];
+    $estado = $_POST['estado'];
+    $value = update_tercero_por_idtercero($id, $nomuser, $correo, $cedula, $estado);
+    // si value es TRUE, funciono el update, de lo contrario es false
+}
+
+if (isset($value)){
+    // Debe coincidir con las columnas de la BD
+    // Esto evita doble llamada a la base de datos (update y select = 2 llamadas)
+    $row = array();
+    $row['idtickets'] = $id;
+    $row['monto'] = $nomuser;
+    $row['correo'] = $correo;
+    $row['cedula'] = $cedula;
+    $row['estado'] = $estado;
+
+} elseif (isset($_GET['idterceros'])){
+    $id = $_GET['idterceros'];
+    $row = seleccionar_un_usuario_por_idtercero($id);
+}
+
+
+
+
+
+
+
+
+
 if (isset($_GET['idtickets'])) {
     $idTcket = $_GET['idtickets'];
     $row = seleccionar_ticket_por_idticket($idTcket);
 }
+
+
+
+
 
 ?>
 
