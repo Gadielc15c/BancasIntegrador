@@ -14,7 +14,7 @@
 
 </head>
 <header>
-<?php include('../frontend/nav.php');?>
+<?php include('/frontend/nav.php');?>
 </header>
 
 <body>
