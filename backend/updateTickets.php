@@ -4,7 +4,7 @@ $path = dirname(__FILE__);
 include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
 if (isset($_GET['idtickets'])) {
     $idTcket = $_GET['idtickets'];
-    $row = seleccionar_id_ticket_por_codigobarra($idTcket);
+    $row = seleccionar_ticket_por_idticket($idTcket);
 }
 
 ?>
@@ -32,8 +32,9 @@ if (isset($_GET['idtickets'])) {
     <div class="container mt-5">
         <form action="/frontend/mantenimientoTicket.php" method="POST">
             <input type="hidden" class="form-control mb-3" name="idtickets" placeholder="ID Ticket" value="<?php echo $idTcket  ?>">
-            <input type="text" class="form-control mb-3" name="monto" placeholder="Username" value="<?php echo $row['monto']  ?>">
-            <input type="text" class="form-control mb-3" name="fecha" placeholder="Correo" value="<?php echo $row['fecha']  ?>">
+            <input type="text" class="form-control mb-3" name="monto" placeholder="Monto" value="<?php echo $row['monto']  ?>">
+            <input type="text" class="form-control mb-3" name="monedas_fk" placeholder="monedas_fk" value="<?php echo $row['monedas_fk']  ?>">
+            <input type="text" class="form-control mb-3" name="fecha" placeholder="Fecha" value="<?php echo $row['fecha']  ?>">
             <input type="text" class="form-control mb-3" name="estado" placeholder="Estado" value="<?php echo $row['estado']  ?>">
             <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
             

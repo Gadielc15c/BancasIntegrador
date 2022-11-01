@@ -65,15 +65,14 @@ function insertar_moneda($idmonedas = null, $moneda, $nombre){
 
 }
 
-function insertar_metodo_de_pago($metodo, $principal = 0, $idter){
-    // @param $metodo       ejemplo paypal, credito, debito, etc
+function insertar_metodo_de_pago($metodo_fk, $principal = 0, $idter){
 
     $idcol = "idpagometodos";
     $table = "pagometodos";
     $maxrange = 300;
     $id = crear_id($idcol, $table, $maxrange);
-    $sql = "INSERT INTO $table ($idcol, metodo, principal, idterceros_fk) VALUES (?, ?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $metodo, $principal, $idter));
+    $sql = "INSERT INTO $table ($idcol, metodo_fk, principal, idterceros_fk) VALUES (?, ?, ?, ?)";
+    $value = ejecutarQuery($sql, array($id, $metodo_fk, $principal, $idter));
 
     if ($value){
         return $id;
@@ -81,9 +80,7 @@ function insertar_metodo_de_pago($metodo, $principal = 0, $idter){
     return $value; //false
 }
 
-function insertar_tipo_targeta($tipo){
-    // @param $tipo         ejemplo mastercard, visa, etc
-
+function insertar_tipo_tarjeta($tipo){
     $idcol = "idtipotarjetas";
     $table = "tipotarjetas";
     $maxrange = 300;
@@ -106,11 +103,21 @@ function insertar_pago_tarjeta($nombre, $numerotarj, $cvc, $fechavencimiento, $i
     $sql = "INSERT INTO $table ($idcol, nombre, numerotarj, cvc, fechaven, idpagometodos_fk, idtipotarjetas_fk) VALUES (?, ?, ?, ?, ?, ?, ?)";
     return ejecutarQuery($sql, array($id, $nombre, $numerotarj, $cvc, $fechavencimiento, $idpagometodos_fk, $idtipotarjeta_fk));
 
-
-
 }
 
+function insertar_tipometodopago($nom, $estado = 1){
+    $idcol = "idtipometodopago";
+    $table = "tipometodopago";
+    $maxrange = 300;
+    $id = crear_id($idcol, $table, $maxrange);
+    $sql = "INSERT INTO $table ($idcol, nombre, estado) VALUES (?, ?, ?)";
+    $value = ejecutarQuery($sql, array($id, $nom, $estado));
 
+    if ($value){
+        return $id;
+    }
+    return $value; //false
+}
 
 
 

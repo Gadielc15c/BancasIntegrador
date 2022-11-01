@@ -2,10 +2,9 @@
 
 $path = dirname(__FILE__);
 include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
-
-if (isset($_GET['idterceros'])) {
-    $id = $_GET['idterceros'];
-    $row = seleccionar_un_usuario_por_idtercero($id);
+if (isset($_GET['idmonedas'])) {
+    $idmon = $_GET['idmonedas'];
+    $row = seleccionar_moneda_por_idmonedas($idmon);
 }
 
 ?>
@@ -31,12 +30,11 @@ if (isset($_GET['idterceros'])) {
         <h1>Actualizar Valores</h1>
     </div>
     <div class="container mt-5">
-        <form action="/frontend/mantenimientosUsuarios.php" method="POST">
-            <input type="hidden" class="form-control mb-3" name="IDTercero" placeholder="IDTercero" value="<?php echo $id  ?>">
-            <input type="text" class="form-control mb-3" name="Username" placeholder="Username" value="<?php echo $row['nomusuario']  ?>">
-            <input type="text" class="form-control mb-3" name="Correo" placeholder="Correo" value="<?php echo $row['correo']  ?>">
-            <input type="text" class="form-control mb-3" name="Cedula" placeholder="Cedula" value="<?php echo $row['cedula']  ?>">
-            <input type="text" class="form-control mb-3" name="Estado" placeholder="Estado" value="<?php echo $row['estado']  ?>">
+        <form action="/frontend/mantenimientoTicket.php" method="POST">
+            <input type="hidden" class="form-control mb-3" name="idmoneda" placeholder="ID Moneda" value="<?php echo $idmon  ?>">
+            <input type="text" class="form-control mb-3" name="moneda" placeholder="Moneda" value="<?php echo $row['moneda']  ?>">
+            <input type="text" class="form-control mb-3" name="nombre" placeholder="Nombre" value="<?php echo $row['nombre']  ?>">
+            <input type="text" class="form-control mb-3" name="estado" placeholder="Estado" value="<?php echo $row['estado']  ?>">
             <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
             
         </form>

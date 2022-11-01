@@ -42,8 +42,8 @@ $query=seleccionar_todas_monedas();
                 <tbody>
 
                     <?php 
-    foreach ($query as $row){
-    ?>
+                    foreach ($query as $row){
+                    ?>
                     <tr>
                     <th class="Tabla"><?php echo $row['idmonedas']?></th>
                         <th class="Tabla"><?php echo $row['moneda']?></th>
