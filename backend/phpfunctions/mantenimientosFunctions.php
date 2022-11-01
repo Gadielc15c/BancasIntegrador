@@ -54,13 +54,13 @@ function crear_mantenimientos_form($function_select, $encabezado, $table, $array
                         </tr>
                     </thead>
                     <tbody>';
-
                         foreach ($query as $row){
                             echo '<tr>';
                             for ($i = 0; $i < count($col); $i++) {
                                 $value = $col[$i];
                                 if (array_key_exists($value, $row)){
                                     $reply = $row[$value];
+
                                     if (!in_array($value, $array_columnas_exception)){
                                         if ($value == "estado"){
                                             $reply = ucfirst(por_estado_activo_inactivo($row["estado"]));
