@@ -1,6 +1,9 @@
 <?php
 
-function crear_numero_random(){
+function crear_numero_random($maxrange = null){
+    if ($maxrange){
+        return rand(1, $maxrange);
+    }
     return rand(1, 2000000000);
 }
 
