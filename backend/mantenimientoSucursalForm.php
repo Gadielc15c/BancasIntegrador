@@ -1,51 +1,18 @@
-<div class="container mt-3">
-<h2>Mantenimiento Sucursal</h2>
-    <form action="">
-        <input type="text" class="form-control mb-3" name="idsucursal" placeholder="Id Jugada">
-        <input type="text" class="form-control mb-3" name="nombresucursal" placeholder="Numeros Jugados">
-        <input type="submit" class="btn btn-primary" value="Buscar">
-    </form>
+<?php
 
-    <div class="col-md-7 col-md-offset-2"></div>
+$path = dirname(__FILE__);
+include_once($path . "/phpFunctions/mantenimientosFunctions.php");
 
-    <div class="row-md-7">
-        <table class="table">
-            <thead class="table-warning table-striped">
-                <tr style="text-align: center;">
-                    <th style="text-align: center;">ID Sucursal</th>
-                    <th style="text-align: center;">Nombre</th>
-                    <th style="text-align: center;"></th>
-                    <th style="text-align: center;"></th>
-                </tr>
-            </thead>
-            <tbody>
+$function_select = seleccionar_todos_usuario();
+$encabezado = "Mantenimientos Sucursal";
+$table = "sucursal";
+$array_columnas_exception = array("idtercero_fk", "idtelefonos_fk", "iddireccion_fk");
+$array_placeholder = array("ID SUCURSAL", "NOMBRE", "ID TERCERO", "ID TELEFONO", "ID DIRECCION");
+$array_text = array("ID SUCURSAL", "NOMBRE", "ID TERCERO", "ID TELEFONO", "ID DIRECCION");
+$href_editar = "../backend/updateUsuario.php?idsucursal=";
+$href_delete = "";
+crear_mantenimientos_form($function_select, $encabezado, $table, $array_columnas_exception, $array_placeholder, $array_text, $href_editar, $href_delete);
 
-
-                <?php 
-                    foreach ($query as $row){
-                    ?>
-                <tr>
-                <tr>
-                    <th><?php echo $row['idsucursal']?></th>
-                    <th><?php echo $row['nombresucursal']?></th>
-                    <th><a href="./backend/updateSucursal.php?idsucursal=<?php echo $row['idsucursal']?>" class="btn btn-warning">EDITAR</a> </th>
-                    <th><a href="#" class="btn btn-danger">ELIMINAR</a> </th>
-
-
-
-
-                </tr>
-
-
-                <?php
-                    }
 ?>
-                <style>
-                th {
-                    text-align: justify;
-                }
-                </style>
-            </tbody>
-        </table>
-    </div>
-</div>
+
+
