@@ -1,7 +1,8 @@
 <?php
 
 $path = dirname(__FILE__);
-include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
+include_once($path . "/phpFunctions/sqlRelated/sqlqueryupdate.php");
+
 if (isset($_GET['idterceros'])) {
     $id = $_GET['idterceros'];
     $row = seleccionar_un_usuario_por_idtercero($id);
