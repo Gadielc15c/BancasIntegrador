@@ -1,6 +1,7 @@
 <?php
-
-
+$path = dirname(__FILE__);
+include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
+$query=seleccionar_todos_usuario();
 ?>
 <div class="container mt-5">
     <div class="row">

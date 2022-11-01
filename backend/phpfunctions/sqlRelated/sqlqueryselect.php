@@ -44,7 +44,11 @@ function seleccionar_moneda_por_idmonedas($idmon){
     $sql = "SELECT $col FROM monedas WHERE idmonedas = ?";
     return retorno_para_un_select($col, $sql, array($idmon));
 }
-
+function seleccionar_todas_monedas(){
+    $col = "idmonedas, moneda, nombre, estado";
+    $sql = "SELECT $col FROM monedas";
+    return retornar_seleccion($sql, null, "a");
+}
 function seleccionar_id_tipo_tarjeta_por_nombre($nom){
     $col = "idtipotarjetas";
     $sql = "SELECT $col FROM tipotarjetas WHERE nombre = ?";
