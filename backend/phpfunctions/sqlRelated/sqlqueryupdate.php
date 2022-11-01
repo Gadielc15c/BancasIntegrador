@@ -17,5 +17,8 @@ function update_agregar_terceros_data_por_idtercero($idter, $idterdata){
     return ejecutarQuery($sql, array($idterdata, $idter));
 }
 
+// update estado de moneda
+//Y otros estados
+
 
 ?>
