@@ -2,6 +2,7 @@
 $path = dirname(__FILE__);
 include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
 $query=seleccionar_todos_tickets();
+
 ?>
 
 <div class="container mt-3">

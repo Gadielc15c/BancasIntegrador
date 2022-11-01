@@ -53,5 +53,56 @@ function insertar_nivel_acceso($nombre, $idnivelacceso = null, $descrip = null){
     
 }
 
+function insertar_moneda($idmonedas = null, $moneda, $nombre){
+    $idcol = "idmonedas";
+    $table = "monedas";
+    $maxrange = 300;
+    if ($idmonedas <= $maxrange && verificar_existencia_de_valor($idmonedas, $idcol, $table)){
+        $idmonedas =crear_id($idcol, $table, $maxrange);
+    }
+    $sql = "INSERT INTO $table ($idcol, moneda, nombre) VALUES (?, ?, ?)";
+    return ejecutarQuery($sql, array($idmonedas, $moneda, $nombre));
+
+}
+
+function insertar_metodo_de_pago($metodo, $principal = 0, $idter){
+    // @param $metodo       ejemplo paypal, credito, debito, etc
+
+    $idcol = "idpagometodos";
+    $table = "pagometodos";
+    $maxrange = 300;
+    $id = crear_id($idcol, $table, $maxrange);
+    $sql = "INSERT INTO $table ($idcol, metodo, principal, idterceros_fk) VALUES (?, ?, ?, ?)";
+    $value = ejecutarQuery($sql, array($id, $metodo, $principal, $idter));
+
+    if ($value){
+        return $id;
+    }
+    return $value; //false
+}
+
+function insertar_tipo_targeta($tipo){
+    // @param $tipo         ejemplo mastercard, visa, etc
+
+    $idcol = "idtipotarjetas";
+    $table = "tipotarjetas";
+    $maxrange = 300;
+    $id = crear_id($idcol, $table, $maxrange);
+    $sql = "INSERT INTO $table ($idcol, nombre) VALUES (?, ?)";
+    $value = ejecutarQuery($sql, array($id, $tipo));
+
+    if ($value){
+        return $id;
+    }
+    return $value; //false
+}
+
+
+
+
+// metodo de pago
+// pagos
+
+
 
 ?>
