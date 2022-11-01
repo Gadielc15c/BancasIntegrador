@@ -45,7 +45,7 @@ header('location: ../index.php');
                   <section>
                     <div class="container" style="margin-left: 30%;">.
                         <div class="row">
-                            <div class="col-lg-8">
+                            <div class="col-lg-8  rows2">
                                 <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
                                     MANTENIMIENTOS GENERALES
                                 </h2>
@@ -61,24 +61,25 @@ header('location: ../index.php');
 <!--seccion -->
     <section style="margin-bottom: 40PX;display: block;margin-left: auto;margin-right: auto">
      
-    <div class="container" style="margin-left: 35%;">
+    <div class="container" style="margin-left: 35%;
+    margin-TOP: 5%;">
         <div id="container">
  
           <div class="top">
           
             <div class="opciones">
-            <div class="row">
-              <a href="../frontend/mantenimientoTicket.php" class="NavItem NavButton">
-                <ion-icon name="book"></ion-icon> TICKETS
+            <div class="row ">
+              <a href="./mantenimientoTicket.php" class="NavItem NavButton">
+              <ion-icon name="newspaper"></ion-icon> TICKETS
               </a>
             </div>
             <div class="row">
-              <a href="#" class="NavItem NavButton">
+              <a href="../frontend/mantenimientoLoterias.php" class="NavItem NavButton">
                 <ion-icon name="book"></ion-icon> LOTERIAS
               </a>
             </div>
               <div class="row">
-              <a href="../frontend/mantenimientosUsuarios.php" class="NavItem NavButton">
+              <a href="./mantenimientosUsuarios.php" class="NavItem NavButton">
                 <ion-icon name="person"></ion-icon> USUARIOS
               </a>
               </div>
@@ -91,18 +92,22 @@ header('location: ../index.php');
        <!-- COLUMNA 2-->
   <div class="opciones">
             <div class="row">
-              <a href="mantenimientoTicket" class="NavItem NavButton">
-                <ion-icon name="book"></ion-icon> ELEMENTO VACIO
+              <a href="./mantenimientoJugadas.php" class="NavItem NavButton">
+                <ion-icon name="game-controller"></ion-icon> JUGADAS 
               </a>
+              
             </div>
             <div class="row">
               <a href="#" class="NavItem NavButton">
-                <ion-icon name="book"></ion-icon> ELEMENTO VACIO
+              <ion-icon name="logo-bitcoin"></ion-icon> MONEDA
               </a>
             </div>
               <div class="row">
               <a href="#" class="NavItem NavButton">
-                <ion-icon name="person"></ion-icon> ELEMENTO VACIO
+              <ion-icon name="storefront"></ion-icon> SUCURSALES
+              </a>
+              <a href="mantenimientoTicket" class="NavItem NavButton">
+               <ion-icon name="card"></ion-icon> PAGOS 
               </a>
               </div>
             </div>
