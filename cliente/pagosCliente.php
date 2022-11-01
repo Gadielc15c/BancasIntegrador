@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>Cuentas</title>
+  <title>PagosCliente</title>
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
   <meta name="description" />
   <meta name="generator" content="HAPedit 3.1" />
@@ -12,7 +13,6 @@
 
 
 </head>
-
 <header>
 <?php include('../frontend/nav.php');?>
 </header>
@@ -20,27 +20,26 @@
 <body>
 
 <div class="container2">
-  <div class="cuadrado">
-    <!--PONER AQUI CONTENIDO-->
- 
+    <div class="cuadrado">
+     
 
+    <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
+                                    PLANTILLA PAGOSCLIENTE
+                                </h2>
 
-  </div>
+      </div>
+    </div>
+
 </div>
 
-
-
-
-
-  <!--No borrar-->
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!--No borrar-->
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <!--Script de iconos-->
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <!--No borrar-->
 
 </body>
-
 <footer>
   <?php include("footer.php") ?>
 </footer>

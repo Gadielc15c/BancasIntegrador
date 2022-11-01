@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Cuentas</title>
+  <title>CuentasCliente</title>
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
   <meta name="description" />
   <meta name="generator" content="HAPedit 3.1" />
@@ -20,12 +20,16 @@
 <body>
 
 <div class="container2">
-  <div class="cuadrado">
-    <!--PONER AQUI CONTENIDO-->
- 
+    <div class="cuadrado">
+     
 
+    <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
+                                    PLANTILLA CUENTASCLIENTE
+                                </h2>
 
-  </div>
+      </div>
+    </div>
+
 </div>
 
 
