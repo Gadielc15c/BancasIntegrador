@@ -6,7 +6,7 @@ $query=seleccionar_todos_tipo_tarjeta();
 ?>
 
          <div class="container mt-3">
-         <h1>Mantenimiento Tipo Tarjeta</h1>
+         <h2>Mantenimiento Tipo Tarjeta</h2>
      <form action="">
                 <input type="text" class="form-control mb-3" name="idtipotarjetas" placeholder="Id Tipo Tarjeta">
                 <input type="text" class="form-control mb-3" name="nombre" placeholder="Nombre">
@@ -42,7 +42,7 @@ $query=seleccionar_todos_tipo_tarjeta();
                         <th><?php //echo $row['claveusuario']?></th>
                         -->
                      
-                        <th><a href="../backend/updateUsuario.php?idtipotarjetas=<?php echo $row['idtipotarjetas']?>"
+                        <th><a href="../backend/updateTipoTarjetas.php?idtipotarjetas=<?php echo $row['idtipotarjetas']?>"
                                 class="btn btn-warning">EDITAR</a> </th>
                         <th><a href="delete.php?idtipotarjetas=<?php echo $row['idtipotarjetas']?>"
                                 class="btn btn-danger">ELIMINAR</a> </th>

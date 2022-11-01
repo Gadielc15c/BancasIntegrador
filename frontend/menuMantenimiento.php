@@ -74,7 +74,7 @@ header('location: ../index.php');
                                                 <a href="./mantenimientoTicket.php" class="NavItem NavButton">
                                                     <ion-icon name="newspaper"></ion-icon> TICKETS
                                                 </a>
-                                                <a href="./frontend/mantenimientoLoterias.php"
+                                                <a href="./mantenimientoLoterias.php"
                                                     class="NavItem NavButton">
                                                     <ion-icon name="book"></ion-icon> LOTERIAS
                                                 </a>
@@ -88,10 +88,7 @@ header('location: ../index.php');
                                             <div class="row">
                                                 <a href="./mantenimientosTipoTarjeta.php" class="NavItem NavButton">
                                                     <ion-icon name="card"></ion-icon> TIPO DE TARJETA
-                                                </a>
-                                                <a href="mantenimientoTicket" class="NavItem NavButton">
-                                                    <ion-icon name="card"></ion-icon> PAGOS
-                                                </a>
+                                                </a>                                        
                                                 <a href="./mantenimientoMoneda.php" class="NavItem NavButton">
                                                     <ion-icon name="logo-bitcoin"></ion-icon> MONEDA
                                                 </a>
@@ -106,7 +103,7 @@ header('location: ../index.php');
                                             <div class="opciones">
                                             <H4 style="margin-top:8%; font-weight:bold">MISCELANEOS</H4>
                                                 <div class="row">
-                                                    <a href="#" class="NavItem NavButton">
+                                                    <a href="./mantenimientoSucursal.php" class="NavItem NavButton">
                                                         <ion-icon name="storefront"></ion-icon> SUCURSALES
                                                     </a>
                                                     <a href="./mantenimientosUsuarios.php" class="NavItem NavButton">

@@ -24,22 +24,19 @@ if (isset($_GET['idterceros'])) {
 </header>
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5" style="padding-bottom: 50px;">
 
         <h1>Actualizar Valores</h1>
     </div>
     <div class="container mt-5">
         <form action="/frontend/mantenimientosUsuarios.php" method="POST">
-            <input type="hidden" class="form-control mb-3" name="IDTercero" placeholder="IDTercero" value="<?php echo $id  ?>">
-           <label for=Username"">Usuario</label>
-            <input type="text" class="form-control mb-3" name="Username" placeholder="Username" value="<?php echo $row['nomusuario']  ?>">
-            <label for=Correo"">Correo</label>
-            <input type="text" class="form-control mb-3" name="Correo" placeholder="Correo" value="<?php echo $row['correo']  ?>">
-            <label for=Correo"">Cedula</label>
-            <input type="text" class="form-control mb-3" name="Cedula" placeholder="Cedula" value="<?php echo $row['cedula']  ?>">
-            <label for=Correo"">Estado</label>
+
+            <input type="hidden" class="form-control mb-3" name="idjugada" placeholder="IDTercero" value="<?php echo $id  ?>">
+            <label for="jugnumeros">Numeros de la Jugada</label>
+            <input type="text" class="form-control mb-3" name="jugnumeros" placeholder="Numeros Jugadas" value="<?php echo $row['jugnumeros']  ?>">
+            <label for="Estado">Estado</label>
             <input type="text" class="form-control mb-3" name="Estado" placeholder="Estado" value="<?php echo $row['estado']  ?>">
-            <input type="submit" class="btn btn-warning btn-block" value="Actualizar">
+            <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
             
         </form>
 

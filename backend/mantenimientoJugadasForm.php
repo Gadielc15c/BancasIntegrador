@@ -20,25 +20,28 @@
         </thead>
         <tbody>
 
-            <?php 
-            while ($row=mysqli_fetch_array($query)){
-                ?>
-            <tr>
-                <th><?php echo $row['idjugada']?></th>
-                <th><?php echo $row['jugnumeros']?></th>
-                <th><a href=""class="btn btn-warning">EDITAR</a> </th>
-                <!--ejemplo--  <../backend/updateUsuario.php?idterceros=<?php echo $row['idterceros']?>  -->
-                <th><a href="#"
-                        class="btn btn-danger">ELIMINAR</a> </th>
+         
+          <?php 
+          foreach ($query as $row){
+          ?>
+          <tr>
+          <th><?php echo $row['idjugada']?></th>
+          <th><?php echo $row['jugnumeros']?></th>
+              <th><?php 
+                  $reply = ucfirst(por_estado_activo_inactivo($row['estado']));
+                  echo $reply;
+              ?></th>
+              <th><a href="../backend/updateJugadas.php?idjugada=<?php echo $row['idjugada']?>"
+                      class="btn btn-warning">EDITAR</a> </th>
+
+              <th><a href="delete.php?idjugada=<?php echo $row['idjugada']?>"
+                      class="btn btn-danger">ELIMINAR</a> </th>
+
+          </tr>
 
 
-
-
-            </tr>
-
-
-            <?php
-            }
+          <?php
+          }
 ?>
             <style>
             th {
