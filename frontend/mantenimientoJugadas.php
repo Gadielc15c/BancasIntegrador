@@ -35,7 +35,7 @@ header('location: ../index.php');
 <div class="container2">
 
     <div class="cuadrado">
-    <h3 style="margin-top:5%; margin-left: 15.5%;">Mantenimiento de Metodos de Pago</h3>
+    <h3 style="margin-top:5%; margin-left: 15.5%;">Mantenimiento de Jugadas</h3>
         <?php  
         
         include('../backend/mantenimientoJugadasForm.php')

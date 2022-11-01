@@ -46,7 +46,7 @@ if (isset($value)){
 </header>
 
 <body>
-    <div class="container mt-5" style="padding-bottom: 50px;">
+    <div class="container mt-5">
 
         <h1>Actualizar Valores</h1>
     </div>

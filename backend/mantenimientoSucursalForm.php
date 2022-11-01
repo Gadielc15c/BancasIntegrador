@@ -1,4 +1,5 @@
 <div class="container mt-3">
+<h2>Mantenimiento Sucursal</h2>
     <form action="">
         <input type="text" class="form-control mb-3" name="idsucursal" placeholder="Id Jugada">
         <input type="text" class="form-control mb-3" name="nombresucursal" placeholder="Numeros Jugados">

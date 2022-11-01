@@ -72,9 +72,13 @@ if (isset($_GET['idtickets'])) {
     <div class="container mt-5">
         <form action="/frontend/mantenimientoTicket.php" method="POST">
             <input type="hidden" class="form-control mb-3" name="idtickets" placeholder="ID Ticket" value="<?php echo $idTcket  ?>">
+           <label for="monto">Monto</label>
             <input type="text" class="form-control mb-3" name="monto" placeholder="Monto" value="<?php echo $row['monto']  ?>">
+            <label for="monedas_fk">Moneda</label>
             <input type="text" class="form-control mb-3" name="monedas_fk" placeholder="monedas_fk" value="<?php echo $row['monedas_fk']  ?>">
-            <input type="text" class="form-control mb-3" name="fecha" placeholder="Fecha" value="<?php echo $row['fecha']  ?>">
+            <label for="fecha">Fecha</label>
+            <input type="date" class="form-control mb-3" name="fecha" placeholder="Fecha" value="<?php echo $row['fecha']  ?>">
+            <label for="estado">Estado</label>
             <input type="text" class="form-control mb-3" name="estado" placeholder="Estado" value="<?php echo $row['estado']  ?>">
             <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
             

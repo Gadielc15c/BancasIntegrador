@@ -74,7 +74,7 @@ header('location: ../index.php');
                                                 <a href="./mantenimientoTicket.php" class="NavItem NavButton">
                                                     <ion-icon name="newspaper"></ion-icon> TICKETS
                                                 </a>
-                                                <a href="./frontend/mantenimientoLoterias.php"
+                                                <a href="./mantenimientoLoterias.php"
                                                     class="NavItem NavButton">
                                                     <ion-icon name="book"></ion-icon> LOTERIAS
                                                 </a>

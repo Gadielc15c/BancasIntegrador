@@ -11,7 +11,7 @@
             <!--
             <small class"Smally"style="margin-top: 5px; margin-left: 3%; font-weight: bolder;"> Fecha: <?php
             
-            /*GADIEL VERIFICAR RUTA TAREA PERSONAL*/
+            /*GADIEL VERIFICAR RUTA  PERSONAL*/
             /*
             include_once('.//backend/phpfunctions/generals.php');
     
