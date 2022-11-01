@@ -19,7 +19,7 @@
 
 <body>
 
-< <div class="container2">
+<div class="container2">
 
 <div class="cuadrado">
     <!--PONER AQUI CONTENIDO-->

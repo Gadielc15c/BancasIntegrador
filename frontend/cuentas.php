@@ -20,22 +20,12 @@
 <body>
 
 <div class="container2">
-
-<div class="cuadrado">
-  <div class="d-flex">
-   
-     
-    <div class="w-100">
-      <div id="content">
-              
+  <div class="cuadrado">
+    <!--PONER AQUI CONTENIDO-->
+ 
 
 
-
-
-      </div>
-    </div>
   </div>
-</div>
 </div>
 
 
