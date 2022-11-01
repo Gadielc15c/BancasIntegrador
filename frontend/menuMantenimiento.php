@@ -98,7 +98,7 @@ header('location: ../index.php');
               
             </div>
             <div class="row">
-              <a href="#" class="NavItem NavButton">
+              <a href="./mantenimientoMoneda.php" class="NavItem NavButton">
               <ion-icon name="logo-bitcoin"></ion-icon> MONEDA
               </a>
             </div>
