@@ -27,7 +27,9 @@ function lvlLogValidate(){
             switchRol();
 
         }else{
-            echo " y esa porqueria bro";
+            ?> <script type="text/javascript" src="/js/logoutFunctions.js"></script> <?php
+
+            echo "INSERTAR FUNCION JAVA PARA VALIDAR";
         }
     }
 }
