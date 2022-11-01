@@ -198,8 +198,4 @@ function seleccionar_loterias_por_nombre($nom){
 
 // agregar mas adelante por foreign key: horario y terceros
 
-
-echo "<br>";
-print_r(seleccionar_loterias_por_nombre("loteka"));
-echo "<br>";
 ?>
