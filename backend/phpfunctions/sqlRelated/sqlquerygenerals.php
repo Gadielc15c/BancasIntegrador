@@ -89,6 +89,7 @@ function retorno_nombre_columnas($table){
     return false;
     
 }
+
 /* $s = retorno_nombre_columnas("terceros");
 
 foreach($s as $i){
