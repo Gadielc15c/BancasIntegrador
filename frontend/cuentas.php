@@ -16,6 +16,7 @@
 <?php include('../frontend/nav.php');?>
 </header>
 <body>
+
 <div class="container2">
 
 <div class="cuadrado">
@@ -30,8 +31,6 @@
     <div>   
     </div>
 </div>
-
-</body>
 
 
 
