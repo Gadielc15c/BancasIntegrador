@@ -2,6 +2,8 @@
 include_once('sqlquerygenerals.php');
 include_once('sqlqueryselect.php');
 
+// table terceros
+
 function insertar_tercero($nomuser, $claveuser, $correo){
     $nivelacceso = 4; //4 Pertenece al cliente comun
     $idcol = "idterceros";
@@ -10,6 +12,8 @@ function insertar_tercero($nomuser, $claveuser, $correo){
     $sql = "INSERT INTO $table ($idcol, nomusuario, claveusuario, correo, idnivelacceso_fk) VALUES (?, ?, ?, ?, ?)";
     return ejecutarQuery($sql, array($id, $nomuser, $claveuser, $correo, $nivelacceso));
 }
+
+// table tickets
 
 function insertar_ticket($monto, $nomuser, $monedas_fk = 1, $sucursalventa_fk = null, $sucursalpago_fk = null){
 
@@ -28,6 +32,8 @@ function insertar_ticket($monto, $nomuser, $monedas_fk = 1, $sucursalventa_fk = 
     return ejecutarQuery($sql, array($id, $monto, $monedas_fk, $fecha, $idter, $codigobarra));
 }
 
+// table terceros data
+
 function insertar_tercero_data($nomprimero = null, $nomsegundo  = null, $apeprimero  = null, $apesegundo  = null, $fechanac  = null){
     $idcol = "idterdata";
     $table = "tercerosdata";
@@ -41,6 +47,8 @@ function insertar_tercero_data($nomprimero = null, $nomsegundo  = null, $apeprim
 
 }
 
+// table nivel acceso
+
 function insertar_nivel_acceso($nombre, $idnivelacceso = null, $descrip = null){
     $idcol = "idnivelacceso";
     $table = "nivelacceso";
@@ -53,6 +61,8 @@ function insertar_nivel_acceso($nombre, $idnivelacceso = null, $descrip = null){
     
 }
 
+// table monedas
+
 function insertar_moneda($idmonedas = null, $moneda, $nombre){
     $idcol = "idmonedas";
     $table = "monedas";
@@ -64,6 +74,8 @@ function insertar_moneda($idmonedas = null, $moneda, $nombre){
     return ejecutarQuery($sql, array($idmonedas, $moneda, $nombre));
 
 }
+
+// table pago metodos
 
 function insertar_metodo_de_pago($metodo_fk, $principal = 0, $idter){
 
@@ -80,6 +92,8 @@ function insertar_metodo_de_pago($metodo_fk, $principal = 0, $idter){
     return $value; //false
 }
 
+// table tipo tarjetas
+
 function insertar_tipo_tarjeta($tipo){
     $idcol = "idtipotarjetas";
     $table = "tipotarjetas";
@@ -94,6 +108,8 @@ function insertar_tipo_tarjeta($tipo){
     return $value; //false
 }
 
+// table pago tarjetas
+
 function insertar_pago_tarjeta($nombre, $numerotarj, $cvc, $fechavencimiento, $idpagometodos_fk, $idtipotarjeta_fk){
     // @param $fechavencimiento         Este valor debe estar encriptado para poder funcionar bien en la BD
 
@@ -104,6 +120,8 @@ function insertar_pago_tarjeta($nombre, $numerotarj, $cvc, $fechavencimiento, $i
     return ejecutarQuery($sql, array($id, $nombre, $numerotarj, $cvc, $fechavencimiento, $idpagometodos_fk, $idtipotarjeta_fk));
 
 }
+
+// table tipo metodo pago
 
 function insertar_tipometodopago($nom, $estado = 1){
     $idcol = "idtipometodopago";
@@ -119,6 +137,35 @@ function insertar_tipometodopago($nom, $estado = 1){
     return $value; //false
 }
 
+// table sucursal
+
+function insertar_sucuarsal($nom, $idterceros_fk = null, $idtelefonos_fk = null, $iddireccion_fk = null, $estado = 1){
+    $idcol = "idsucursal";
+    $table = "sucursal";
+    $id = crear_id($idcol, $table);
+    $sql = "INSERT INTO $table ($idcol, nombresucursal, idterceros_fk, idtelefonos_fk, iddireccion_fk, estado) VALUES (?, ?, ?, ?, ?, ?)";
+    $value = ejecutarQuery($sql, array($id, $nom, $idterceros_fk, $idtelefonos_fk, $iddireccion_fk, $estado));
+
+    if ($value){
+        return $id;
+    }
+    return $value; //false
+}
+
+// table loterias
+
+function insertar_loterias($nom, $idlothorarios_fk = null, $idterceros_fk = null, $estado = 1){
+    $idcol = "idloterias";
+    $table = "loterias";
+    $id = crear_id($idcol, $table);
+    $sql = "INSERT INTO $table ($idcol, nombre, idlothorarios_fk, idterceros_fk, estado) VALUES (?, ?, ?, ?, ?)";
+    $value = ejecutarQuery($sql, array($id, $nom, $idlothorarios_fk, $idterceros_fk, $estado));
+
+    if ($value){
+        return $id;
+    }
+    return $value; //false
+}
 
 
 ?>
