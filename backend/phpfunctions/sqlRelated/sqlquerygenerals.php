@@ -22,20 +22,20 @@ function retornar_seleccion($sql, $input, $type = null){
     return false;
 }
 
-function crear_id($idcol, $table){
+function crear_id($idcol, $table, $maxrange = null){
     /* 
     * @param $idcol     la columna del valor deseado en la BD  
     * @param $table     el table en donde se encuentra el valor deseado de la BD
     */
     $r = ejecutarQuery("SELECT $idcol FROM $table", null);
-    $random = crear_numero_random();
+    $random = crear_numero_random($maxrange);
     $r = $r -> fetchAll();
     while (true){
         $existe = false;
         foreach($r as $id){
             $id = $id[$idcol];
             if ($id == $random){
-                $random = crear_numero_random();
+                $random = crear_numero_random($maxrange);
                 $existe = true;
                 break;
             }
@@ -46,6 +46,12 @@ function crear_id($idcol, $table){
     }
     
     return $random;
+}
+
+function verificar_existencia_de_valor($value, $col, $table){
+    // retorna falso si el id no existe, de lo contrario una array
+    $sql = "SELECT $col FROM $table WHERE $col = ?";
+    return retorno_para_un_select($col, $sql, array($value));
 }
 
 function retorno_para_un_select($col, $sql, $input = null){
@@ -62,6 +68,7 @@ function retorno_para_un_select($col, $sql, $input = null){
     return false;
 
 }
+
 
 ?>
 

@@ -24,7 +24,7 @@
 <div class="cuadrado">
     <!--PONER AQUI CONTENIDO-->
     <?php
-include('../backend/mantenimientosUsuariosForm.php');
+include('../backend/mantenimientoLoteriasForm.php');
 ?>
  
 </div>

@@ -36,12 +36,8 @@ function seleccionar_id_ticket_por_codigobarra($codigobarra){
 }
 
 function seleccionar_todos_tickets(){
-
-    $sql = "SELECT idtickets FROM tickets WHERE codigobarra = ?";
-
-
-
-
+    $sql = "SELECT idtickets, monto, monedas_fk, fecha, estado, idterceros_fk, codigobarra FROM tickets";
+    return retornar_seleccion($sql, null, "a");
 }
 
 function seleccionar_moneda_por_idmonedas($idmon){
@@ -50,8 +46,5 @@ function seleccionar_moneda_por_idmonedas($idmon){
     return retorno_para_un_select($col, $sql, array($idmon));
 }
 
-
-
-//var_dump(seleccionar_moneda_por_idmonedas(1));
 
 ?>
