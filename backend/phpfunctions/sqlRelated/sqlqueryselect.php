@@ -9,7 +9,7 @@ function seleccionar_un_usuario_por_nombre($nomuser){
 }
 
 function seleccionar_un_usuario_por_idtercero($id){
-    $sql = "SELECT nomusuario, correo, cedula, estado FROM terceros WHERE idterceros=?";
+    $sql = "SELECT idterceros, nomusuario, claveusuario, idterdata_fk, correo, cedula, estado, idtelefonos_fk, recibirpago, idnivelacceso_fk FROM terceros WHERE idterceros=?";
     return retornar_seleccion($sql, array($id), "o");
 }
 
@@ -197,5 +197,7 @@ function seleccionar_loterias_por_nombre($nom){
 }
 
 // agregar mas adelante por foreign key: horario y terceros
+
+// TODO Actualizar los selects para la funcion de update en mantenimientosFunctions
 
 ?>

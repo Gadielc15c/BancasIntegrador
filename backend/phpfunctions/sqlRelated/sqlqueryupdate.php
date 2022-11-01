@@ -12,9 +12,10 @@ function update_ticket_monto_por_codigobarra($codigobarra, $monto, $monedas_fk =
 
 // Table terceros
 
-function update_tercero_por_idtercero($idter, $nomuser, $correo, $cedula, $estado = 1){
+function update_tercero_por_idtercero($arreglo){
+    // Orden de los elementos del arreglo nomusuario, correo, cedula, estado, idterceros
     $sql = "UPDATE terceros SET nomusuario = ?, correo = ?, cedula = ?, estado = ? WHERE idterceros = ?";
-    $v =  ejecutarQuery($sql, array($nomuser, $correo, $cedula, $estado, $idter));
+    $v =  ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }
 
