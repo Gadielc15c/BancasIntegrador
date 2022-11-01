@@ -14,8 +14,8 @@ $query=seleccionar_todos_usuario();
                 <input type="text" class="form-control mb-3" name="nomloteria" placeholder="Nombre Loteria">
                 <input type="text" class="form-control mb-3" name="Estado" placeholder="Estado">
                 <input type="text" class="form-control mb-3" name="diaLaboral" placeholder="Dias Laborables">
-                <input type="email" class="form-control mb-3" name="horalaboral" placeholder="Hora Laboral">
-                <input type="text" class="form-control mb-3" name="horacierre" placeholder="Hora Cierre">
+                <input type="time" class="form-control mb-3" name="horalaboral" placeholder="Hora Laboral">
+                <input type="time" class="form-control mb-3" name="horacierre" placeholder="Hora Cierre">
                 <input type="text" class="form-control mb-3" name="Estado" placeholder="Estado">
                 <input type="submit" class="btn btn-primary" value="Buscar">
             </form>
