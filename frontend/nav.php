@@ -12,7 +12,7 @@
           <ion-icon name="exit"></ion-icon>
            SALIR
           </a>
-          <a href="#" class="NavItem NavButton">
+          <a href="./cuentas.php" class="NavItem NavButton">
             <ion-icon name="person"></ion-icon> CUENTA
           </a>
           <a href="./metodoPagos.php" class="NavItem NavButton">
