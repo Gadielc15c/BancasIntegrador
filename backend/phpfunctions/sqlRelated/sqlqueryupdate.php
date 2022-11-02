@@ -10,10 +10,17 @@ function update_ticket_monto_por_codigobarra($codigobarra, $monto, $monedas_fk =
     return retorno_booleano_para_updates($v);
 }
 
+function update_ticket_por_idtickets($arreglo){
+    // usarse con mantenimientosFunctions update
+    $sql = "UPDATE tickets SET monto = ?, monedas_fk = ?, fecha = ?, estado = ? WHERE idtickets = ?";
+    $v =  ejecutarQuery($sql, $arreglo);
+    return retorno_booleano_para_updates($v);
+}
+
 // Table terceros
 
 function update_tercero_por_idtercero($arreglo){
-    // Orden de los elementos del arreglo nomusuario, correo, cedula, estado, idterceros
+    // usarse con mantenimientosFunctions update
     $sql = "UPDATE terceros SET nomusuario = ?, correo = ?, cedula = ?, estado = ? WHERE idterceros = ?";
     $v =  ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
@@ -43,41 +50,46 @@ function update_pagotarjeta_por_idpagotarjeta($id, $nom, $numerotarj, $cvc, $fec
 
 // table tipo tarjetas
 
-function update_tipotarjeta_por_idtipotarjetas($id, $nom){
-    $sql = "UPDATE tipotarjetas SET nombre = ? WHERE idtipotarjetas = ?";
-    $v = ejecutarQuery($sql, array($nom, $id));
+function update_tipotarjeta_por_idtipotarjetas($arreglo){
+    // usarse con mantenimientosFunctions update
+    $sql = "UPDATE tipotarjetas SET nombre = ?, estado = ? WHERE idtipotarjetas = ?";
+    $v = ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }
 
 // table monedas
 
-function update_monedas_por_idmonedas($id, $moneda, $nombre, $estado = 1){
+function update_monedas_por_idmonedas($arreglo){
+    // usarse con mantenimientosFunctions update
     $sql = "UPDATE monedas SET moneda = ?, nombre = ?, estado = ? WHERE idmonedas = ?";
-    $v = ejecutarQuery($sql, array($moneda, $nombre, $estado, $id));
+    $v = ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }
 
 // table tipo metodo pago
 
-function update_tipometodopago_por_idtipometodopago($id, $nombre, $estado = 1){
+function update_tipometodopago_por_idtipometodopago($arreglo){
+    // usarse con mantenimientosFunctions update
     $sql = "UPDATE tipometodopago SET nombre = ?, estado = ? WHERE idtipometodopago = ?";
-    $v = ejecutarQuery($sql, array($nombre, $estado, $id));
+    $v = ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }
 
 // table sucursal
 
-function update_sucursal_por_idsucursal($id, $nombre, $idterceros_fk = null, $idtelefonos_fk = null, $iddireccion_fk = null, $estado = 1){
+function update_sucursal_por_idsucursal($arreglo){
+    // usarse con mantenimientosFunctions update
     $sql = "UPDATE sucursal SET nombresucursal = ?, idterceros_fk = ?, idtelefonos_fk = ?, iddireccion_fk = ?, estado = ? WHERE idsucursal = ?";
-    $v = ejecutarQuery($sql, array($nombre, $idterceros_fk, $idtelefonos_fk, $iddireccion_fk, $estado, $id));
+    $v = ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }
 
 // table loterias
 
-function update_loterias_por_idloterias($id, $nombre, $idlothorarios_fk = null, $idterceros_fk = null, $estado = 1){
+function update_loterias_por_idloterias($arreglo){
+    // usarse con mantenimientosFunctions update
     $sql = "UPDATE loterias SET nombre = ?, idlothorarios_fk = ?, idterceros_fk = ?, estado = ? WHERE idloterias = ?";
-    $v = ejecutarQuery($sql, array($nombre, $idlothorarios_fk, $idterceros_fk, $estado, $id));
+    $v = ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }
 

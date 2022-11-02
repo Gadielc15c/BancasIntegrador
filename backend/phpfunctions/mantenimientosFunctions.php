@@ -5,7 +5,7 @@ include_once($path . "/phpFunctions/sqlRelated/sqlqueryselect.php");
 $path = dirname(__FILE__, 2);
 include_once($path . "/phpFunctions/sqlRelated/sqlqueryupdate.php");
 
-function crear_mantenimientos_form($function_select, $encabezado, $table, $array_columnas_exception, $array_placeholder, $array_text, $href_editar, $href_delete){
+function crear_mantenimientos_form($function_select, $encabezado, $table, $array_columnas_exception, $array_placeholder, $array_text, $href_editar, $href_estado){
     // array text y placeholder deben coincidir en tamaño y el orden con las columnas de la tabla en la BD
 
     $col = retorno_nombre_columnas($table);
@@ -72,10 +72,8 @@ function crear_mantenimientos_form($function_select, $encabezado, $table, $array
                             echo '
                             <th><a href="'; echo $href_editar . $row[0]; echo '" 
                                     class="btn btn-warning">EDITAR</a></th>
-
-                            <th><a href="'; echo $href_delete . $row[0]; echo '"
-                                    class="btn btn-danger">ELIMINAR</a></th>
-
+                            
+                            <!-- boton delete estaba aqui -->
                             </tr>'; 
                         } echo '
                         <style>
@@ -92,11 +90,10 @@ function crear_mantenimientos_form($function_select, $encabezado, $table, $array
 }
 
 
-function crear_update_form($function_select, $function_update, $title, $encabezado, $table, $array_columnas_exception, $array_placeholder){
+function crear_update_form($function_select, $function_update, $title, $encabezado, $table, $col_name, $array_columnas_exception, $array_placeholder){
     // array text y placeholder deben coincidir en tamaño y el orden con las columnas de la tabla en la BD
 
     $col = retorno_nombre_columnas($table);
-    
     function actualizar($id, $function_select, $function_update, $col, $array_columnas_exception){
         if (isset($_POST['submit'])){
             $arr = array();
@@ -111,22 +108,33 @@ function crear_update_form($function_select, $function_update, $title, $encabeza
                         }
                         $_POST[$value] = $b;
                     }
-                    array_push($arr, $_POST[$value]);
+                    $to_add = $_POST[$value];
+                    if (empty($_POST[$value])){
+                        $to_add = null;
+                    }
+                    array_push($arr, $to_add);
                 }
             }
+
             array_push($arr, $id);
             $v = $function_update($arr);
             // si v es TRUE, funciono el update, de lo contrario es false
+            
+            if (!$v){
+                echo "<br>";
+                echo "Error en el update";
+                echo "<br>";
+            }
 
             return $function_select($id);
         }
     }
 
-    if (isset($_GET['idterceros'])){
-        $id = $_GET['idterceros'];
+    if (isset($_GET[$col_name])){
+        $id = $_GET[$col_name];
         $row = $function_select($id);
     }
-    
+
     echo '
     <!DOCTYPE html>
     <html lang="en">
@@ -147,7 +155,10 @@ function crear_update_form($function_select, $function_update, $title, $encabeza
             <h1>'; echo $encabezado; echo '</h1>
         </div>
         <div class="container mt-5">
-            <form action="'; $row = actualizar($id, $function_select, $function_update, $col, $array_columnas_exception); echo '" method="POST">';
+            <form action="'; $temp = actualizar($id, $function_select, $function_update, $col, $array_columnas_exception); echo '" method="POST">';
+                if (isset($temp)){
+                    $row = $temp;
+                }
                 for ($i = 0; $i < count($col); $i++) {
                     $value = $col[$i];
                     $tipo = "text";
