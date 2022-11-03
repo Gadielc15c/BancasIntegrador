@@ -11,7 +11,7 @@ $table = "monedas";
 $col_name = "idmonedas";
 $array_columnas_exception = array($col_name);
 $array_placeholder = array("ID de la Moneda", "Moneda", "Nombre", "Estado");
-
-crear_update_form($function_select, $function_update, $title, $encabezado, $table, $col_name, $array_columnas_exception, $array_placeholder);
+$form_action="../frontend/mantenimientoMoneda.php";
+crear_update_form($function_select, $function_update, $title, $encabezado, $table, $col_name, $array_columnas_exception, $array_placeholder,$form_action);
 
 ?>

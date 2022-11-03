@@ -11,7 +11,7 @@ $table = "sucursal";
 $col_name = "idsucursal";
 $array_columnas_exception = array($col_name);
 $array_placeholder = array("ID Sucursal", "Nombre", "ID Tercero", "ID Telefono", "ID Direccion", "Estado");
-
-crear_update_form($function_select, $function_update, $title, $encabezado, $table, $col_name, $array_columnas_exception, $array_placeholder);
+$form_action="../frontend/mantenimientoSucursal.php";
+crear_update_form($function_select, $function_update, $title, $encabezado, $table, $col_name, $array_columnas_exception, $array_placeholder,$form_action);
 
 ?>

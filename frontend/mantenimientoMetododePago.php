@@ -35,10 +35,10 @@ header('location: ../index.php');
 <div class="container2">
 
     <div class="cuadrado">
-    <
+    
         <?php  
         
-        include('../backend/mantenimientoMetodosDePagoForm.php')
+        include('../backend/mantenimientoMetodoDePago.php')
         
         ?>
     </div>

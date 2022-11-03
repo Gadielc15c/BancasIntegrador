@@ -2,7 +2,6 @@
 
 $path = dirname(__FILE__);
 include_once($path . "/phpFunctions/mantenimientosFunctions.php");
-
 $function_select = seleccionar_todos_tipometodopago();
 $encabezado = "Mantenimientos de los Tipos de Metodos de Pago";
 $table = "tipometodopago";

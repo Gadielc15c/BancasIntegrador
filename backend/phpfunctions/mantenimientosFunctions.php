@@ -90,7 +90,7 @@ function crear_mantenimientos_form($function_select, $encabezado, $table, $array
 }
 
 
-function crear_update_form($function_select, $function_update, $title, $encabezado, $table, $col_name, $array_columnas_exception, $array_placeholder){
+function crear_update_form($function_select, $function_update, $title, $encabezado, $table, $col_name, $array_columnas_exception, $array_placeholder,$form_action){
     // array text y placeholder deben coincidir en tamaño y el orden con las columnas de la tabla en la BD
 
     $col = retorno_nombre_columnas($table);
@@ -134,6 +134,8 @@ function crear_update_form($function_select, $function_update, $title, $encabeza
         $id = $_GET[$col_name];
         $row = $function_select($id);
     }
+                                 /* Revisar Valor del Echo de titulo  */
+
 
     echo '
     <!DOCTYPE html>
@@ -143,7 +145,7 @@ function crear_update_form($function_select, $function_update, $title, $encabeza
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
-        <title>'; echo $title; echo '</title>
+        <title>'; echo $title; echo '</title>  
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     </head>
     <header>
@@ -155,7 +157,7 @@ function crear_update_form($function_select, $function_update, $title, $encabeza
             <h1>'; echo $encabezado; echo '</h1>
         </div>
         <div class="container mt-5">
-            <form action="'; $temp = actualizar($id, $function_select, $function_update, $col, $array_columnas_exception); echo '" method="POST">';
+            <form action= "'; $temp = actualizar($id, $function_select, $function_update, $col, $array_columnas_exception); echo '" method="POST">';
                 if (isset($temp)){
                     $row = $temp;
                 }
@@ -179,6 +181,7 @@ function crear_update_form($function_select, $function_update, $title, $encabeza
 
                 echo '
                 <input type="submit" name="submit" class="btn btn-primary btn-block" value="Actualizar">
+                <input type="submit" name="submit" class="btn btn-primary btn-block" formaction="'; echo $form_action; echo'" value="Volver">
                 
             </form>
     
