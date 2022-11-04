@@ -211,12 +211,10 @@ a {
   color: inherit;
   background-color: transparent;
 }
-.Tabla{
+.Tabla {
   text-align: center;
 }
 footer {
-  
-
   padding: 45px;
   font-weight: bolder;
   border: #d07616 solid;
@@ -227,7 +225,6 @@ footer {
   bottom: 0;
   width: 100%;
   height: 2.5rem;
-
 }
 
 #container {
@@ -282,3 +279,5 @@ footer {
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
 }
+
+/* checkboxex */

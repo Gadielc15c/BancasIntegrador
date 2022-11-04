@@ -10,7 +10,7 @@ $table = "terceros";
 $col_name = "idterceros";
 $array_columnas_exception = array($col_name, "claveusuario", "idterdata_fk", "idtelefonos_fk", "recibirpago", "idnivelacceso_fk");
 $array_placeholder = array("ID Terceros", "Username", "Clave", "idterdata_fk", "Correo", "Cedula", "Estado", "idtelefonos_fk", "Recibir pago", "Nivel acceso");
-$form_action="";
+$form_action="../frontend/mantenimientosUsuarios.php";
 crear_update_form($function_select, $function_update, $title, $encabezado, $table, $col_name, $array_columnas_exception, $array_placeholder,$form_action);
 
 ?>

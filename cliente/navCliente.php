@@ -23,7 +23,7 @@
           <a href="./pagosCliente.php" class="NavItem NavButton">
             <ion-icon name="wallet"></ion-icon> PAGOS
           </a>
-          <a href="./cliente/jugadasCliente.php" class="NavItem NavButton">
+          <a href="./jugadasCliente.php" class="NavItem NavButton">
             <ion-icon name="book"></ion-icon> JUGADAS
           </a>
           <a href="./dashboardCliente.php" class="NavItem NavButton">
