@@ -78,8 +78,35 @@ header('location: ../index.php');
 
     </section>
 
-      </div>
-    </div>
+    <section>
+       
+    <div class="" style="margin-left: 40%;">.
+                                <div class="row">
+                                    <div class="col-lg-8  rows">
+                                        <h2 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px">
+                                            NOSOTROS
+                                        </h2>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+
+    <p class="lead text-muted"
+    style="font-size:16px; padding-left: 25px; padding-bottom: 25px;">
+    La Banca Integrador, es una es una empresa de proceder privado, cimentada bajo el orden de una sociedad colectiva y regido
+     bajo el concepto de sociedad de responsabilidad limitada.
+     <h3>Mision</h3>
+     Garantizar a nuestros clientes seguridad y confianza al momento de elegir nuestros.
+     <h3>vision</h3>
+     Ofreciendo el servicio de más alta calidad en cada jugada. Creando fidelidad en nuestros clientes y oportunidad de crecimiento
+      a nuestros empleados, colaborando con recursos para el bienestar social.
+
+    </p>
+
+    </section>
+
+      
+  </div>
 
 </div>
 
