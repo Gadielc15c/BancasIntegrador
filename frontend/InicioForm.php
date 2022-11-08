@@ -146,7 +146,7 @@ header('location: ../index.php');
                               <span style="color:blue;">Fecha de Sorteo:</span> <span style="color:rgba(245,167,37,1);">4 de Julio del 2022</span>
                             </p>
                             
-                            <p class="font-weight-bold" style="font-size:125%;" >
+                            <p class="font-weight-bold"lead text-muted" style="font-size:16px; padding-left: 25px; padding-bottom: 20px" " style="font-size:125%;" >
                             <span style="color:blue;"> Numero de Loto:</span> <span style="color:rgba(245,167,37,1);">09-14-16-14-23-20</span>
                             </p>
 
@@ -184,22 +184,20 @@ header('location: ../index.php');
                                 </div>
                             </div>
 
-    <p class="lead text-muted"
+    <p class="font-weight-Normal"
     style="font-size:16px; padding-left: 25px; padding-bottom: 20px;">
     La Banca Integrador, es una es una empresa de proceder privado, cimentada bajo el orden de una sociedad colectiva y regido bajo el concepto de sociedad de responsabilidad limitada. Nuestro sistema en línea ofrece los servicios al cliente las 24 horas del día a través del internet, también la empresa cuenta con sucursales físicas, que se utilizan para poder acceder a los pagos de los tickets ganadores y realizar jugadas en la forma habitual. 
     </p>
     <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
         Objetivos de la empresa 
     </h3>
-    <p class="lead text-muted"
-    style="font-size:16px; padding-left: 25px; padding-bottom: 20px;">
-    <ul class="lead text-muted" style="font-size:16px; padding-left: 25px; padding-bottom: 20px >
+    <ul class="lead text-muted" style="font-size:16px; padding-left: 25px; padding-bottom: 20px" >
 		<li type="square">Posicionarse en el mercado como una empresa bien constituida.</li>
 		<li type="square">Hacer competencia y superar a otras empresas del área.</li>
 		<li type="square">Abarcar más áreas estratégicas para mejorar ingresos.</li>
 		<li type="square">Dar a conocer la calidad de funcionamiento a los clientes.</li>
     </ul>
-    </p>
+
     <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
         Mision 
     </h3>
@@ -217,9 +215,7 @@ header('location: ../index.php');
     <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
         Valores 
     </h3>
-    <p class="lead text-muted"
-    style="font-size:16px; padding-left: 25px; padding-bottom: 20px;">
-    <ul>
+    <ul class="lead text-muted" style="font-size:16px; padding-left: 25px; padding-bottom: 20px" >
 		<li type="square">Solvencia</li>
 		<li type="square">Confiabilidad</li>
 		<li type="square">Responsabilidad</li>
@@ -229,7 +225,7 @@ header('location: ../index.php');
 		<li type="square">Integridad</li>
 		<li type="square">Honestidad</li>
     </ul>
-    </p>
+   
 
     </section>
 
