@@ -54,8 +54,8 @@ header('location: ../index.php');
 <div style="margin-left: 36%;">
 <img src="/img/noticia.png" height="250px" width="350px"/>
 </div>
-<p class="font-weight-bold" style="font-size:200%;" style="color:rgba(245, 167, 37, 1);">
-Premio mayor Una persona en Illinois ganó los USD 1.280 millones de dolares del Mega Millions
+<p class="font-weight-bold" style="font-size:200%;">
+<span style="color:rgba(245, 167, 37, 1);"> Premio mayor Una persona en Illinois ganó los USD 1.280 millones de dolares del Mega Millions </span>
 </p>
 
    
