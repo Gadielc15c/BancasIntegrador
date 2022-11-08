@@ -40,7 +40,7 @@ header('location: ../index.php');
 
     <section>
        
-    <div class="" style="margin-left: 32%;">.
+    <div class="" style="margin-left: 40%;">.
                                 <div class="row">
                                     <div class="col-lg-8  rows">
                                         <h2 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px">
@@ -51,58 +51,25 @@ header('location: ../index.php');
                                 </div>
                             </div>
     
-<div style="margin-left: 36%;">
+<div style="text-align:center">
+<h3 class="font-weight-bold" style= "color:rgba(245, 167, 37, 1) ">
+    Lotería Leidsa dona 11 millones de pesos para adquisición de equipos y material gastable médico ante COVID-19 
+    </h3>
 <img src="/img/noticia.png" height="250px" width="350px"/>
 </div>
-<p class="font-weight-bold" style="font-size:200%;">
-<span style="color:rgba(245, 167, 37, 1);"> Premio mayor Una persona en Illinois ganó los USD 1.280 millones de dolares del Mega Millions </span>
-</p>
 
-   
-  <p class="font-weight-bold" style="font-size:125%;">
-  Tras el nuevo ganador del Mega Million, el jackpot queda ahora en USD 20 millones. 
-  La cantidad de dinero va en aumento a medida que más personas continúan comprando boletos.
-  </p>
+<p class="font-weight-Normal"
+    style="font-size:16px; padding-left: 25px; padding-bottom: 20px;">
+    El Consejo de Accionistas de la Lotería Electrónica Dominicana, S. A. (LEIDSA), aprobó una donación de 11 millones de pesos, para la adquisición de equipos y material gastable medico (guantes, mascarillas, batas, ETC.).
+    </p>
 
-  <p class="font-weight-bold" style="font-size:125%;">
-  Alguien venció las probabilidades y ganó el premio mayor de la lotería estadounidense Mega Millions, de 1.280 millones de dólares. Según megamillions.com, 
-  hubo un boleto ganador en el sorteo del viernes por la noche, que fue adquirido alguien en Illinois.
-  </p>
-    
-  <p class="font-weight-bold" style="font-size:125%;">
-  Los números ganadores fueron: 13-36-45-57-67, Mega Ball: 14.
-  </p>
+    <p class="font-weight-Normal"
+    style="font-size:16px; padding-left: 25px; padding-bottom: 20px;">
+    Pedro Alegría, presidente ejecutivo de la empresa, informó que dicho aporte, se entregara al Ministerio de Salud Pública y al Colegio Médico Dominicano, como una forma de cooperar a la protección del personal médico que trabaja en constante exposición, combatiendo la situación sanitaria de esta pandemia mundial que afecta al país.
+    </p>
 
-  <p class="font-weight-bold" style="font-size:125%;">
-  La cantidad de dinero acumulada fue la tercera más grande en la historia de las 
-  loterías en el país y la mayor en casi cuatro años.
-  </p>
 
-  <p class="font-weight-bold" style="font-size:125%;">
-  El premio fue tan elevado porque, en los últimos 29 sorteos consecutivos celebrados desde el 15 de abril, ninguno de los boletos vendidos 
-  tuvo los seis números ganadores. El último ganador fue un jugador en Tennessee.
-  </p>
-
-  <p class="font-weight-bold" style="font-size:125%;">
-  El premio de 1.280 millones de dólares es para los ganadores que elijan la opción de recibirlo en 30 pagos anuales a lo largo de 29 años, pero casi todos optan por la opción de un solo pago en efectivo, 
-  que para este sorteo tenía una cuantía estimada de 747,2 millones.
-  </p>
-
-  <p class="font-weight-bold" style="font-size:125%;">
-  La probabilidad de ganar el bote era de una entre 302,5 millones.
-  </p>
-
-  <p class="font-weight-bold" style="font-size:125%;">
-  Desde el sitio de la lotería se informó además que 20 personas en distintos estados acertaron cinco números excepto el Mega Ball y se llevarán USD 1 millón cada una.
-   Mientras que seis acertaron cinco números más el Megaplier.
-  </p>
-
-  <p class="font-weight-bold" style="font-size:125%;">
-  Mega Millions se juega en 45 estados además de en Washington, D.C. y en las Islas Vírgenes estadounidenses, y está coordinada por las loterías estatales.
-  En todo el país, los sistemas de lotería estatales utilizan los ingresos de la lotería para impulsar la educación, el turismo, el transporte y mucho más. Con el gran bote de Mega Millions, 
-  los funcionarios estatales esperan que el mayor interés nacional por conseguir el premio mayor se traduzca en más fondos para sus propias causas.
-  </p>
-
+  <hr style="width:95%; color:blue">
     </section>
 
     <section>
@@ -118,15 +85,14 @@ header('location: ../index.php');
                                 </div>
                             </div>
 
-                            <div class="" style="margin-left: 40%;">
-                            <h3 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px; color:rgba(245,167,37,1)" >
+                            <div class="" style="text-align:center">
+                            <h3 class="font-weight-bold" style=" color:rgba(245,167,37,1)" >
                                             NUEVA GANADORA 
                                         </h3>  
+                                        <img src="/img/ganadora.jpg" height="250px" width="350px"/> 
                             </div>
 
-                            <div class="" style="margin-left: 40%">
-                           <img src="/img/ganadora.jpg" height="250px" width="350px"/> 
-                             </div>
+                            
 
                              <div style="margin-left: 40%;">
 
@@ -167,7 +133,7 @@ header('location: ../index.php');
                             
                             
         
-                      
+    <hr style="width:95%; color:blue">               
 
     </section>
 
@@ -226,7 +192,7 @@ header('location: ../index.php');
 		<li type="square">Honestidad</li>
     </ul>
    
-
+    
     </section>
 
       
