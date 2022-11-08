@@ -105,3 +105,29 @@ option:first {
   margin-left: 4%;
 }
 
+.botoncito{
+  background-color: var(--Principal);
+  color: var(--Blanco);
+  height: 50px;
+  width: 120px;
+border: none;
+font-weight: bolder;
+margin-top: 10%;
+margin-bottom: 10%;
+border-radius: 7%;
+}
+.cuadrais {
+  border-radius: 10%;
+  height: 500px;
+  width: 450px;
+  box-shadow: -2px 12px 39px -6px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -2px 12px 39px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px 12px 39px -6px rgba(0, 0, 0, 0.75);
+}
+/* checkboxex */
+.t{
+  color: var(--Secundario);
+}
+.small{
+  font-weight: bolder;
+}
