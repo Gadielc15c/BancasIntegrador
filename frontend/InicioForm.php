@@ -69,9 +69,9 @@ header('location: ../index.php');
     </p>
 
 
-  <hr style="width:95%; color:blue">
     </section>
 
+    <hr style="width:95%; color:blue;">
     <section>
        
     <div class="" style="margin-left: 40%;">.
