@@ -93,13 +93,7 @@ header('location: ../index.php');
 
     <p class="lead text-muted"
     style="font-size:16px; padding-left: 25px; padding-bottom: 25px;">
-    La Banca Integrador, es una es una empresa de proceder privado, cimentada bajo el orden de una sociedad colectiva y regido
-     bajo el concepto de sociedad de responsabilidad limitada.
-     <h3>Mision</h3>
-     Garantizar a nuestros clientes seguridad y confianza al momento de elegir nuestros.
-     <h3>vision</h3>
-     Ofreciendo el servicio de más alta calidad en cada jugada. Creando fidelidad en nuestros clientes y oportunidad de crecimiento
-      a nuestros empleados, colaborando con recursos para el bienestar social.
+    
 
     </p>
 
