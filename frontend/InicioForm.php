@@ -188,14 +188,14 @@ header('location: ../index.php');
     style="font-size:16px; padding-left: 25px; padding-bottom: 25px;">
     La Banca Integrador, es una es una empresa de proceder privado, cimentada bajo el orden de una sociedad colectiva y regido bajo el concepto de sociedad de responsabilidad limitada. Nuestro sistema en línea ofrece los servicios al cliente las 24 horas del día a través del internet, también la empresa cuenta con sucursales físicas, que se utilizan para poder acceder a los pagos de los tickets ganadores y realizar jugadas en la forma habitual. 
     </p>
-    <h3 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
+    <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
         Mision 
     </h3>
     <p class="lead text-muted"
     style="font-size:16px; padding-left: 25px; padding-bottom: 25px;">
     Garantizar a nuestros clientes seguridad y confianza al momento de elegir nuestros.
     </p>
-    <h3 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
+    <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
         Vision 
     </h3>
     <p class="lead text-muted"
