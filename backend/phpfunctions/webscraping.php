@@ -1,7 +1,9 @@
 <?php
- 
-// Codigo robado para webscrapping
+
 function retornar_lot_numeros_live(){
+    /* 
+        Retorna un arreglo con la loteria, jugada, fecha, y numeros, de lo contrario retornara false
+    */
     $url = "https://loteriasdominicanas.com/";
     header("Content-Type: text/plain");
     $ch = curl_init($url);
