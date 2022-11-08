@@ -107,7 +107,7 @@ header('location: ../index.php');
 
     <section>
        
-    <div class="" style="margin-left: 35%;">
+    <div class="" style="margin-left: 40%;">
                                 <div class="row">
                                     <div class="col-lg-8  rows">
                                         <h2 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px">
@@ -119,18 +119,18 @@ header('location: ../index.php');
                             </div>
 
                             <div class="" style="margin-left: 40%;">
-                            <h3 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px" >
-                                            NUEVA GANADDORA 
+                            <h3 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px; color:rgba(245,167,37,1)" >
+                                            NUEVA GANADORA 
                                         </h3>  
                             </div>
 
-                            <div class="" style="margin-left: 39%;">
+                            <div class="" style="margin-left: %;40">
                            <img src="/img/ganadora.jpg" height="250px" width="350px"/> 
                              </div>
 
                              <div style="margin-left: 35%;">
 
-                             <p class="font-weight-bold" style="font-size:125%;">
+                             <p class="font-weight-bold" style="font-size:16%;">
                               <span style="color:rgba(245,167,37,1);">Sra.Juana Anyolina Dominguez Olivo de Cruz</span> 
                             </p>
 
