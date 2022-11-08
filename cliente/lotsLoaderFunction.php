@@ -14,18 +14,13 @@ function lotsScramp($nombreLoteria, $jugada, $fecha, $img, $resultado){
         </div>
       
         <div class="bolasConten"> ';  
-        ;'<';
+        
         foreach ($resultado as $val) {
            
-
-            ;echo '<span class="bola1">'; echo $val; '</span>'
-            
-             
+            echo '<span class="bola1">'; echo $val; echo '</span>'
           
         ;}'
-                   
-        
-</div>
+        </div>
 </form>
 ';}
 
