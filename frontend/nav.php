@@ -42,7 +42,7 @@
           <a href="/frontend/dashBoard.php" class="NavItem NavButton">
             <ion-icon name="apps"></ion-icon> DASHBOARD
           </a>
-          <a href="/index.php" class="NavItem NavButton">
+          <a href="/frontend/InicioForm.php" class="NavItem NavButton">
             <ion-icon name="home"></ion-icon> INICIO
           </a>
           
