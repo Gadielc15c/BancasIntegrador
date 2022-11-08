@@ -1,4 +1,4 @@
-<?php 
+<?php /*Cambio a ver klk */
 function lotsScramp($nombreLoteria, $jugada, $fecha, $img, $resultado){
     echo '
 <div class="contLots">
