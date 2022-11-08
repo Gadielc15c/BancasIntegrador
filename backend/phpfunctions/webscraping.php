@@ -46,7 +46,7 @@ function retornar_lot_numeros_live(){
     return false;
 }
 
-$x = retornar_lot_numeros_live();
-var_dump($x);
+// $x = retornar_lot_numeros_live();
+// var_dump($x);
 
 ?>
