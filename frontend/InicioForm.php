@@ -215,7 +215,7 @@ header('location: ../index.php');
     <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
         Valores 
     </h3>
-    <ul class="font-weight-Normal" style="font-size:16px; padding-left: 25px; padding-bottom: 20px" >
+    <ul class="font-weight-Normal" style="font-size:16px; padding-left: 35px; padding-bottom: 20px" >
 		<li type="square">Solvencia</li>
 		<li type="square">Confiabilidad</li>
 		<li type="square">Responsabilidad</li>
