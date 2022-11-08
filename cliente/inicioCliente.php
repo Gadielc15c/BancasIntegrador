@@ -39,7 +39,7 @@ header('location:  ../index.php');
   <h4 style="margin-top: 60px;">RESULTADOS DE LAS ULTIMAS LOTERIAS</h4>
   </center>
             <?php
-include('./lotsLoader.php');
+include('../backend/lotsLoader.php');
 ?>
 
         </div>
