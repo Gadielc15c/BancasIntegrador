@@ -193,11 +193,11 @@ header('location: ../index.php');
     </h3>
     <p class="lead text-muted"
     style="font-size:16px; padding-left: 25px; padding-bottom: 20px;">
-    <ul>
-		<li>Posicionarse en el mercado como una empresa bien constituida.</li>
-		<li>Hacer competencia y superar a otras empresas del área.</li>
-		<li>Abarcar más áreas estratégicas para mejorar ingresos.</li>
-		<li>Dar a conocer la calidad de funcionamiento a los clientes.</li>
+    <ul class="lead text-muted" style="font-size:16px; padding-left: 25px; padding-bottom: 20px >
+		<li type="square">Posicionarse en el mercado como una empresa bien constituida.</li>
+		<li type="square">Hacer competencia y superar a otras empresas del área.</li>
+		<li type="square">Abarcar más áreas estratégicas para mejorar ingresos.</li>
+		<li type="square">Dar a conocer la calidad de funcionamiento a los clientes.</li>
     </ul>
     </p>
     <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
@@ -220,14 +220,14 @@ header('location: ../index.php');
     <p class="lead text-muted"
     style="font-size:16px; padding-left: 25px; padding-bottom: 20px;">
     <ul>
-		<li>Solvencia</li>
-		<li>Confiabilidad</li>
-		<li>Responsabilidad</li>
-		<li>Compromiso Social</li>
-		<li>Calidad</li>
-		<li>Ética</li>
-		<li>Integridad</li>
-		<li>Honestidad</li>
+		<li type="square">Solvencia</li>
+		<li type="square">Confiabilidad</li>
+		<li type="square">Responsabilidad</li>
+		<li type="square">Compromiso Social</li>
+		<li type="square">Calidad</li>
+		<li type="square">Ética</li>
+		<li type="square">Integridad</li>
+		<li type="square">Honestidad</li>
     </ul>
     </p>
 
