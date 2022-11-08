@@ -17,6 +17,12 @@ function update_ticket_por_idtickets($arreglo){
     return retorno_booleano_para_updates($v);
 }
 
+function update_estado_ticket_por_idtickets($estado, $id){
+    $sql = "UPDATE tickets SET estado = ? WHERE idtickets = ?";
+    $v =  ejecutarQuery($sql, array($estado, $id));
+    return retorno_booleano_para_updates($v);
+}
+
 // Table terceros
 
 function update_tercero_por_idtercero($arreglo){
@@ -32,6 +38,12 @@ function update_agregar_terceros_data_por_idtercero($idter, $idterdata){
     return retorno_booleano_para_updates($v);
 }
 
+function update_estado_terceros_por_idterceros($estado, $id){
+    $sql = "UPDATE terceros SET estado = ? WHERE idterceros = ?";
+    $v =  ejecutarQuery($sql, array($estado, $id));
+    return retorno_booleano_para_updates($v);
+}
+
 // Table pago metodos
 
 function update_pagometodos_por_idpagometodos($id, $metodo, $principal){
@@ -40,11 +52,22 @@ function update_pagometodos_por_idpagometodos($id, $metodo, $principal){
     return retorno_booleano_para_updates($v);
 }
 
+function update_estado_pagometodos_por_idpagometodos($estado, $id){
+    $sql = "UPDATE pagometodos SET estado = ? WHERE idpagometodos = ?";
+    $v =  ejecutarQuery($sql, array($estado, $id));
+    return retorno_booleano_para_updates($v);
+}
 
 // Table pago tarjeta
 function update_pagotarjeta_por_idpagotarjeta($id, $nom, $numerotarj, $cvc, $fechaven, $idtipotarjetas_fk){
     $sql = "UPDATE pagotarjetas SET nombre = ?, numerotarj = ?, cvc = ?, fechaven = ?, idtipotarjetas_fk = ? WHERE idpagotarjetas = ?";
     $v = ejecutarQuery($sql, array($nom, $numerotarj, $cvc, $fechaven, $idtipotarjetas_fk, $id));
+    return retorno_booleano_para_updates($v);
+}
+
+function update_estado_pagotarjeta_por_idpagotarjeta($estado, $id){
+    $sql = "UPDATE pagotarjetas SET estado = ? WHERE idpagotarjetas = ?";
+    $v =  ejecutarQuery($sql, array($estado, $id));
     return retorno_booleano_para_updates($v);
 }
 
@@ -57,12 +80,24 @@ function update_tipotarjeta_por_idtipotarjetas($arreglo){
     return retorno_booleano_para_updates($v);
 }
 
+function update_estado_tipotarjetas_por_idtipotarjetas($estado, $id){
+    $sql = "UPDATE tipotarjetas SET estado = ? WHERE idtipotarjetas = ?";
+    $v =  ejecutarQuery($sql, array($estado, $id));
+    return retorno_booleano_para_updates($v);
+}
+
 // table monedas
 
 function update_monedas_por_idmonedas($arreglo){
     // usarse con mantenimientosFunctions update
     $sql = "UPDATE monedas SET moneda = ?, nombre = ?, estado = ? WHERE idmonedas = ?";
     $v = ejecutarQuery($sql, $arreglo);
+    return retorno_booleano_para_updates($v);
+}
+
+function update_estado_monedas_por_idmonedas($estado, $id){
+    $sql = "UPDATE monedas SET estado = ? WHERE idmonedas = ?";
+    $v =  ejecutarQuery($sql, array($estado, $id));
     return retorno_booleano_para_updates($v);
 }
 
@@ -75,12 +110,24 @@ function update_tipometodopago_por_idtipometodopago($arreglo){
     return retorno_booleano_para_updates($v);
 }
 
+function update_estado_tipometodopago_por_idtipometodopago($estado, $id){
+    $sql = "UPDATE tipometodopago SET estado = ? WHERE idtipometodopago = ?";
+    $v =  ejecutarQuery($sql, array($estado, $id));
+    return retorno_booleano_para_updates($v);
+}
+
 // table sucursal
 
 function update_sucursal_por_idsucursal($arreglo){
     // usarse con mantenimientosFunctions update
     $sql = "UPDATE sucursal SET nombresucursal = ?, idterceros_fk = ?, idtelefonos_fk = ?, iddireccion_fk = ?, estado = ? WHERE idsucursal = ?";
     $v = ejecutarQuery($sql, $arreglo);
+    return retorno_booleano_para_updates($v);
+}
+
+function update_estado_sucursal_por_idsucursal($estado, $id){
+    $sql = "UPDATE sucursal SET estado = ? WHERE idsucursal = ?";
+    $v =  ejecutarQuery($sql, array($estado, $id));
     return retorno_booleano_para_updates($v);
 }
 
@@ -93,6 +140,82 @@ function update_loterias_por_idloterias($arreglo){
     return retorno_booleano_para_updates($v);
 }
 
-// TODO funcion que englobe el return de los updates
+function update_estado_loterias_por_idloterias($estado, $id){
+    $sql = "UPDATE loterias SET estado = ? WHERE idloterias = ?";
+    $v =  ejecutarQuery($sql, array($estado, $id));
+    return retorno_booleano_para_updates($v);
+}
+
+// table lothorarios
+
+function update_lothorarios_por_idlothorarios($arreglo){
+    $sql = "UPDATE lothorarios SET dialaboral = ?, horalaboral = ?, horacierre = ?, estado = ? WHERE idlothorarios = ?";
+    $v = ejecutarQuery($sql, $arreglo);
+    return retorno_booleano_para_updates($v);
+}
+
+function update_estado_lothorarios_por_idlothorarios($estado, $id){
+    $sql = "UPDATE lothorarios SET estado = ? WHERE idlothorarios = ?";
+    $v = ejecutarQuery($sql, array($estado, $id));
+    return retorno_booleano_para_updates($v);
+}
+
+// table tipo jugadas
+
+function update_tipojugadas_por_idtipojugadas($arreglo){
+    $sql = "UPDATE tipojugadas SET nombre = ?, idloteria_fk = ?, estado = ? WHERE idtipojugadas = ?";
+    $v = ejecutarQuery($sql, $arreglo);
+    return retorno_booleano_para_updates($v);
+}
+
+function update_estado_tipojugadas_por_idtipojugadas($estado, $id){
+    $sql = "UPDATE tipojugadas SET estado = ? WHERE idtipojugadas = ?";
+    $v = ejecutarQuery($sql, array($estado, $id));
+    return retorno_booleano_para_updates($v);
+}
+
+// table jugadas
+
+function update_jugadas_por_idjugadas($arreglo){
+    $sql = "UPDATE jugadas SET jugnumeros = ?, idtipojugada_fk = ?, idloteria_fk = ?, idticket_fk = ?, estado = ? WHERE idjugadas = ?";
+    $v = ejecutarQuery($sql, $arreglo);
+    return retorno_booleano_para_updates($v);
+}
+
+function update_estado_jugadas_por_idjugadas($estado, $id){
+    $sql = "UPDATE jugadas SET estado = ? WHERE idjugadas = ?";
+    $v = ejecutarQuery($sql, array($estado, $id));
+    return retorno_booleano_para_updates($v);
+}
+
+// table ticketsvspagosrealizados
+
+function update_ticketsvspagosrealizados_por_idtpr($arreglo){
+    $sql = "UPDATE ticketsvspagosrealizados SET idtickets_fk = ?, idpagosrealizados_fk = ?, estado = ? WHERE idtpr = ?";
+    $v = ejecutarQuery($sql, $arreglo);
+    return retorno_booleano_para_updates($v);
+}
+
+function update_estado_ticketsvspagosrealizados_por_idtpr($estado, $id){
+    $sql = "UPDATE ticketsvspagosrealizados SET estado = ? WHERE idtpr = ?";
+    $v = ejecutarQuery($sql, array($estado, $id));
+    return retorno_booleano_para_updates($v);
+}
+
+// table pagosrealizados
+
+function update_pagosrealizados_por_idpagosrealizados($arreglo){
+    $sql = "UPDATE pagosrealizados SET montototal = ?, fecha = ?, monedas_fk = ?, origen_fk = ?, idterceros_fk = ?, estado = ? WHERE idpagosrealizados = ?";
+    $v = ejecutarQuery($sql, $arreglo);
+    return retorno_booleano_para_updates($v);
+}
+
+function update_estado_pagosrealizados_por_idpagosrealizados($estado, $id){
+    $sql = "UPDATE pagosrealizados SET estado = ? WHERE idpagosrealizados = ?";
+    $v = ejecutarQuery($sql, array($estado, $id));
+    return retorno_booleano_para_updates($v);
+}
+
+
 
 ?>

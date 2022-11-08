@@ -4,7 +4,7 @@ function crear_numero_random($maxrange = null){
     if ($maxrange){
         return rand(1, $maxrange);
     }
-    return rand(1, 2000000000);
+    return rand(1, 2147483647);
 }
 
 function crear_tickets_codigo(){
@@ -25,5 +25,6 @@ function por_estado_activo_inactivo($estado){
         return "inactivo";
     }
 }
+
 
 ?>
