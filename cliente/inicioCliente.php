@@ -25,7 +25,7 @@ header('location:  ../index.php');
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/cuerpoWeb.css" />
-
+    <link rel="stylesheet" href="/css/lotsLoader.css" />
 </head>
 <header>
     <?php include('../cliente/navCliente.php');?>
@@ -35,9 +35,11 @@ header('location:  ../index.php');
     <div class="container2">
 
         <div class="cuadrado">
-  
+            <center>
+  <h4 style="margin-top: 60px;">RESULTADOS DE LAS ULTIMAS LOTERIAS</h4>
+  </center>
             <?php
-/*include('');*/
+include('./lotsLoader.php');
 ?>
 
         </div>

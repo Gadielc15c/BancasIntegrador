@@ -28,8 +28,8 @@ function lvlLogValidate(){
 
         }else{
             ?> <script type="text/javascript" src="/js/logoutFunctions.js"></script> <?php
-
-            echo "INSERTAR FUNCION JAVA PARA VALIDAR";
+    header('location:./frontend/formErrorlogin.php');
+        
         }
     }
 }
