@@ -233,11 +233,61 @@ function seleccionar_loterias_por_nombre($nom){
     $col = "nombre";
     $sql = "SELECT idloterias, $col, idlothorarios_fk, idterceros_fk, estado FROM loterias WHERE $col = ?";
     return retornar_seleccion($sql, array($nom), "a");
-    
 }
 
-// agregar mas adelante por foreign key: horario y terceros
+// table ticketsvspagosrealizados
 
-// TODO Actualizar los selects para la funcion de update en mantenimientosFunctions
+function seleccionar_todos_ticketsvspagosrealizados(){
+    $sql = "SELECT idtpr, idtickets_fk, idpagosrealizados_fk FROM ticketsvspagosrealizados";
+    return retornar_seleccion($sql, null, "a");
+}
+
+function seleccionar_ticketsvspagosrealizados_por_idtpr($id){
+    $sql = "SELECT idtpr, idtickets_fk, idpagosrealizados_fk FROM ticketsvspagosrealizados WHERE idtpr = ?";
+    return retornar_seleccion($sql, array($id), "o");
+}
+
+function seleccionar_ticketsvspagosrealizados_por_idtickets_fk($id){
+    // Puede retonar varios array
+    $sql = "SELECT idtpr, idtickets_fk, idpagosrealizados_fk FROM ticketsvspagosrealizados WHERE idtickets_fk = ?";
+    return retornar_seleccion($sql, array($id), "a");
+}
+
+function seleccionar_ticketsvspagosrealizados_por_idpagosrealizados_fk($id){
+    // Puede retonar varios array
+    $sql = "SELECT idtpr, idtickets_fk, idpagosrealizados_fk FROM ticketsvspagosrealizados WHERE idpagosrealizados_fk = ?";
+    return retornar_seleccion($sql, array($id), "a");
+}
+
+// table pagosrealizados
+
+function seleccionar_todos_pagosrealizados(){
+    $sql = "SELECT idpagosrealizados, montototal, fecha, monedas_fk, origen_fk, idterceros_fk, estado FROM pagosrealizados";
+    return retornar_seleccion($sql, null, "a");
+}
+
+function seleccionar_pagosrealizados_por_idpagosrealizados($id){
+    $sql = "SELECT idpagosrealizados, montototal, fecha, monedas_fk, origen_fk, idterceros_fk, estado FROM pagosrealizados WHERE idpagosrealizados = ?";
+    return retornar_seleccion($sql, array($id), "o");
+}
+
+function seleccionar_pagosrealizados_por_monedas_fk($id){
+    // Puede retonar varios array
+    $sql = "SELECT idpagosrealizados, montototal, fecha, monedas_fk, origen_fk, idterceros_fk, estado FROM pagosrealizados WHERE monedas_fk = ?";
+    return retornar_seleccion($sql, array($id), "a");
+}
+
+function seleccionar_pagosrealizados_por_origen_fk($id){
+    // Puede retonar varios array
+    $sql = "SELECT idpagosrealizados, montototal, fecha, monedas_fk, origen_fk, idterceros_fk, estado FROM pagosrealizados WHERE origen_fk = ?";
+    return retornar_seleccion($sql, array($id), "a");
+}
+
+function seleccionar_pagosrealizados_por_idterceros_fk($id){
+    // Puede retonar varios array
+    $sql = "SELECT idpagosrealizados, montototal, fecha, monedas_fk, origen_fk, idterceros_fk, estado FROM pagosrealizados WHERE idterceros_fk = ?";
+    return retornar_seleccion($sql, array($id), "a");
+}
+
 
 ?>
