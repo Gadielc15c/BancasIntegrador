@@ -2,6 +2,8 @@
 
 include_once('sqlquerygenerals.php');
 
+// Para actualizar los estados debes usar true or false
+
 // Table tickets
 
 function update_ticket_monto_por_codigobarra($codigobarra, $monto, $monedas_fk = 1){
@@ -216,6 +218,6 @@ function update_estado_pagosrealizados_por_idpagosrealizados($estado, $id){
     return retorno_booleano_para_updates($v);
 }
 
-
+// Para actualizar los estados debes usar true or false
 
 ?>

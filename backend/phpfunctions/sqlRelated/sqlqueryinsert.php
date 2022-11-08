@@ -256,6 +256,4 @@ function insertar_ticketsvspagosrealizados($idtickets_fk, $idpagosrealizados_fk)
     return $value; //false
 }
 
-
-
 ?>

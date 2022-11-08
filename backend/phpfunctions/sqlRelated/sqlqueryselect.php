@@ -289,6 +289,5 @@ function seleccionar_pagosrealizados_por_idterceros_fk($id){
     return retornar_seleccion($sql, array($id), "a");
 }
 
-// agregar mas adelante por foreign key: horario y terceros
 
 ?>
