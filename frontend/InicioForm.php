@@ -191,7 +191,7 @@ header('location: ../index.php');
     <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
         Objetivos de la empresa 
     </h3>
-    <ul class="lead text-muted" style="font-size:16px; padding-left: 25px; padding-bottom: 20px" >
+    <ul class="font-weight-Normal" style="font-size:16px; padding-left: 25px; padding-bottom: 20px" >
 		<li type="square">Posicionarse en el mercado como una empresa bien constituida.</li>
 		<li type="square">Hacer competencia y superar a otras empresas del área.</li>
 		<li type="square">Abarcar más áreas estratégicas para mejorar ingresos.</li>
@@ -201,21 +201,21 @@ header('location: ../index.php');
     <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
         Mision 
     </h3>
-    <p class="lead text-muted"
+    <p class="font-weight-Normal"
     style="font-size:16px; padding-left: 25px; padding-bottom: 20px;">
     Garantizar a nuestros clientes seguridad y confianza al momento de elegir nuestros.
     </p>
     <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
         Vision 
     </h3>
-    <p class="lead text-muted"
+    <p class="font-weight-Normal"
     style="font-size:16px; padding-left: 25px; padding-bottom: 20px;">
     Ofrecer el servicio de más alta calidad en cada jugada, creando fidelidad en nuestros clientes y oportunidad de crecimiento a nuestros empleados, colaborando con recursos para el bienestar social.
     </p>
     <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
         Valores 
     </h3>
-    <ul class="lead text-muted" style="font-size:16px; padding-left: 25px; padding-bottom: 20px" >
+    <ul class="font-weight-Normal" style="font-size:16px; padding-left: 25px; padding-bottom: 20px" >
 		<li type="square">Solvencia</li>
 		<li type="square">Confiabilidad</li>
 		<li type="square">Responsabilidad</li>
