@@ -279,3 +279,9 @@ footer {
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
 }
+hr {
+  width: 90%;
+	height:3%;
+  background: blue
+
+}
