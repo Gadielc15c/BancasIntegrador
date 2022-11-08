@@ -71,7 +71,7 @@ header('location: ../index.php');
 
     </section>
 
-    <hr style="width:95%; color:blue;">
+    <hr >
     <section>
        
     <div class="" style="margin-left: 40%;">.
@@ -89,7 +89,7 @@ header('location: ../index.php');
                             <h3 class="font-weight-bold" style=" color:rgba(245,167,37,1)" >
                                             NUEVA GANADORA 
                                         </h3>  
-                                        <img src="/img/ganadora.jpg" height="250px" width="350px"/> 
+                                        <img src="/img/ganadora.jpg" height="250px" width="355px"/> 
                             </div>
 
                             
@@ -133,7 +133,7 @@ header('location: ../index.php');
                             
                             
         
-    <hr style="width:95%; color:blue">               
+    <hr>               
 
     </section>
 
