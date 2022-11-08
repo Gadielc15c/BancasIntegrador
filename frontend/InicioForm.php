@@ -107,7 +107,7 @@ header('location: ../index.php');
 
     <section>
        
-    <div class="" style="margin-left: 40%;">
+    <div class="" style="margin-left: 40%;">.
                                 <div class="row">
                                     <div class="col-lg-8  rows">
                                         <h2 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px">
@@ -124,41 +124,41 @@ header('location: ../index.php');
                                         </h3>  
                             </div>
 
-                            <div class="" style="margin-left: %;40">
+                            <div class="" style="margin-left: 40%">
                            <img src="/img/ganadora.jpg" height="250px" width="350px"/> 
                              </div>
 
-                             <div style="margin-left: 35%;">
+                             <div style="margin-left: 40%;">
 
-                             <p class="font-weight-bold" style="font-size:16%;">
+                             <p class="font-weight-bold" style="font-size:16px;">
                               <span style="color:rgba(245,167,37,1);">Sra.Juana Anyolina Dominguez Olivo de Cruz</span> 
                             </p>
 
-                            <p class="font-weight-bold" style="font-size:125%;" >
+                            <p class="font-weight-bold" style="font-size:16px;" >
                               <span style="color:blue;">Ganador #:</span>  <span style="color:rgba(245,167,37,1);">11000</span>
                             </p>
 
-                            <p class="font-weight-bold" style="font-size:125%;" >
+                            <p class="font-weight-bold" style="font-size:16px;" >
                               <span style="color:blue;">Monto del Premio:</span> <span style="color:rgba(245,167,37,1);">$29,000,000</span>
                             </p>
 
-                            <p class="font-weight-bold" style="font-size:125%;" >
+                            <p class="font-weight-bold" style="font-size:16px;" >
                               <span style="color:blue;">Fecha de Sorteo:</span> <span style="color:rgba(245,167,37,1);">4 de Julio del 2022</span>
                             </p>
                             
-                            <p class="font-weight-bold"lead text-muted" style="font-size:16px; padding-left: 25px; padding-bottom: 20px" " style="font-size:125%;" >
+                            <p class="font-weight-bold" style="font-size:16px;" >
                             <span style="color:blue;"> Numero de Loto:</span> <span style="color:rgba(245,167,37,1);">09-14-16-14-23-20</span>
                             </p>
 
-                            <p class="font-weight-bold" style="font-size:125%;" >
+                            <p class="font-weight-bold" style="font-size:16px;" >
                               <span style="color:blue;">Vendido en:</span> <span style="color:rgba(245,167,37,1);">Bancas Integrador</span>
                             </p>
 
-                            <p class="font-weight-bold" style="font-size:125%;" >
+                            <p class="font-weight-bold" style="font-size:16px;" >
                               <span style="color:blue;">Direccion:</span> <span style="color:rgba(245,167,37,1);">Puerto Plata/Sector Costero</span>
                             </p>
 
-                            <p class="font-weight-bold" style="font-size:125%;" >
+                            <p class="font-weight-bold" style="font-size:16px;" >
                               <span style="color:blue;">Provincia:</span> <span style="color:rgba(245,167,37,1);">Puerto Plata</span>
                             </p>
 
