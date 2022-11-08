@@ -171,8 +171,29 @@ Premio mayor Una persona en Illinois ganó los USD 1.280 millones de dolares del
 
     </section>
 
-      </div>
-    </div>
+    <section>
+       
+    <div class="" style="margin-left: 40%;">.
+                                <div class="row">
+                                    <div class="col-lg-8  rows">
+                                        <h2 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px">
+                                            NOSOTROS
+                                        </h2>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+
+    <p class="lead text-muted"
+    style="font-size:16px; padding-left: 25px; padding-bottom: 25px;">
+    
+
+    </p>
+
+    </section>
+
+      
+  </div>
 
 </div>
 
