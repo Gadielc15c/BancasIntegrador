@@ -9,7 +9,7 @@ function retornar_lot_numeros_live(){
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $response = curl_exec($ch);
-
+    $a = [];
     if (curl_error($ch)) {
         echo curl_error($ch);
     } else {
@@ -18,7 +18,7 @@ function retornar_lot_numeros_live(){
         
         if(preg_match_all($pattern, $response, $matches)) {
             $matches = $matches[0];
-            $a = [];
+            
             $lot = "None";
             foreach ($matches as $m){
                 $loteria_pattern = "/([A-Za-z0-9 ]{2,})<\/a>/";
@@ -45,13 +45,15 @@ function retornar_lot_numeros_live(){
                 }
             }
         }
-        return $a;
     }
+    header("Content-Type: text/html; charset=UTF-8");    
     curl_close($ch);
-    return false;
+    
+    return $a;
 }
 
-// $x = retornar_lot_numeros_live();
-// var_dump($x);
+/* $x = retornar_lot_numeros_live();
+
+echo gettype($x); */
 
 ?>
