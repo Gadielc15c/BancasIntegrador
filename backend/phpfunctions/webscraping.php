@@ -22,7 +22,7 @@ function retornar_lot_numeros_live(){
             $lot = "None";
             foreach ($matches as $m){
                 $loteria_pattern = "/([A-Za-z0-9 ]{2,})<\/a>/";
-                $jugada_pattern = "/<span>([A-Za-z0-9 +:-]+)<\/span>/";
+                $jugada_pattern = "/<span>([A-Za-z0-9 +:-áéíóú]+)<\/span>/";
                 $fecha_pattern = "/> ([0-9-]+) <\/d/";
                 $numeros_pattern = "/>([0-9x]+)</";
                 $img_pattern = "/src=\"(.*?)\"/";
@@ -52,8 +52,12 @@ function retornar_lot_numeros_live(){
     return $a;
 }
 
-/* $x = retornar_lot_numeros_live();
+// $x = retornar_lot_numeros_live();
+// foreach($x as $a){
+//     echo "<br>";
+//     var_dump($a);
+//     echo "<br>";
 
-echo gettype($x); */
+// }
 
 ?>
