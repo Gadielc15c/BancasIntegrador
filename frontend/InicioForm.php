@@ -77,7 +77,7 @@ header('location: ../index.php');
     <div class="" style="margin-left: 40%;">.
                                 <div class="row">
                                     <div class="col-lg-8  rows">
-                                        <h2 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px">
+                                        <h2 class="font-weight-bold" style="text-align:center">
                                             SECCION DE GANADORES
                                         </h2>
                                        
