@@ -1,6 +1,8 @@
 <?php /*Cambio a ver klk */
 function lotsScramp($nombreLoteria, $jugada, $fecha, $img, $resultado){
     echo '
+    
+            <div class="col">
 <div class="contLots">
     <form action="#">
         <div class="contLots1">
@@ -22,7 +24,7 @@ function lotsScramp($nombreLoteria, $jugada, $fecha, $img, $resultado){
         ;}echo'
         </div>
 </form>
-</div>
+</div></div>
 ';}
 
 ?>
