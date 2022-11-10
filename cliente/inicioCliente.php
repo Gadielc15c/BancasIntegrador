@@ -12,6 +12,7 @@ header('location:  ../index.php');
 
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,18 +35,22 @@ header('location:  ../index.php');
 <body>
     <div class="container2">
 
-        <div class="cuadrado">
+        <div class="cuadradox">
             <center>
-  <h4 style="margin-top: 60px;">RESULTADOS DE LAS ULTIMAS LOTERIAS</h4>
-  </center>
-            <?php
-include('./lotsLoader.php');
-?>
+            <h4 style="margin-top: 60px;">RESULTADOS DE LAS ULTIMAS LOTERIAS</h4>
+            </center>
 
+            
+
+            <div class="container">
+            <div class="row">
+                <?php include('../backend/lotsLoader.php');?>
+                </div></div>
         </div>
     </div>
+
     <!--No borrar-->
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!--Script de iconos-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -54,7 +59,7 @@ include('./lotsLoader.php');
 </body>
 
 <footer>
-<?php
+    <?php
 include('../frontend/footer.php');
 ?>
 

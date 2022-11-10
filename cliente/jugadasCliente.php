@@ -40,7 +40,7 @@ header('location:  ../index.php');
         <div class="cuadrado">
             <?php include('../cliente/jugadasClienteForm.php');?>
 
-            <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">PLANTILLA JUGADACLIENTE</h2>
+           
 
         </div>
     </div>
