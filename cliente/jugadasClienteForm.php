@@ -62,7 +62,7 @@
             
             
             <div class=" bebe" style="justify-content: flex-end">
-            <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">INSERTAR TABLA ACA </h2>
+            <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">INSERTAR TABLA ACA  </h2>
             
             </div>
 
