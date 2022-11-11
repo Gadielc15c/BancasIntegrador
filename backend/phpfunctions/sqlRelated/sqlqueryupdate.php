@@ -137,7 +137,7 @@ function update_estado_sucursal_por_idsucursal($estado, $id){
 
 function update_loterias_por_idloterias($arreglo){
     // usarse con mantenimientosFunctions update
-    $sql = "UPDATE loterias SET nombre = ?, idlothorarios_fk = ?, idterceros_fk = ?, estado = ? WHERE idloterias = ?";
+    $sql = "UPDATE loterias SET nombre = ?, idterceros_fk = ?, estado = ? WHERE idloterias = ?";
     $v = ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }
@@ -148,10 +148,11 @@ function update_estado_loterias_por_idloterias($estado, $id){
     return retorno_booleano_para_updates($v);
 }
 
+
 // table lothorarios
 
 function update_lothorarios_por_idlothorarios($arreglo){
-    $sql = "UPDATE lothorarios SET dialaboral = ?, horalaboral = ?, horacierre = ?, estado = ? WHERE idlothorarios = ?";
+    $sql = "UPDATE lothorarios SET dialaboral = ?, horainicio = ?, horacierre = ?, diasorteo = ?, horasorteo = ?, estado = ? WHERE idlothorarios = ?";
     $v = ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }
@@ -165,7 +166,7 @@ function update_estado_lothorarios_por_idlothorarios($estado, $id){
 // table tipo jugadas
 
 function update_tipojugadas_por_idtipojugadas($arreglo){
-    $sql = "UPDATE tipojugadas SET nombre = ?, idloteria_fk = ?, estado = ? WHERE idtipojugadas = ?";
+    $sql = "UPDATE tipojugadas SET nombre = ?, idloteria_fk = ?, idlothorarios_fk = ?, estado = ? WHERE idtipojugadas = ?";
     $v = ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }

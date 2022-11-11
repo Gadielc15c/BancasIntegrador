@@ -10,7 +10,7 @@ $encabezado = "Mantenimientos de las Loterias";
 $table = "loterias";
 $col_name = "idloterias";
 $array_columnas_exception = array($col_name);
-$array_placeholder = array("ID Loteria", "Nombre", "ID Horario", "ID Terceros", "Estado");
+$array_placeholder = array("ID Loteria", "Nombre", "ID Terceros", "Estado");
 $form_action="../frontend/mantenimientoLoterias.php";
 crear_update_form($function_select, $function_update, $title, $encabezado, $table, $col_name, $array_columnas_exception, $array_placeholder,$form_action);
 
