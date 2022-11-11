@@ -140,8 +140,9 @@ function crear_update_form($function_select, $function_update, $title, $encabeza
     echo '
     <!DOCTYPE html>
     <html lang="en">
-    <head>
-        <title></title>
+  <script type="module" / src="/js/validateUpdates.js"></script>
+  <head>
+        <title>MANTENIMIENTO</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
@@ -180,8 +181,8 @@ function crear_update_form($function_select, $function_update, $title, $encabeza
                 }
 
                 echo '
-                <input type="submit" name="submit" class="btn btn-primary btn-block" value="Actualizar">
-                <input id="volver" type="submit" name="submit" class="btn btn-primary btn-block" formaction="'; echo $form_action; echo'" value="Volver">
+                <input id="update" type="submit" name="submit" class="btn btn-primary btn-block" value="Actualizar">
+                <input id="regresar" type="submit" name="submit" class="btn btn-primary btn-block" formaction="'; echo $form_action; echo'" value="Volver">
                 
             </form>
     
