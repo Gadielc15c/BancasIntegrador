@@ -26,7 +26,7 @@ lvlLogValidate();
     <?php include('./frontend/loginForm.php');?>
 
 
-
+<!--/type="text/javascript"-->
 
     <!--No borrar-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -34,7 +34,7 @@ lvlLogValidate();
     <!--Script de iconos-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--No borrar-->
-    <script type="text/javascript" src="/js/logon.js"></script>
+    <script type="module" / src="/js/loginValidate.js"></script>
 
 </body>
 <footer>

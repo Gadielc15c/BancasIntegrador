@@ -17,7 +17,7 @@ function crear_mantenimientos_form($function_select, $encabezado, $table, $array
 
             <div class="col-md-6">
                 <h1>'; echo $encabezado; echo '</h1>
-                <form action=" " method="POST">';
+                <form action=" " method="POST"> ';
 
                 for ($i = 0; $i < count($col); $i++) {
                     $value = $col[$i];
@@ -181,12 +181,13 @@ function crear_update_form($function_select, $function_update, $title, $encabeza
 
                 echo '
                 <input type="submit" name="submit" class="btn btn-primary btn-block" value="Actualizar">
-                <input type="submit" name="submit" class="btn btn-primary btn-block" formaction="'; echo $form_action; echo'" value="Volver">
+                <input id="volver" type="submit" name="submit" class="btn btn-primary btn-block" formaction="'; echo $form_action; echo'" value="Volver">
                 
             </form>
     
     
         </div>
+        
     </body>
     
     </html>';

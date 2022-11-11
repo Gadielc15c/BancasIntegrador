@@ -50,6 +50,7 @@ include('../backend/mantenimientoLoteriasForm.php');
 
 
   <!--No borrar-->
+  <script type="module" / src="/js/advertencia"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <!--Script de iconos-->
