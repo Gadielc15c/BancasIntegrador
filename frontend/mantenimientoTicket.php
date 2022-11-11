@@ -33,8 +33,9 @@ header('location: ../index.php');
 
 <body>
 <div class="container2">
+
     <div class="cuadrado">
-    
+    <h3 style="margin-top:5%; margin-left: 15.5%;">Mantenimiento de Tickets</h3>
         <?php  
         
         include('../backend/mantenimientoTicketForm.php')
