@@ -14,7 +14,7 @@
   display: flex;
   margin-top: 2%;
   margin-bottom: 2%;
-  margin-left: 38%;
+
   position: relative;
   
   width: 450px;
@@ -22,6 +22,7 @@
   -webkit-box-shadow: -2px 12px 39px -6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -2px 12px 39px -6px rgba(0, 0, 0, 0.75);
 }
+
 .contLots2 {
   display: flex;
   flex-direction: row;
@@ -89,18 +90,20 @@
 .cuadradox{
     display: flex;
     flex-direction: row;   
-  height: 700px;
-  width: 500px;
+    align-content: center;
   background-color: rgb(255, 255, 255);
   margin: auto;
   margin-top: 3%;
-  margin-top: 3%;
   flex: 1;
-  margin-right: 20px;
-  margin-left: 20px;
   overflow: scroll;
   position: relative;
   z-index: 1;
   
 
 }
+.title{
+  color: var(--Principal);
+    font-weight: bolder;
+    text-decoration: underline;
+  
+  }

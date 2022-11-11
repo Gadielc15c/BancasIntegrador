@@ -1,5 +1,7 @@
 
 <div id="container">
+<script type="module" / src="/js/validateUpdates.js"></script>
+
     <div class="top">
         <div class="nav">
             <div class="logoDiv">
