@@ -33,7 +33,6 @@ header('location: ../index.php');
 
 <body>
 <div class="container2">
-    <div class="cuadrado">
     
         <?php  
         
