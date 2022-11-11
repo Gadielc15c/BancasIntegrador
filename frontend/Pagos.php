@@ -44,7 +44,7 @@ header('location: ../index.php');
 		<section class="tarjeta" id="tarjeta">
 			<div class="delantera">
 				<div class="logo-marca" id="logo-marca">
-					 <img src="/img/logo.png" alt="">
+					<!-- <img src="/img/logo.png" alt=""> -->
 				</div>
 				<img src="/img/chip-tarjeta.png" class="chip" alt="">
 				<div class="datos">
@@ -137,7 +137,7 @@ header('location: ../index.php');
 </div>
 
 <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-	<script src="/js/main.js"></script>
+<script src="/js/main.js"></script>
 <!--No borrar-->
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
