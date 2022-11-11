@@ -66,6 +66,34 @@ function seleccionar_todos_tickets(){
     return retornar_seleccion($sql, null, "a");
 }
 
+// Table tipo jugadas
+
+function seleccionar_todos_tipojugadas_por_idloteria_fk($idloteria_fk){
+    $sql = "SELECT idtipojugadas, nombre, idloteria_fk, idlothorarios_fk, estado FROM tipojugadas WHERE idloteria_fk = ?";
+    return retornar_seleccion($sql, array($idloteria_fk), "a");
+}
+
+function seleccionar_todos_tipojugadas(){
+    // usarse con mantenimientosFunctions form
+    $sql = "SELECT idtipojugadas, nombre, idloteria_fk, idlothorarios_fk, estado FROM tipojugadas";
+    return retornar_seleccion($sql, null, "a");
+}
+
+// Table lot horarios
+
+function seleccionar_todos_lothorarios(){
+    // usarse con mantenimientosFunctions form
+    $sql = "SELECT idlothorarios, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado FROM lothorarios";
+    return retornar_seleccion($sql, null, "a");
+}
+
+function seleccionar_todos_lothorarios_por_diasorteo($diasorteo){
+    // @param diasorteo     debe esta en el formato descrito en el insert_lothorarios
+    // Puede retornar varios valores
+    $sql = "SELECT idlothorarios, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado FROM lothorarios WHERE diasorteo = ?";
+    return retornar_seleccion($sql, array($diasorteo), "a");
+}
+
 // Table monedas
 
 function seleccionar_moneda_por_idmonedas($id){
@@ -218,20 +246,20 @@ function seleccionar_sucursal_por_nombresucursal($nom){
 
 function seleccionar_todas_loterias(){
     // usarse con mantenimientosFunctions form
-    $sql = "SELECT idloterias, nombre, idlothorarios_fk, idterceros_fk, estado FROM loterias";
+    $sql = "SELECT idloterias, nombre, idterceros_fk, estado FROM loterias";
     return retornar_seleccion($sql, null, "a");
 }
 
 function seleccionar_loterias_por_idloterias($id){
     // usarse con mantenimientosFunctions update
-    $sql = "SELECT idloterias, nombre, idlothorarios_fk, idterceros_fk, estado FROM loterias WHERE idloterias = ?";
+    $sql = "SELECT idloterias, nombre, idterceros_fk, estado FROM loterias WHERE idloterias = ?";
     return retornar_seleccion($sql, array($id), "o");
 }
 
 function seleccionar_loterias_por_nombre($nom){
     // Puede retonar varios array
     $col = "nombre";
-    $sql = "SELECT idloterias, $col, idlothorarios_fk, idterceros_fk, estado FROM loterias WHERE $col = ?";
+    $sql = "SELECT idloterias, $col, idterceros_fk, estado FROM loterias WHERE $col = ?";
     return retornar_seleccion($sql, array($nom), "a");
 }
 

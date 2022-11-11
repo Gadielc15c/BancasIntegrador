@@ -1,6 +1,10 @@
 <?php
 include_once('dbConstruct.php');
 
+// Estas funciones deben actualiazarse ya que se le realizaron cambios a la BD
+// Pero los cambios se van a postponer porque se considera que no se deben eliminar los datos, sino realizar un update cambiando el estado
+
+
 // table terceros
 
 function delete_un_usuario_por_nombre($nomuser){
