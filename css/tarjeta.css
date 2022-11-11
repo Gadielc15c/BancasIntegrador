@@ -1,4 +1,11 @@
-body {
+
+
+ :root {
+    --Principal: rgba(245, 167, 37, 1);
+    --Secundario: rgb(190, 130, 27);
+    --Blanco: #ffffff;
+    --Gris: #dbdada;
+  }body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
@@ -50,6 +57,8 @@ body {
 }
 
 .form-container {
+    margin-top: -7%;
+    margin-left:38% ;
     display: grid;
     grid-column-gap: 10px;
     grid-template-columns: auto auto;
@@ -202,11 +211,11 @@ input {
 }
 
 .creditcard .grey {
-    fill: #bdbdbd;
+    fill: var(--Principal);
 }
 
 .creditcard .greydark {
-    fill: #616161;
+    fill: var(--Secundario);
 }
 
 /* FRONT OF CARD */
@@ -286,8 +295,8 @@ input {
 }
 
 #cardback .st6 {
-    font-family: 'Source Code Pro', monospace;
-    font-weight: 400;
+    font-family: Verdana, sans-serif;
+    font-weight: bolder;
 }
 
 #cardback .st7 {
@@ -296,6 +305,7 @@ input {
 
 #cardback .st8 {
     opacity: 0.6;
+    
 }
 
 #cardback .st9 {
@@ -304,6 +314,7 @@ input {
 
 #cardback .st10 {
     font-size: 24px;
+    margin-left: 50%;
 }
 
 #cardback .st11 {
@@ -311,7 +322,8 @@ input {
 }
 
 #cardback .st12 {
-    font-family: 'Rock Salt', cursive;
+    font-family: Verdana, sans-serif;
+    font-weight: bolder;
 }
 
 #cardback .st13 {

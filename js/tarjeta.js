@@ -195,7 +195,7 @@ cardnumber_mask.on("accept", function () {
 
 
 
-//Generate random card number from list of known test numbers
+
 const randomCard = function () {
     let testCards = [
         '4000056655665556',
@@ -228,8 +228,8 @@ document.querySelector('.creditcard').addEventListener('click', function () {
 //On Input Change Events
 name.addEventListener('input', function () {
     if (name.value.length == 0) {
-        document.getElementById('svgname').innerHTML = 'John Doe';
-        document.getElementById('svgnameback').innerHTML = 'John Doe';
+        document.getElementById('svgname').innerHTML = 'RAFAEL L.TRUJILLO';
+        document.getElementById('svgnameback').innerHTML = 'RAFAEL L.TRUJILLO';
     } else {
         document.getElementById('svgname').innerHTML = this.value;
         document.getElementById('svgnameback').innerHTML = this.value;

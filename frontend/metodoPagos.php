@@ -17,6 +17,7 @@ header('location: ../index.php');
 <html lang="en">
 
 <head>
+<script nomodule src="../js/tarjeta.js"></script>
     <meta charset="utf-8">
     <title>INICIO</title>
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
@@ -36,24 +37,16 @@ header('location: ../index.php');
 
   
 
-        <div class="cuadrado"> 
-
-        <?php
-        /*
-    include('../frontend/tarjeta.php');
-
-*/
-    ?>
-        </div>
+     
         
-        <div class="cuadrado2"> 
+        <div class="cuadrado"> 
         <?php include('../frontend/formTarjetas.php')?>
         
       
     </div>
 
     
-    <script nomodule src="../js/tarjeta.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script  src="/js/tarjeta.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!--Script de iconos-->
