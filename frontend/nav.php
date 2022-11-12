@@ -1,5 +1,7 @@
 
 <div id="container">
+<script type="module" / src="/js/validateUpdates.js"></script>
+
     <div class="top">
         <div class="nav">
             <div class="logoDiv">
@@ -23,7 +25,7 @@
         ?> Hora: <?php  echo $TIME; ?>
        <small>-->
         <div class="opciones">
-          <a href="/backend/phpfunctions/logOutTemporal.php" class="NavItem NavButton">
+          <a id="logout" href="/backend/phpfunctions/logOutTemporal.php" class="NavItem NavButton">
           <ion-icon name="exit"></ion-icon>
            SALIR
           </a>

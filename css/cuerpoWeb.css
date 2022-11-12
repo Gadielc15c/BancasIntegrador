@@ -108,14 +108,14 @@ div#extra {
   border-bottom: 19px solid var(--Principal);
 }
 .logoDiv {
-  width: 200px;
+  width: 18px;
   float: left;
-  margin-right: 30%;
+  margin-right: 34%;
 }
 .mantenimientoDiv {
-  width: 200px;
+  width: 150px;
   float: left;
-  margin-right: 30%;
+  margin-right: 15%;
 }
 
 .navbar-logo {
@@ -215,7 +215,8 @@ a {
   text-align: center;
 }
 footer {
-  padding: 45px;
+  margin-top: 4%;
+  padding: 10px;
   font-weight: bolder;
   border: #d07616 solid;
   background-color: rgba(245, 167, 37, 1);
@@ -224,7 +225,7 @@ footer {
   position: sticky;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
+ 
 }
 
 #container {

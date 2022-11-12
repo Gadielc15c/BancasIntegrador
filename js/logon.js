@@ -1,3 +1,6 @@
+
+
+
 var login = document.querySelector('#login');
 login.addEventListener('keyup', function(){
     var u_times = document.querySelector('.u_times');
@@ -40,7 +43,7 @@ if(login.value == 0 || login.value.length < 6 ){
    document.getElementById('ERROR').innerHTML = '';
    return false ;
 }else{
- alert('Bienvenido a BANCAS INTEGRADOR.');
+
 }
 
 
