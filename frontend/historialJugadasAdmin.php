@@ -36,17 +36,15 @@ header('location: ../index.php');
 
 <div class="container2">
 
-<div class="cuadrado">
-    <!--PONER AQUI CONTENIDO-->
-    <?php
-include('../backend/historialJugadasAdminForm.php');
-?>
- 
-</div>
-</div>
-
-
-
+    <div class="cuadrado">
+    <h3 style="margin-top:5%; margin-left: 15.5%;">Historial De Jugadas </h3>
+        <?php  
+        
+        include('../backend/historialJugadasAdminForm.php')
+        
+        ?>
+    </div>
+    </div>
 
 
   <!--No borrar-->
