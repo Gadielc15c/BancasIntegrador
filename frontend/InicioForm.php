@@ -74,7 +74,7 @@ header('location: ../index.php');
     <hr >
     <section>
        
-    <div class="" style="margin-left: 40%;">.
+    <div class="" style="margin-left: 27%;">.
                                 <div class="row">
                                     <div class="col-lg-8  rows">
                                         <h2 class="font-weight-bold" style="text-align:center">
@@ -94,11 +94,14 @@ header('location: ../index.php');
 
                             
 
-                             <div style="margin-left: 40%;">
+                             <div style="margin-left: 36%;">
 
                              <p class="font-weight-bold" style="font-size:16px;">
                               <span style="color:rgba(245,167,37,1);">Sra.Juana Anyolina Dominguez Olivo de Cruz</span> 
                             </p>
+                            </div>
+
+                            <div style="margin-left: 40%;">
 
                             <p class="font-weight-bold" style="font-size:16px;" >
                               <span style="color:blue;">Ganador #:</span>  <span style="color:rgba(245,167,37,1);">11000</span>
