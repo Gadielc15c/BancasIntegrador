@@ -1,5 +1,10 @@
 <?php
 
+// Paginas de referencias
+// https://www.conectate.com.do/loterias
+// https://loteriasdominicanas.com/
+// Y entre otras
+
 $path = dirname(__FILE__);
 include_once($path . "/webscraping.php");
 $path = dirname(__FILE__);
@@ -54,6 +59,8 @@ function premios_jugadas_main(string $lot, string $jug, array $ternum, $monto_ju
             $ternum = convertir_int_array_a_str_array($ternum);
             $ret = $func($ternum, $lotnum, $monto_jugado, $orden_importa);
             
+
+
             echo "<br>";
             var_dump($ret);
         }
@@ -62,22 +69,15 @@ function premios_jugadas_main(string $lot, string $jug, array $ternum, $monto_ju
 
 // premios_jugadas_main("Loteria Nacional", "Gana Más", array(77, 35, 33), 1, false);
 
-function numeros_pegados_sin_orden(array $ternum, array $lotnum){
+function num_ganadores(array $ternum, array $lotnum){
+    /* 
+        Usarse en loterias que si o no repiten numeros. Pero el orden no importa
+    */
     $temp = $lotnum;
-    $count = 0;
+    $ganadores = [];
     foreach($ternum as $t){
         if (in_array($t, $temp)){
             $temp = array_remove_once($temp, $t);
-            $count ++;
-        }
-    }
-    return $count;
-}
-
-function numeros_ganadores(array $ternum, array $lotnum){
-    $ganadores = [];
-    foreach($ternum as $t){
-        if (in_array($t, $lotnum)){
             array_push($ganadores, $t);
         }
     }
@@ -124,9 +124,9 @@ function las_5_jugadas(array $ternum, array $lotnum = [],
                                         3 el monto a ganar
     */
 
-    $s = sizeof(array_filter($ternum));
+    $s = sizeof(array_remove_null($ternum));
 
-    if (($orden_importa && $s == 3) || (!$orden_importa && $s == 1) || !in_array($s, [1, 2, 3])){
+    if (($orden_importa && $s == 3) || (!$orden_importa && $s == 1) || sizeof($ternum) != 3){
         return ["no cumple requisitos"];
     }
 
@@ -171,7 +171,7 @@ function las_5_jugadas(array $ternum, array $lotnum = [],
     } else {
         $jug = "tripleta";
         if ($lotnum){
-            $count = numeros_pegados_sin_orden($ternum, $lotnum);
+            $count = sizeof(num_ganadores($ternum, $lotnum));
             if ($count == 2){
                 $jug = "pata de tripleta";
             }
@@ -189,6 +189,131 @@ function las_5_jugadas(array $ternum, array $lotnum = [],
             return $jug;
         }
     }
+}
+
+function mega_millions_y_powerball(array $ternum, array $lotnum, int $sorteo){
+    /* 
+        @param $sorteo          0 para mega millions, 1 para powerball
+    */
+    $megaplier = 1;     //El multiplicador
+    if (sizeof($lotnum) == 7){
+        $megaplier = $lotnum[6];
+        if ($megaplier == "2x"){
+            $megaplier = 2;
+        } elseif ($megaplier == "3x"){
+            $megaplier = 3;
+        } elseif ($megaplier == "4x"){
+            $megaplier = 4;
+        } elseif ($megaplier == "5x"){
+            $megaplier = 5;
+        } elseif ($megaplier == "10x" && $sorteo == 1){
+            $megaplier = 10;
+        } else {
+            $megaplier = 1;
+        }
+    }
+
+    $mb = false;        // MegaBall
+    if ($ternum[5] == $lotnum[5]){
+        $mb = true;
+    }
+
+    $n = num_ganadores(array_slice($ternum, 0, 5), array_slice($lotnum, 0, 5)); // Los primeros 5 numeros. Que no incluye mb ni megaplier
+    $s = sizeof($n);
+
+    if ($s == 5 && $mb){
+       $v = "premio mayor";
+    } elseif ($s == 5){
+        if ($sorteo == 0){
+            $v = 1000000 * $megaplier;
+        } elseif ($sorteo == 1){
+            if ($megaplier == 1){
+                $v = 1000000;
+            } else {
+                $v = 2000000;
+            }
+        }
+    } elseif ($s == 4 && $mb){
+        if ($sorteo == 0){
+            $v = 10000 * $megaplier;
+        } elseif ($sorteo == 1){
+            $v = 50000 * $megaplier;
+        }
+    } elseif ($s == 4){
+        if ($sorteo == 0){
+            $v = 500 * $megaplier;
+        } elseif ($sorteo == 1){
+            $v = 100 * $megaplier;
+        }
+    } elseif ($s == 3 && $mb){
+        if ($sorteo == 0){
+            $v = 200 * $megaplier;
+        } elseif ($sorteo == 1){
+            $v = 100 * $megaplier;
+        }
+    } elseif ($s == 3){
+        if ($sorteo == 0){
+            $v = 10 * $megaplier;
+        } elseif ($sorteo == 1){
+            $v = 7 * $megaplier;
+        }
+    } elseif ($s == 2 && $mb){
+        if ($sorteo == 0){
+            $v = 10 * $megaplier;
+        } elseif ($sorteo == 1){
+            $v = 7 * $megaplier;
+        }
+    } elseif ($s == 1 && $mb){
+        $v = 4 * $megaplier;
+    } elseif ($s == 0 && $mb){
+        if ($sorteo == 0){
+            $v = 2 * $megaplier;
+        } elseif ($sorteo == 1){
+            $v = 4 * $megaplier;
+        } 
+    } else {
+        $v = false;
+    }
+    if ($mb){
+        array_push($n, $ternum[5]);
+    }
+    return [$v, $n];
+}
+
+function ajustes_anguila(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    $q1 = 20; $q2 = 2; $q3 = 1;                                                      
+    $p1 = 1000; $p2 = 1000; $p3 = 100;                                                         
+    $t1 = 20000; $t2 = 100; 
+    $moneda = "US";
+
+    $r = las_5_jugadas($ternum, $lotnum, $q1, $q2, $q3, $p1, $p2, $p3, $t1, $t2, 1, $moneda, $orden_importa);
+    if (is_array($r) && sizeof($r) == 4 && $r[1] == true){
+        $m = $monto_jugado/0.30;
+        $m = (int)$m;
+
+        if ($r[0] == "tripleta" || $r[0] == "pata de tripleta"){
+            $n = num_ganadores($ternum, $lotnum);
+            $s = sizeof($n);
+            if ($s == 3){
+                $r[3] = 10000;
+            } else {
+                $pos1 = array_search($n[0], $lotnum);   //Retorna la posicion del num
+                $pos2 = array_search($n[1], $lotnum);
+                if ($pos1 > $pos2){
+                    $temp = $pos1;
+                    $pos1 = $pos2;
+                    $pos2 = $temp;
+                }
+                if ($pos1 == 0 && $pos2 == 1){        // Primera y Segunda
+                    $r[3] = 1000;
+                } else {
+                    $r[3] = 100;
+                }
+            }
+        }
+        $r[3] *= $m;
+    }
+    return $r;
 }
 
 // funciones espeficias de las loterias
@@ -263,19 +388,20 @@ function loteria_nacional_juega___pega__(array $ternum, array $lotnum, int $mont
     return [false, []];
 }
 
-function loteria_nacional_gana_mas(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
+function loteria_nacional_gana_mas(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
     return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
-function loteria_nacional_loteria_nacional(array $ternum, array $lotnum, int $monto_jugado = 0){
-    if (sizeof(array_filter($ternum)) == 1 && sizeof($ternum) != 1){
+
+function loteria_nacional_loteria_nacional(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    if (sizeof(array_remove_null($ternum)) == 1 && sizeof($ternum) == 3){
         return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: true);
     } else {
-        return ["solo se permiten quinielas en la lotería nacional de la noche"];
+        return ["solo se permiten quinielas en la lotería nacional de la noche. 1 num 2 null"];
     }
 }
 
-function leidsa_pega_3_mas(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    $n = numeros_ganadores($ternum, $lotnum);
+function leidsa_pega_3_mas(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa){
+    $n = num_ganadores($ternum, $lotnum);
     $s = sizeof($n);
     $m = (string)$monto_jugado;
     $m = (int)substr_replace($m,"0",-1);
@@ -293,15 +419,12 @@ function leidsa_pega_3_mas(array $ternum, array $lotnum, int $monto_jugado = 0, 
     return [$v, $n];
 }
 
-// $x = leidsa_pega_3_mas([6,8,9], [1,2,3], 20);
-// var_dump($x);
-
-function leidsa_quiniela_leidsa(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
+function leidsa_quiniela_leidsa(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
     return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
 
-function leidsa_loto_pool(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    $n = numeros_ganadores($ternum, $lotnum);
+function leidsa_loto_pool(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    $n = num_ganadores($ternum, $lotnum);
     $s = sizeof($n);
 
     if ($s == 5){
@@ -316,8 +439,8 @@ function leidsa_loto_pool(array $ternum, array $lotnum, int $monto_jugado = 0, b
     return [$v, $n];
 }
 
-function leidsa_super_kino_tv(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    $n = numeros_ganadores($ternum, $lotnum);
+function leidsa_super_kino_tv(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    $n = num_ganadores($ternum, $lotnum);
     $s = sizeof($n);
 
     if ($s == 10){
@@ -340,12 +463,37 @@ function leidsa_super_kino_tv(array $ternum, array $lotnum, int $monto_jugado = 
     return [$v, $n];
 }
 
-function leidsa_loto_super_loto_mas(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
+function leidsa_loto_super_loto_mas(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    $ts = sizeof($ternum);
+    $tn = array_slice($ternum, 0, 6);
+    $n = num_ganadores($tn, $lotnum);
+    $s = sizeof($n);
 
+    if ($s == 6){                                                                       // loto 
+        $v = "acumulado del loto, minimo 15000000";
+        if ($ts >= 7 && $ternum[6] == $lotnum[6]){                                      //loto mas
+            $v = "acumulado del loto + acumulado del más, minimo 50000000";
+            array_push($n, $ternum[6]);
+            if ($ts == 8 && $ternum[7] == $lotnum[7]){                                  //super loto mas
+                $v = "acumulado del loto + acumulado del más, minimo 200000000";
+                array_push($n, $ternum[7]);
+            }
+        } 
+    } elseif ($s == 5){
+        $v = 18448;
+    } elseif ($s == 4){
+        $v = 1000;
+    } elseif ($s == 3){
+        $v = 50;
+    } else {
+        $v = false;
+    }
+
+    return [$v, $n];
 }
 
-function loteria_real_loto_pool(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    $n = numeros_ganadores($ternum, $lotnum);
+function loteria_real_loto_pool(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    $n = num_ganadores($ternum, $lotnum);
     $s = sizeof($n);
 
     if ($s == 4){
@@ -362,13 +510,12 @@ function loteria_real_loto_pool(array $ternum, array $lotnum, int $monto_jugado 
     return [$v, $n];
 }
 
-function loteria_real_quiniela_real(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    
-
+function loteria_real_quiniela_real(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
 
-function loteria_real_loto_real(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    $n = numeros_ganadores($ternum, $lotnum);
+function loteria_real_loto_real(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    $n = num_ganadores($ternum, $lotnum);
     $s = sizeof($n);
 
     if ($s == 6){
@@ -385,12 +532,12 @@ function loteria_real_loto_real(array $ternum, array $lotnum, int $monto_jugado 
     return [$v, $n];
 }
 
-function loteka_quiniela_loteka(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
+function loteka_quiniela_loteka(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
     return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
 
-function loteka_mega_chances(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    $n = numeros_ganadores($ternum, $lotnum);
+function loteka_mega_chances(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    $n = num_ganadores($ternum, $lotnum);
     $s = sizeof($n);
 
     if ($s == 5){
@@ -407,83 +554,159 @@ function loteka_mega_chances(array $ternum, array $lotnum, int $monto_jugado = 0
     return [$v, $n];
 }
 
-function americanas_new_york_tarde(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
+function americanas_new_york_tarde(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
     return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
 
-function americanas_new_york_noche(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
-    
-}
-
-function americanas_florida_dia(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
+function americanas_new_york_noche(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
     return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
 
-function americanas_florida_noche(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
+function americanas_florida_dia(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
     return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
 
-function americanas_mega_millions(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    
-}
-
-function americanas_powerball(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    
-}
-
-function americanas_cash_4_life(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    
-}
-
-function la_primera_la_primera_dia(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    //return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
-    // agregar combinaciones
-}
-
-function la_primera_la_primera_noche(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
+function americanas_florida_noche(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
     return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
 
-function la_suerte_la_suerte_12_30(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
+function americanas_mega_millions(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    return mega_millions_y_powerball($ternum, $lotnum, 0);
+}
+
+function americanas_powerball(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    return mega_millions_y_powerball($ternum, $lotnum, 1);
+}
+
+function americanas_cash_4_life(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    $cb = false;                                    // Cash Ball
+    if ($ternum[5] == $lotnum[5]){
+        $cb = true;
+    }
+
+    $n = num_ganadores(array_slice($ternum, 0, 5), $lotnum);
+    $s = sizeof($n);
+
+    if ($s == 5 && $cb){
+        $v = "1000 dolares cada dia, de por vida o 7000000";
+    } elseif ($s == 5){
+        $v = "1000 dolares cada semana, de por vida o 1000000";
+    } elseif ($s == 4 && $cb){
+        $v = 2500;
+    } elseif ($s == 4){
+        $v = 500;
+    } elseif ($s == 3 && $cb){
+        $v = 100;
+    } elseif ($s == 3){
+        $v = 25;
+    } elseif ($s == 2 && $cb){
+        $v = 10;
+    } elseif ($s == 2){
+        $v = 4;
+    } elseif ($s == 1 && $cb){
+        $v = 2;
+    } else {
+        $v = false;
+    }
+    if ($cb){
+        array_push($n, $ternum[5]);
+    }
+    return [$v, $n];
+}
+
+function la_primera_la_primera_dia(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa, string $fecha_del_ticket, array $webscrap_nacional_pega_mas, array $webscrap_nacional_noche){
+    /* 
+        Esta funcion puede traer problemas por el tema de las fechas
+
+        @param $fecha_del_ticket            formato Y-m-d H:i:s
+    */
+    $r = las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
+
+    if (is_array($r) && $r[0] == "quiniela"){
+        $terfec = date('d-m-Y', strtotime($fecha_del_ticket));
+
+        $npmfec = $webscrap_nacional_pega_mas[2][0];
+        $npmnum = $webscrap_nacional_pega_mas[3];
+
+        $nnfec = $webscrap_nacional_noche[2][0];
+        $nnnum = $webscrap_nacional_noche[3];
+        
+        $ret = [true, 3000000 * $monto_jugado];
+        if ($terfec == $nnfec && $ternum[0] == $nnnum[0]){
+            return $ret;
+        } elseif ($terfec == $npmfec && $ternum[0] == $npmnum[0]){
+            return $ret;
+        }
+    }
+
+    return $r;
+}
+
+function la_primera_la_primera_noche(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
     return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
 
-function la_suerte_la_suerte_18_00(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
+function la_suerte_la_suerte_12_30(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
     return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
 
-function lotedom_quiniela_lotedom(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
+function la_suerte_la_suerte_18_00(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
     return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
 
-function lotedom_el_quemaito_mayor(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    
+function lotedom_quiniela_lotedom(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: $orden_importa);
 }
 
-function anguila_anguila_manana(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    
+function lotedom_el_quemaito_mayor(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    if (sizeof(array_remove_null($ternum)) == 1 && sizeof($ternum) == 3){
+        $n = (int)$ternum[0];
+        $ln = (int)$lotnum[0];
+        $v = false;
+        $r = [$n];
+        if ($n == $ln){
+            $v = 70 * $monto_jugado;
+        } elseif ($n-1 == $ln || $n+1 == $ln){
+            $v = 5 * $monto_jugado;
+        } else {
+            $r = [0];
+        }
+        return [$v, $r];
+    } else {
+        return ["solo se permite 1 número en el quemaito mayor. [num, null, null]"];
+    }
 }
 
-function anguila_anguila_medio_dia(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    
+function anguila_anguila_manana(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    return ajustes_anguila($ternum, $lotnum, $monto_jugado, $orden_importa);
 }
 
-function anguila_anguila_tarde(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    
+function anguila_anguila_medio_dia(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    return ajustes_anguila($ternum, $lotnum, $monto_jugado, $orden_importa);
 }
 
-function anguila_anguila_noche(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    
+function anguila_anguila_tarde(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    return ajustes_anguila($ternum, $lotnum, $monto_jugado, $orden_importa);
 }
 
-function king_lottery_king_lottery_12_30(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    
+function anguila_anguila_noche(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    return ajustes_anguila($ternum, $lotnum, $monto_jugado, $orden_importa);
 }
 
-function king_lottery_king_lottery_7_30(array $ternum, array $lotnum, int $monto_jugado = 0, bool $orden_importa = false){
-    
+function king_lottery_king_lottery_12_30(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    if (sizeof(array_remove_null($ternum)) == 1 && sizeof($ternum) == 3){
+        return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: true);
+    } else {
+        return ["solo se permiten quinielas en king lottery 12:30. 1 num 2 null"];
+    }
 }
 
+function king_lottery_king_lottery_7_30(array $ternum, array $lotnum, int $monto_jugado, bool $orden_importa){
+    if (sizeof(array_remove_null($ternum)) == 1 && sizeof($ternum) == 3){
+        return las_5_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado, orden_importa: true);
+    } else {
+        return ["solo se permiten quinielas en king lottery 7:30. 1 num 2 null"];
+    }
+}
 
 ?>

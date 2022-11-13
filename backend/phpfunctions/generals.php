@@ -73,7 +73,6 @@ function array_remove_once(array $a, $value){
         @param $value           No es un indice, es el valor a remover. Ej: 1 o "1" o [1] etc
     
     */
-
     $count = 0;
     foreach ($a as $b){
         if ($b == $value){
@@ -81,9 +80,17 @@ function array_remove_once(array $a, $value){
         }
         $count ++;
     }
-
     return array_extract($a , 0, sizeof($a)-1, [$count]);
 }
 
+function array_remove_null(array $a){
+    $t = [];
+    foreach($a as $b){
+        if ($b !== null){
+            array_push($t, $b);
+        } 
+    }
+    return $t;
+}
 
 ?>

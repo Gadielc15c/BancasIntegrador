@@ -1,5 +1,7 @@
 <?php
 
+// Agregar segmento para fechas en especifico
+
 function retornar_lot_numeros_live($modo_debug = false){
     /* 
         Retorna un arreglo con la loteria, jugada, fecha, y numeros, de lo contrario retornara false
