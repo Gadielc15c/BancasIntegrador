@@ -184,6 +184,7 @@ cardnumber_mask.on("accept", function () {
             ccsingle.innerHTML = unionpay_single;
             swapColor('cyan');
             break;
+            //poner imagen
         default:
             ccicon.innerHTML = '';
             ccsingle.innerHTML = '';

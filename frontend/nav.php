@@ -29,7 +29,7 @@
           <ion-icon name="exit"></ion-icon>
            SALIR
           </a>
-          <a href="/frontend/cuentas.php" class="NavItem NavButton">
+          <a href="/frontend/ticketDisplayer.php" class="NavItem NavButton"> <!--/frontend/cuentas.php-->
             <ion-icon name="person"></ion-icon> CUENTA
           </a>
           <a href="/frontend/metodoPagos.php" class="NavItem NavButton">
