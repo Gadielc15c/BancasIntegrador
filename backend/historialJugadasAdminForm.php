@@ -1,5 +1,5 @@
 <?php
-include<('../..fronted/prueba.php');
+include_once('../../backend/prueba.php');
 $consulta=select_historial_jugadas();
 ?>
 <div class="row-md-7">
@@ -24,7 +24,7 @@ $consulta=select_historial_jugadas();
 
          
           <?php 
-            while($fila=$consulta->fetch(PDO::FETCH_ASSOC)){
+            while($fila=$consulta->fetch_assoc()){
                 ?>
                 
                 <tr>    
