@@ -1,6 +1,16 @@
 <?php
+session_start();
+if(!isset($_SESSION['nivel'])){
 
-session_star();
+header('location:  ../index.php');
+    
+}else {
+    if($_SESSION['nivel']!=1){
+
+header('location: ../index.php');
+
+    }
+}
 require_once "conexion.php";
 
 $conexion= conexion();
