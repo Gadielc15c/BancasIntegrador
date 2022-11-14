@@ -1,5 +1,5 @@
 <?php
-include_once('../../backend/prueba.php');
+include_once('../backend/prueba.php');
 $consulta=select_historial_jugadas();
 ?>
 <div class="row-md-7">
