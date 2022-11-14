@@ -3,8 +3,7 @@ include("conexion.php");
 $con = conectar();
 $sql= "SELECT J.idjugadas, J.jugnumeros,
 T.nombre,
-L.nombre,
-TI.idticket,TI.monto, M.moneda, TI.fecha, TI.estado, TER.nomusuarios, TI.codigobarra
+L.nombre,J.idticket_fk, TI.monto, M.moneda, TI.fecha, TI.estado, TER.nomusuarios, TI.codigobarra
 FROM jugadas J
 INNER JOIN tipojugadas T ON J.idtipojugada_fk = T.idtipojugadas
 INNER JOIN loterias L ON J.idloteria_fk  = L.idloteria
