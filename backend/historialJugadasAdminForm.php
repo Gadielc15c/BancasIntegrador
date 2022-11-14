@@ -21,7 +21,6 @@
 
          
           <?php 
-          foreach ($query as $row){
             $query="SELECT J.idjugadas, J.jugnumeros,
                             T.nombre,
                             L.nombre,
@@ -32,31 +31,29 @@
                             INNER JOIN tickets T ON J.idticket_fk = T.idticket";
                             $consulta=$conexion->query($query);
                             while($fila=$consulta->fetch(PDO::FETCH_ASSOC))
-          ?>
-          <tr>
-          <th><?php echo $row['idjugada']?></th>
-          <th><?php echo $row['jugnumeros']?></th>
-          <th><?php echo $row['nombre']?></th>
-          <th><?php echo $row['nombre']?></th>
-          <th><?php echo $row['idticket']?></th>
-          <th><?php echo $row['monto']?></th>
-          <th><?php echo $row['moneda_fk']?></th>
-          <th><?php echo $row['fecha']?></th>
-          <th><?php echo $row['estado']?></th>
-          <th><?php echo $row['idterceros_fk']?></th>
-          <th><?php echo $row['codigobarra']?></th>
-              <th><?php 
-                  $reply = ucfirst(por_estado_activo_inactivo($row['estado']));
-                  echo $reply;
-              ?></th>
-              
 
-          </tr>
+                            {
+                                echo'
+                                <tr>
+                                <td>'.$fila['idjugada'].'</td>
+                                <td>'.$fila['jugnumeros'].'</td>
+                                <td>'.$fila['nombre'].'/td>
+                                <td>'.$fila['nombre'].'</td>
+                                <td>'.$fila['idticket'].'</td>
+                                <td>'.$fila['monto'].'</td>
+                                <td>'.$fila['moneda_fk'].'</td>
+                                <td>'.$fila['fecha'].'</td>
+                                <td>'.$fila['estado'].'</td>
+                                <td>'.$fila['idterceros_fk'].'</td>
+                                <td>'.$fila['codigobarra'].'</td>
+                                </tr>
+                                ';
+                               
+                            }
+         
 
 
-          <?php
-          }
-?>
+        ?>
             <style>
             th {
                 text-align: justify;
