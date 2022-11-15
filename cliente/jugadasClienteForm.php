@@ -1,3 +1,6 @@
+<?php 
+include('../backend/phpfunctions/jugadasFunctions.php');
+?>
 <div class=".container">
 
     <div class=".row">
@@ -14,15 +17,29 @@
                     <h2>Selecione Su Loteria</h2>
                     <select name="lotsSelect" id="lotsSelect" class="lotsSelect" place>
                         <option value="">Seleccione una Lotería</option>
-                        <option value="Leidsa">Leidsa</option>
-                        <option value="Nacional">Nacional</option>
-                        <option value="Real">Real</option>
-                        <option value="Loteka">Loteka</option>
+                        <?php
+                       
+                        
+                        foreach($todo_loteria as $lotsitem){
+                            echo "<option value='strtolower($lotsitem)'>$lotsitem</option>";
+                        }
+        ?>
+
+                       
                     </select>
+
                     <select name="SortSelect" id="SortSelect" class="lotsSelect" place>
-                        <option value="">Seleccione un Sorteo</option>
-                        <option value="Sorteo1">Sorteo1</option>
-                        <
+                        <option selected="selected">Seleccione sorteo </option>
+                        <?php
+
+                        
+                        
+                        
+                        foreach($todo_sorteo as $sorteitem){
+                            echo "<option value='strtolower($sorteitem)'>$sorteitem</option>";
+                        }
+        ?>
+                    </select>
                     </select>
                 </div>
 
@@ -47,35 +64,36 @@
                  
                         <div class=" col">
 
-                        <div class=".row">
-                      <label for="monto">MONEDA: RD$</label>
-                            <input type=" text" class="bebecito" name="monto" placeholder="MONTO""> </input>
+                            <div class=".row">
+                                <label for="monto">MONEDA: RD$</label>
+                                <input type=" text" class="bebecito" name="monto" placeholder="MONTO""> </input>
                        
                             </div>
                             </div>
                     
 
-                        <input type=" button" class="bebecitoButton"  value="Jugar"> </input>
-                        <input type=" button" class="bebecitoButton"  value="Jugar en Todas"> </input>
-                        
+                        <input type=" button" class="bebecitoButton" value="Jugar"> </input>
+                                <input type=" button" class="bebecitoButton" value="Jugar en Todas"> </input>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                    <div class=" bebe" style="justify-content: flex-end">
+
+                        <input type=" button" class="bebecitoButton" name="jugada2" value="IMPRIMIR JUGADA">
                     </div>
 
 
+                    <div class=" bebe" style="justify-content: flex-end">
+                        <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">INSERTAR TABLA ACA
+                        </h2>
+
+                    </div>
 
                 </div>
-
             </div>
-            <div class=" bebe" style="justify-content: flex-end">
-
-                <input type=" button" class="bebecitoButton" name="jugada2" value="IMPRIMIR JUGADA">
-            </div>
-
-
-            <div class=" bebe" style="justify-content: flex-end">
-                <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">INSERTAR TABLA ACA </h2>
-
-            </div>
-
-        </div>
-</div>
-</form>
+    </form>
