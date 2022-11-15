@@ -35,7 +35,7 @@ header('location: ../index.php');
 
 </head>
 <header>
-<?php include('../frontend/nav.php');?>
+<?php include('../frontend/');?>
 </header>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -115,6 +115,6 @@ header('location: ../index.php');
 
 </body>
 <footer>
-  <?php include("footer.php") ?>
+  <?php include("../frontend/footer.php") ?>
 </footer>
 </html>

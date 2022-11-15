@@ -19,6 +19,11 @@
                         <option value="Real">Real</option>
                         <option value="Loteka">Loteka</option>
                     </select>
+                    <select name="SortSelect" id="SortSelect" class="lotsSelect" place>
+                        <option value="">Seleccione un Sorteo</option>
+                        <option value="Sorteo1">Sorteo1</option>
+                        <
+                    </select>
                 </div>
 
 
@@ -36,17 +41,23 @@
 
                         <div class=".row">
                             <input type="text" class="bebecito" name="jugada1" placeholder="NUMERO A JUGAR""></input>
-                        <input type=" text" class="bebecito" name="jugada1" placeholder="NUMERO A JUGAR""></input>
-                        <input type=" text" class="bebecito" name="jugada1" placeholder="NUMERO A JUGAR""></input>
+                        <input type=" text" class="bebecito" name="jugada2" placeholder="NUMERO A JUGAR""></input>
+                        <input type=" text" class="bebecito" name="jugada3" placeholder="NUMERO A JUGAR""></input>
                     </div>
                  
                         <div class=" col">
 
-                            <input type=" text" class="bebecito" name="jugada1" placeholder="MONTO""> </input>
-                        <input type=" button" class="bebecitoButton" name="jugada2" 
-                                value="Enviar"> </input>
-                                
-                        </div>
+                        <div class=".row">
+                      <label for="monto">MONEDA: RD$</label>
+                            <input type=" text" class="bebecito" name="monto" placeholder="MONTO""> </input>
+                       
+                            </div>
+                            </div>
+                    
+
+                        <input type=" button" class="bebecitoButton"  value="Jugar"> </input>
+                        <input type=" button" class="bebecitoButton"  value="Jugar en Todas"> </input>
+                        
                     </div>
 
 
@@ -56,14 +67,13 @@
             </div>
             <div class=" bebe" style="justify-content: flex-end">
 
-            <input type=" button" class="bebecitoButton" name="jugada2" 
-                                value="IMPRIMIR JUGADA">
+                <input type=" button" class="bebecitoButton" name="jugada2" value="IMPRIMIR JUGADA">
             </div>
-            
-            
+
+
             <div class=" bebe" style="justify-content: flex-end">
-            <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">INSERTAR TABLA ACA  </h2>
-            
+                <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">INSERTAR TABLA ACA </h2>
+
             </div>
 
         </div>
