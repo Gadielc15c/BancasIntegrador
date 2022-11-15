@@ -48,7 +48,6 @@ $cant_b_label = "bolos total";
 $cant_bp_label = "cantidad de bolos por tombola";
 $rango_b_label = "rango de los bolos por tombola";
 $jug_label = "tipo de jugada";
-
 $q_label = "quiniela";
 $p_label = "palé";
 $t_label = "tripleta";

@@ -44,5 +44,5 @@ function winners($nombreLoteria, $jugada, $fecha, $img, $resultado,$premiado){
         
 </div></div>
 ';}
-
+echo 'PHP version'.phpversion();
 ?>
