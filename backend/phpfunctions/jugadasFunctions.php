@@ -172,30 +172,6 @@ function premios_jugadas_main(string $lot, string $sorteo, array $ternum, int $m
     return ["Error con loteria: '" . $lot . "' y sorteo: '". $sorteo . "'"];
 }
 
-// function opciones_de_jugadas(string $loteria = "", string $sorteo = "", int $jugada = 0, array $todo_loteria = $todo_loteria, array $todo_sorteo = $todo_sorteo){
-//     /* 
-//         Como usar esta funcion? Solo se le debe pasar 1 de los primeros 3 parametros. Los ultimos 2 ya se hacen automaticamente
-
-//         @param $loteria                 El nombre de la loteria tal cual como esta dado por el webscraping
-//         @param $sorteo                  El nombre del sorteo tal cual como esta dado por el webscraping
-//         @param $jugada                  1 para Quiniela, 2 para pale, 3 para tripleta
-
-//         return                          Un array
-//                                         Si le pasas loteria, devolvera todos los sorteos referentes a esa loteria
-//                                         Si le pasas sorteo, devolvera la loteria a la cual le corresponde
-//                                         Si le pasas jugada, devolvera todos los sorteos que permite dicha jugada
-//     */
-
-    
-
-//     if ($loteria){
-//         echo "Funcionando";
-//     }
-
-// }
-
-
-
 // No se deberia usar las funciones debajo
 
 function num_ganadores(array $ternum, array $lotnum){
