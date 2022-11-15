@@ -37,7 +37,7 @@ header('location: ../index.php');
 <div class="container2">
   <div class="cuadrado">
     <!--PONER AQUI CONTENIDO-->
- 
+ <a type="button" href="/frontend/metodoPagos.php"> AGREGAR METODO DE PAGO ARREGLAR BOTON</a>
 
 
   </div>
