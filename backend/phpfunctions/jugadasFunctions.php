@@ -10,11 +10,16 @@ include_once($path . "/webscraping.php");
 $path = dirname(__FILE__);
 include_once($path . "/generals.php");
 
+$todo_loteria = ["Loteria Nacional", "Leida", "Loteria Real", "Loteka", "Americanas", "La Primera", "La Suerte", "LoteDom", "Anguila", "King Loterry"];
+$todo_sorteo = ["Juega + Pega +", "Gana Más", "Lotería Nacional", "Pega 3 Más", "Quiniela Leidsa", "Loto Pool", "Super Kino TV", "Loto - Super Loto Más", "Loto Pool", "Quiniela Real", "Quiniela Loteka", "Mega Chances", "MegaLotto", "New York Tarde", "New York Noche", "Florida Día", "Florida Noche", "Mega Millions", "PowerBall", "Cash 4 Life", "La Primera Día", "Primera Noche", "La Suerte 12:30", "La Suerte 18:00", "Quiniela LoteDom", "El Quemaito Mayor", "Anguila Mañana", "Anguila Medio Día", "Anguila Tarde", "Anguila Noche", "King Lottery 12:30", "King Lottery 7:30"];
+
 function premios_jugadas_main(string $lot, string $sorteo, array $ternum, int $monto_jugado = 0, string $fecha_del_ticket = null, string $fecha_especifica = null){
     /*  
         @param $lot, $sorteo            debe ser tal cual como viene en el webscraping. Corresponde al nombre de la loteria y al nombre de la jugada.
         @param $ternum                  un array con los numeros jugados por el cliente, ya sea un array de int o de strings
         @param $fecha_del_ticket        tal cual como viene del webscraping. formato Y-m-d H:i:s       
+                                        Es necesario para los que estan jugando La Primera La Primera Dia
+
         @param $fecha_especifica        string formato dd-mm-yyyy 
         @retorno                        
                                         Un array de 1, 2 o 4 
@@ -72,6 +77,19 @@ function premios_jugadas_main(string $lot, string $sorteo, array $ternum, int $m
     }
     return ["Error con loteria: '" . $lot . "' y sorteo: '". $sorteo . "'"];
 }
+
+function opciones_de_jugadas(){
+
+
+
+
+}
+
+
+// No se deberia usar las funciones debajo
+
+
+
 
 function num_ganadores(array $ternum, array $lotnum){
     /* 
@@ -539,6 +557,10 @@ function loteka_mega_chances(array $ternum, array $lotnum, int $monto_jugado){
         $v = false;
     }
     return [$v, $n];
+}
+
+function loteka_megalotto(){
+
 }
 
 function americanas_new_york_tarde(array $ternum, array $lotnum, int $monto_jugado){
