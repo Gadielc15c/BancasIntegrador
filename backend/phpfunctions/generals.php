@@ -11,8 +11,16 @@ function crear_tickets_codigo(){
     return strval(rand(100000, 999999)) . uniqid();
 }
 
-function fecha_de_hoy(){
-    $timezone = "America/Santo_Domingo";
+function fecha_de_hoy(int $zona = 0){
+    /* 
+        @param $zona        0 para dominicana, 1 para new york
+    */
+    if ($zona == 0){
+        $timezone = "America/Santo_Domingo";
+    } elseif ($zona == 1){
+        $timezone = "America/New_York";
+    }
+    
     $dt = new DateTime("now", new DateTimeZone($timezone));
     $dt -> setTimestamp(time());
     return $dt->format('Y-m-d H:i:s');
