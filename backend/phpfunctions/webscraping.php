@@ -1,12 +1,16 @@
 <?php
 
-// Agregar segmento para fechas en especifico
-
-function retornar_lot_numeros_live($modo_debug = false){
+function retornar_lot_numeros_live(string $fecha_especifica = null, bool $modo_debug = false){
     /* 
-        Retorna un arreglo con la loteria, jugada, fecha, y numeros, de lo contrario retornara false
+        @param $fecha_especifica        un string en el formato dd-mm-yyyy
+        Retorna un arreglo con la loteria, sorteo, fecha, numeros y un checkmark, de lo contrario retornara false
     */
-    $url = "https://loteriasdominicanas.com/";
+    if ($fecha_especifica){
+        $url = "https://loteriasdominicanas.com/?date=" . $fecha_especifica;
+    } else {
+        $url = "https://loteriasdominicanas.com/";
+    }
+    
     header("Content-Type: text/plain");
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -23,8 +27,6 @@ function retornar_lot_numeros_live($modo_debug = false){
             print_r($msg);
             echo "\n";
             print_r($arreglo);
-            
-            
         }
 
         $response = trim(preg_replace('/\s\s+/', ' ', $response));
@@ -36,7 +38,7 @@ function retornar_lot_numeros_live($modo_debug = false){
             $lot = "None";
             foreach ($matches as $m){
                 $loteria_pattern = "/([A-Za-z0-9 ]{2,})<\/a>/";
-                $jugada_pattern = "/<span>([A-Za-z0-9 +:\-áéíóúñ]+)<\/span>/";
+                $sorteo_pattern = "/<span>([A-Za-z0-9 +:\-áéíóúñ]+)<\/span>/";
                 $fecha_pattern = "/> ([0-9- A-Za-z]+) <\/d/";
                 $numeros_pattern = "/>([0-9x]+)</";
                 $img_pattern = "/src=\"(.*?)\"/";
@@ -45,17 +47,15 @@ function retornar_lot_numeros_live($modo_debug = false){
 
                 if(preg_match_all($check_pattern, $m, $x0)) {
                     $check = true;
-                } elseif ($modo_debug){
-                    imprimir("No se encontro check_pattern", $m);
                 }
                 if(preg_match_all($numeros_pattern, $m, $x_num)) {
                     if(preg_match_all($fecha_pattern, $m, $x_fecha)) {
-                        if(preg_match_all($jugada_pattern, $m, $x_jugada)) {
+                        if(preg_match_all($sorteo_pattern, $m, $x_sorteo)) {
                             if(preg_match_all($img_pattern, $m, $x_img)) {
                                 if(preg_match_all($loteria_pattern, $m, $x_loteria)) {
                                     $lot = $x_loteria[1];
                                 }
-                                array_push($a, array($lot, $x_jugada[1], $x_fecha[1], $x_num[1], $x_img[1], $check));
+                                array_push($a, array($lot, $x_sorteo[1], $x_fecha[1], $x_num[1], $x_img[1], $check));
                                 
                                 if ($modo_debug){
                                     imprimir($lot, []);
@@ -64,7 +64,7 @@ function retornar_lot_numeros_live($modo_debug = false){
                                 imprimir("No se encontro img_pattern", $m);
                             }
                         } elseif ($modo_debug){
-                            imprimir("No se encontro jugada_pattern", $m);
+                            imprimir("No se encontro sorteo_pattern", $m);
                         }
                     } elseif ($modo_debug){
                         imprimir("No se encontro fecha_pattern", $m);
@@ -75,16 +75,17 @@ function retornar_lot_numeros_live($modo_debug = false){
             }
         }
     }
-    header("Content-Type: text/html; charset=UTF-8");    
+    if (!$modo_debug){
+        header("Content-Type: text/html; charset=UTF-8");    
+    }
     curl_close($ch);
-    
     return $a;
 }
 
 
 // $x = retornar_lot_numeros_live();
 
-// print_r(sizeof($x)); // Son 33 jugadas
+// print_r(sizeof($x)); // Son 33 jugadas pero a veces solo salen 31 por ser domingo
 
 // foreach($x as $a){
 //     echo "<br>";
