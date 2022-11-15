@@ -10,7 +10,7 @@ include_once($path . "/webscraping.php");
 $path = dirname(__FILE__);
 include_once($path . "/generals.php");
 
-$todo_loteria = ["Loteria Nacional", "Leida", "Loteria Real", "Loteka", "Americanas", "La Primera", "La Suerte", "LoteDom", "Anguila", "King Lotery"];
+$todo_loteria = ["Loteria Nacional", "Leidsa", "Loteria Real", "Loteka", "Americanas", "La Primera", "La Suerte", "LoteDom", "Anguila", "King Lottery"];
 $todo_sorteo = ["Juega + Pega +", "Gana Más", "Lotería Nacional", "Pega 3 Más", "Quiniela Leidsa", "Loto Pool", "Super Kino TV", "Loto - Super Loto Más", "Loto Pool", "Quiniela Real", "Quiniela Loteka", "Mega Chances", "MegaLotto", "New York Tarde", "New York Noche", "Florida Día", "Florida Noche", "Mega Millions", "PowerBall", "Cash 4 Life", "La Primera Día", "Primera Noche", "La Suerte 12:30", "La Suerte 18:00", "Quiniela LoteDom", "El Quemaito Mayor", "Anguila Mañana", "Anguila Medio Día", "Anguila Tarde", "Anguila Noche", "King Lottery 12:30", "King Lottery 7:30"];
 
 
@@ -48,6 +48,7 @@ $cant_b_label = "bolos total";
 $cant_bp_label = "cantidad de bolos por tombola";
 $rango_b_label = "rango de los bolos por tombola";
 $jug_label = "tipo de jugada";
+
 $q_label = "quiniela";
 $p_label = "palé";
 $t_label = "tripleta";
@@ -106,6 +107,9 @@ $todo_combinado = [ "Loteria Nacional" =>   [   "Juega + Pega +" =>         [$ho
 ];
 
 
+// var_dump(array_keys($todo_combinado["King Lottery"]));
+
+// Funcion principal para los premios
 function premios_jugadas_main(string $lot, string $sorteo, array $ternum, int $monto_jugado = 0, string $fecha_del_ticket = null, string $fecha_especifica = null){
     /*  
         @param $lot, $sorteo            debe ser tal cual como viene en el webscraping. Corresponde al nombre de la loteria y al nombre de la jugada.
@@ -188,6 +192,7 @@ function num_ganadores(array $ternum, array $lotnum){
     return $ganadores;
 }
 
+
 function las_3_jugadas(array $ternum, array $lotnum,   
                         int $q1 = 60, int $q2 = 8, int $q3 = 4,                                                      
                         int $p1 = 1000, int $p2 = 1000, int $p3 = 100,                                                         
@@ -232,7 +237,7 @@ function las_3_jugadas(array $ternum, array $lotnum,
     }
 
     $q_label = "quiniela";
-    $p_label = "palé";
+    $p_label = "pale";
     $t_label = "tripleta";
     
     if ($s == 1){         
