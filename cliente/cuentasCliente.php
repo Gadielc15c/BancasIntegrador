@@ -28,7 +28,7 @@ header('location:  ../index.php');
 </head>
 
 <header>
-<?php include('../frontend/nav.php');?>
+<?php include('../cliente/navCliente.php');?>
 </header>
 
 <body>

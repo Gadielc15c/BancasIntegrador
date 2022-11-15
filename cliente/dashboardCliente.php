@@ -28,7 +28,7 @@ header('location:  ../index.php');
 
 </head>
 <header>
-<?php include('../frontend/nav.php');?>
+<?php include('../cliente/navCliente.php');?>
 </header>
 
 <body>
@@ -38,7 +38,7 @@ header('location:  ../index.php');
      
 
     <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
-                                    PLANTILLA DASHBOARDCLIENTE
+                                    PLANTILLA DASHBOARD CLIENTE
                                 </h2>
 
       </div>
@@ -55,6 +55,6 @@ header('location:  ../index.php');
 
 </body>
 <footer>
-  <?php include("footer.php") ?>
+  <?php include("../frontend/footer.php") ?>
 </footer>
 </html>

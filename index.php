@@ -19,7 +19,7 @@ lvlLogValidate();
     <link rel="stylesheet" href="/css/login.css" />
 </head>
 <header>
-    <?php include('./frontend/nav.php');?>
+    <?php include('./frontend/navVACIO.php');?>
 </header>
 
 <body>

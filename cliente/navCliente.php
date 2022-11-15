@@ -29,7 +29,7 @@
           <a href="./dashboardCliente.php" class="NavItem NavButton">
             <ion-icon name="apps"></ion-icon> DASHBOARD
           </a>
-          <a href="/inicioCliente.php" class="NavItem NavButton">
+          <a href="./inicioCliente.php" class="NavItem NavButton">
             <ion-icon name="home"></ion-icon> INICIO
           </a>
       
