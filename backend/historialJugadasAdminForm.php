@@ -3,7 +3,7 @@ include("conexion.php");
 $con = conectar();
 
 ?>
-<div class="row-md-7">a
+<div class="row-md-7">
     <table class="table">
         <thead class="table-warning table-striped">
             <tr style="text-align: center;">
@@ -24,7 +24,7 @@ $con = conectar();
         <tbody>
 
          
-          <?php 
+        <?php 
 
             $sql= "SELECT J.idjugadas, J.jugnumeros,
                         T.nombre,
@@ -38,26 +38,25 @@ $con = conectar();
 
                         $query=mysqli_query($con,$sql);
                  while($row=mysqli_fetch_array($query)){
-                ?>
+        ?>
                 
                 <tr>    
                     <th><?php echo $row['idjugada'] ?></th>
                     <th><?php echo $row['jugnumeros'] ?></th>
                     <th><?php echo $row['nombre'] ?></th>
                     <th><?php echo $row['nombre'] ?></th>
-                    <th><?php echo $row['idticket'] ?></th>
+                    <th><?php echo $row['idticket_fk'] ?></th>
                     <th><?php echo $row['monto'] ?></th>
-                    <th><?php echo $row['moneda_fk'] ?></th>
+                    <th><?php echo $row['moneda'] ?></th>
                     <th><?php echo $row['fecha'] ?></th>
                     <th><?php echo $row['estado'] ?></th>
-                    <th><?php echo $row['idterceros_fk'] ?></th>
+                    <th><?php echo $row['nomusuario'] ?></th>
                     <th><?php echo $row['codigobarra'] ?></th>
                 </tr>
-                 <?php
-                        
-                       
+        <?php
+                    
             }
-?>
+        ?>
 
       
             <style>
