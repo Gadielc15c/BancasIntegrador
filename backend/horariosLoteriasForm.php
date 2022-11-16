@@ -1,9 +1,7 @@
 <?php
 include("conexion.php");
 $con = conectar();
-$sql= "SELECT L.nombre, H.dialaboral, H.horalaboral, H.horacierre
-FROM loterias
-INNER JOIN h.idlothorarios = L.idlothorarios_fk";
+$sql= "SELECT * FROM lothorarios";
 $query=mysqli_query($con,$sql);
 
 ?>
@@ -14,10 +12,12 @@ $query=mysqli_query($con,$sql);
             <table class="table">
                 <thead class="table-warning table-striped">
                     <tr style="text-align: center;">
-                        <th>LOTERIA</th>
+                        <th>ID</th>
                         <th>DIAS LABORABLES</th>
                         <th>HORA LABORAL</th>
                         <th>HORA DE CIERRE</th>
+                        <th>ESTADO</th>
+
 
                         <th></th>
                         <th></th>
@@ -29,10 +29,11 @@ $query=mysqli_query($con,$sql);
                     while ($row=mysqli_fetch_array($query)){
                         ?>
                     <tr>
-                        <th><?php echo $row['nombre']  ?></th>
+                        <th><?php echo $row['idlorhorarios']  ?></th>
                         <th><?php echo $row['dialaboral']  ?></th>
                         <th><?php echo $row['horalaboral']  ?></th>
                         <th><?php echo $row['horacierre']  ?></th>
+                        <th><?php echo $row['estado']  ?></th>
               
                     </tr>
                     <?php
