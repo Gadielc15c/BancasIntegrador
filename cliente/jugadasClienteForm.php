@@ -15,6 +15,7 @@ $sortDefault = "Seleccione sorteo";
 $tc_label = "Cantidad";
 $lot_label = "Lotería";
 $sor_label = "Sorteo";
+$mod_label = "Modalidad";
 $m_label = "Moneda";
 $monto_label = "Monto";
 $num_label = "Números";
@@ -44,6 +45,18 @@ if (isset($_SESSION["tablajugada"])) {
     $_SESSION["tablajugada"] = $_SESSION["tablajugada"];
 } else {
     $_SESSION["tablajugada"] = [];
+}
+
+if (isset($_SESSION["filasjugadas"])) {
+    $_SESSION["filasjugadas"] = $_SESSION["filasjugadas"];
+} else {
+    $_SESSION["filasjugadas"] = [];
+}
+
+if (isset($_SESSION["conteojugadas"])) {
+    $_SESSION["conteojugadas"] = $_SESSION["conteojugadas"];
+} else {
+    $_SESSION["conteojugadas"] = 0;
 }
 
 
@@ -89,18 +102,26 @@ if (isset($_SESSION["tablajugada"])) {
                 </form>
             </div>
             <form action="" method="post" class="form-grp">  
-                <div class="bebe">
-                    <div class="papa">
-                    </div>
-                    <div class="col">
-
-                    <div class=".row">
-                        <?php
+            <?php
                         $b_value = $_SESSION["lotsSelect"] != $lotsDefault && $_SESSION["sortSelect"] != $sortDefault;
                         if ($b_value){
+                            echo '<div class="bebe">
+                                <div class="papa">
+                                </div>
+                                <div class="col">
+
+                                <div class=".row">';
+                        
                             $value = $todo_combinado[$_SESSION["lotsSelect"]][$_SESSION["sortSelect"]];
-                            for ($x = 0; $x < $value[$cant_b_label]; $x++){
-                                echo '<input type="text" class="bebecito" name="jugada'; echo $x; echo '" placeholder="NUMERO A JUGAR" required></input>';
+                            $modalidad = $value[$jug_label];
+                            $req = "required";
+                            if (in_array($t_label, $modalidad) || in_array($p_label, $modalidad)){
+                                $req = "";
+                            }
+                            echo '<input type="text" class="bebecito" name="jugada'; echo 0; echo '" placeholder="NUMERO A JUGAR" required></input>';
+                            for ($x = 1; $x < $value[$cant_b_label]; $x++){
+                                
+                                echo '<input type="text" class="bebecito" name="jugada'; echo $x; echo '" placeholder="NUMERO A JUGAR"'; echo $req; echo '></input>';
                             }
                         }
 
@@ -144,13 +165,29 @@ if (isset($_SESSION["tablajugada"])) {
 
                                     $ticket_cantidad = 1;
                                     
-
                                     if (isset($_POST["jugada0"])){
                                         $num_og = array_slice($_POST, 0, sizeof($_POST)-1);
-                                        $num = implode(", ", $num_og);
+                                        $num_o = array_remove_empty_string($num_og);
+                                        $num = implode(", ", $num_o);
+                                        
+                                        $modali = ucfirst($q_label);
+                                        if (in_array($t_label, $modalidad)){
+                                            $s = sizeof($num_o);
+                                            if ($s == 3){
+                                                $modali = ucfirst($t_label);
+                                            } elseif ($s == 2){
+                                                $modali = ucfirst($p_label);
+                                            } 
+                                        } else {
+                                            if (!in_array($q_label, $modalidad)){
+                                                $modali = "Propia";
+                                            }
+                                        }
+
                                         $c_ticket = [
                                             $lot_label => $_SESSION["lotsSelect"], 
                                             $sor_label => $_SESSION["sortSelect"], 
+                                            $mod_label => $modali,
                                             $m_label => $m, 
                                             $monto_label => floatval($_POST["monto"]), 
                                             $num_label => $num
@@ -177,14 +214,35 @@ if (isset($_SESSION["tablajugada"])) {
                                         $_SESSION["numeros"] = [];
                                     }
                                 } // Cierre del if que esta mas arriba, no borrar
-                                    
+                                
+                                // Actualizar las jugadas despues de darle al boton repetir
+                                for ($x = 0; $x < $_SESSION["conteojugadas"]; $x++){
+                                    if (isset($_POST[$repetir_label.$x])){
+                                        $indice = array_search($_SESSION["filasjugadas"][$repetir_label.$x], $_SESSION["tablajugada"]);
+                                        $_SESSION["tablajugada"][$indice][$tc_label] ++;
+                                        break;
+                                    }
+                                }
+
+                                // Borrar la jugadas despues de darle al boton borrar
+                                for ($x = 0; $x < $_SESSION["conteojugadas"]; $x++){
+                                    if (isset($_POST[$borrar_label.$x])){
+                                        $_SESSION["tablajugada"] = array_remove_by_key($_SESSION["filasjugadas"], $repetir_label.$x, false);
+                                        break;
+                                    }
+                                }
+
                                     echo '
                                     </div>
 
                                     </div>
-                                    <div class=" bebe" style="justify-content: flex-end">
+                                    <div class=" bebe" style="justify-content: flex-end">';
+                                    if ($b_value){
 
-                                        <input type="submit" class="bebecitoButton" name="imprimir" value="IMPRIMIR JUGADA">
+                                        echo '<input type="submit" class="bebecitoButton" name="imprimir" value="FINALIZAR JUGADA">';
+                                    } echo '
+
+                                        
                                     </div>
 
 
@@ -194,7 +252,7 @@ if (isset($_SESSION["tablajugada"])) {
                                             echo '
                                             <tr>';
 
-                                                $encabezados = [$tc_label, $lot_label, $sor_label, $m_label, $monto_label, $num_label];
+                                                $encabezados = [$tc_label, $lot_label, $sor_label, $mod_label, $m_label, $monto_label, $num_label];
                                                 foreach($encabezados as $e){
                                                     echo '<th>'; echo $e; echo '</th>';
                                                 }
@@ -202,10 +260,9 @@ if (isset($_SESSION["tablajugada"])) {
                                                 echo '
                                             </tr>';
                                                 
-                                                $filas = [];
                                                 $count = 0;
+                                                $_SESSION["filasjugadas"] = [];
                                                 foreach($_SESSION["tablajugada"] as $ses){
-                                                    // var_dump($ses);
 
                                                     echo '<tr>';
                                                     $temp = [];
@@ -218,32 +275,15 @@ if (isset($_SESSION["tablajugada"])) {
                                                     echo '
                                                     <td>
                                                     <form action="" method="post" class="form-grp">
-                                                        <input type="submit" class="" name="'; echo $repetir_label.$count; echo '" value="'; echo $repetir_label; echo '" onclick="';
-                                                        
-
-                                                        echo 'this.form.submit()
-                                                        "></input>
-                                                        <input type="submit" class="" value="'; echo $borrar_label; echo '"> </input>
+                                                        <input type="submit" class="" name="'; echo $repetir_label.$count; echo '" value="'; echo $repetir_label; echo '" onclick="this.form.submit()"></input>
+                                                        <input type="submit" class="" name="'; echo $borrar_label.$count; echo '" value="'; echo $borrar_label; echo '"> </input>
                                                     </form>
                                                     </td>
                                                     </tr>';
-                                                    $filas[$repetir_label . $count] = $temp;
+                                                    $_SESSION["filasjugadas"][$repetir_label . $count] = $temp;
                                                     $count ++;
-                                                    
                                             }
-                                            for ($x = 0; $x < $count; $x++){
-                                                if (isset($_POST[$repetir_label.$x])){
-                                                    $indice = array_search($filas[$repetir_label.$x], $_SESSION["tablajugada"]);
-                                                    $_SESSION["tablajugada"][$indice][$tc_label] ++;
-                                                    break;
-                                                }
-                                            }
-                                            // var_dump($_POST);
-
-
-
-
-
+                                            $_SESSION["conteojugadas"] = $count;
 
                                         }
                                         echo '
@@ -253,7 +293,4 @@ if (isset($_SESSION["tablajugada"])) {
                             </div>
                             ' 
                             ?>
-            
-
-
-  
+                            

@@ -93,6 +93,7 @@ function array_remove_once(array $a, $value){
 
 function array_remove_null(array $a){
     $t = [];
+
     foreach($a as $b){
         if ($b !== null){
             array_push($t, $b);
@@ -101,18 +102,36 @@ function array_remove_null(array $a){
     return $t;
 }
 
-function array_remove_by_key(array $a, string $key){
+function array_remove_empty_string(array $a){
+    $t = [];
+
+    foreach($a as $b){
+        if ($b !== ""){
+            array_push($t, $b);
+        } 
+    }
+    return $t;
+}
+
+
+
+function array_remove_by_key(array $a, string $key, bool $mantener_keys = true){
     $i = array_search($key, array_keys($a));
-    
     $all_keys = array_keys($a);
     $all_keys = array_extract($all_keys, 0, sizeof($a)-1, [$i]);
     $a = array_extract($a, 0, sizeof($a)-1, [$i]);
 
-    $temp = []; // Para mantener las llaves originales
-    for ($x = 0; $x < sizeof($all_keys); $x++){
-        $temp[$all_keys[$x]] = $a[$x];
+    if ($mantener_keys){
+        $temp = []; // Para mantener las llaves originales
+        for ($x = 0; $x < sizeof($all_keys); $x++){
+            $temp[$all_keys[$x]] = $a[$x];
+        }
+        return $temp;
     }
-    return $temp;
+
+    
+    
+    return $a;
 }
 
 // $test = ["first" => 1, "second" => 2, "third" => 3];
