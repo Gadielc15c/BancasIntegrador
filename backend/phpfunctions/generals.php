@@ -11,8 +11,16 @@ function crear_tickets_codigo(){
     return strval(rand(100000, 999999)) . uniqid();
 }
 
-function fecha_de_hoy(){
-    $timezone = "America/Santo_Domingo";
+function fecha_de_hoy(int $zona = 0){
+    /* 
+        @param $zona        0 para dominicana, 1 para new york
+    */
+    if ($zona == 0){
+        $timezone = "America/Santo_Domingo";
+    } elseif ($zona == 1){
+        $timezone = "America/New_York";
+    }
+    
     $dt = new DateTime("now", new DateTimeZone($timezone));
     $dt -> setTimestamp(time());
     return $dt->format('Y-m-d H:i:s');
@@ -85,6 +93,7 @@ function array_remove_once(array $a, $value){
 
 function array_remove_null(array $a){
     $t = [];
+
     foreach($a as $b){
         if ($b !== null){
             array_push($t, $b);
@@ -92,5 +101,41 @@ function array_remove_null(array $a){
     }
     return $t;
 }
+
+function array_remove_empty_string(array $a){
+    $t = [];
+
+    foreach($a as $b){
+        if ($b !== ""){
+            array_push($t, $b);
+        } 
+    }
+    return $t;
+}
+
+
+
+function array_remove_by_key(array $a, string $key, bool $mantener_keys = true){
+    $i = array_search($key, array_keys($a));
+    $all_keys = array_keys($a);
+    $all_keys = array_extract($all_keys, 0, sizeof($a)-1, [$i]);
+    $a = array_extract($a, 0, sizeof($a)-1, [$i]);
+
+    if ($mantener_keys){
+        $temp = []; // Para mantener las llaves originales
+        for ($x = 0; $x < sizeof($all_keys); $x++){
+            $temp[$all_keys[$x]] = $a[$x];
+        }
+        return $temp;
+    }
+
+    
+    
+    return $a;
+}
+
+// $test = ["first" => 1, "second" => 2, "third" => 3];
+// var_dump(array_remove_by_key($test, "second"));
+
 
 ?>

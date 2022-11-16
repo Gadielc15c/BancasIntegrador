@@ -10,14 +10,116 @@ include_once($path . "/webscraping.php");
 $path = dirname(__FILE__);
 include_once($path . "/generals.php");
 
+$todo_loteria = ["Loteria Nacional", "Leidsa", "Loteria Real", "Loteka", "Americanas", "La Primera", "La Suerte", "LoteDom", "Anguila", "King Lottery"];
+$todo_sorteo = ["Juega + Pega +", "Gana Más", "Lotería Nacional", "Pega 3 Más", "Quiniela Leidsa", "Loto Pool", "Super Kino TV", "Loto - Super Loto Más", "Loto Pool", "Quiniela Real", "Quiniela Loteka", "Mega Chances", "MegaLotto", "New York Tarde", "New York Noche", "Florida Día", "Florida Noche", "Mega Millions", "PowerBall", "Cash 4 Life", "La Primera Día", "Primera Noche", "La Suerte 12:30", "La Suerte 18:00", "Quiniela LoteDom", "El Quemaito Mayor", "Anguila Mañana", "Anguila Medio Día", "Anguila Tarde", "Anguila Noche", "King Lottery 12:30", "King Lottery 7:30"];
+
+
+// Estructura de la variable $todo_combinado:
+// Array
+//   |__Lot Array (string nombre loteria)
+//       |__ Sorteo Array ( string Nombre del sorteo)
+//             |___ Sorteo info Array [ Tiene 10 elementos:
+//                                      0 Un array con el horario de la siguiente forma:
+//                                          string Hora militar de cierre de ticket format hh:mm    si no se sabe la hora de cierre, ponerle 30 min antes del sorteo
+//                                          string Hora militar del sorteo format hh:mm,
+//                                          Ejemplo [["14:00", "14:30"], ["17:30", "18:00"]] esto quiere decir que un dia se sortea a las 2:30pm y otro dia a las 6pm
+//                                          NOTA: La hora de cierre del ticket se aplica para los dias que son los sorteos. No para los demas dias
+//                                      1 bool hora dominicana,
+//                                      2 array con otro array para los dias del sorteo (de 0 siendo domingo hasta el 6 siendo sabado. o 7 si es diario). ejemplo [[1, 2, 3, 4, 5, 6], [7]] esto quiere decir que los sorteos tienen distintos dias
+//                                      3 array Dias asuetos en formato mm-dd Ejemplo ["12-24", "12-25"]
+//                                      4 bool moneda dominicana
+//                                      5 array Con los diferentes costos Ejemplo [10, 25, 50] o sino [] si los premios son por peso
+//                                      6 int Cantidad de bolos que salen
+//                                      7 array Con la cantidad de bolos que salen por tombola. Ejemplo [2, 2, 1] quiere decir que en la tombola 0 salen 2 numeros y en la ultima tombola sale 1 numero
+//                                      8 array Con otro array indicando el rango de los numeros por cada tombola, Formato del rango [[1, 26], [1, 26], [1, 26]]
+//                                      9 array Juegos permitidos. u para unicos, q para quiniela, p para pale, t para tripleta. Ejemplo 1 ["unico"]. Ejemplo 2 ["quiniela", "pale", "tripleta"]. Ejemplo 3 ["quiniela"]
+//                                    ]
+//                                     FIN de Sorteo info. 
+//                                     Nota: Los bolos no se repiten dentro de una misma tombola, pero si se pueden repetir los bolos de distintas tombolas
+//
+
+$hor_label = "horario";
+$rd_t_label = "hora dominicana";
+$dia_s_label = "dias del sorteo";
+$dia_a_label = "dias asueto";
+$rd_m_label = "moneda dominicana";
+$costo_label = "costo de ticket";
+$cant_b_label = "bolos total";
+$cant_bp_label = "cantidad de bolos por tombola";
+$rango_b_label = "rango de los bolos por tombola";
+$jug_label = "tipo de jugada";
+
+$q_label = "quiniela";
+$p_label = "palé";
+$t_label = "tripleta";
+$u_label = "unica";
+
+$todo_combinado = [ "Loteria Nacional" =>   [   "Juega + Pega +" =>         [$hor_label => [["14:00", "14:30"]], $rd_t_label => true, $dia_s_label => [1, 2, 3, 4, 5, 6], $dia_a_label => [], $rd_m_label => true, $costo_label => [25], $cant_b_label => 5, $cant_bp_label => [2, 2, 1], $rango_b_label => [[1, 26], [1, 26], [1, 26]], $jug_label => [$u_label]], 
+                                                "Gana Más" =>               [$hor_label => [["14:00", "14:30"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "Lotería Nacional" =>       [$hor_label => [["20:30", "21:00"], ["17:30", "18:00"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => ["1-1", "1-21", "12-24", "12-25", "12-31"], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label]],
+                                            ],
+                    "Leidsa" =>             [   "Pega 3 Más" =>             [$hor_label => [["20:25", "20:55"], ["15:25", "15:55"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [3], $rango_b_label => [[00, 50]], $jug_label => [$u_label]],
+                                                "Quiniela Leidsa" =>        [$hor_label => [["20:25", "20:55"], ["15:25", "15:55"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "Loto Pool" =>              [$hor_label => [["20:25", "20:55"], ["15:25", "15:55"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [20], $cant_b_label => 5, $cant_bp_label => [5], $rango_b_label => [[01, 31]], $jug_label => [$u_label]],
+                                                "Super Kino TV" =>          [$hor_label => [["20:25", "20:55"], ["15:25", "15:55"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [25], $cant_b_label => 20, $cant_bp_label => [20], $rango_b_label => [[01, 80]], $jug_label => [$u_label]],
+                                                "Loto - Super Loto Más" =>  [$hor_label => [["20:25", "20:55"]], $rd_t_label => true, $dia_s_label => [3, 6], $dia_a_label => [], $rd_m_label => true, $costo_label => [30, 50, 100], $cant_b_label => 8, $cant_bp_label => [6, 1, 1], $rango_b_label => [[01, 38], [01, 10], [01, 15]], $jug_label => [$u_label]],
+                                            ],
+                    "Loteria Real"  =>      [   "Loto Pool" =>              [$hor_label => [["12:30", "13:00"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [10], $cant_b_label => 4, $cant_bp_label => [4], $rango_b_label => [[00, 99]], $jug_label => [$u_label]],
+                                                "Quiniela Real" =>          [$hor_label => [["12:25", "12:55"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "Loto Real" =>              [$hor_label => [["12:25", "12:55"]], $rd_t_label => true, $dia_s_label => [2, 5], $dia_a_label => [], $rd_m_label => true, $costo_label => [10, 25], $cant_b_label => 6, $cant_bp_label => [6], $rango_b_label => [[01, 38]], $jug_label => [$u_label]],
+                                            ],
+                    "Loteka"  =>            [
+                                                "Quiniela Loteka" =>        [$hor_label => [["19:25", "19:55"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "Mega Chances" =>           [$hor_label => [["19:25", "19:55"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [20], $cant_b_label => 5, $cant_bp_label => [5], $rango_b_label => [[00, 99]], $jug_label => [$u_label]],
+                                                "MegaLotto" =>              [$hor_label => [["19:25", "19:55"]], $rd_t_label => true, $dia_s_label => [1, 2, 3, 4], $dia_a_label => [], $rd_m_label => true, $costo_label => [10], $cant_b_label => 6, $cant_bp_label => [6], $rango_b_label => [[00, 49]], $jug_label => [$u_label]],
+                                            ],
+                    "Americanas"  =>        [
+                                                "New York Tarde" =>         [$hor_label => [["14:00", "14:30"]], $rd_t_label => false, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "New York Noche" =>         [$hor_label => [["10:00", "10:30"]], $rd_t_label => false, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "Florida Día" =>            [$hor_label => [["13:00", "13:30"]], $rd_t_label => false, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "Florida Noche" =>          [$hor_label => [["21:15", "21:45"]], $rd_t_label => false, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "Mega Millions" =>          [$hor_label => [["21:59", "23:00"]], $rd_t_label => false, $dia_s_label => [2, 5], $dia_a_label => [], $rd_m_label => false, $costo_label => [2], $cant_b_label => 6, $cant_bp_label => [5, 1], $rango_b_label => [[01, 70], [01, 25]], $jug_label => [$u_label]],
+                                                "PowerBall" =>              [$hor_label => [["21:59", "22:59"]], $rd_t_label => false, $dia_s_label => [3, 6], $dia_a_label => [], $rd_m_label => false, $costo_label => [2], $cant_b_label => 6, $cant_bp_label => [5, 1], $rango_b_label => [[01, 69], [01, 26]], $jug_label => [$u_label]],
+                                                "Cash 4 Life" =>            [$hor_label => [["20:00", "21:00"]], $rd_t_label => false, $dia_s_label => [3, 6], $dia_a_label => [], $rd_m_label => false, $costo_label => [2], $cant_b_label => 6, $cant_bp_label => [5, 1], $rango_b_label => [[01, 60], [01, 04]], $jug_label => [$u_label]],
+                                            ],
+                    "La Primera"  =>        [
+                                                "La Primera Día" =>         [$hor_label => [["11:30", "12:00"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "Primera Noche" =>          [$hor_label => [["19:30", "20:00"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                            ],
+                    "La Suerte"  =>         [
+                                                "La Suerte 12:30" =>        [$hor_label => [["12:00", "12:30"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "La Suerte 18:00" =>        [$hor_label => [["17:30", "18:00"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                            ],
+                    "LoteDom"  =>           [
+                                                "Quiniela LoteDom" =>       [$hor_label => [["13:25", "13:55"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "El Quemaito Mayor" =>      [$hor_label => [["13:25", "13:55"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 1, $cant_bp_label => [1], $rango_b_label => [[00, 99]], $jug_label => [$u_label]],
+                                            ],
+                    "Anguila"  =>           [
+                                                "Anguila Mañana" =>         [$hor_label => [["09:30", "10:00"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => false, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "Anguila Medio Día" =>      [$hor_label => [["12:30", "13:00"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => false, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "Anguila Tarde" =>          [$hor_label => [["17:30", "18:00"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => false, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],
+                                                "Anguila Noche" =>          [$hor_label => [["20:30", "21:00"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => false, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label, $p_label, $t_label]],   
+                                            ],
+                    "King Lottery"  =>      [
+                                                "King Lottery 12:30" =>     [$hor_label => [["12:00", "12:30"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label]],
+                                                "King Lottery 7:30" =>      [$hor_label => [["19:00", "19:30"]], $rd_t_label => true, $dia_s_label => [7], $dia_a_label => [], $rd_m_label => true, $costo_label => [], $cant_b_label => 3, $cant_bp_label => [1, 1, 1], $rango_b_label => [[00, 99], [00, 99], [00, 99]], $jug_label => [$q_label]],
+                                            ]
+];
+
+
+// var_dump(array_keys($todo_combinado["King Lottery"]));
+
+// Funcion principal para los premios
 function premios_jugadas_main(string $lot, string $sorteo, array $ternum, int $monto_jugado = 0, string $fecha_del_ticket = null, string $fecha_especifica = null){
     /*  
         @param $lot, $sorteo            debe ser tal cual como viene en el webscraping. Corresponde al nombre de la loteria y al nombre de la jugada.
         @param $ternum                  un array con los numeros jugados por el cliente, ya sea un array de int o de strings
         @param $fecha_del_ticket        tal cual como viene del webscraping. formato Y-m-d H:i:s       
+                                        Es necesario para los que estan jugando La Primera La Primera Dia
+
         @param $fecha_especifica        string formato dd-mm-yyyy 
         @retorno                        
-                                        Un array de 1, 2 o 4 
+                                        Un array de 1, 2 o 5 
                                         Los array de 1:
                                         0 un error
 
@@ -73,6 +175,8 @@ function premios_jugadas_main(string $lot, string $sorteo, array $ternum, int $m
     return ["Error con loteria: '" . $lot . "' y sorteo: '". $sorteo . "'"];
 }
 
+// No se deberia usar las funciones debajo
+
 function num_ganadores(array $ternum, array $lotnum){
     /* 
         Usarse en loterias que si o no repiten numeros.
@@ -87,6 +191,7 @@ function num_ganadores(array $ternum, array $lotnum){
     }
     return $ganadores;
 }
+
 
 function las_3_jugadas(array $ternum, array $lotnum,   
                         int $q1 = 60, int $q2 = 8, int $q3 = 4,                                                      
@@ -132,7 +237,7 @@ function las_3_jugadas(array $ternum, array $lotnum,
     }
 
     $q_label = "quiniela";
-    $p_label = "palé";
+    $p_label = "pale";
     $t_label = "tripleta";
     
     if ($s == 1){         
@@ -535,6 +640,24 @@ function loteka_mega_chances(array $ternum, array $lotnum, int $monto_jugado){
         $v = 5000;
     } elseif ($s == 2){
         $v = 100;
+    } else {
+        $v = false;
+    }
+    return [$v, $n];
+}
+
+function loteka_megalotto(array $ternum, array $lotnum, int $monto_jugado){
+    $n = num_ganadores($ternum, $lotnum);
+    $s = sizeof($n);
+
+    if ($s == 6){
+        $v = "30000000 + acumulado";
+    } elseif ($s == 5){
+        $v = 18000;
+    } elseif ($s == 4){
+        $v = 1000;
+    } elseif ($s == 3){
+        $v = 50;
     } else {
         $v = false;
     }

@@ -56,6 +56,50 @@
   -moz-border-radius: 50%;
   border-radius: 50%;
 }
+.bolalose {
+  background: #ebf1f6;
+  background: -moz-linear-gradient(
+    -45deg,
+    #ebf1f6 0%,
+    #eeabab 50%,
+    #eb8989 51%,
+    #d5ebfb 100%
+  );
+  border: 3px solid #a90909;
+  text-align: center;
+  color: var(--Bolas);
+  line-height: 45px;
+  font-size: 22px;
+  width: 49px;
+  margin: 4px;
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.bola2win {
+  background: #ebf1f6;
+  background: -moz-linear-gradient(
+    -45deg,
+    #ebf1f6 0%,
+    #86fd9a 50%,
+    #25fd4d 51%,
+    #d5ebfb 100%
+  );
+  
+  text-align: center;
+  color: var(--Bolas);
+  line-height: 45px;
+  font-size: 22px;
+  width: 49px;
+  margin: 4px;
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid #09a92d;
+}
 .bolasConten {
   display: block;
   text-transform: uppercase;
