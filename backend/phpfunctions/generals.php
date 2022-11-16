@@ -101,4 +101,22 @@ function array_remove_null(array $a){
     return $t;
 }
 
+function array_remove_by_key(array $a, string $key){
+    $i = array_search($key, array_keys($a));
+    
+    $all_keys = array_keys($a);
+    $all_keys = array_extract($all_keys, 0, sizeof($a)-1, [$i]);
+    $a = array_extract($a, 0, sizeof($a)-1, [$i]);
+
+    $temp = []; // Para mantener las llaves originales
+    for ($x = 0; $x < sizeof($all_keys); $x++){
+        $temp[$all_keys[$x]] = $a[$x];
+    }
+    return $temp;
+}
+
+// $test = ["first" => 1, "second" => 2, "third" => 3];
+// var_dump(array_remove_by_key($test, "second"));
+
+
 ?>
