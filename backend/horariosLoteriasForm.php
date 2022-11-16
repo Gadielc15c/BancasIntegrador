@@ -29,7 +29,7 @@ $query=mysqli_query($con,$sql);
                     while ($row=mysqli_fetch_array($query)){
                         ?>
                     <tr>
-                        <th><?php echo $row['idlorhorarios']  ?></th>
+                        <th><?php echo $row['idlothorarios']  ?></th>
                         <th><?php echo $row['dialaboral']  ?></th>
                         <th><?php echo $row['horalaboral']  ?></th>
                         <th><?php echo $row['horacierre']  ?></th>
