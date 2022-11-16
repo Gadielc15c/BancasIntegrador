@@ -1,66 +1,30 @@
-<div class="Carrito">
-    <div class="Letrero">
-        <h3 class="Caco">JUGADAS REALIZADAS</h3>
-        <h5 class="Accion">CANCELAR TODO </h5>
-    </div>
-     <!-- ITERAR SI HAY MAS DE 1 -->
-     <div class="col">
-        <div class="jugadaContainer">
-            <div class="loteryImg">
-                <img src="/img/Logo.png" style="height:250px" />
-            </div>
-            <div class="row"> 
-                <div class="detalle">
-                    <h1 class="loteria">Loteria: Nacional</h1>
-                    <h1 class="sorteo">Sorteo: GanaMás </h1>
-                    <h3 class="Fecha">15/10/2022</h3>
-                    <div class="col">
-                        <div class="row">
-                            <div class="col">
-                                <h3 class="Jugada">JUGADA</h3>
-                            </div>
-                            <div class="col">
-                                <h3 class="Jugada">TIPO</h3>
-                            </div>
-                            <div class="col">
-                                <h3 class="Jugada">MONTO</h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <h3 class="Jugada">02-48-11</h3>
-                            </div>
-                            <div class="col">
-                                <h3 class="Jugada">TRIPLETA</h3>
-                            </div>
-                            <div class="col">
-                                <h3 class="Jugada">RD$ 10</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="montitos">
-                    <div class="monto">TOTAL: RD$ 4.00</div>
-                    <div class="pagar"><a href="">PAGAR</a></div>
-                    <div class="cancelar"><a href="">CANCELAR</a></div>
+<?php 
 
-                </div>
-            </div>
+include('../backend/phpfunctions/carritoFuncions.php');
 
-        </div>
-     
-    </div>
-    <hr> 
- <div class="pagarto">
- <div class="Ctotal">
- <div>
- <div class="Subtotal">Total de Carrito</div>
- <div class="CantidadJ">CANTIDAD DE JUGADAS: </div>
- </div>
- <div class="CantidadT">$4.00</div>
- </div>
- <button class="boton">PAGAR TODO</button>
- </div>
-</div>
+$loteria="Nacional";
+$sorteo="ganamas";
+$total="4.00";
+$fecha="15/10/2021";
+$jugada=[02,48,11];
+$tipo="Tripleta";
+$monto=10;
+
+$jugada1=[$loteria,$sorteo,$total,$jugada,$tipo,$monto,$fecha];
+$jugada2=[$loteria,$sorteo,$total,$jugada,$tipo,$monto,$fecha];
+$jugada3=[$loteria,$sorteo,$total,$jugada,$tipo,$monto,$fecha];
+$jugadas=[$jugada1,$jugada2,$jugada3];
+
+foreach ($jugadas as $detalleJugada){
+    $lot= $detalleJugada[0];
+    $sort = $detalleJugada[1];
+    $tot = $detalleJugada[2];
+    $jug = $detalleJugada[3];
+    $tipo = $detalleJugada[4];
+    $mon = $detalleJugada[5];
+    $date = $detalleJugada[6];
+    $img ="xD";
+    shoppingMaker($lot,$sort,$tot,$jug,$tipo,$mon,$date,$img);
+     } 
+?>
+

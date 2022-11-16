@@ -5,7 +5,7 @@ include('../backend/phpfunctions/jugadasFunctions.php');
 ?>
 
 <div class=".container">
-<?php 
+    <?php 
 
 
 ?>
@@ -15,11 +15,10 @@ include('../backend/phpfunctions/jugadasFunctions.php');
         </div>
 
     </div>
-    <form action="#" method="post" class="form-grp">
-        <div class=".row">
-
-            <div class="papa">
-                <div class="bebe">
+    <div class=".row">
+        <div class="papa">
+            <div class="bebe">
+                <form action="">
                     <h2>Selecione Su Loteria</h2>
                     <select name="lotsSelect" id="lotsSelect" class="lotsSelect" place>
                         <option value="" disable selected="selected">Seleccione una Lotería</option>
@@ -45,7 +44,7 @@ include('../backend/phpfunctions/jugadasFunctions.php');
                         }
         ?>
                     </select>
-                    
+
                     <?php
   
   if(isset($_POST['submit'])){
@@ -77,8 +76,12 @@ include('../backend/phpfunctions/jugadasFunctions.php');
   echo $all;
 }
     ?>
-                </div>
+                </form>
 
+
+            </div>
+
+            <form action="" method="post" class="form-grp">
 
 
 
@@ -108,7 +111,7 @@ include('../backend/phpfunctions/jugadasFunctions.php');
                             </div>
                     
 
-                        <input type="submit" class="bebecitoButton" value="Jugar"> </input>
+                        <input type=" submit" class="bebecitoButton" value="Jugar"> </input>
                                 <input type="submit" class="bebecitoButton" value="Jugar en Todas"> </input>
 
                             </div>
@@ -120,7 +123,7 @@ include('../backend/phpfunctions/jugadasFunctions.php');
                     </div>
                     <div class=" bebe" style="justify-content: flex-end">
 
-                        <input type="summit" class="bebecitoButton" name="jugada2" value="IMPRIMIR JUGADA">
+                        <input type="summit" class="bebecitoButton" name="jugada2" value="PAGAR JUGADAS"  onclick="location.href='../frontend/Pagos.php'">
                     </div>
 
 
@@ -131,8 +134,5 @@ include('../backend/phpfunctions/jugadasFunctions.php');
                     </div>
 
                 </div>
-            </div>
-    </form>
-
-
-  
+        </div>
+        </form>

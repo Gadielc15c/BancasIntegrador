@@ -3,7 +3,7 @@ include('../backend/phpfunctions/jugadasFunctions.php');
 
 
 ?> <form  method="POST" action="">
-<select name="lotsSelect" id="lotsSelect" class="lotsSelect" >
+<select name="lotsSelect" id="lotsSelect" class="lotsSelect" onchange="this.form.submit()">
                         <option value="" disable selected="selected">Seleccione una Lotería</option>
                         <?php
                        
@@ -16,7 +16,7 @@ include('../backend/phpfunctions/jugadasFunctions.php');
 
                     </select>
 
-                    <select name="SortSelect" id="SortSelect" class="lotsSelect" >
+                    <select name="SortSelect" id="SortSelect" class="lotsSelect" onchange="this.form.submit()" >
                         <option value="" disable selected="selected">Seleccione sorteo</option>
                         <?php
 
