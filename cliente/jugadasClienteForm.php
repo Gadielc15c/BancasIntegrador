@@ -11,7 +11,6 @@ include_once('../backend/phpfunctions/generals.php');
 
 $lotsDefault = "Seleccione una Lotería"; 
 $sortDefault = "Seleccione sorteo";
-
 $tc_label = "Cantidad";
 $lot_label = "Lotería";
 $sor_label = "Sorteo";

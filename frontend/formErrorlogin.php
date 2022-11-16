@@ -30,7 +30,7 @@
     <div class="container2">
 
         <div class="cuadrado" style="display: flex;align-items: center;justify-content: center; ">
-            <div class="cuadrais" style=" ">
+            <div class="cuadrais">
 
                 <center>
                 <h3 class="font-weight-bold " style=" padding: 30px; color:red"><ion-icon name="warning-outline"></ion-icon>

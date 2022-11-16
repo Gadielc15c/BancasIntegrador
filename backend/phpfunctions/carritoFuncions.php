@@ -1,6 +1,6 @@
 
 <?php 
-include('../backend/MetodoPagForm.php');
+
 function shoppingMaker(
 $loteria,
 $sorteo,
@@ -13,7 +13,7 @@ $img,
 )
 {
 
-    $array=[$loteria,$sorteo,$total,$jugad,$tipo,$monto,$fec,$img];
+    $_SESSION['array']=[$loteria,$sorteo,$total,$jugad,$tipo,$monto,$fec,$img];
 
   
    
@@ -100,12 +100,9 @@ echo '
 
 ';
 
-function retornable($array){
-$array=
 
 }
-}
-return 
+
 
 ?>
 
