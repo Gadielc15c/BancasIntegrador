@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 if(!isset($_SESSION['nivel'])){
 
 header('location:  ../index.php');

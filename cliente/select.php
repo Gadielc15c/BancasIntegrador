@@ -13,7 +13,6 @@ include('../backend/phpfunctions/jugadasFunctions.php');
                         }
         ?>
 
-
                     </select>
 
                     <select name="SortSelect" id="SortSelect" class="lotsSelect" onchange="this.form.submit()" >
