@@ -71,9 +71,9 @@ header('location:  ../index.php');
 
         </section>
         <section>
-            <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
-                                    UBICACION 
-            </h2>
+               <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
+                  UBICACION 
+               </h3>
             <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3754.5526071875993!2d-70.652585!3d19.774154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDQ2JzI3LjAiTiA3MMKwMzknMDkuMyJX!5e0!3m2!1ses!2sdo!4v1668563236463!5m2!1ses!2sdo" width="600" height="450" style="border:0; padding-top: 55px; padding-left: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
 
