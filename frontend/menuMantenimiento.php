@@ -51,7 +51,7 @@ header('location: ../index.php');
                                         </h2>
                                         <p class="lead text-muted"
                                             style="font-size:16px; padding-left: 25px; padding-bottom: 25px;">
-                                            Seleccione la Actividad que desea Realizar
+                                            <span style="color:rgba(245,167,37,1);"> Seleccione la Actividad que desea Realizar </span> 
                                         </p>
                                     </div>
                                 </div>
