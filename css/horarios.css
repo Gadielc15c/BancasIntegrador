@@ -1,12 +1,15 @@
-div.horarios{
-    margin: 10px 20px;
+div.LotNacional{
+    margin: 1em;
     box-shadow: 0 4px 8px 0  green, 0 6px 20px 0 rgba(0,0,0,0.19);
-    width: 350px;
+    overflow: hidden;
 }
 
-div.pie{
-    text-align: center;
+.item{
+    margin:10px 20px;
+    text-align:center;
+    color: white;
     padding: 10px;
     float: left;
+    
 
 }
