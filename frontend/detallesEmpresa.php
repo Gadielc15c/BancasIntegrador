@@ -82,9 +82,6 @@ header('location:  ../index.php');
          <h3 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
                                     HORARIOS DE LOTERIAS 
           </h3>
-          <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; ">
-                    Loteria Nacional
-            </h3>
 
           <div class="LotNacional">
               <div clas="item" id="item1">
@@ -169,45 +166,46 @@ header('location:  ../index.php');
               <div clas="item" id="item5">
                 <p class="font-weight-bold">New York Tarde</p>
                 <p>L-D: 7:00-2:25pm </p>
-                <p><b>Sorteos:/b> L-D 2:30pm USA 3:30pm RD</p>           
+                <p><b>Sorteos:</b> L-D 2:30pm USA 3:30pm RD</p>           
               </div>
 
               <div clas="item" id="item5">
                 <p class="font-weight-bold">New York Noche</p>
                 <p>L-D: 7:00-10:25pm </p>
-                <p><b>Sorteos:/b> L-D 10:30pm USA 11:30pm RD</p>           
+                <p><b>Sorteos:</b> L-D 10:30pm USA 11:30pm RD</p>           
               </div>
 
               <div clas="item" id="item5">
                 <p class="font-weight-bold">New York Noche</p>
                 <p>L-D: 7:00-10:25pm </p>
-                <p><b>Sorteos:/b> L-D 10:30pm USA 11:30pm RD</p>           
+                <p><b>Sorteos:</b> L-D 10:30pm USA 11:30pm RD</p>           
               </div>
+
               <div clas="item" id="item5">
                 <p class="font-weight-bold">Florida Dia</p>
                 <p>L-D: 7:00-1:25pm </p>
-                <p><b>Sorteos:/b> L-D 1:30pm USApm 2:30 RD</p>           
+                <p><b>Sorteos:</b> L-D 1:30pm USApm 2:30 RD</p>           
               </div>
               </div>
               <div clas="item" id="item5">
                 <p class="font-weight-bold">Florida Noche</p>
                 <p>L-D: 7:00-9:40pm </p>
-                <p><b>Sorteos:/b> L-D 9:45 USA 10:45 RD</p>           
+                <p><b>Sorteos:</b> L-D 9:45 USA 10:45 RD</p>           
               </div>
               <div clas="item" id="item5">
                 <p class="font-weight-bold">Mega Million</p>
                 <p>MA y VI</p>
-                <p><b>Sorteos:/b> MA y VI</p>           
+                <p><b>Sorteos:</b> MA y VI</p>           
               </div>
               <div clas="item" id="item5">
                 <p class="font-weight-bold">PowerBall</p>
                 <p>MI y SA</p>
-                <p><b>Sorteos:/b> MI y SA 10:59pm</p>           
+                <p><b>Sorteos:</b> MI y SA 10:59pm</p>           
               </div>
               <div clas="item" id="item5">
                 <p class="font-weight-bold">Cash 4 Life</p>
                 <p>L-V 7:00am-8:55PM</p>
-                <p><b>Sorteos:/b> L-V 9:00pm</p>           
+                <p><b>Sorteos:</b> L-V 9:00pm</p>           
               </div>
 
               <div clas="item" id="item6">
@@ -236,7 +234,7 @@ header('location:  ../index.php');
               </div>
 
 
-              <div clas="item" id="item3>
+              <div clas="item" id="item3">
                 <p class="font-weight-bold">Quiniela LoteDom</p>
                 <p>L-D: 7:00am - 1:50pm </p>
                 <p><b>Sorteos:</b> L-D 1:55pm </p>
@@ -282,7 +280,7 @@ header('location:  ../index.php');
               <div clas="item" id="item8">
                 <p class="font-weight-bold">King Lottery 7:30</p>
                 <p>L-D: 7:00am - 7:25am </p>
-                <p><b>Sorteos:</b> L-D 7:30pm --</p>
+                <p><b>Sorteos:</b> L-D 7:30pm </p>
               </div>
 
             </div>
