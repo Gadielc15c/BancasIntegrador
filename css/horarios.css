@@ -1,13 +1,8 @@
 div.horarios{
     margin: 10px 20px;
-    box-shadow: 0 4px 8px 0  yellow, 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 8px 0  green, 0 6px 20px 0 rgba(0,0,0,0.19);
     float: left;
     width: 350px;
-}
-
-div.horarios img{
-    width: 100%;
-    height: auto;
 }
 
 div.pie{
