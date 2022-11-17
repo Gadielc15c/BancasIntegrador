@@ -1,12 +1,12 @@
-.LotNacional{
+.LotLoterias{
     padding: 1em;
     overflow: hidden;
     background-color: white;
 }
 
 .item{
-    margin: 2em;
-    padding: 2em;
+    margin: 1m;
+    padding: 1em;
     text-align:center;
     color: white;
     float: left;  
@@ -14,4 +14,29 @@
 }
 #item1{
     box-shadow: 0 4px 8px 0  green, 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#item2{
+    box-shadow: 0 4px 8px 0 yellow, 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#item3{
+    box-shadow: 0 4px 8px 0 blue, 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#item4{
+    box-shadow: 0 4px 8px 0 cornflowerblue, 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#item5{
+    box-shadow: 0 4px 8px 0 #252440, 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#item6{
+    box-shadow: 0 4px 8px 0 red, 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#item7{
+    box-shadow: 0 4px 8px 0 #fa8072, 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#item8{
+    box-shadow: 0 4px 8px 0 #3e5f8a, 0 6px 20px 0 rgba(0,0,0,0.19);
 }
