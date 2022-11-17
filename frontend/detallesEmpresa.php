@@ -84,203 +84,271 @@ header('location:  ../index.php');
           </h3>
 
 
-              <div clas="item" id="item1">
+              <div clas="contLot">
                 <p class="font-weight-bold">Juega + Pega +</p>
-                  <p>L-S: 7:00am - 2:25pm  </p>
-                  <p><b>Sorteos:</b> 2:30pm  </p>
+                  <div class="pie">
+                    <p>L-S: 7:00am - 2:25pm  </p>
+                    <p><b>Sorteos:</b> 2:30pm  </p>
+                  </div>
               </div>
 
-              <div clas="item" id="item1">
+              <div clas="contLot">
                 <p class="font-weight-bold">Gana Más</p>
-                  <p>L-S: 7:00am - 2:25pm  </p>
-                  <p><b>Sorteos:</b> 2:30pm  </p>
+                  <div class="pie">
+                    <p>L-S: 7:00am - 2:25pm  </p>
+                    <p><b>Sorteos:</b> 2:30pm  </p>
+                 </div>
               </div>
 
-              <div clas="item" id="item1">
-                <p class="font-weight-bold">Lotería Nacional Noche</p>
-                <p>L-S: 7:00am - 8:45pm -- D: 7:00am - 5:55pm </p>
-                <p><b>Sorteos:</b> L-S 8:50pm -- D: 6:00pm</p>
+              <div clas="contLot">
+                <p class="font-weight-bold"><b>Lotería Nacional Noche</b></p>
+                  <div class="pie">
+                    <p>L-S: 7:00am - 8:45pm -- D: 7:00am - 5:55pm </p>
+                    <p><b>Sorteos:</b> L-S 8:50pm -- D: 6:00pm</p>
+                  </div>
               </div>
 
-              <div clas="item" id="item2">
+              <div clas="contLot">
                 <p class="font-weight-bold">Pega 3 Más</p>
-                <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
-                <p><b>Sorteos:</b> L-S 8:55pm -- D: 3:55pm</p>
+                  <div class="pie">
+                    <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
+                    <p><b>Sorteos:</b> L-S 8:55pm -- D: 3:55pm</p>
+                  </div>
               </div>
 
-              <div clas="item" id="item2">
+              <div clas="contLot">
                 <p class="font-weight-bold">Quiniela Leidsa</p>
-                <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
-                <p><b>Sorteos:</b> L-S 8:55pm -- D: 3:55pm</p>
+                <div class="pie">
+                  <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
+                  <p><b>Sorteos:</b> L-S 8:55pm -- D: 3:55pm</p>
+                </div>
               </div>
 
-              <div clas="item" id="item2">
+              <div clas="contLot">
                 <p class="font-weight-bold">Loto Pool</p>
-                <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
-                <p><b>Sorteos:</b> L-S 8:55pm -- D: 3:55pm</p>
+                 <div class="pie">
+                    <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
+                    <p><b>Sorteos:</b> L-S 8:55pm -- D: 3:55pm</p>
+                  </div>
               </div>
 
-              <div clas="item" id="item2">
+              <div clas="contLot">
                 <p class="font-weight-bold">Super Kino TV</p>
-                <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
-                <p><b>Sorteos:</b> L-S 8:55pm -- D: 3:55pm</p>
+                  <div class="pie">
+                    <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
+                    <p><b>Sorteos:</b> L-S 8:55pm -- D: 3:55pm</p>
+                  </div>
               </div>
 
-              <div clas="item" id="item2">
+              <div clas="contLot">
                 <p class="font-weight-bold">Super Loto Más</p>
-                <p>L-D: 7:00am - 8:50pm </p>
-                <p><b>Sorteos:</b> MI 8:55pm -- SA: 8:55pm</p>
+                <div class="pie">
+                  <p>L-D: 7:00am - 8:50pm </p>
+                  <p><b>Sorteos:</b> MI 8:55pm -- SA: 8:55pm</p>
+                </div>
               </div>
 
 
-              <div clas="item" id="item3">
+              <div clas="contLot">
                 <p class="font-weight-bold">Loto Pool Real</p>
-                <p>L-D: 7:00am - 12:55pm </p>
-                <p><b>Sorteos:</b> L-D 1:00pm </p>
+                <div class="pie">
+                  <p>L-D: 7:00am - 12:55pm </p>
+                  <p><b>Sorteos:</b> L-D 1:00pm </p>
+                </div>
               </div>
 
-              <div clas="item" id="item3">
+              <div clas="contLot">
                 <p class="font-weight-bold">Quiniela Real</p>
-                <p>L-D: 7:00am - 12:50pm </p>
-                <p><b>Sorteos:</b> L-D 12:55pm</p>
+                <div class="pie">
+                  <p>L-D: 7:00am - 12:50pm </p>
+                  <p><b>Sorteos:</b> L-D 12:55pm</p>
+                </div>
               </div>
 
-              <div clas="item" id="item3">
+              <div clas="contLot">
                 <p class="font-weight-bold">Loto Real</p>
-                <p>L-D 7:00am - 12:50pm</p>
-                <p><b>Sorteos:</b> MA 12:55pm--VI 12:55pm</p>
+                <div class="pie">
+                  <p>L-D 7:00am - 12:50pm</p>
+                  <p><b>Sorteos:</b> MA 12:55pm--VI 12:55pm</p>
+                </div>
               </div>
 
-              <div clas="item" id="item4">
+              <div clas="contLot">
                 <p class="font-weight-bold">Quiniela Loteka</p>
-                <p>L-D: 7:00am - 7:50pm </p>
-                <p><b>Sorteos:</b> L-D 7:55pm </p>
+                <div class="pie">
+                  <p>L-D: 7:00am - 7:50pm </p>
+                 <p><b>Sorteos:</b> L-D 7:55pm </p>
+                </div>
               </div>
 
-              <div clas="item" id="item4">
+              <div clas="contLot">
                 <p class="font-weight-bold">Mega Chances Loteka</p>
-                <p>L-D: 7:00am - 7:50pm </p>
-                <p><b>Sorteos:</b> L-D 7:55pm</p>
+                <div class="pie">
+                  <p>L-D: 7:00am - 7:50pm </p>
+                  <p><b>Sorteos:</b> L-D 7:55pm</p>
+                </div>
               </div>
 
-              <div clas="item5" id="item5">
+              <div clas="contLot">
                 <p class="font-weight-bold">New York Tarde</p>
-                <p>L-D: 7:00-2:25pm </p>
-                <p><b>Sorteos:</b> L-D 2:30pm USA 3:30pm RD</p>           
+                <div class="pie">
+                  <p>L-D: 7:00-2:25pm </p>
+                  <p><b>Sorteos:</b> L-D 2:30pm USA 3:30pm RD</p> 
+                </div>          
               </div>
 
-              <div clas="item5" id="item5">
+              <div clas="contLot">
                 <p class="font-weight-bold">New York Noche</p>
-                <p>L-D: 7:00-10:25pm </p>
-                <p><b>Sorteos:</b> L-D 10:30pm USA 11:30pm RD</p>           
+                <div class="pie">
+                  <p>L-D: 7:00-10:25pm </p>
+                  <p><b>Sorteos:</b> L-D 10:30pm USA 11:30pm RD</p>           
+                 </div>
               </div>
 
-              <div clas="item5" id="item5">
+              <div clas="contLot">
                 <p class="font-weight-bold">New York Noche</p>
-                <p>L-D: 7:00-10:25pm </p>
-                <p><b>Sorteos:</b> L-D 10:30pm USA 11:30pm RD</p>           
+                <div class="pie">
+                  <p>L-D: 7:00-10:25pm </p>
+                 <p><b>Sorteos:</b> L-D 10:30pm USA 11:30pm RD</p>
+                </div>           
               </div>
 
-              <div clas="item5" id="item5">
+              <div clas="contLot">
                 <p class="font-weight-bold">Florida Dia</p>
-                <p>L-D: 7:00-1:25pm </p>
-                <p><b>Sorteos:</b> L-D 1:30pm USApm 2:30 RD</p>           
+                <div class="pie">
+                  <p>L-D: 7:00-1:25pm </p>
+                  <p><b>Sorteos:</b> L-D 1:30pm USApm 2:30 RD</p>  
+                </div>         
               </div>
-              <div clas="item5" id="item5">
+              <div clas="contLot">
                 <p class="font-weight-bold">Florida Noche</p>
-                <p>L-D: 7:00-9:40pm </p>
-                <p><b>Sorteos:</b> L-D 9:45 USA 10:45 RD</p>           
+                <div class="pie">
+                    <p>L-D: 7:00-9:40pm </p>
+                <p><b>Sorteos:</b> L-D 9:45 USA 10:45 RD</p> 
+                </div>          
               </div>
-              <div clas="item5" id="item5">
+              <div clas="contLot">
                 <p class="font-weight-bold">Mega Million</p>
-                <p>MA y VI</p>
-                <p><b>Sorteos:</b> MA y VI</p>           
+                <div clas="pie">
+                  <p>MA y VI</p>
+                  <p><b>Sorteos:</b> MA y VI</p>  
+                </div>         
               </div>
-              <div clas="item" id="item5">
+              <div clas="contLot">
                 <p class="font-weight-bold">PowerBall</p>
-                <p>MI y SA</p>
-                <p><b>Sorteos:</b> MI y SA 10:59pm</p>           
+                <div clas="pie">
+                  <p>MI y SA</p>
+                  <p><b>Sorteos:</b> MI y SA 10:59pm</p>  
+                </div>         
               </div>
-              <div clas="item" id="item5">
+              <div clas="contLot">
                 <p class="font-weight-bold">Cash 4 Life</p>
-                <p>L-V 7:00am-8:55PM</p>
-                <p><b>Sorteos:</b> L-V 9:00pm</p>           
+                <div clas="pie">
+                 <p>L-V 7:00am-8:55PM</p>
+                  <p><b>Sorteos:</b> L-V 9:00pm</p>    
+                </div>       
               </div>
 
-              <div clas="item" id="item6">
+              <div clas="contLot">
                 <p class="font-weight-bold">La primera Día</p>
-                <p>L-D: 7:00am - 11:55am </p>
-                <p><b>Sorteos:</b> L-D 12:00pm</p>
+                <div clas="pie">
+                  <p>L-D: 7:00am - 11:55am </p>
+                  <p><b>Sorteos:</b> L-D 12:00pm</p>
+                </div>
               </div>
 
-              <div clas="item" id="item6">
+              <div clas="contLot">
                 <p class="font-weight-bold">La primera NOCHE</p>
-                <p>L-D: 7:00am - 7:55pm </p>
-                <p><b>Sorteos:</b> L-D 8:00pm</p>
+                <div clas="pie">
+                  <p>L-D: 7:00am - 7:55pm </p>
+                  <p><b>Sorteos:</b> L-D 8:00pm</p>
+                </div>
               </div>
 
 
-              <div clas="item" id="item5">
+              <div clas="contLot">
                 <p class="font-weight-bold">La Suerte 12:30</p>
-                <p>L-D: 7:00am - 12:25am </p>
-                <p><b>Sorteos:</b> L-D 12:30pm </p>
+                <div clas="pie">
+                 <p>L-D: 7:00am - 12:25am </p>
+                  <p><b>Sorteos:</b> L-D 12:30pm </p>
+                </div>
               </div>
 
-              <div clas="item" id="item5">
+
+              <div clas="contLot">
                 <p class="font-weight-bold">La Suerte 18:00</p>
-                <p>L-D: 7:00am - 5:55PM </p>
-                <p><b>Sorteos:</b> L-D 6:00pm </p>
+                <div clas="pie">
+                 <p>L-D: 7:00am - 5:55PM </p>
+                  <p><b>Sorteos:</b> L-D 6:00pm </p>
+                </div>
               </div>
 
 
-              <div clas="item" id="item3">
+              <div clas="contLot">
                 <p class="font-weight-bold">Quiniela LoteDom</p>
-                <p>L-D: 7:00am - 1:50pm </p>
-                <p><b>Sorteos:</b> L-D 1:55pm </p>
+                <div clas="pie">
+                  <p>L-D: 7:00am - 1:50pm </p>
+                  <p><b>Sorteos:</b> L-D 1:55pm </p>
+                </div>
               </div>
 
-              <div clas="item" id="item3">
+              <div clas="contLot">
                 <p class="font-weight-bold">Quemaito Mayor</p>
-                <p>L-D: 7:00am - 1:50pm </p>
-                <p><b>Sorteos:</b> L-D 1:55pm</p>
+                <div clas="pie">
+                 <p>L-D: 7:00am - 1:50pm </p>
+                  <p><b>Sorteos:</b> L-D 1:55pm</p>
+                </div>
               </div>
 
-              <div clas="item" id="item7">
+              <div clas="contLot">
                 <p class="font-weight-bold">Anguila Mañana</p>
-                <p>L-D: 7:00am - 9:55am </p>
-                <p><b>Sorteos:</b> L-D 10:00am</p>
+                <div clas="pie">
+                  <p>L-D: 7:00am - 9:55am </p>
+                  <p><b>Sorteos:</b> L-D 10:00am</p>
+                </div>
               </div>
 
-              <div clas="item" id="item7">
+              <div clas="contLot">
                 <p class="font-weight-bold">Anguila Medio Dia</p>
-                <p>L-D: 7:00am - 12:55pm </p>
-                <p><b>Sorteos:</b> L-D 1:00pm </p>
+                <div clas="pie">
+                 <p>L-D: 7:00am - 12:55pm </p>
+                  <p><b>Sorteos:</b> L-D 1:00pm </p>
+                </div>
               </div>
 
-              <div clas="item" id="item7">
+              <div clas="contLot">
                 <p class="font-weight-bold">Anguila Tarde</p>
-                <p>L-D: 7:00am - 5:55pm </p>
-                <p><b>Sorteos:</b> L-D 6:00pm </p>
+                <div clas="pie">
+                  <p>L-D: 7:00am - 5:55pm </p>
+                  <p><b>Sorteos:</b> L-D 6:00pm </p>
+                </div>
               </div>
 
-              <div clas="item" id="item7">
+              <div clas="contLot">
                 <p class="font-weight-bold">Anguila Noche</p>
-                <p>L-D: 7:00am - 8:55pm </p>
-                <p><b>Sorteos:</b> L-D 9:00pm</p>
+                <div clas="pie">
+                  <p>L-D: 7:00am - 8:55pm </p>
+                  <p><b>Sorteos:</b> L-D 9:00pm</p>
+                </div>
               </div>
 
 
-              <div clas="item" id="item8">
+              <div clas="contLot">
                 <p class="font-weight-bold">King Lottery 12:30</p>
-                <p>L-D: 7:00am - 12:25pm </p>
-                <p><b>Sorteos:</b> L-D 12:30pm</p>
+                <div clas="pie">
+                  <p>L-D: 7:00am - 12:25pm </p>
+                  <p><b>Sorteos:</b> L-D 12:30pm</p>
+                </div>
               </div>
 
-              <div clas="item" id="item8">
+              <div clas="contLot">
                 <p class="font-weight-bold">King Lottery 7:30</p>
-                <p>L-D: 7:00am - 7:25am </p>
-                <p><b>Sorteos:</b> L-D 7:30pm </p>
+                <div clas="pie">
+                  <p>L-D: 7:00am - 7:25am </p>
+                  <p><b>Sorteos:</b> L-D 7:30pm </p>
+                </div>
               </div>
+
 
             
 
