@@ -101,7 +101,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold"><b>Lotería Nacional Noche</b></p>
+                <p class="font-weight-bold">Lotería Nacional Noche</p>
                   <div class="pie">
                     <p>L-S: 7:00am - 8:45pm -- D: 7:00am - 5:55pm </p>
                     <p><b>Sorteos:</b> L-S 8:50pm -- D: 6:00pm</p>
@@ -177,7 +177,7 @@ header('location:  ../index.php');
                 <p class="font-weight-bold">Quiniela Loteka</p>
                 <div class="pie">
                   <p>L-D: 7:00am - 7:50pm </p>
-                 <p><b>Sorteos:</b> L-D 7:55pm </p>
+                  <p><b>Sorteos:</b> L-D 7:55pm </p>
                 </div>
               </div>
 
@@ -209,7 +209,7 @@ header('location:  ../index.php');
                 <p class="font-weight-bold">New York Noche</p>
                 <div class="pie">
                   <p>L-D: 7:00-10:25pm </p>
-                 <p><b>Sorteos:</b> L-D 10:30pm USA 11:30pm RD</p>
+                  <p><b>Sorteos:</b> L-D 10:30pm USA 11:30pm RD</p>
                 </div>           
               </div>
 
