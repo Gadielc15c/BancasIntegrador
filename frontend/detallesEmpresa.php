@@ -163,36 +163,35 @@ header('location:  ../index.php');
                 <p><b>Sorteos:</b> L-D 7:55pm</p>
               </div>
 
-              <div clas="item" id="item5">
+              <div clas="item5" id="item5">
                 <p class="font-weight-bold">New York Tarde</p>
                 <p>L-D: 7:00-2:25pm </p>
                 <p><b>Sorteos:</b> L-D 2:30pm USA 3:30pm RD</p>           
               </div>
 
-              <div clas="item" id="item5">
+              <div clas="item5" id="item5">
                 <p class="font-weight-bold">New York Noche</p>
                 <p>L-D: 7:00-10:25pm </p>
                 <p><b>Sorteos:</b> L-D 10:30pm USA 11:30pm RD</p>           
               </div>
 
-              <div clas="item" id="item5">
+              <div clas="item5" id="item5">
                 <p class="font-weight-bold">New York Noche</p>
                 <p>L-D: 7:00-10:25pm </p>
                 <p><b>Sorteos:</b> L-D 10:30pm USA 11:30pm RD</p>           
               </div>
 
-              <div clas="item" id="item5">
+              <div clas="item5" id="item5">
                 <p class="font-weight-bold">Florida Dia</p>
                 <p>L-D: 7:00-1:25pm </p>
                 <p><b>Sorteos:</b> L-D 1:30pm USApm 2:30 RD</p>           
               </div>
-              </div>
-              <div clas="item" id="item5">
+              <div clas="item5" id="item5">
                 <p class="font-weight-bold">Florida Noche</p>
                 <p>L-D: 7:00-9:40pm </p>
                 <p><b>Sorteos:</b> L-D 9:45 USA 10:45 RD</p>           
               </div>
-              <div clas="item" id="item5">
+              <div clas="item5" id="item5">
                 <p class="font-weight-bold">Mega Million</p>
                 <p>MA y VI</p>
                 <p><b>Sorteos:</b> MA y VI</p>           
