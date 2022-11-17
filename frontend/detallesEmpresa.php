@@ -83,7 +83,7 @@ header('location:  ../index.php');
                                     HORARIOS DE LOTERIAS 
           </h3>
 
-          <div class="LotNacional">
+
               <div clas="item" id="item1">
                 <p class="font-weight-bold">Juega + Pega +</p>
                   <p>L-S: 7:00am - 2:25pm  </p>
@@ -245,7 +245,7 @@ header('location:  ../index.php');
                 <p><b>Sorteos:</b> L-D 1:55pm</p>
               </div>
 
-              <div clas="item" id="item9">
+              <div clas="item" id="item7">
                 <p class="font-weight-bold">Anguila Mañana</p>
                 <p>L-D: 7:00am - 9:55am </p>
                 <p><b>Sorteos:</b> L-D 10:00am</p>
@@ -282,7 +282,7 @@ header('location:  ../index.php');
                 <p><b>Sorteos:</b> L-D 7:30pm </p>
               </div>
 
-            </div>
+            
 
 
     </div>
