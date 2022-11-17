@@ -38,8 +38,9 @@ header('location:  ../index.php');
 
 <div class="container2">
     <div class="cuadrado">
+       <center>
         <section>
-
+           
             <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
                                     NOSOTROS
             </h2>
@@ -173,7 +174,7 @@ header('location:  ../index.php');
                 </div>
               </div>
 
-              <div clas="contLot">
+              <div class="contLot">
                 <p class="font-weight-bold">Quiniela Loteka</p>
                 <div class="pie">
                   <p>L-D: 7:00am - 7:50pm </p>
@@ -181,7 +182,7 @@ header('location:  ../index.php');
                 </div>
               </div>
 
-              <div clas="contLot">
+              <div class="contLot">
                 <p class="font-weight-bold">Mega Chances Loteka</p>
                 <div class="pie">
                   <p>L-D: 7:00am - 7:50pm </p>
@@ -189,7 +190,7 @@ header('location:  ../index.php');
                 </div>
               </div>
 
-              <div clas="contLot">
+              <div class="contLot">
                 <p class="font-weight-bold">New York Tarde</p>
                 <div class="pie">
                   <p>L-D: 7:00-2:25pm </p>
@@ -197,7 +198,7 @@ header('location:  ../index.php');
                 </div>          
               </div>
 
-              <div clas="contLot">
+              <div class="contLot">
                 <p class="font-weight-bold">New York Noche</p>
                 <div class="pie">
                   <p>L-D: 7:00-10:25pm </p>
@@ -205,7 +206,7 @@ header('location:  ../index.php');
                  </div>
               </div>
 
-              <div clas="contLot">
+              <div class="contLot">
                 <p class="font-weight-bold">New York Noche</p>
                 <div class="pie">
                   <p>L-D: 7:00-10:25pm </p>
@@ -355,7 +356,7 @@ header('location:  ../index.php');
 
 
             
-
+            </center>
 
     </div>
 </div>
