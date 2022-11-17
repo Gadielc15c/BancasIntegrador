@@ -26,6 +26,7 @@ header('location:  ../index.php');
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/cuerpoWeb.css" />
+  <link rel="stylesheet" href="/css/horarios.css" />
 
 
 </head>
@@ -78,6 +79,46 @@ header('location:  ../index.php');
         </section>
 
         <section>
+         <h3 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
+                                    HORARIOS DE LOTERIAS 
+          </h3>
+          <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
+                    Loteria Nacional
+            </h3>
+
+            <div class="horarios">
+              <div class="foto">
+                <img src="img/f1.JPG" alt="">
+              </div>
+                <div clas="pie">
+                <p>Juega + Pega +</p>
+                  <p>L-S 7:00 am-2:25 pm  </p>
+                  <p>Sorteos: 2:30pm  </p>
+              </div>
+            <div>
+
+            <div class="horarios">
+              <div class="foto">
+                <img src="img/f2.JPG" alt="">
+              </div>
+                <div clas="pie">
+                <p>Gana Más</p>
+                  <p>L-S 7:00 am-2:25 pm  </p>
+                  <p>Sorteos: 2:30pm  </p>
+              </div>
+            <div>
+
+            <div class="horarios">
+              <div class="foto">
+                <img src="img/f3.JPG" alt="">
+              </div>
+                <div clas="pie">
+                <p>Lotería Nacional Noche</p>
+                <p>L-S 7:00am-8:45pm y D-7:00am-5:55pm </p>
+                <p>Sorteos: L-S 8:50pm y D 6:00pm</p>
+              </div>
+            <div>
+
         <?php
            include('../backend/horariosLoteriasForm.php');
         ?>
