@@ -88,34 +88,34 @@ header('location:  ../index.php');
 
             <div class="horarios">
               <div class="foto">
-                <img src="img/f1.JPG" alt="">
+                <img src="img/F1.jpg" alt="">
               </div>
                 <div clas="pie">
-                <p>Juega + Pega +</p>
-                  <p>L-S 7:00 am-2:25 pm  </p>
-                  <p>Sorteos: 2:30pm  </p>
+                <p class="font-weight-bold">Juega + Pega +</p>
+                  <p>L-S: 7:00am - 2:25pm  </p>
+                  <p><b>Sorteos:</b> 2:30pm  </p>
               </div>
             <div>
 
             <div class="horarios">
               <div class="foto">
-                <img src="img/f2.JPG" alt="">
+                <img src="img/F2.jpg" alt="">
               </div>
                 <div clas="pie">
-                <p>Gana Más</p>
-                  <p>L-S 7:00 am-2:25 pm  </p>
-                  <p>Sorteos: 2:30pm  </p>
+                <p class="font-weight-bold">Gana Más</p>
+                  <p>L-S: 7:00am - 2:25pm  </p>
+                  <p><b>Sorteos:</b> 2:30pm  </p>
               </div>
             <div>
 
             <div class="horarios">
               <div class="foto">
-                <img src="img/f3.JPG" alt="">
+                <img src="img/F3.jPG" alt="">
               </div>
                 <div clas="pie">
-                <p>Lotería Nacional Noche</p>
-                <p>L-S 7:00am-8:45pm y D-7:00am-5:55pm </p>
-                <p>Sorteos: L-S 8:50pm y D 6:00pm</p>
+                <p class="font-weight-bold">Lotería Nacional Noche</p>
+                <p>L-S: 7:00am - 8:45pm -- D: 7:00am - 5:55pm </p>
+                <p><b>Sorteos:</b> L-S 8:50pm -- D: 6:00pm</p>
               </div>
             <div>
 
