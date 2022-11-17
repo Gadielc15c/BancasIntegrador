@@ -119,9 +119,6 @@ header('location:  ../index.php');
               </div>
             <div>
 
-        <?php
-           include('../backend/horariosLoteriasForm.php');
-        ?>
             
         </section>
     </div>
