@@ -87,9 +87,6 @@ header('location:  ../index.php');
             </h3>
 
             <div class="horarios">
-              <div class="foto">
-                <img src="img/F1.jpg" alt="">
-              </div>
                 <div clas="pie">
                 <p class="font-weight-bold">Juega + Pega +</p>
                   <p>L-S: 7:00am - 2:25pm  </p>
@@ -98,9 +95,6 @@ header('location:  ../index.php');
             <div>
 
             <div class="horarios">
-              <div class="foto">
-                <img src="img/F2.jpg" alt="">
-              </div>
                 <div clas="pie">
                 <p class="font-weight-bold">Gana Más</p>
                   <p>L-S: 7:00am - 2:25pm  </p>
@@ -109,9 +103,6 @@ header('location:  ../index.php');
             <div>
 
             <div class="horarios">
-              <div class="foto">
-                <img src="img/F3.jPG" alt="">
-              </div>
                 <div clas="pie">
                 <p class="font-weight-bold">Lotería Nacional Noche</p>
                 <p>L-S: 7:00am - 8:45pm -- D: 7:00am - 5:55pm </p>
