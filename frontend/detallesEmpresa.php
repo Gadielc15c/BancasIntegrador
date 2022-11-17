@@ -38,7 +38,7 @@ header('location:  ../index.php');
 
 <div class="container2">
     <div class="cuadrado">
-       <center>
+       
         <section>
            
             <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
@@ -88,7 +88,8 @@ header('location:  ../index.php');
               <div class="contLot">
                 <p class="font-weight-bold">Juega + Pega +</p>
                   <div class="pie">
-                    <p>L-S: 7:00am - 2:25pm  </p>
+                    <p class="font-weight-bold">Lunes-Sabados </p>
+                    <p>7:00am - 2:25pm </p>
                     <p><b>Sorteos:</b> 2:30pm  </p>
                   </div>
               </div>
@@ -96,7 +97,8 @@ header('location:  ../index.php');
               <div class="contLot">
                 <p class="font-weight-bold">Gana Más</p>
                   <div class="pie">
-                    <p>L-S: 7:00am - 2:25pm  </p>
+                  <p class="font-weight-bold">Lunes-Sabados </p>
+                    <p>7:00am - 2:25pm  </p>
                     <p><b>Sorteos:</b> 2:30pm  </p>
                  </div>
               </div>
@@ -104,24 +106,33 @@ header('location:  ../index.php');
               <div class="contLot">
                 <p class="font-weight-bold">Lotería Nacional Noche</p>
                   <div class="pie">
-                    <p>L-S: 7:00am - 8:45pm -- D: 7:00am - 5:55pm </p>
-                    <p><b>Sorteos:</b> L-S 8:50pm -- D: 6:00pm</p>
+                  <p class="font-weight-bold">Lunes-Sabados </p>
+                    <p>7:00am - 8:45pm -- D: 7:00am - 5:55pm </p>
+                    <p class="font-weight-bold">Domingos </p>
+                    <p>7:00am - 5:55pm </p>
+                    <p><b>Sorteos:</b> L-S 8:50pm - D: 6:00pm</p>
                   </div>
               </div>
 
               <div class="contLot">
                 <p class="font-weight-bold">Pega 3 Más</p>
                   <div class="pie">
-                    <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
-                    <p><b>Sorteos:</b> L-S 8:55pm -- D: 3:55pm</p>
+                  <p class="font-weight-bold">Lunes-Sabados</p>
+                    <p>7:00am - 8:50pm</p>
+                    <p class="font-weight-bold">Domingos</p>
+                    <p>7:00am - 3:50pm </p>
+                    <p><b>Sorteos:</b> L-S 8:55pm - D: 3:55pm</p>
                   </div>
               </div>
 
               <div class="contLot">
                 <p class="font-weight-bold">Quiniela Leidsa</p>
                 <div class="pie">
-                  <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
-                  <p><b>Sorteos:</b> L-S 8:55pm -- D: 3:55pm</p>
+                <p class="font-weight-bold">Lunes-Sabados</p>
+                  <p>7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
+                  <p class="font-weight-bold">Domingos</p>
+                  <p>7:00am - 3:50pm </p>
+                  <p><b>Sorteos:</b> L-S 8:55pm - D: 3:55pm</p>
                 </div>
               </div>
 
@@ -356,7 +367,7 @@ header('location:  ../index.php');
 
 
             
-            </center>
+          
 
     </div>
 </div>
