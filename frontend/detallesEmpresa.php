@@ -87,19 +87,19 @@ header('location:  ../index.php');
             </h3>
 
           <div class="LotNacional">
-              <div clas="item">
+              <div clas="item" id="item1">
                 <p class="font-weight-bold">Juega + Pega +</p>
                   <p>L-S: 7:00am - 2:25pm  </p>
                   <p><b>Sorteos:</b> 2:30pm  </p>
               </div>
 
-              <div clas="item">
+              <div clas="item" id="item1">
                 <p class="font-weight-bold">Gana Más</p>
                   <p>L-S: 7:00am - 2:25pm  </p>
                   <p><b>Sorteos:</b> 2:30pm  </p>
               </div>
 
-              <div clas="item">
+              <div clas="item" id="item1">
                 <p class="font-weight-bold">Lotería Nacional Noche</p>
                 <p>L-S: 7:00am - 8:45pm -- D: 7:00am - 5:55pm </p>
                 <p><b>Sorteos:</b> L-S 8:50pm -- D: 6:00pm</p>
