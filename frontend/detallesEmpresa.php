@@ -86,7 +86,7 @@ header('location:  ../index.php');
 
 
               <div class="contLot">
-                <p class="font-weight-bold">Juega + Pega +</p>
+                <h4 class="font-weight-bold">Juega + Pega +</h4>
                   <div class="pie">
                     <p class="font-weight-bold">Lunes-Sabados </p>
                     <p>7:00am - 2:25pm </p>
@@ -96,7 +96,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Gana Más</p>
+                <h4 class="font-weight-bold">Gana Más</h4>
                   <div class="pie">
                   <p class="font-weight-bold">Lunes-Sabados </p>
                     <p>7:00am - 2:25pm  </p>
@@ -106,7 +106,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Lotería Nacional Noche</p>
+                <h4 class="font-weight-bold">Lotería Nacional Noche</h4>
                   <div class="pie">
                   <p class="font-weight-bold">Lunes-Domingos </p>
                     <p>L-D 7:00am - 8:45pm D 7:00am - 5:55pm</p>
@@ -116,7 +116,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Pega 3 Más</p>
+                <h4 class="font-weight-bold">Pega 3 Más</h4>
                   <div class="pie">
                   <p class="font-weight-bold">Lunes-Domingos</p>
                     <p>L-S 7:00am - 8:50pm - 7:00am - 3:50pm </p>
@@ -126,7 +126,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Quiniela Leidsa</p>
+                <h4 class="font-weight-bold">Quiniela Leidsa</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes-Domingo</p>
                   <p>7:00am - 8:50pm - D 7:00am - 3:50pm </p>
@@ -136,7 +136,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Loto Pool</p>
+                <h4 class="font-weight-bold">Loto Pool</h4>
                  <div class="pie">
                  <p class="font-weight-bold">Lunes a Domingos</p>
                     <p>L-S: 7:00am - 8:50pm - D: 7:00am - 3:50pm </p>
@@ -146,7 +146,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Super Kino TV</p>
+                <h4 class="font-weight-bold">Super Kino TV</h4>
                   <div class="pie">
                   <p class="font-weight-bold">Lunes a Domingos</p>
                     <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
@@ -156,7 +156,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Super Loto Más</p>
+                <h4 class="font-weight-bold">Super Loto Más</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am - 8:50pm </p>
@@ -167,7 +167,7 @@ header('location:  ../index.php');
 
 
               <div class="contLot">
-                <p class="font-weight-bold">Loto Pool Real</p>
+                <h4 class="font-weight-bold">Loto Pool Real</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am - 12:55pm </p>
@@ -177,7 +177,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Quiniela Real</p>
+                <h4 class="font-weight-bold">Quiniela Real</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am - 12:50pm </p>
@@ -187,7 +187,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Loto Real</p>
+                <h4 class="font-weight-bold">Loto Real</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am - 12:50pm</p>
@@ -197,99 +197,99 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Quiniela Loteka</p>
+                <h4 class="font-weight-bold">Quiniela Loteka</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am - 7:50pm </p>
-                  <p><b><Sorteos:</b> Lunes a Domingos</p>
+                  <p><b>Sorteos:</b> Lunes a Domingos</p>
                   <p>7:55pm </p>
                 </div>
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Mega Chances Loteka</p>
+                <h4 class="font-weight-bold">Mega Chances Loteka</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am - 7:50pm </p>
-                  <p><b><Sorteos:</b> Lunes a Domingos</p>
+                  <p><b>Sorteos:</b> Lunes a Domingos</p>
                   <p><b>7:55pm</p>
                 </div>
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">New York Tarde</p>
+                <h4 class="font-weight-bold">New York Tarde</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am-2:25pm </p>
-                  <p><b><Sorteos:</b> Lunes a Domingos</p>
+                  <p><b>Sorteos:</b> Lunes a Domingos</p>
                   <p>2:30pm USA 3:30pm RD</p> 
                 </div>          
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">New York Noche</p>
+                <h4 class="font-weight-bold">New York Noche</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am-10:25pm </p>
-                  <p><b><Sorteos:</b> Lunes a Domingos</p>
+                  <p><b>Sorteos:</b> Lunes a Domingos</p>
                   <p>10:30pm USA 11:30pm RD</p>           
                  </div>
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">New York Noche</p>
+                <h4 class="font-weight-bold">New York Noche</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am-10:25pm </p>
-                  <p><b><Sorteos:</b> Lunes a Domingos</p>
+                  <p><b>Sorteos:</b> Lunes a Domingos</p>
                   <p>10:30pm USA 11:30pm RD</p>
                 </div>           
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Florida Dia</p>
+                <h4 class="font-weight-bold">Florida Dia</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am-1:25pm </p>
-                  <p><b><Sorteos:</b> Lunes a Domingos</p>
+                  <p><b>Sorteos:</b> Lunes a Domingos</p>
                   <p>1:30pm USA 2:30pm RD</p>  
                 </div>         
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Florida Noche</p>
+                <h4 class="font-weight-bold">Florida Noche</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                 <p>7:00-9:40pm </p>
-                <p><b><Sorteos:</b> Lunes a Domingos</p>
+                <p><b>Sorteos:</b> Lunes a Domingos</p>
                 <p>9:45 USA 10:45 RD</p> 
                 </div>          
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Mega Million</p>
+                <h4 class="font-weight-bold">Mega Million</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Martes y Viernes</p> 
                 <p>7:00am-10:55pm</p>
                   <p><b>Sorteos:</b> Martes y Viernes</p>  
-                  <p><b>11:00pm</p> 
+                  <p>11:00pm</p> 
                 </div>         
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">PowerBall</p>
+                <h4 class="font-weight-bold">PowerBall</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p> 
                 <p>7:00am-8:55pm</p>
                 <p><b>Sorteos:</b> Miercoles y Sabados</p>  
-                <p><b>10:59pm</p> 
+                <p>10:59pm</p> 
      
                 
                 </div>         
               </div> 
 
               <div class="contLot">
-                <p class="font-weight-bold">Cash 4 Life</p>
+                <h4 class="font-weight-bold">Cash 4 Life</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a viernes</p>
                  <p>7:00am-8:55pm</p>
@@ -299,7 +299,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">La primera Día</p>
+                <h4 class="font-weight-bold">La primera Día</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Dommingos</p>
                   <p>7:00am - 11:55am </p>
@@ -309,7 +309,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">La primera NOCHE</p>
+                <h4 class="font-weight-bold">La primera NOCHE</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Dommingos</p>
                   <p>7:00am - 7:55pm </p>
@@ -320,7 +320,7 @@ header('location:  ../index.php');
 
 
               <div class="contLot">
-                <p class="font-weight-bold">La Suerte 12:30</p>
+                <h4 class="font-weight-bold">La Suerte 12:30</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Dommingos</p>
                  <p>7:00am - 12:25pm </p>
@@ -332,7 +332,7 @@ header('location:  ../index.php');
 
 
               <div class="contLot">
-                <p class="font-weight-bold">La Suerte 18:00</p>
+                <h4 class="font-weight-bold">La Suerte 18:00</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Dommingos</p>
                  <p>7:00am - 5:55PM </p>
@@ -343,7 +343,7 @@ header('location:  ../index.php');
 
 
               <div class="contLot">
-                <p class="font-weight-bold">Quiniela LoteDom</p>
+                <h4 class="font-weight-bold">Quiniela LoteDom</h4>
                 <div class="pie">
                   <p class="font-weight-bold">Lunes a Dommingos</p>
                   <p>7:00am - 1:50pm </p>
@@ -353,7 +353,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Quemaito Mayor</p>
+                <h4 class="font-weight-bold">Quemaito Mayor</h4>
                 <div class="pie">
                   <p class="font-weight-bold">Lunes a Dommingos</p>
                   <p>7:00am - 1:50pm </p>
@@ -363,7 +363,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Anguila Mañana</p>
+                <h4 class="font-weight-bold">Anguila Mañana</h4>
                 <div class="pie">
                   <p class="font-weight-bold">Lunes a Dommingos</p>
                   <p>7:00am - 9:55am </p>
@@ -372,7 +372,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Anguila Medio Dia</p>
+                <h4 class="font-weight-bold">Anguila Medio Dia</h4>
                 <div class="pie">
                   <p class="font-weight-bold">Lunes a Dommingos</p>
                   <p>7:00am - 12:55pm </p>
@@ -383,7 +383,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Anguila Tarde</p>
+                <h4 class="font-weight-bold">Anguila Tarde</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Dommingos</p>
                   <p>7:00am - 5:55pm </p>
@@ -394,7 +394,7 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">Anguila Noche</p>
+                <h4 class="font-weight-bold">Anguila Noche</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Dommingos</p>
                   <p>7:00am - 8:55pm </p>
@@ -406,7 +406,7 @@ header('location:  ../index.php');
 
 
               <div class="contLot">
-                <p class="font-weight-bold">King Lottery 12:30</p>
+                <h4 class="font-weight-bold">King Lottery 12:30</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am - 12:25pm </p>
@@ -417,11 +417,11 @@ header('location:  ../index.php');
               </div>
 
               <div class="contLot">
-                <p class="font-weight-bold">King Lottery 7:30</p>
+                <h4 class="font-weight-bold">King Lottery 7:30</h4>
                 <div class="pie">
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am - 7:25pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos </p>
+                  <p><b>Sorteos:</b> Lunes a Domingos</p>
                   <p>7:30pm </p>
                 </div>
               </div>
