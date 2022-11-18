@@ -81,7 +81,7 @@ header('location:  ../index.php');
 
         <section>
          <h3 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
-                                    HORARIOS DE LOTERIAS 
+                                    Horarios de Loterías
           </h3>
 
 
@@ -212,7 +212,7 @@ header('location:  ../index.php');
                 <p class="font-weight-bold">Lunes a Domingos</p>
                   <p>7:00am - 7:50pm </p>
                   <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p><b>7:55pm</p>
+                  <p>7:55pm</p>
                 </div>
               </div>
 
@@ -367,7 +367,8 @@ header('location:  ../index.php');
                 <div class="pie">
                   <p class="font-weight-bold">Lunes a Dommingos</p>
                   <p>7:00am - 9:55am </p>
-                  <p><b>Sorteos:</b> L-D 10:00am</p>
+                  <p><b>Sorteos:</b> Lunes a Dommingos</p>
+                  <p>10:00am </p>
                 </div>
               </div>
 
