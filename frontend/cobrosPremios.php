@@ -39,7 +39,7 @@ header('location: ../index.php');
 <div class="cuadrado">
     <!--PONER AQUI CONTENIDO-->
     <?php
-/*include('../backend/cobrosPremiosForm.php');*/
+include('../backend/cobrosPremiosForm.php');
 ?>
  
 </div>
