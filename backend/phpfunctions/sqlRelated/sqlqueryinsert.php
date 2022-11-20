@@ -167,45 +167,45 @@ function insertar_loterias($nom, $idterceros_fk = null, $estado = 1){
     return $value; //false
 }
 
-// table lothorarios
+// table lothorarios ya no existe
 
-function insertar_lothorarios($dialaboral, $horainicio, $horacierre, $diasorteo, $horasorteo, $estado = 1){
-    /*
-        @param $dialaboral y diasorteo      
-                                            poner un str en referencia al dia separado por un espacio, ej: 
-                                            0 para domingo, 1 lunes, 2 martes, 3 miercoles, 4 jueves, 5 viernes, 6 sabado
-                                            7 si es diario
-                                            Ejemplo: 
-                                            si es martes y domingo "0 2" (orden importa)
-                                            Si es diario "7"
-                                            Si es lunes, martes, y jueves "1 2 4" 
-                                            El orden si importa
-                                            Nunca combinar el 7 con otro dia
+// function insertar_lothorarios($dialaboral, $horainicio, $horacierre, $diasorteo, $horasorteo, $estado = 1){
+//     /*
+//         @param $dialaboral y diasorteo      
+//                                             poner un str en referencia al dia separado por un espacio, ej: 
+//                                             0 para domingo, 1 lunes, 2 martes, 3 miercoles, 4 jueves, 5 viernes, 6 sabado
+//                                             7 si es diario
+//                                             Ejemplo: 
+//                                             si es martes y domingo "0 2" (orden importa)
+//                                             Si es diario "7"
+//                                             Si es lunes, martes, y jueves "1 2 4" 
+//                                             El orden si importa
+//                                             Nunca combinar el 7 con otro dia
 
-        @param $horainicio y $horacierre        en hora militar, 
-                                                empieza en 00:00 y termina en 23:59, 
-                                                format hh:mm:ss (los segundos son opcionales)
-    */
-    $idcol = "idlothorarios";
-    $table = "lothorarios";
-    $id = crear_id($idcol, $table);
-    $sql = "INSERT INTO $table ($idcol, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $dialaboral, $horainicio, $horacierre, $diasorteo, $horasorteo, $estado));
+//         @param $horainicio y $horacierre        en hora militar, 
+//                                                 empieza en 00:00 y termina en 23:59, 
+//                                                 format hh:mm:ss (los segundos son opcionales)
+//     */
+//     $idcol = "idlothorarios";
+//     $table = "lothorarios";
+//     $id = crear_id($idcol, $table);
+//     $sql = "INSERT INTO $table ($idcol, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
+//     $value = ejecutarQuery($sql, array($id, $dialaboral, $horainicio, $horacierre, $diasorteo, $horasorteo, $estado));
 
-    if ($value){
-        return $id;
-    }
-    return $value; //false
-}
+//     if ($value){
+//         return $id;
+//     }
+//     return $value; //false
+// }
 
 // table tipojugadas
 
-function insertar_tipojugadas($nombre, $idloteria_fk, $idlothorarios_fk, $estado = 1){
+function insertar_tipojugadas($nombre, $idloteria_fk, $estado = 1){
     $idcol = "idtipojugadas";
     $table = "tipojugadas";
     $id = crear_id($idcol, $table);
-    $sql = "INSERT INTO $table ($idcol, nombre, idloteria_fk, idlothorarios_fk, estado) VALUES (?, ?, ?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $nombre, $idloteria_fk, $idlothorarios_fk, $estado));
+    $sql = "INSERT INTO $table ($idcol, nombre, idloteria_fk, estado) VALUES (?, ?, ?, ?)";
+    $value = ejecutarQuery($sql, array($id, $nombre, $idloteria_fk, $estado));
 
     if ($value){
         return $id;
@@ -215,7 +215,7 @@ function insertar_tipojugadas($nombre, $idloteria_fk, $idlothorarios_fk, $estado
 
 // table jugadas
 
-function insertar_jugadas($jugnumeros, $idtipojugada_fk, $idloteria_fk, $idticket_fk, $estado = 1){
+function insertar_jugadas($jugnumeros, $idtipojugada_fk, $idticket_fk, $estado = 1){
     /*
         @param $jugnumeros          debe insertar un string de numeros separados por un espacio, ejemplo 10 50 60 80 8 23 6
 
@@ -223,8 +223,8 @@ function insertar_jugadas($jugnumeros, $idtipojugada_fk, $idloteria_fk, $idticke
     $idcol = "idjugadas";
     $table = "jugadas";
     $id = crear_id($idcol, $table);
-    $sql = "INSERT INTO $table ($idcol, jugnumeros, idtipojugada_fk, idloteria_fk, idticket_fk, estado) VALUES (?, ?, ?, ?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $jugnumeros, $idtipojugada_fk, $idloteria_fk, $idticket_fk, $estado));
+    $sql = "INSERT INTO $table ($idcol, jugnumeros, idtipojugada_fk, idticket_fk, estado) VALUES (?, ?, ?, ?, ?)";
+    $value = ejecutarQuery($sql, array($id, $jugnumeros, $idtipojugada_fk, $idticket_fk, $estado));
 
     if ($value){
         return $id;

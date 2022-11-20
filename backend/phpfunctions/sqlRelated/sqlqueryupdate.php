@@ -149,24 +149,24 @@ function update_estado_loterias_por_idloterias($estado, $id){
 }
 
 
-// table lothorarios
+// table lothorarios        ya no existe
 
-function update_lothorarios_por_idlothorarios($arreglo){
-    $sql = "UPDATE lothorarios SET dialaboral = ?, horainicio = ?, horacierre = ?, diasorteo = ?, horasorteo = ?, estado = ? WHERE idlothorarios = ?";
-    $v = ejecutarQuery($sql, $arreglo);
-    return retorno_booleano_para_updates($v);
-}
+// function update_lothorarios_por_idlothorarios($arreglo){
+//     $sql = "UPDATE lothorarios SET dialaboral = ?, horainicio = ?, horacierre = ?, diasorteo = ?, horasorteo = ?, estado = ? WHERE idlothorarios = ?";
+//     $v = ejecutarQuery($sql, $arreglo);
+//     return retorno_booleano_para_updates($v);
+// }
 
-function update_estado_lothorarios_por_idlothorarios($estado, $id){
-    $sql = "UPDATE lothorarios SET estado = ? WHERE idlothorarios = ?";
-    $v = ejecutarQuery($sql, array($estado, $id));
-    return retorno_booleano_para_updates($v);
-}
+// function update_estado_lothorarios_por_idlothorarios($estado, $id){
+//     $sql = "UPDATE lothorarios SET estado = ? WHERE idlothorarios = ?";
+//     $v = ejecutarQuery($sql, array($estado, $id));
+//     return retorno_booleano_para_updates($v);
+// }
 
 // table tipo jugadas
 
 function update_tipojugadas_por_idtipojugadas($arreglo){
-    $sql = "UPDATE tipojugadas SET nombre = ?, idloteria_fk = ?, idlothorarios_fk = ?, estado = ? WHERE idtipojugadas = ?";
+    $sql = "UPDATE tipojugadas SET nombre = ?, idloteria_fk = ?, estado = ? WHERE idtipojugadas = ?";
     $v = ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }
@@ -180,7 +180,7 @@ function update_estado_tipojugadas_por_idtipojugadas($estado, $id){
 // table jugadas
 
 function update_jugadas_por_idjugadas($arreglo){
-    $sql = "UPDATE jugadas SET jugnumeros = ?, idtipojugada_fk = ?, idloteria_fk = ?, idticket_fk = ?, estado = ? WHERE idjugadas = ?";
+    $sql = "UPDATE jugadas SET jugnumeros = ?, idtipojugada_fk = ?, idticket_fk = ?, estado = ? WHERE idjugadas = ?";
     $v = ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }
