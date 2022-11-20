@@ -6,7 +6,7 @@ if(!isset($_SESSION['nivel'])){
 header('location:  ../index.php');
     
 }else {
-    if($_SESSION['nivel']!=1){
+    if($_SESSION['nivel']!=4){
 
 header('location: ../index.php');
 
@@ -27,7 +27,7 @@ header('location: ../index.php');
     <link rel="stylesheet" href="/css/cuerpoWeb.css" />
     <link rel="stylesheet" href="/css/tarjeta.css" />
     <link rel="stylesheet" href="/css/ticket.css" />
-
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js""></script>
 </head>
 <header>
     
@@ -46,7 +46,7 @@ header('location: ../index.php');
       
     </div>
 
-    
+    <script src="JsBarcode.all.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script  src="/js/tarjeta.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

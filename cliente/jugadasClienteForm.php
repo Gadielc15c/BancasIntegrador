@@ -11,7 +11,6 @@ include_once('../backend/phpfunctions/generals.php');
 
 $lotsDefault = "Seleccione una Lotería"; 
 $sortDefault = "Seleccione sorteo";
-
 $tc_label = "Cantidad";
 $lot_label = "Lotería";
 $sor_label = "Sorteo";
@@ -239,7 +238,10 @@ if (isset($_SESSION["conteojugadas"])) {
                                     <div class=" bebe" style="justify-content: flex-end">';
                                     if ($b_value){
 
-                                        echo '<input type="submit" class="bebecitoButton" name="imprimir" value="FINALIZAR JUGADA">';
+                                        echo '<form action="../cliente/pagosCliente.php" method="post" class="form-grp">
+                                        <input onclick=" " type="submit" class="bebecitoButton" name="imprimir" value="FINALIZAR JUGADA">
+                                        </form>';
+
                                     } echo '
 
                                         
@@ -259,7 +261,7 @@ if (isset($_SESSION["conteojugadas"])) {
 
                                                 echo '
                                             </tr>';
-                                                
+                                              
                                                 $count = 0;
                                                 $_SESSION["filasjugadas"] = [];
                                                 foreach($_SESSION["tablajugada"] as $ses){
