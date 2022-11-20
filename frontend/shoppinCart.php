@@ -6,7 +6,7 @@ if(isset($_SESSION['tablajugada'])){
 
     }
 
-include('../backend/phpfunctions/carritoFuncions.php');
+include('../backend/phpfunctions/carritoFunctions.php');
 
 
 

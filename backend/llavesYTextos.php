@@ -3,10 +3,31 @@
 // Estas llaves son para utilizarse con los arrays para acceder a un valor deseado
 // No tocarlas solo usarlas, algunas llaves estan escrita a proposito de una manera
 
+// Aqui tambien se pueden colocar textos generales. El segmento de textos se encuentra despues de las llaves
+
+
+
+//
+//      LLAVES
+//
+
+// Generales
+
+$cantlabel = "Cantidad";
+$monlabel = "Moneda";
+$montolabel = "Monto";
+$numlabel = "Números";
+
+// Para $_POST, $_SESSION, etc
+$lotselected  = "";
+$sorteoselected = "";
+$tablatickets = "";
+
 
 // Para las loterias
-$lotlabel = "";
-$lotnacional = "Loteria Nacional";
+$lotlabel = "lotería";
+
+$lotnacional = "Loteria Nacional"; // no poner tilde en este
 $lotleidsa = "Leidsa";
 $lotreal = "Loteria Real";
 $lotamericanas = "Americanas";
@@ -17,7 +38,23 @@ $lotang = "Anguila";
 $loting = "King Lottery";
 
 // Para los sorteos
-$solabel = "";
+$solabel = "sorteo";
+$sotipolabel = "tipo de jugada";
+$sohorlabel = "horario";
+$sotimerdlabel = "hora dominicana";
+$sodialabel = "dias del sorteo";
+$sofiestalabel = "dias asuetos";
+$somonrdlabel = "moenda dominicana";
+$socostolabel = "costo de ticket";
+$sobolostotlabel = "bolos total";
+$sobolosentombolabel = "bolos por tombola";
+$sobolosrango = "rango de bolos por tombola";
+
+$soquinela = "quiniela";
+$sopale = "palé";
+$sotripleta = "tripleta";
+$sopropioa = "propia";
+
 $sojuegamas = "Juega + Pega +";
 $soganamas = "Gana Más";
 $solotnac = "Lotería Nacional";
@@ -52,7 +89,9 @@ $soking12 = "King Lottery 12:30";
 $soking7 = "King Lottery 7:30";
 
 
-
+//
+//      TEXTOS
+//
 
 
 

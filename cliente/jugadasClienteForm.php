@@ -1,8 +1,6 @@
 <?php 
 include_once('../backend/phpfunctions/jugadasFunctions.php');
 include_once('../backend/phpfunctions/generals.php');
-
-
 ?>
 
 <div class=".container">
@@ -22,41 +20,9 @@ $num_label = "Números";
 $repetir_label = "Repetir";
 $borrar_label = "Borrar";
 
-
-if (isset($_POST["lotsSelect"])){
-    $_SESSION["lotsSelect"] = $_POST["lotsSelect"];
-    $_SESSION["sortSelect"] = $sortDefault;
-} elseif (isset($_SESSION["lotsSelect"])) {
-    $_SESSION["lotsSelect"] = $_SESSION["lotsSelect"];
-} else {
-    $_SESSION["lotsSelect"] = $lotsDefault;
-}
-
-if (isset($_POST["sortSelect"])){
-    $_SESSION["sortSelect"] = $_POST["sortSelect"];
-} elseif (isset($_SESSION["sortSelect"])) {
-    $_SESSION["sortSelect"] = $_SESSION["sortSelect"];
-} else {
-    $_SESSION["sortSelect"] = $sortDefault;
-}
-
-if (isset($_SESSION["tablajugada"])) {
-    $_SESSION["tablajugada"] = $_SESSION["tablajugada"];
-} else {
-    $_SESSION["tablajugada"] = [];
-}
-
-if (isset($_SESSION["filasjugadas"])) {
-    $_SESSION["filasjugadas"] = $_SESSION["filasjugadas"];
-} else {
-    $_SESSION["filasjugadas"] = [];
-}
-
-if (isset($_SESSION["conteojugadas"])) {
-    $_SESSION["conteojugadas"] = $_SESSION["conteojugadas"];
-} else {
-    $_SESSION["conteojugadas"] = 0;
-}
+save_post_in_session("lotsSelect", $lotsDefault, "lotsSelect", "sortSelect", $sortDefault);
+save_post_in_session("sortSelect", $sortDefault, "sortSelect");
+many_persistent_sessions(["tablajugada", "filasjugadas", "conteojugadas"], [[], [], 0]);
 
 
 ?>
