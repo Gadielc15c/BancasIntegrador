@@ -69,30 +69,30 @@ function seleccionar_todos_tickets(){
 // Table tipo jugadas
 
 function seleccionar_todos_tipojugadas_por_idloteria_fk($idloteria_fk){
-    $sql = "SELECT idtipojugadas, nombre, idloteria_fk, idlothorarios_fk, estado FROM tipojugadas WHERE idloteria_fk = ?";
+    $sql = "SELECT idtipojugadas, nombre, idloteria_fk, estado FROM tipojugadas WHERE idloteria_fk = ?";
     return retornar_seleccion($sql, array($idloteria_fk), "a");
 }
 
 function seleccionar_todos_tipojugadas(){
     // usarse con mantenimientosFunctions form
-    $sql = "SELECT idtipojugadas, nombre, idloteria_fk, idlothorarios_fk, estado FROM tipojugadas";
+    $sql = "SELECT idtipojugadas, nombre, idloteria_fk, estado FROM tipojugadas";
     return retornar_seleccion($sql, null, "a");
 }
 
-// Table lot horarios
+// Table lot horarios       ya no existe
 
-function seleccionar_todos_lothorarios(){
-    // usarse con mantenimientosFunctions form
-    $sql = "SELECT idlothorarios, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado FROM lothorarios";
-    return retornar_seleccion($sql, null, "a");
-}
+// function seleccionar_todos_lothorarios(){
+//     // usarse con mantenimientosFunctions form
+//     $sql = "SELECT idlothorarios, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado FROM lothorarios";
+//     return retornar_seleccion($sql, null, "a");
+// }
 
-function seleccionar_todos_lothorarios_por_diasorteo($diasorteo){
-    // @param diasorteo     debe esta en el formato descrito en el insert_lothorarios
-    // Puede retornar varios valores
-    $sql = "SELECT idlothorarios, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado FROM lothorarios WHERE diasorteo = ?";
-    return retornar_seleccion($sql, array($diasorteo), "a");
-}
+// function seleccionar_todos_lothorarios_por_diasorteo($diasorteo){
+//     // @param diasorteo     debe esta en el formato descrito en el insert_lothorarios
+//     // Puede retornar varios valores
+//     $sql = "SELECT idlothorarios, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado FROM lothorarios WHERE diasorteo = ?";
+//     return retornar_seleccion($sql, array($diasorteo), "a");
+// }
 
 // Table monedas
 
