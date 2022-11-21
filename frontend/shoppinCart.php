@@ -1,40 +1,37 @@
 <?php 
+    include_once("E:\\xampp\\htdocs\\include_me.php");
+    include_once(include_me("carritoFunctions.php"));
+    include_once(include_me("llavesYTextos.php"));
+    include_once(include_me("sqlqueryselect.php"));
+    include_once(include_me("generals.php"));
+    // include('../backend/phpfunctions/carritoFunctions.php');
 
-if(isset($_SESSION['tablajugada'])){
+    $fecha = explode(" ", fecha_de_hoy())[0];
 
-    $a=$_SESSION['tablajugada'];
-
+    if(isset($_SESSION[$sestabladejugadas])){
+        $value = $_SESSION[$sestabladejugadas];
+    } else {
+        $value = seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbuserid]);
+        if ($value){
+            $fecha = $value[$genfeclabel];
+            $value = convert_str_to_array_estoyharto($value[$genjuglabel]);
+        } else {
+            $value = false;
+        }
     }
 
-include('../backend/phpfunctions/carritoFuncions.php');
-
-
-
-
-foreach ($a as $detalleJugada){
-   
-    $lot = $detalleJugada["Lotería"];
-    $sort = $detalleJugada["Sorteo"];
-    $tipo = $detalleJugada["Modalidad"];
-
-
-    $sep = ",";
-    $justring = $detalleJugada["Números"];
-    $jug = explode($sep, $justring);
+    foreach ($value as $v){
     
-    $tot=0;
-    $mon = $detalleJugada["Monto"];
-    foreach ($jug as $totalito){
-        $tot+=$mon;
-
-
-    }
-    
-    
-    
-    $date = "15/11/2022";
-    $img ="xD";
-    shoppingMaker($lot,$sort,$tot,$jug,$tipo,$mon,$date,$img);
-     } 
+        $lot = $v[$lotlabel];
+        $sort = $v[$solabel];
+        $tipo = $v[$sotipolabel];
+        $jug = $v[$gennumlabel];
+        $cant = $v[$gencantlabel];
+        $monto = $v[$genmontolabel];
+        $tot= $cant * $monto;
+        $img ="xD";
+        $keyed_array = array_merge($v, [$genimagenlabel => $img]);
+        shoppingMaker($cant,$lot,$sort,$tot,$jug,$tipo,$monto,$fecha,$img,$keyed_array);
+        } 
 ?>
 

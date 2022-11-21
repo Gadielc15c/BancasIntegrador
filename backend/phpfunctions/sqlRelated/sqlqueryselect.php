@@ -1,6 +1,16 @@
 <?php
 include_once('sqlquerygenerals.php');
 
+
+function prueba_seleccionar_un_usuario_por_nombre_y_clave($nomuser, $clave){
+    $table = "terceros";
+    $sql = "SELECT idterceros, nomusuario, correo, cedula, estado, idnivelacceso_fk FROM $table WHERE nomusuario = ? AND claveusuario = ?";
+    include(include_me("llavesYTextos.php")); 
+    $llaves = [$dbuserid, $dbusername, $dbuseremail, $dbusercedula, $dbuserestado, $dbusernivelaccfk];
+    // explode
+    return retornar_seleccion_con_llaves($sql, array($nomuser, $clave), $llaves);
+}
+
 // Table terceros
 
 function seleccionar_un_usuario_por_nombre($nomuser){
@@ -48,10 +58,10 @@ function seleccionar_un_nivelacces_por_id($id){
 
 // Table Tickets
 
-function seleccionar_id_ticket_por_codigobarra($codigobarra){
+function seleccionar_tickets_por_codigobarra($codigobarra){
     $col = "idtickets";
-    $sql = "SELECT $col FROM tickets WHERE codigobarra = ?";
-    return retorno_para_un_select($col, $sql, array($codigobarra));
+    $sql = "SELECT $col, monto, monedas_fk, fecha, estado, idterceros_fk, codigobarra, idsucursalventa_fk, idsucursalpago_fk FROM tickets WHERE codigobarra = ?";
+    return retornar_seleccion($sql, array($codigobarra), "a");
 }
 
 function seleccionar_ticket_por_idticket($id){
@@ -69,30 +79,30 @@ function seleccionar_todos_tickets(){
 // Table tipo jugadas
 
 function seleccionar_todos_tipojugadas_por_idloteria_fk($idloteria_fk){
-    $sql = "SELECT idtipojugadas, nombre, idloteria_fk, idlothorarios_fk, estado FROM tipojugadas WHERE idloteria_fk = ?";
+    $sql = "SELECT idtipojugadas, nombre, idloteria_fk, estado FROM tipojugadas WHERE idloteria_fk = ?";
     return retornar_seleccion($sql, array($idloteria_fk), "a");
 }
 
 function seleccionar_todos_tipojugadas(){
     // usarse con mantenimientosFunctions form
-    $sql = "SELECT idtipojugadas, nombre, idloteria_fk, idlothorarios_fk, estado FROM tipojugadas";
+    $sql = "SELECT idtipojugadas, nombre, idloteria_fk, estado FROM tipojugadas";
     return retornar_seleccion($sql, null, "a");
 }
 
-// Table lot horarios
+// Table lot horarios       ya no existe
 
-function seleccionar_todos_lothorarios(){
-    // usarse con mantenimientosFunctions form
-    $sql = "SELECT idlothorarios, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado FROM lothorarios";
-    return retornar_seleccion($sql, null, "a");
-}
+// function seleccionar_todos_lothorarios(){
+//     // usarse con mantenimientosFunctions form
+//     $sql = "SELECT idlothorarios, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado FROM lothorarios";
+//     return retornar_seleccion($sql, null, "a");
+// }
 
-function seleccionar_todos_lothorarios_por_diasorteo($diasorteo){
-    // @param diasorteo     debe esta en el formato descrito en el insert_lothorarios
-    // Puede retornar varios valores
-    $sql = "SELECT idlothorarios, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado FROM lothorarios WHERE diasorteo = ?";
-    return retornar_seleccion($sql, array($diasorteo), "a");
-}
+// function seleccionar_todos_lothorarios_por_diasorteo($diasorteo){
+//     // @param diasorteo     debe esta en el formato descrito en el insert_lothorarios
+//     // Puede retornar varios valores
+//     $sql = "SELECT idlothorarios, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado FROM lothorarios WHERE diasorteo = ?";
+//     return retornar_seleccion($sql, array($diasorteo), "a");
+// }
 
 // Table monedas
 
@@ -317,5 +327,14 @@ function seleccionar_pagosrealizados_por_idterceros_fk($id){
     return retornar_seleccion($sql, array($id), "a");
 }
 
+// table tablajugadaventadeticket
+
+function seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($id){
+    $table = "tablajugadaventadeticket";
+    $sql = "SELECT idtablajugada, jugadas, fecha FROM tablajugadaventadeticket WHERE idterceros_fk = ?";
+    include(include_me("llavesYTextos.php")); 
+    $llaves = [$dbtablajugadaid, $genjuglabel, $genfeclabel];
+    return retornar_seleccion_con_llaves($sql, array($id), $llaves);
+}
 
 ?>

@@ -42,7 +42,7 @@ header('location: ../index.php');
        
     <div class="" style="margin-left: 40%;">.
                                 <div class="row">
-                                    <div class="col-lg-8  rows">
+                                    <div class="col-lg-8  rows" style="text-align:center">
                                         <h2 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px">
                                             SECCION DE NOVEDADES
                                         </h2>
@@ -76,8 +76,8 @@ header('location: ../index.php');
        
     <div class="" style="margin-left: 40%;">.
                                 <div class="row">
-                                    <div class="col-lg-8  rows">
-                                        <h2 class="font-weight-bold" style="text-align:center">
+                                    <div class="col-lg-8  rows" style="text-align:center">
+                                        <h2 class="font-weight-bold">
                                             SECCION DE GANADORES
                                         </h2>
                                        
@@ -141,7 +141,7 @@ header('location: ../index.php');
        
     <div class="" style="margin-left: 40%;">.
                                 <div class="row">
-                                    <div class="col-lg-8  rows">
+                                    <div class="col-lg-8  rows"style="text-align:center">
                                         <h2 class="font-weight-bold" style=" padding-top: 55px; padding-left: 25px">
                                             NOSOTROS
                                         </h2>
