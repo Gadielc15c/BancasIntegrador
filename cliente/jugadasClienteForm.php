@@ -29,7 +29,6 @@ if ($sq){
     $tempvar = convert_str_to_array_estoyharto($sq[$genjuglabel]);
 } else {
     $tempvar = [];
-
 }
 
 save_post_in_session("lotsSelect", $lotsDefault, "lotsSelect", "sortSelect", $sortDefault);

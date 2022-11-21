@@ -52,7 +52,8 @@ for ($x = 0; $x < $cant; $x++) {
     insertar_ticket($monto, $_SESSION[$dbuserid], $m, $barCdNum);
 }
 delete_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbuserid]);
-
+$_SESSION[$sestabladejugadas] = [];
+$_SESSION["filasjugadas"] = [];
 ?>
 
 
