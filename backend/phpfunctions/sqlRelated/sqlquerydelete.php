@@ -112,7 +112,11 @@ function delete_tipometodopago_por_idtipometodopago($id){
 // No se deberian borrar por ahora
 
 
+// table tablajugadaventadeticket
 
-
+function delete_tablajugadaventadeticket_estoyharto_por_idterceros_fk($id){
+    $sql = "DELETE FROM tablajugadaventadeticket WHERE idterceros_fk = ?";
+    return ejecutarQuery($sql, array($id));
+}
 
 ?>

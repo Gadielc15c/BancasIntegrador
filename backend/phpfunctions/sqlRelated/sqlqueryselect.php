@@ -1,6 +1,16 @@
 <?php
 include_once('sqlquerygenerals.php');
 
+
+function prueba_seleccionar_un_usuario_por_nombre_y_clave($nomuser, $clave){
+    $table = "terceros";
+    $sql = "SELECT idterceros, nomusuario, correo, cedula, estado, idnivelacceso_fk FROM $table WHERE nomusuario = ? AND claveusuario = ?";
+    include(include_me("llavesYTextos.php")); 
+    $llaves = [$dbuserid, $dbusername, $dbuseremail, $dbusercedula, $dbuserestado, $dbusernivelaccfk];
+    // explode
+    return retornar_seleccion_con_llaves($sql, array($nomuser, $clave), $llaves);
+}
+
 // Table terceros
 
 function seleccionar_un_usuario_por_nombre($nomuser){
@@ -317,5 +327,14 @@ function seleccionar_pagosrealizados_por_idterceros_fk($id){
     return retornar_seleccion($sql, array($id), "a");
 }
 
+// table tablajugadaventadeticket
+
+function seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($id){
+    $table = "tablajugadaventadeticket";
+    $sql = "SELECT idtablajugada, jugadas, fecha FROM tablajugadaventadeticket WHERE idterceros_fk = ?";
+    include(include_me("llavesYTextos.php")); 
+    $llaves = [$dbtablajugadaid, $genjuglabel, $genfeclabel];
+    return retornar_seleccion_con_llaves($sql, array($id), $llaves);
+}
 
 ?>
