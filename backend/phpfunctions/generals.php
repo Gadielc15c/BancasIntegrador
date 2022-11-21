@@ -255,9 +255,34 @@ function many_persistent_sessions(array $session_key, array $session_default){
     }
 */
 
-// $path = dirname(__FILE__);
-// include_once($path . "/phpFunctions/mantenimientosFunctions.php");
+function convert_str_to_array_estoyharto(string $sq){
+    if ($sq == ""){
+        return [];
+    }
 
+    $v = str_replace("--", "-", $sq);
+    $v = explode('-', $v);
+    $t = [];
+    foreach($v as $b){
+        if ($b){
+            array_push($t, $b);
+        }
+    }
 
+    $primer = $t[0];
+    $temp = [];
+    $result = [];
+    for ($x = 0; $x < sizeof($t); $x += 2) {
+        if ($x != 0 && $t[$x] == $primer){
+            array_push($result, $temp);
+        }
+        $temp[$t[$x]] = $t[$x+1];
+
+    }
+    array_push($result, $temp);
+    return $result;
+}
+
+// convert_str_to_array_estoyharto($sq);
 
 ?>

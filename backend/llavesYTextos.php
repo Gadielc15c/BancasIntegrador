@@ -9,20 +9,40 @@
 
 //
 //      LLAVES
-//
+//      Se pueden mezclar, no necesariamente se deban usar especificamente para la categoria en que estan
 
 // Generales
 
-$cantlabel = "Cantidad";
-$monlabel = "Moneda";
-$montolabel = "Monto";
-$numlabel = "Números";
+$gencantlabel = "Cantidad";
+$genmonlabel = "Moneda";
+$genmontolabel = "Monto";
+$gennumlabel = "Números";
+$genfeclabel = "Fecha";
+$genjuglabel = "Jugadas";
+
+// Para columnas de la base de datos
+
+$dbuserid = "dBterid";
+$dbusername = "dBterusername";
+$dbuserpass = "dBterpassword";
+$dbusercedula = "dBtercedula";
+$dbuseremail = "dBteremail";
+$dbuserestado = "dBterestado";
+$dbusernivelaccfk = "dBternivaccfk";
+
+$dbtablajugadaid = "dBtablajugid";
+
 
 // Para $_POST, $_SESSION, etc
-$lotselected  = "";
-$sorteoselected = "";
-$tablatickets = "";
 
+$sesuserid = "seSterid";
+$sesusernivelaccfk = "seSternivaccfk";
+$sesregistroticket = "seSregistrodeticket";
+$sestabladejugadas = "seStablajugada";
+
+// Para Cookies
+
+$cookiename = "cooKsomeName";
 
 // Para las loterias
 $lotlabel = "lotería";

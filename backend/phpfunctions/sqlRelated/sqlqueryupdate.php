@@ -219,6 +219,14 @@ function update_estado_pagosrealizados_por_idpagosrealizados($estado, $id){
     return retorno_booleano_para_updates($v);
 }
 
+// table tablajugadaventadeticket
+
+function update_tablajugadaventadeticket_estoyharto_por_idtercero(string $jugadas, $id){
+    $sql = "UPDATE tablajugadaventadeticket SET jugadas = ?, fecha = ? WHERE idterceros_fk = ?";
+    $v = ejecutarQuery($sql, array($jugadas, fecha_de_hoy(), $id));
+    return retorno_booleano_para_updates($v);
+}
+
 // Para actualizar los estados debes usar true or false
 
 ?>

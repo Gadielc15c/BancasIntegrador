@@ -1,6 +1,14 @@
 <?php 
-include_once('../backend/phpfunctions/jugadasFunctions.php');
-include_once('../backend/phpfunctions/generals.php');
+
+// include_once('../backend/phpfunctions/jugadasFunctions.php');
+// include_once('../backend/phpfunctions/generals.php');
+include_once("E:\\xampp\\htdocs\\include_me.php");
+include_once(include_me("jugadasFunctions.php"));
+include_once(include_me("generals.php"));
+include_once(include_me("llavesYTextos.php"));
+include_once(include_me("sqlqueryinsert.php"));
+include_once(include_me("sqlqueryupdate.php"));
+include_once(include_me("sqlqueryselect.php"));
 ?>
 
 <div class=".container">
@@ -9,20 +17,24 @@ include_once('../backend/phpfunctions/generals.php');
 
 $lotsDefault = "Seleccione una Lotería"; 
 $sortDefault = "Seleccione sorteo";
-$tc_label = "Cantidad";
-$lot_label = "Lotería";
-$sor_label = "Sorteo";
-$mod_label = "Modalidad";
-$m_label = "Moneda";
-$monto_label = "Monto";
-$num_label = "Números";
 
 $repetir_label = "Repetir";
 $borrar_label = "Borrar";
 
+$encabezados = [$gencantlabel, $lotlabel, $solabel, $sotipolabel, $genmonlabel, $genmontolabel, $gennumlabel];
+
+$sq = seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbuserid]);
+
+if ($sq){
+    $tempvar = convert_str_to_array_estoyharto($sq[$genjuglabel]);
+} else {
+    $tempvar = [];
+
+}
+
 save_post_in_session("lotsSelect", $lotsDefault, "lotsSelect", "sortSelect", $sortDefault);
 save_post_in_session("sortSelect", $sortDefault, "sortSelect");
-many_persistent_sessions(["tablajugada", "filasjugadas", "conteojugadas"], [[], [], 0]);
+many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], [$tempvar, [], 0]);
 
 
 ?>
@@ -105,7 +117,7 @@ many_persistent_sessions(["tablajugada", "filasjugadas", "conteojugadas"], [[], 
                                         $m = "US";
                                     }
                                     echo "<label for='monto' >MONEDA: "; echo $m; echo "$</label>";
-                                    echo '<input type=" text" class="bebecito" name="monto" placeholder="MONTO" required> </input>
+                                    echo '<input type=" text" class="bebecito" name="'; echo $genmontolabel; echo '" placeholder="MONTO" required> </input>
                                     
                                     </div>
                                     </div>
@@ -116,19 +128,7 @@ many_persistent_sessions(["tablajugada", "filasjugadas", "conteojugadas"], [[], 
 
                                     </div>
                                     </form>';
-                                    
-                                    $cliente_num_label = "numeros";
-                                    $cliente_moneda_label = "moneda";
-                                    
-                                    if (isset($_POST["moneda"])){
-                                        $_SESSION["moneda"] = $m;
-                                    } elseif (isset($_SESSION["moneda"])) {
-                                        $_SESSION["moneda"] = $_SESSION["moneda"];
-                                    } else {
-                                        $_SESSION["moneda"] = $m;
-                                    }
-
-                                    $ticket_cantidad = 1;
+                                    save_post_in_session($genmonlabel, $m, $genmonlabel);
                                     
                                     if (isset($_POST["jugada0"])){
                                         $num_og = array_slice($_POST, 0, sizeof($_POST)-1);
@@ -150,41 +150,39 @@ many_persistent_sessions(["tablajugada", "filasjugadas", "conteojugadas"], [[], 
                                         }
 
                                         $c_ticket = [
-                                            $lot_label => $_SESSION["lotsSelect"], 
-                                            $sor_label => $_SESSION["sortSelect"], 
-                                            $mod_label => $modali,
-                                            $m_label => $m, 
-                                            $monto_label => floatval($_POST["monto"]), 
-                                            $num_label => $num
+                                            $lotlabel => $_SESSION["lotsSelect"], 
+                                            $solabel => $_SESSION["sortSelect"], 
+                                            $sotipolabel => $modali,
+                                            $genmonlabel => $m, 
+                                            $genmontolabel => floatval($_POST[$genmontolabel]), 
+                                            $gennumlabel => $num
                                         ];
 
                                         $der = [];
-                                        foreach ($_SESSION["tablajugada"] as $ses){
-                                            $ses = array_remove_by_key($ses, $tc_label);
+                                        foreach ($_SESSION[$sestabladejugadas] as $ses){
+                                            $ses = array_remove_by_key($ses, $gencantlabel);
                                             array_push($der, $ses);
                                         }
 
                                         if (in_array($c_ticket, $der)){
                                             $indice = array_search($c_ticket, $der);
-                                            $_SESSION["tablajugada"][$indice][$tc_label] ++;
+                                            $_SESSION[$sestabladejugadas][$indice][$gencantlabel] ++;
                                         } else {
-                                            $c_ticket[$tc_label] = $ticket_cantidad;
-                                            array_push($_SESSION["tablajugada"], $c_ticket);
+                                            $c_ticket[$gencantlabel] = 1;
+                                            array_push($_SESSION[$sestabladejugadas], $c_ticket);
                                         }
 
-                                        $_SESSION["numeros"] = $_POST;
-                                    } elseif (isset($_SESSION["numeros"])) {
-                                        $_SESSION["numeros"] = $_SESSION["numeros"];
+                                        $_SESSION[$gennumlabel] = $_POST;
                                     } else {
-                                        $_SESSION["numeros"] = [];
+                                        persistent_session($gennumlabel, []);
                                     }
                                 } // Cierre del if que esta mas arriba, no borrar
                                 
                                 // Actualizar las jugadas despues de darle al boton repetir
                                 for ($x = 0; $x < $_SESSION["conteojugadas"]; $x++){
                                     if (isset($_POST[$repetir_label.$x])){
-                                        $indice = array_search($_SESSION["filasjugadas"][$repetir_label.$x], $_SESSION["tablajugada"]);
-                                        $_SESSION["tablajugada"][$indice][$tc_label] ++;
+                                        $indice = array_search($_SESSION["filasjugadas"][$repetir_label.$x], $_SESSION[$sestabladejugadas]);
+                                        $_SESSION[$sestabladejugadas][$indice][$gencantlabel] ++;
                                         break;
                                     }
                                 }
@@ -192,7 +190,7 @@ many_persistent_sessions(["tablajugada", "filasjugadas", "conteojugadas"], [[], 
                                 // Borrar la jugadas despues de darle al boton borrar
                                 for ($x = 0; $x < $_SESSION["conteojugadas"]; $x++){
                                     if (isset($_POST[$borrar_label.$x])){
-                                        $_SESSION["tablajugada"] = array_remove_by_key($_SESSION["filasjugadas"], $repetir_label.$x, false);
+                                        $_SESSION[$sestabladejugadas] = array_remove_by_key($_SESSION["filasjugadas"], $repetir_label.$x, false);
                                         break;
                                     }
                                 }
@@ -201,26 +199,17 @@ many_persistent_sessions(["tablajugada", "filasjugadas", "conteojugadas"], [[], 
                                     </div>
 
                                     </div>
-                                    <div class=" bebe" style="justify-content: flex-end">';
-                                    if ($b_value){
-
-                                        echo '<form action="../cliente/pagosCliente.php" method="post" class="form-grp">
-                                        <input onclick=" " type="submit" class="bebecitoButton" name="imprimir" value="FINALIZAR JUGADA">
-                                        </form>';
-
-                                    } echo '
-
-                                        
+                                    <div class=" bebe" style="justify-content: flex-end">
                                     </div>
-
 
                                     <div class=" bebe" style="justify-content: flex-end">
                                         <table>';
-                                        if ($_SESSION["tablajugada"]){
+                                        
+                                        if ($_SESSION[$sestabladejugadas]){
                                             echo '
                                             <tr>';
 
-                                                $encabezados = [$tc_label, $lot_label, $sor_label, $mod_label, $m_label, $monto_label, $num_label];
+                                                
                                                 foreach($encabezados as $e){
                                                     echo '<th>'; echo $e; echo '</th>';
                                                 }
@@ -230,7 +219,7 @@ many_persistent_sessions(["tablajugada", "filasjugadas", "conteojugadas"], [[], 
                                               
                                                 $count = 0;
                                                 $_SESSION["filasjugadas"] = [];
-                                                foreach($_SESSION["tablajugada"] as $ses){
+                                                foreach($_SESSION[$sestabladejugadas] as $ses){
 
                                                     echo '<tr>';
                                                     $temp = [];
@@ -252,13 +241,45 @@ many_persistent_sessions(["tablajugada", "filasjugadas", "conteojugadas"], [[], 
                                                     $count ++;
                                             }
                                             $_SESSION["conteojugadas"] = $count;
-
+                                            
                                         }
                                         echo '
                                         </table>
+                                        <div class=" bebe" style="justify-content: flex-end">
+                                        ';
+
+                                        if ($_SESSION[$sestabladejugadas]){
+                                            echo '
+                                                <form action="../cliente/pagosCliente.php" method="post" class="form-grp">
+                                                    <input onclick=" " type="submit" class="bebecitoButton" name="imprimir" value="FINALIZAR JUGADA">
+                                                </form>';
+                                        } 
+
+                                        echo '
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            ' 
-                            ?>
+                            ';
+//
+
+
+
+$estoyharto_string = "";
+    
+foreach($_SESSION[$sestabladejugadas] as $estoy){
+    foreach($encabezados as $harto){
+        $estoyharto_string = $estoyharto_string . "-" . $harto . "-" . $estoy[$harto] . "-";
+    }
+}
+
+// limite de 65,535 caracteres. se debe establecer
+if ($sq){
+    update_tablajugadaventadeticket_estoyharto_por_idtercero($estoyharto_string, $_SESSION[$dbuserid]);
+} else {
+    insertar_tablajugada_estoyharto($estoyharto_string, $_SESSION[$dbuserid]);
+}
+
+
+?>
                             

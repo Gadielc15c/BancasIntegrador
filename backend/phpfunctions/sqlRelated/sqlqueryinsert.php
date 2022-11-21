@@ -263,4 +263,20 @@ function insertar_ticketsvspagosrealizados($idtickets_fk, $idpagosrealizados_fk)
     return $value; //false
 }
 
+// table tablajugadaventadeticket
+
+function insertar_tablajugada_estoyharto(string $jugadas, $idterceros_fk){
+    $idcol = "idtablajugada";
+    $table = "tablajugadaventadeticket";
+    $fecha = fecha_de_hoy();
+    $id = crear_id($idcol, $table);
+    $sql = "INSERT INTO $table ($idcol, jugadas, fecha, idterceros_fk) VALUES (?, ?, ?, ?)";
+    $value = ejecutarQuery($sql, array($id, $jugadas, $fecha, $idterceros_fk));
+
+    if ($value){
+        return $id;
+    }
+    return $value; //false
+}
+
 ?>
