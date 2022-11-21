@@ -19,6 +19,8 @@ $genmontolabel = "Monto";
 $gennumlabel = "Números";
 $genfeclabel = "Fecha";
 $genjuglabel = "Jugadas";
+$gentotalabel = "Total";
+$genimagenlabel = "Imagen";
 
 // Para columnas de la base de datos
 

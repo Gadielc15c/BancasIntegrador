@@ -2,6 +2,7 @@
 <?php 
 
 function shoppingMaker(
+$cant,
 $loteria,
 $sorteo,
 $total,
@@ -10,11 +11,12 @@ $tipo,
 $monto,
 $fec,
 $img,
+$keyed_array
 )
 {
 
-    $_SESSION['array']=[$loteria,$sorteo,$total,$jugad,$tipo,$monto,$fec,$img];
 
+    $_SESSION['array']=$keyed_array;
   
    
 echo '
@@ -41,6 +43,9 @@ echo '
                     <div class="col">
                         <div class="row">
                             <div class="col">
+                                <h3 class="Jugada">Tickets</h3>
+                            </div>
+                            <div class="col">
                                 <h3 class="Jugada">JUGADA</h3>
                             </div>
                             <div class="col">
@@ -52,19 +57,10 @@ echo '
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h3 class="Jugada">';
-                         
-                                foreach ($jugad as $num){
-                                   
-                                    echo $num; 
-                                   
-                                    if(next($jugad)) {
-                                        echo'-';
-                                   }
-
-                                }
-                                
-                             echo '</h3>
+                                <h3 class="Jugada">'; echo $cant; echo '</h3>
+                            </div>
+                            <div class="col">
+                                <h3 class="Jugada">'; echo $jugad; echo '</h3>
                             </div>
                             <div class="col">
                                 <h3 class="Jugada">'; echo $tipo; echo '</h3>
