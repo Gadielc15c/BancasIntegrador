@@ -13,8 +13,8 @@
     } else {
         $value = seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbuserid]);
         if ($value){
+            $fecha = $value[$genfeclabel];
             $value = convert_str_to_array_estoyharto($value[$genjuglabel]);
-            $fecha = $value[strtolower($genfeclabel)];
         } else {
             $value = false;
         }

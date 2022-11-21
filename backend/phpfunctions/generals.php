@@ -28,8 +28,6 @@ function fecha_de_hoy(int $zona = 0, string $add_day = "0", string $add_year = "
     return $dt ->format('Y-m-d H:i:s');;
 }
 
-echo fecha_de_hoy(add_year: 1);
-
 function por_estado_activo_inactivo($estado){
     if ($estado){
         return "activo";
