@@ -2,13 +2,31 @@
 
 // include_once('../backend/phpfunctions/jugadasFunctions.php');
 // include_once('../backend/phpfunctions/generals.php');
-include_once("E:\\xampp\\htdocs\\include_me.php");
-include_once(include_me("jugadasFunctions.php"));
-include_once(include_me("generals.php"));
-include_once(include_me("llavesYTextos.php"));
-include_once(include_me("sqlqueryinsert.php"));
-include_once(include_me("sqlqueryupdate.php"));
-include_once(include_me("sqlqueryselect.php"));
+
+for($x = 1; $x < 10; $x++){
+    $path = dirname(__FILE__, $x);
+    $patha = explode("\\", $path);
+    if (end($patha) == "BancasIntegrador"){
+        break;
+    }
+}
+
+include_once($path . "\\include_me.php");
+include_once(include_me("jugadasFunctions.php", $path));
+include_once(include_me("generals.php", $path));
+
+for($x = 1; $x < 10; $x++){
+    $path = dirname(__FILE__, $x);
+    $patha = explode("\\", $path);
+    if (end($patha) == "BancasIntegrador"){
+        break;
+    }
+}
+
+include(include_me("llavesYTextos.php", $path));
+include_once(include_me("sqlqueryinsert.php", $path));
+include_once(include_me("sqlqueryupdate.php", $path));
+include_once(include_me("sqlqueryselect.php", $path));
 ?>
 
 <div class=".container">

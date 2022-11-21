@@ -3,8 +3,16 @@ include_once('dbConstruct.php');
 // $path = dirname(__FILE__, 2);
 // include_once($path . "/generals.php");
 
-include_once("E:\\xampp\\htdocs\\include_me.php");  
-include_once(include_me("generals.php")); 
+for($x = 1; $x < 10; $x++){
+    $path = dirname(__FILE__, $x);
+    $patha = explode("\\", $path);
+    if (end($patha) == "BancasIntegrador"){
+        break;
+    }
+}
+
+include_once($path . "\\include_me.php");  
+include_once(include_me("generals.php", $path)); 
 
 function retornar_seleccion($sql, $input, $type = null){
     /* 
