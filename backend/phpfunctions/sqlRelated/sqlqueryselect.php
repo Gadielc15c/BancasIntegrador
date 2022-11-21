@@ -58,10 +58,10 @@ function seleccionar_un_nivelacces_por_id($id){
 
 // Table Tickets
 
-function seleccionar_id_ticket_por_codigobarra($codigobarra){
+function seleccionar_tickets_por_codigobarra($codigobarra){
     $col = "idtickets";
-    $sql = "SELECT $col FROM tickets WHERE codigobarra = ?";
-    return retorno_para_un_select($col, $sql, array($codigobarra));
+    $sql = "SELECT $col, monto, monedas_fk, fecha, estado, idterceros_fk, codigobarra, idsucursalventa_fk, idsucursalpago_fk FROM tickets WHERE codigobarra = ?";
+    return retornar_seleccion($sql, array($codigobarra), "a");
 }
 
 function seleccionar_ticket_por_idticket($id){
