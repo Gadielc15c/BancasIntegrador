@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 if (isset($_SESSION['arrayT'])) {
 $Arreglo=$_SESSION['arrayT'];
@@ -7,44 +6,51 @@ $Arreglo=$_SESSION['arrayT'];
 
 if (isset($_SESSION['MDP'])) {
 	$metodo=$_SESSION['MDP'];
-
-
+}
 
 }
 
+include_once("E:\\xampp\\htdocs\\include_me.php");
+include_once(include_me("ticketPrintFunction.php"));
+include_once(include_me("generals.php"));
+include_once(include_me("llavesYTextos.php"));
+include_once(include_me("sqlqueryinsert.php"));
 
-}
 
-$path = dirname(__FILE__);
-include('../backend/phpfunctions/ticketPrintFunction.php');
+
 $dir="Calle Camino Real #3";
-$sorteo=$Arreglo[1];
-$lot=$Arreglo[0];
-$tipo=$Arreglo[4];
-$jugada=$Arreglo[3];
-$monto=$Arreglo[5];
-$idjugada="254545";
-$total=0;
-foreach ($jugada as $num){
-                                   
-	$total+=$monto;
-   
+$cant=$Arreglo[$gencantlabel];
+$sorteo=$Arreglo[$solabel];
+$lot=$Arreglo[$lotlabel];
+$tipo=$Arreglo[$sotipolabel];
+$jugada=$Arreglo[$gennumlabel];
+$monto=$Arreglo[$genmontolabel];
+$total=$cant*$monto;
 
-}
 
 $tTarjeta=$metodo[0];
 $nTarjeta=$metodo[1];
 $titular="GADIEL CASCANTE";
-$vDate="15-11-2021";
-$tDate="16-11-2022";
-$time="10:57 PM";
+
+$fecha = explode(" ", fecha_de_hoy());
+$vDate= fecha_de_hoy(add_year: "1");
+$tDate= $fecha[0];
+$time= $fecha[1];
 $barCdNum="666 666 666";
 $estado="PAGO";
 /*createTicket($dir,$sorteo,$lot,$tipo,$jugada,$monto,$idjugada,$total,$tTarjeta,$nTarjeta,$titular,$vDate,$tDate,$time,$barCdNum,$estado)
 
 */
 
-
+for ($x = 0; $x < $cant; $x++) {
+    $m = $Arreglo[$genmonlabel];
+    if ($m == "RD"){
+        $m = 1;
+    } else {
+        $m = 0;
+    }
+    insertar_ticket($monto, $_SESSION[$dbuserid], $m, $barCdNum);
+}
 ?>
 
 
@@ -84,34 +90,29 @@ $estado="PAGO";
         <div class="break">***********************************</div>
 
         <!-- DETALLES DE TICKET START-->
-        <div class="transactionDetails">
-            <div class="detail"><?php echo $lot;  ?></div>
-            <div class="detail"><?php  echo $tipo;  ?></div>
-            <div class="detail"><?php     foreach ($jugada as $num){
-                                   
-								   echo $num; 
-								  
-								   if(next($jugada)) {
-									   echo'-';
-								  }
-
-							   }
-		
-		 ?></div>
-            <div class="detail"><?php echo $monto;  ?></div>
-        </div>
+        
+            <?php 
+            
+            for ($x = 0; $x < $cant; $x++) {
+            
+            echo '
+            <div class="transactionDetails">
+                <div class="detail">'; echo $lot; echo '</div>
+                <div class="detail">'; echo $tipo; echo '</div>
+                <div class="detail">'; echo $jugada; echo '</div>
+                <div class="detail">'; echo $monto; echo '</div>
+            </div>
+            ';  
+            }
+            
+            ?>
 
         <div class="transactionDetails">
             --------------------------------
-
-
         </div>
+
+        
         <!-- DETALLES DE TICKET END-->
-
-        <div class="survey bold">
-            <p>ID TICKET</p>
-            <p class="surveyID"><?php echo $idjugada;  ?></p>
-        </div>
 
         <div class="paymentDetails bold">
             <div class="detail">TOTAL</div>

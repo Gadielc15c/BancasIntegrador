@@ -15,14 +15,16 @@ function insertar_tercero($nomuser, $claveuser, $correo){
 
 // table tickets
 
-function insertar_ticket($monto, $nomuser, $monedas_fk = 1, $sucursalventa_fk = null, $sucursalpago_fk = null){
+function insertar_ticket($monto, $idter, $monedas_fk = 1, $codigobarra = null, $sucursalventa_fk = null, $sucursalpago_fk = null){
 
     $idcol = "idtickets";
     $table = "tickets";
     $id = crear_id($idcol, $table);
     $fecha = fecha_de_hoy();
-    $idter = seleccionar_id_tercero_por_nombre($nomuser);
-    $codigobarra = crear_tickets_codigo();
+    if ($codigobarra == null){
+        $codigobarra = crear_tickets_codigo();
+    }
+    
     $sql = "INSERT INTO $table ($idcol, monto, monedas_fk, fecha, idterceros_fk, codigobarra) VALUES (?, ?, ?, ?, ?, ?)";
     
     if ($monto < 0){

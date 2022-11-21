@@ -11,7 +11,7 @@ function crear_tickets_codigo(){
     return strval(rand(100000, 999999)) . uniqid();
 }
 
-function fecha_de_hoy(int $zona = 0){
+function fecha_de_hoy(int $zona = 0, string $add_day = "0", string $add_year = "0"){
     /* 
         @param $zona        0 para dominicana, 1 para new york
     */
@@ -23,8 +23,12 @@ function fecha_de_hoy(int $zona = 0){
     
     $dt = new DateTime("now", new DateTimeZone($timezone));
     $dt -> setTimestamp(time());
-    return $dt->format('Y-m-d H:i:s');
+    date_add($dt, date_interval_create_from_date_string("$add_day days"));
+    date_add($dt, date_interval_create_from_date_string("$add_year year"));
+    return $dt ->format('Y-m-d H:i:s');;
 }
+
+echo fecha_de_hoy(add_year: 1);
 
 function por_estado_activo_inactivo($estado){
     if ($estado){
