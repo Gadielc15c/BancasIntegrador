@@ -15,7 +15,7 @@ include_once(include_me("ticketPrintFunction.php"));
 include_once(include_me("generals.php"));
 include_once(include_me("llavesYTextos.php"));
 include_once(include_me("sqlqueryinsert.php"));
-
+include_once(include_me("sqlquerydelete.php"));
 
 
 $dir="Calle Camino Real #3";
@@ -51,6 +51,8 @@ for ($x = 0; $x < $cant; $x++) {
     }
     insertar_ticket($monto, $_SESSION[$dbuserid], $m, $barCdNum);
 }
+delete_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbuserid]);
+
 ?>
 
 
