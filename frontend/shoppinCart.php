@@ -17,7 +17,7 @@ foreach ($a as $detalleJugada){
     $sort = $detalleJugada["Sorteo"];
     $tipo = $detalleJugada["Modalidad"];
 
-    $string = "Maggie,Panqué,Guayaba";
+
     $sep = ",";
     $justring = $detalleJugada["Números"];
     $jug = explode($sep, $justring);

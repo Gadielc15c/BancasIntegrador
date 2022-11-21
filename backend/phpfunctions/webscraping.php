@@ -6,7 +6,7 @@ function retornar_lot_numeros_live(string $fecha_especifica = null, bool $modo_d
         Retorna un arreglo con la loteria, sorteo, fecha, numeros y un checkmark, de lo contrario retornara false
     */
     if ($fecha_especifica){
-        $url = "https://loteriasdominicanas.com/?date=" . $fecha_especifica;
+        $url = "https://loteriasdominicanas.com/    =" . $fecha_especifica;
     } else {
         $url = "https://loteriasdominicanas.com/";
     }
