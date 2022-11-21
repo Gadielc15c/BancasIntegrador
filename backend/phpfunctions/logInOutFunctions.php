@@ -3,10 +3,18 @@
 function lvlLogValidate(){
 
     // Por alguna razon include once no funciona
-    include("E:\\xampp\\htdocs\\include_me.php");
-    include(include_me("sqlqueryselect.php"));
-    include(include_me("llavesYTextos.php"));
-    include_once(include_me("generals.php"));
+    for($x = 1; $x < 10; $x++){
+        $path = dirname(__FILE__, $x);
+        $patha = explode("\\", $path);
+        if (end($patha) == "BancasIntegrador"){
+            break;
+        }
+    }
+
+    include_once($path . "\\include_me.php");
+    include(include_me("sqlqueryselect.php", $path));
+    include(include_me("llavesYTextos.php", $path));
+    include_once(include_me("generals.php", $path));
 
     session_start();
 

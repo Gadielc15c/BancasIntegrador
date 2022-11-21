@@ -1,12 +1,12 @@
 <?php
 
-function include_me(string $filename, string $path = "E:\\xampp\\htdocs"){
+function include_me(string $filename, string $path){
     /* 
         funcion para realizar include_once con facilidad. Lamentablemente hay que
         incluir esta funcion tambien pero se hace de manera sencilla.
 
         Ejemplo de su uso
-        include_once("E:\\xampp\\htdocs\\include_me.php");      // Para incluir esta funcion
+        include_once("E:\\xampp\\htdocs\\BancasIntegrador\\include_me.php");      // Para incluir esta funcion
         include_once(include_me("llavesYTextos.php"));          // incluir el archivo llavesYTextos.php
 
         @param $filename    string      El nombre del archivo que quieres include_once con su extension

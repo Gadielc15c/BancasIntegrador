@@ -5,7 +5,16 @@ include_once('sqlquerygenerals.php');
 function prueba_seleccionar_un_usuario_por_nombre_y_clave($nomuser, $clave){
     $table = "terceros";
     $sql = "SELECT idterceros, nomusuario, correo, cedula, estado, idnivelacceso_fk FROM $table WHERE nomusuario = ? AND claveusuario = ?";
-    include(include_me("llavesYTextos.php")); 
+
+    for($x = 1; $x < 10; $x++){
+        $path = dirname(__FILE__, $x);
+        $patha = explode("\\", $path);
+        if (end($patha) == "BancasIntegrador"){
+            break;
+        }
+    }
+
+    include(include_me("llavesYTextos.php", $path)); 
     $llaves = [$dbuserid, $dbusername, $dbuseremail, $dbusercedula, $dbuserestado, $dbusernivelaccfk];
     // explode
     return retornar_seleccion_con_llaves($sql, array($nomuser, $clave), $llaves);
@@ -332,7 +341,14 @@ function seleccionar_pagosrealizados_por_idterceros_fk($id){
 function seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($id){
     $table = "tablajugadaventadeticket";
     $sql = "SELECT idtablajugada, jugadas, fecha FROM tablajugadaventadeticket WHERE idterceros_fk = ?";
-    include(include_me("llavesYTextos.php")); 
+    for($x = 1; $x < 10; $x++){
+        $path = dirname(__FILE__, $x);
+        $patha = explode("\\", $path);
+        if (end($patha) == "BancasIntegrador"){
+            break;
+        }
+    }
+    include(include_me("llavesYTextos.php", $path)); 
     $llaves = [$dbtablajugadaid, $genjuglabel, $genfeclabel];
     return retornar_seleccion_con_llaves($sql, array($id), $llaves);
 }

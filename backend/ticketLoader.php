@@ -10,12 +10,20 @@ if (isset($_SESSION['MDP'])) {
 
 }
 
-include_once("E:\\xampp\\htdocs\\include_me.php");
-include_once(include_me("ticketPrintFunction.php"));
-include_once(include_me("generals.php"));
-include_once(include_me("llavesYTextos.php"));
-include_once(include_me("sqlqueryinsert.php"));
-include_once(include_me("sqlquerydelete.php"));
+for($x = 1; $x < 10; $x++){
+    $path = dirname(__FILE__, $x);
+    $patha = explode("\\", $path);
+    if (end($patha) == "BancasIntegrador"){
+        break;
+    }
+}
+
+include_once($path . "\\include_me.php");
+include_once(include_me("ticketPrintFunction.php", $path));
+include_once(include_me("generals.php", $path));
+include_once(include_me("llavesYTextos.php", $path));
+include_once(include_me("sqlqueryinsert.php", $path));
+include_once(include_me("sqlquerydelete.php", $path));
 
 
 $dir="Calle Camino Real #3";
