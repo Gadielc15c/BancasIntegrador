@@ -3,7 +3,7 @@
 function lvlLogValidate(){
 
     // Por alguna razon include once no funciona
-    include("E:\\xampp\\htdocs\\include_me.php");
+    include_once("E:\\xampp\\htdocs\\BancasIntegrador\\include_me.php");
     include(include_me("sqlqueryselect.php"));
     include(include_me("llavesYTextos.php"));
     include_once(include_me("generals.php"));
