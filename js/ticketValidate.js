@@ -11,8 +11,7 @@ formJ.addEventListener("submit", e => {
     let entrar = false
     let regexJugada =/^[0-9]+$/
 
-    console.log(!regexJugada.test(numj.value))
-    if(regexJugada.test(numj.value)){
+    if(!regexJugada.test(numj.value)){
         warnings +='Uno de los numeros a jugar no es valido <br>'
         entrar=true
     }
