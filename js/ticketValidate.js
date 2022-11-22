@@ -14,8 +14,6 @@ formJ.addEventListener("submit", e => {
     if(!regexJugada.test(numj.value)){
         warnings +='Uno de los numeros a jugar no es valido <br>'
         entrar=true
-    }else{
-        <input type="submit" class="bebecitoButton" value="Jugar"> </input>
     }
     if(entrar){
         parrafo.innerHTML = warnings
