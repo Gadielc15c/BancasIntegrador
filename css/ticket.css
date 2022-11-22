@@ -85,8 +85,10 @@
   }
   
   .receiptBarcode {
-    margin: 10px 0;
+    margin-right: 70%;
     text-align: center;
+    zoom: 0.7;
+    -moz-transform: scale(0.5);
   }
   
   .returnPolicy {
