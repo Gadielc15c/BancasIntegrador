@@ -29,6 +29,7 @@ header('location:  ../index.php');
     <link rel="stylesheet" href="../css/ventas.css" />
 
 
+
 </head>
 <header>
 <?php include('../cliente/navCliente.php');?>
@@ -53,6 +54,7 @@ header('location:  ../index.php');
     <!--Script de iconos-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--No borrar-->
+    <script type="module" / src="/js/ticketValidate.js"></script>
 
 </body>
 <footer>
