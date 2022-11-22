@@ -64,7 +64,27 @@
         
       </div>
 
-  
+    
+    <?php
+
+    /* total dinero 
+    $consulta = mysql_query("SELECT monto FROM tickets ");
+    $total = 0; // total declarado antes del bucle
+    while($row = mysql_fetch_array($consulta))
+    {
+      $total = $total + $row['valor']; // total monto 
+    }
+    echo $total; // Se imprime $total y se realiza la suma
+
+    $count = ("SELECT COUNT(idticket) FROM tickets WHERE idticket>0 "); // total de tickets
+    echo count; 
+
+    $category = ("SELECT DISTINCT nombre FROM loterias ");
+    echo category; 
+
+    */
+    ?>
+    
 
 
      </div>
