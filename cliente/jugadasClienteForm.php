@@ -76,7 +76,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                     </select>
                 </form>
             </div>
-            <form action="" method="post" class="form-grp">  
+            <form action="" method="post" id="formJ" class="form-grp">  
             <?php
                         $b_value = $_SESSION["lotsSelect"] != $lotsDefault && $_SESSION["sortSelect"] != $sortDefault;
                         if ($b_value){
@@ -123,6 +123,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                                     </div>     
                                     <div>   
                                         <input type="submit" class="bebecitoButton" value="Jugar"> </input>
+                                        <p class="warnings" id="warnings"></p>
 
                                     </div>
                                     </form>';
