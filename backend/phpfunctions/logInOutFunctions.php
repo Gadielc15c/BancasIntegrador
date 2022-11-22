@@ -2,19 +2,9 @@
 
 function lvlLogValidate(){
 
-    // Por alguna razon include once no funciona
-    for($x = 1; $x < 10; $x++){
-        $path = dirname(__FILE__, $x);
-        $patha = explode("\\", $path);
-        if (end($patha) == "BancasIntegrador"){
-            break;
-        }
-    }
-
-    include_once($path . "\\include_me.php");
-    include(include_me("sqlqueryselect.php", $path));
-    include(include_me("llavesYTextos.php", $path));
-    include_once(include_me("generals.php", $path));
+    include_once(dirname(__FILE__, 3) . '/backend/phpfunctions/generals.php');
+    include_once(dirname(__FILE__, 3) . '/backend/phpfunctions/sqlRelated/sqlqueryselect.php');
+    include_once(dirname(__FILE__, 3) . '/backend/llavesYTextos.php');
 
     session_start();
 

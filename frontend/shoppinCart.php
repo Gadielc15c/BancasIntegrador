@@ -3,17 +3,15 @@
     for($x = 1; $x < 10; $x++){
         $path = dirname(__FILE__, $x);
         $patha = explode("\\", $path);
-        if (end($patha) == "BancasIntegrador"){
+        if (in_array(end($patha), ["BancasIntegrador", "htdocs"])){
             break;
         }
     }
 
-    include_once($path . "\\include_me.php");
-    include_once(include_me("carritoFunctions.php", $path));
-    include_once(include_me("llavesYTextos.php", $path));
-    include_once(include_me("sqlqueryselect.php", $path));
-    include_once(include_me("generals.php", $path));
-    // include('../backend/phpfunctions/carritoFunctions.php');
+    include_once(dirname(__FILE__, 2) . '/backend/phpfunctions/sqlRelated/sqlqueryselect.php');
+    include_once(dirname(__FILE__, 2) . '/backend/phpfunctions/generals.php');
+    include_once(dirname(__FILE__, 2) . '/backend/llavesYTextos.php');
+    include_once(dirname(__FILE__, 2) . '/backend/phpfunctions/carritoFunctions.php');
 
     $fecha = explode(" ", fecha_de_hoy())[0];
 
