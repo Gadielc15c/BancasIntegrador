@@ -77,7 +77,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                 </form>
             </div>
             <form action="" method="post" id="formJ" class="form-grp">  
-            <?php
+                <?php
                         $b_value = $_SESSION["lotsSelect"] != $lotsDefault && $_SESSION["sortSelect"] != $sortDefault;
                         if ($b_value){
                             echo '<div class="bebe">
