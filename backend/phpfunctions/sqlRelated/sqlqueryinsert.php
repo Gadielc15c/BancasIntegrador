@@ -65,7 +65,7 @@ function insertar_nivel_acceso($nombre, $idnivelacceso = null, $descrip = null){
 
 // table monedas
 
-function insertar_moneda($idmonedas = null, $moneda, $nombre){
+function insertar_moneda($moneda, $nombre, $idmonedas = null){
     $idcol = "idmonedas";
     $table = "monedas";
     $maxrange = 300;
@@ -79,7 +79,7 @@ function insertar_moneda($idmonedas = null, $moneda, $nombre){
 
 // table pago metodos
 
-function insertar_metodo_de_pago($metodo_fk, $principal = 0, $idter, $estado = 0){
+function insertar_metodo_de_pago($metodo_fk, $idter, $principal = 0, $estado = 0){
 
     $idcol = "idpagometodos";
     $table = "pagometodos";
