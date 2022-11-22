@@ -95,8 +95,9 @@ div#extra {
 }
 .nav {
   /*Barra superior*/
+  width: 100vw;
+    height: 17vh;
   z-index: 2;
-  width: 100%;
   position: fixed;
   top: 0;
   background-color: rgb(255, 255, 255);
@@ -122,6 +123,8 @@ div#extra {
 .navbar-logo {
   display: inline-block;
   vertical-align: left;
+  width: 100vw;
+  
   width: 200px;
   margin-right: 10%;
 }
@@ -162,7 +165,7 @@ body {
 
 .NavButton {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: large;
+  font-size: 0.8vw;
   white-space: normal;
   display: inline-block;
   padding: 8px 16px;
@@ -225,7 +228,8 @@ footer {
   z-index: 2;
   position: sticky;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
+  height: 9vh;
  
 }
 
