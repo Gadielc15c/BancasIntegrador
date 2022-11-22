@@ -1,4 +1,4 @@
-const jugada = document.getElementsByName("jugada");
+const numj = document.getElementById("numj");
 const formJ= document.getElementById("formJ");
 const parrafo = document.getElementById("warnings");
 
@@ -11,8 +11,8 @@ formJ.addEventListener("submit", e => {
     let entrar = false
     let regexJugada =/^[0-9]+$/
 
-    console.log(regexJugada.test(jugada.value))
-    if(regexJugada.test(jugada.value)){
+    console.log(!regexJugada.test(numj.value))
+    if(regexJugada.test(numj.value)){
         warnings +='Uno de los numeros a jugar no es valido <br>'
         entrar=true
     }
