@@ -8,11 +8,17 @@ const parrafo = document.getElementById("warnings");
 formJ.addEventListener("submit", e => {
     e.preventDefault();
     let warnings =""
+    let entrar = false
     let regexJugada =/^[0-9]+$/
 
     console.log(regexJugada.test(jugada.value))
-    if(!regexJugada.test(jugada.value)){
+    if(regexJugada.test(jugada.value)){
         warnings +='Uno de los numeros a jugar no es valido <br>'
+        entrar=true
+    }
+    if(entrar){
+        parrafo.innerHTML = warnings
+
     }
 
 
