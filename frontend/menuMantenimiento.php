@@ -70,9 +70,10 @@ SessionControl($nivel);
                                                     class="NavItem NavButton">
                                                     <ion-icon name="book"></ion-icon> LOTERIAS
                                                 </a>
+                                                <!--
                                                 <a href="./mantenimientoJugadas.php" class="NavItem NavButton">
                                                     <ion-icon name="game-controller"></ion-icon> JUGADAS
-                                                </a>
+                                                </a>-->
                                             </div>
                                             <div class="row">
                                             </div>
