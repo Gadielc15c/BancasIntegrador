@@ -95,6 +95,7 @@ div#extra {
   width: 100vw;
   height: 15vh;
   z-index: 2;
+  width: 100%;
   position: fixed;
   top: 0;
   background-color: rgb(255, 255, 255);
@@ -285,6 +286,13 @@ hr {
   width: 90%;
   height: 1%;
   background: blue;
+}
+.warnings{
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  color: red;
+  padding-top: 20px;
 }
 
 .Smally{

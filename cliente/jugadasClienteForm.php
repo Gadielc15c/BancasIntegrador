@@ -76,8 +76,8 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                     </select>
                 </form>
             </div>
-            <form action="" method="post" class="form-grp">  
-            <?php
+            <form action="" method="post" id="formJ" class="form-grp">  
+                <?php
                         $b_value = $_SESSION["lotsSelect"] != $lotsDefault && $_SESSION["sortSelect"] != $sortDefault;
                         if ($b_value){
                             echo '<div class="bebe">
@@ -93,10 +93,10 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                             if (in_array($t_label, $modalidad) || in_array($p_label, $modalidad)){
                                 $req = "";
                             }
-                            echo '<input type="text" class="bebecito" name="jugada'; echo 0; echo '" placeholder="NUMERO A JUGAR" required></input>';
+                            echo '<input type="text" class="bebecito" id="numj" name="jugada'; echo 0; echo '" placeholder="NUMERO A JUGAR" required></input>';
                             for ($x = 1; $x < $value[$cant_b_label]; $x++){
                                 
-                                echo '<input type="text" class="bebecito" name="jugada'; echo $x; echo '" placeholder="NUMERO A JUGAR"'; echo $req; echo '></input>';
+                                echo '<input type="text" class="bebecito" id="numj" name="jugada'; echo $x; echo '" placeholder="NUMERO A JUGAR"'; echo $req; echo '></input>';
                             }
                         }
 
@@ -123,6 +123,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                                     </div>     
                                     <div>   
                                         <input type="submit" class="bebecitoButton" value="Jugar"> </input>
+                                        <p class="warnings" id="warnings"></p>
 
                                     </div>
                                     </form>';
