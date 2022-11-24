@@ -65,10 +65,13 @@ header('location: ../index.php');
         
         <div class=" cuadrado">
         
-    <?php include('../backend/ticketLoader.php');
-         include_once('../backend/phpfunctions/generals.php');
-      $a=crear_tickets_codigo();
-        ?>
+    <?php 
+        include('../backend/ticketLoader.php');
+        include_once('../backend/phpfunctions/generals.php');
+        include_once('../backend/llavesYTextos.php');
+        $a = $_SESSION[$sescodigobarra];
+        // $a=crear_tickets_codigo();
+    ?>
 
         </div>
 

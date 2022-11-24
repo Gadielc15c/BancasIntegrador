@@ -41,6 +41,7 @@ $sesuserid = "seSterid";
 $sesusernivelaccfk = "seSternivaccfk";
 $sesregistroticket = "seSregistrodeticket";
 $sestabladejugadas = "seStablajugada";
+$sescodigobarra = "seScodigobarra";
 
 // Para Cookies
 
@@ -117,5 +118,12 @@ $soking7 = "King Lottery 7:30";
 
 
 
+
+//
+//      ARRAYS
+//
+
+// Para venta de ticket, jugadasClienteForm, etc
+$encabezados = [$gencantlabel, $lotlabel, $solabel, $sotipolabel, $genmonlabel, $genmontolabel, $gennumlabel];
 
 ?>

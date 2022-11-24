@@ -164,7 +164,7 @@ function premios_jugadas_main(string $lot, string $sorteo, array $ternum, int $m
         }
 
         if ($loteria == $lot && $sor == $sorteo){
-            $ternum = convertir_int_array_a_str_array($ternum);
+            $ternum = convertir_int_array_to_str_array($ternum);
             if ("la_primera_la_primera_dia" == $func){
                 return la_primera_la_primera_dia($ternum, $lotnum, $monto_jugado, $fecha_del_ticket, $lngm, $lnln);
             } else {

@@ -1,4 +1,8 @@
-<?
+<?php
+
+// este codigo al parecer no se esta usando? ~ Franne
+
+
 include('../backend/phpfunctions/generals.php');
 $a=crear_tickets_codigo();
 echo $a;

@@ -1,13 +1,5 @@
 <?php 
 
-    for($x = 1; $x < 10; $x++){
-        $path = dirname(__FILE__, $x);
-        $patha = explode("\\", $path);
-        if (in_array(end($patha), ["BancasIntegrador", "htdocs"])){
-            break;
-        }
-    }
-
     include_once(dirname(__FILE__, 2) . '/backend/phpfunctions/sqlRelated/sqlqueryselect.php');
     include_once(dirname(__FILE__, 2) . '/backend/phpfunctions/generals.php');
     include_once(dirname(__FILE__, 2) . '/backend/llavesYTextos.php');
