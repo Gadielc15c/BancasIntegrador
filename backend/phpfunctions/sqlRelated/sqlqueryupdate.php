@@ -14,7 +14,7 @@ function update_ticket_monto_por_codigobarra($codigobarra, $monto, $monedas_fk =
 
 function update_ticket_por_idtickets($arreglo){
     // usarse con mantenimientosFunctions update
-    $sql = "UPDATE tickets SET monto = ?, monedas_fk = ?, fecha = ?, estado = ? WHERE idtickets = ?";
+    $sql = "UPDATE tickets SET monto = ?, monedas_fk = ?, fecha = ?, jugadas = ?, estado = ? WHERE idtickets = ?";
     $v =  ejecutarQuery($sql, $arreglo);
     return retorno_booleano_para_updates($v);
 }

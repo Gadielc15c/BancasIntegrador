@@ -15,7 +15,7 @@ function insertar_tercero(string $nomuser, string $claveuser, string $correo){
 
 // table tickets
 
-function insertar_ticket(int $monto, int $idter, int $monedas_fk = 1, string $codigobarra = null, int $sucursalventa_fk = null, int $sucursalpago_fk = null){
+function insertar_ticket(int $monto, int $idter, int $monedas_fk = 1, array $jugadas, string $codigobarra = null, int $sucursalventa_fk = null, int $sucursalpago_fk = null){
 
     $idcol = "idtickets";
     $table = "tickets";
@@ -24,8 +24,9 @@ function insertar_ticket(int $monto, int $idter, int $monedas_fk = 1, string $co
     if ($codigobarra == null){
         $codigobarra = crear_tickets_codigo();
     }
+    $jugadas = implode(" ", $jugadas);
     
-    $sql = "INSERT INTO $table ($idcol, monto, monedas_fk, fecha, idterceros_fk, codigobarra) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO $table ($idcol, monto, monedas_fk, fecha, jugadas, idterceros_fk, codigobarra) VALUES (?, ?, ?, ?, ?, ?, ?)";
     
     if ($monto < 0){
         return false;
