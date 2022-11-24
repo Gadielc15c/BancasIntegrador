@@ -14,7 +14,12 @@
             <i class="fa fa-times p_times"></i>
             <i class="fa fa-check p_check"></i>
             <input type="submit" class="fadeIn fourth" value="Entrar" name="login-btn">
+            
         </form>
+        <div id="formFooter">
+            <a class="underlineHover" href="./frontend/Formregistro.php">Registrate</a>
+
+        </div>
         <div id="formFooter">
             <a class="underlineHover" href="#">Olvidaste tu contraseña?</a>
 
