@@ -28,7 +28,7 @@ header('location:  ../index.php');
 </head>
 
 <header>
-<?php include('../frontend/nav.php');?>
+<?php include('../cliente/navCliente.php');?>
 </header>
 
 <body>
@@ -60,6 +60,6 @@ header('location:  ../index.php');
 </body>
 
 <footer>
-  <?php include("footer.php") ?>
+  <?php include('../frontend/footer.php') ?>
 </footer>
 </html>

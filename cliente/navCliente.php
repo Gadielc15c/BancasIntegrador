@@ -29,7 +29,7 @@
           <a href="./dashboardCliente.php" class="NavItem NavButton">
             <ion-icon name="apps"></ion-icon> DASHBOARD
           </a>
-          <a href="/inicioCliente.php" class="NavItem NavButton">
+          <a href="./inicioCliente.php" class="NavItem NavButton"> <!-- cuando estabas en inicio y volvias a oprimir inicio daba erro de URL por que faltaba el punto-->
             <ion-icon name="home"></ion-icon> INICIO
           </a>
       
