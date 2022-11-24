@@ -61,6 +61,9 @@
 
   <input type="submit" class="fadeIn fourth" value="REGISTRAR" name="login-btn">
 </form>
+            <div id="formFooter">
+            <a class="underlineHover" href="/backend/phpfunctions/logOutTemporal.php"">Ya tengo una cuenta</a>
+            </div>
 
       </div>
     </div>
