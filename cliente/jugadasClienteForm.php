@@ -20,8 +20,6 @@ $sortDefault = "Seleccione sorteo";
 $repetir_label = "Repetir";
 $borrar_label = "Borrar";
 
-$encabezados = [$gencantlabel, $lotlabel, $solabel, $sotipolabel, $genmonlabel, $genmontolabel, $gennumlabel];
-
 $sq = seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbuserid]);
 
 if ($sq){
@@ -159,7 +157,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
 
                                         $der = [];
                                         foreach ($_SESSION[$sestabladejugadas] as $ses){
-                                            $ses = array_remove_by_key($ses, $gencantlabel);
+                                            $ses = array_remove_by_key($gencantlabel, $ses);
                                             array_push($der, $ses);
                                         }
 
@@ -189,7 +187,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                                 // Borrar la jugadas despues de darle al boton borrar
                                 for ($x = 0; $x < $_SESSION["conteojugadas"]; $x++){
                                     if (isset($_POST[$borrar_label.$x])){
-                                        $_SESSION[$sestabladejugadas] = array_remove_by_key($_SESSION["filasjugadas"], $repetir_label.$x, false);
+                                        $_SESSION[$sestabladejugadas] = array_remove_by_key($repetir_label.$x, $_SESSION["filasjugadas"], false);
                                         break;
                                     }
                                 }
@@ -262,15 +260,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                             ';
 //
 
-
-
-$estoyharto_string = "";
-    
-foreach($_SESSION[$sestabladejugadas] as $estoy){
-    foreach($encabezados as $harto){
-        $estoyharto_string = $estoyharto_string . "-" . $harto . "-" . $estoy[$harto] . "-";
-    }
-}
+$estoyharto_string = convert_array_to_str_estoyharto($_SESSION[$sestabladejugadas]);
 
 // limite de 65,535 caracteres. se debe establecer
 if ($sq){
