@@ -4,7 +4,7 @@ include_once('sqlqueryselect.php');
 
 // table terceros
 
-function insertar_tercero($nomuser, $claveuser, $correo){
+function insertar_tercero(string $nomuser, string $claveuser, string $correo){
     $nivelacceso = 4; //4 Pertenece al cliente comun
     $idcol = "idterceros";
     $table = "terceros";
@@ -15,7 +15,7 @@ function insertar_tercero($nomuser, $claveuser, $correo){
 
 // table tickets
 
-function insertar_ticket($monto, $idter, $monedas_fk = 1, $codigobarra = null, $sucursalventa_fk = null, $sucursalpago_fk = null){
+function insertar_ticket(int $monto, int $idter, int $monedas_fk = 1, string $codigobarra = null, int $sucursalventa_fk = null, int $sucursalpago_fk = null){
 
     $idcol = "idtickets";
     $table = "tickets";

@@ -28,7 +28,7 @@
         $cant = $v[$gencantlabel];
         $monto = $v[$genmontolabel];
         $tot= $cant * $monto;
-        $img ="xD";
+        $img ="../img/Logo.png ";
         $keyed_array = array_merge($v, [$genimagenlabel => $img]);
         shoppingMaker($cant,$lot,$sort,$tot,$jug,$tipo,$monto,$fecha,$img,$keyed_array);
         } 

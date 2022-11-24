@@ -1,5 +1,5 @@
 <?php 
-include('../backend/phpfunctions/jugadasFunctions.php');
+include_once('../backend/phpfunctions/jugadasFunctions.php');
 
 
 ?> <form  method="POST" action="">

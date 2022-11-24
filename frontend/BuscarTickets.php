@@ -1,17 +1,8 @@
 <?php
 
-session_start();
-if(!isset($_SESSION['nivel'])){
-
-header('location:  ../index.php');
-    
-}else {
-    if($_SESSION['nivel']!=1){
-
-header('location: ../index.php');
-
-    }
-}
+include_once('../backend/phpfunctions/sessionsFunctions.php');
+$nivel=1;
+SessionControl($nivel);
 ?>
 !DOCTYPE html>
 <html lang="en">

@@ -33,7 +33,7 @@
         </a>
             <div class="opciones">
         <center>
-                <fecha class"Smally" style="margin-top: 5px; margin-left: 3%; font-weight: bolder;"> Fecha: <?php
+                <fecha class="NavButton" style="font-size:0.8vw; margin-top: -1vw; margin-left: 3%; font-weight: bolder;"> Fecha: <?php
 
                                                                                                           
                 include_once('../backend/phpfunctions/generals.php');
@@ -43,7 +43,7 @@
             echo $newDate;
             $TIME= date("h:i A", strtotime($fecha)); 
           
-          ?> </fecha>   <hora class"Smally" style="margin-top: 5px; margin-left: 3%; font-weight: bolder;"> Hora:  <?php echo $TIME; ?>
+          ?> </fecha>   <hora class="NavButton" style="font-size:0.8vw; margin-top: -1vw; margin-left: -0.3vh; font-weight: bolder;"> Hora:  <?php echo $TIME; ?>
           </hora>
           </center>
             </div>
