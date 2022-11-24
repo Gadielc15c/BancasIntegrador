@@ -1,7 +1,7 @@
 <?php
 
 include_once('../backend/phpfunctions/sessionsFunctions.php');
-$nivel=1;
+$nivel=4;
 SessionControl($nivel);
 ?>
 <!DOCTYPE html>

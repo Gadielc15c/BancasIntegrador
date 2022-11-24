@@ -22,7 +22,7 @@ $keyed_array
    
 echo '
 
-<form action="">
+<form action="../backend/MetodoPagForm.php">
 <div class="col">
   <div class="jugadaContainer">
     <div class="loteryImg">
