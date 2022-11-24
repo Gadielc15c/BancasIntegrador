@@ -1,4 +1,7 @@
 <?php
+include_once(dirname(__FILE__, 3) . '/backend/llavesYTextos.php');
+include_once(dirname(__FILE__, 3) . '/backend/phpfunctions/sqlRelated/sqlqueryupdate.php');
+include_once(dirname(__FILE__, 3) . '/backend/phpfunctions/sqlRelated/sqlqueryselect.php');
 
 function crear_numero_random($maxrange = null){
     if ($maxrange){
@@ -8,7 +11,7 @@ function crear_numero_random($maxrange = null){
 }
 
 function crear_tickets_codigo(){
-    return strval(rand(100000, 999999)) . uniqid();
+    return strval(rand(1000, 9999)) . uniqid();
 }
 
 function fecha_de_hoy(int $zona = 0, string $add_day = "0", string $add_year = "0"){
@@ -36,7 +39,7 @@ function por_estado_activo_inactivo($estado){
     }
 }
 
-function convertir_int_array_a_str_array($arreglo){
+function convertir_int_array_to_str_array($arreglo){
     $a = array();
     foreach($arreglo as $b){
         $v = $b;
@@ -64,6 +67,9 @@ function array_extract(array $a, int $start, int $end, array $skip){
     $t = array();
     $count = 0;
     foreach($a as $b){
+        // echo $count;
+        // var_dump($skip);
+        // var_dump(!in_array($count, $skip));
         if ($start <= $count && $count <= $end){
             if (!in_array($count, $skip)){
                 array_push($t, $b);
@@ -84,12 +90,23 @@ function array_remove_once(array $a, $value){
     
     */
     $count = 0;
+    // array_print($a);
+    // var_dump($value);
     foreach ($a as $b){
+        // echo "<br>";
+        // var_dump($b == $value);
+        // echo "<br>";
         if ($b == $value){
             break;
+        } else {
+            $count ++;
         }
-        $count ++;
     }
+    // array_print($a);
+    // echo "<br>";
+    // echo sizeof($a)-1;
+    // echo "<br>";
+    // echo $count;
     return array_extract($a , 0, sizeof($a)-1, [$count]);
 }
 
@@ -115,9 +132,7 @@ function array_remove_empty_string(array $a){
     return $t;
 }
 
-
-
-function array_remove_by_key(array $a, string $key, bool $mantener_keys = true){
+function array_remove_by_key(string $key, array $a, bool $mantener_keys = true){
     $i = array_search($key, array_keys($a));
     $all_keys = array_keys($a);
     $all_keys = array_extract($all_keys, 0, sizeof($a)-1, [$i]);
@@ -131,6 +146,45 @@ function array_remove_by_key(array $a, string $key, bool $mantener_keys = true){
         return $temp;
     }
     return $a;
+}
+
+function array_keep_lowest_key_array(array $a, array $b){
+    $ak = array_keys($a);
+    $bk = array_keys($b);
+    $aks = sizeof($ak);
+    $bks = sizeof($bk);
+    
+    if ($aks < $bks) {
+        $gk = $bk;
+    } elseif ($aks > $bks) {
+        $gk = $ak;
+    } else {
+        return [$a, $b];
+    }
+
+    foreach($gk as $k){
+        if (!array_key_exists($k, $a)){
+            $b = array_remove_by_key($k, $b);
+        } elseif (!array_key_exists($k, $b)){
+            $a = array_remove_by_key($k, $a);
+        }
+    }
+    return [$a, $b];
+}
+
+function array_print(array $a){
+    foreach($a as $b){
+        echo "<br>";
+        var_dump($b);
+        echo "<br>";
+    }
+}
+
+function is_included(string $include_full_dir){
+    if (in_array($include_full_dir, get_included_files())){
+        return true;
+    }
+    return false;
 }
 
 function save_post_in_session(string $session_key, $session_default, string $post_key, string $session_mantener_key = "", $session_mantener_var = null){
@@ -257,6 +311,22 @@ function many_persistent_sessions(array $session_key, array $session_default){
     }
 */
 
+function create_simple_session(string $session_key, $session_default){
+    $_SESSION[$session_key] = $session_default;
+}
+
+
+function convert_array_to_str_estoyharto(array $jugadas){
+    global $encabezados;
+    $estoyharto_string = "";
+    foreach($jugadas as $estoy){
+        foreach($encabezados as $harto){
+            $estoyharto_string = $estoyharto_string . "-" . $harto . "-" . $estoy[$harto] . "-";
+        }
+    }
+    return $estoyharto_string;
+}
+
 function convert_str_to_array_estoyharto(string $sq){
     if ($sq == ""){
         return [];
@@ -283,6 +353,26 @@ function convert_str_to_array_estoyharto(string $sq){
     }
     array_push($result, $temp);
     return $result;
+}
+
+function remover_jugada_estoyharto($terid, array $pago){
+    global $dbuserid; global $genjuglabel;
+    $sq = seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbuserid]);
+    if ($sq){
+        $a = convert_str_to_array_estoyharto($sq[$genjuglabel]);
+        $temp = [];
+        foreach($a as $aa){
+            $r = array_keep_lowest_key_array($aa, $pago);
+            array_push($r[0], $temp);
+            $pago = $r[1];
+        }
+        
+        $a = array_remove_once($a, $pago);
+        $a = convert_array_to_str_estoyharto($a);
+        update_tablajugadaventadeticket_estoyharto_por_idtercero($a, $terid);
+        return $a;
+    }
+    return false;
 }
 
 // convert_str_to_array_estoyharto($sq);

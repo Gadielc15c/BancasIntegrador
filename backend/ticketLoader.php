@@ -35,7 +35,9 @@ $fecha = explode(" ", fecha_de_hoy());
 $vDate= fecha_de_hoy(add_year: "1");
 $tDate= $fecha[0];
 $time= $fecha[1];
-$barCdNum="666 666 666";
+$barCdNum = crear_tickets_codigo();
+create_simple_session($sescodigobarra, $barCdNum);
+
 $estado="PAGO";
 /*createTicket($dir,$sorteo,$lot,$tipo,$jugada,$monto,$idjugada,$total,$tTarjeta,$nTarjeta,$titular,$vDate,$tDate,$time,$barCdNum,$estado)
 
@@ -48,11 +50,12 @@ for ($x = 0; $x < $cant; $x++) {
     } else {
         $m = 0;
     }
-    insertar_ticket($monto, $_SESSION[$dbuserid], $m, $barCdNum);
+    // insertar_ticket($monto, $_SESSION[$dbuserid], $m, $barCdNum);
 }
-delete_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbuserid]);
-$_SESSION[$sestabladejugadas] = [];
-$_SESSION["filasjugadas"] = [];
+// remover_jugada_estoyharto($_SESSION[$dbuserid], $Arreglo);
+
+// $_SESSION[$sestabladejugadas] = [];
+// $_SESSION["filasjugadas"] = [];
 ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

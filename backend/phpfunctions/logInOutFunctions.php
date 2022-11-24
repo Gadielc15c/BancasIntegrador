@@ -1,10 +1,10 @@
 <?php
 
-function lvlLogValidate(){
+include_once(dirname(__FILE__, 3) . '/backend/phpfunctions/generals.php');
+include_once(dirname(__FILE__, 3) . '/backend/phpfunctions/sqlRelated/sqlqueryselect.php');
+include_once(dirname(__FILE__, 3) . '/backend/llavesYTextos.php');
 
-    include_once(dirname(__FILE__, 3) . '/backend/phpfunctions/generals.php');
-    include_once(dirname(__FILE__, 3) . '/backend/phpfunctions/sqlRelated/sqlqueryselect.php');
-    include_once(dirname(__FILE__, 3) . '/backend/llavesYTextos.php');
+function lvlLogValidate(){
 
     session_start();
 
@@ -27,6 +27,7 @@ function lvlLogValidate(){
         // Si el estado de la cuenta es 0, poner un aviso de que ha sido suspendido
 
         if($values){
+            global $dbusernivelaccfk; global $dbuserid;
             $_SESSION['nivel']= $values[$dbusernivelaccfk];
             $_SESSION[$dbuserid] = $values[$dbuserid];
             

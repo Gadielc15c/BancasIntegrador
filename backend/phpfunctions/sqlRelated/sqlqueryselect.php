@@ -1,13 +1,14 @@
 <?php
 include_once('sqlquerygenerals.php');
+include_once(dirname(__FILE__, 4) . '/backend/phpfunctions/generals.php');
+include_once(dirname(__FILE__, 4) . '/backend/llavesYTextos.php');
 
 
 function prueba_seleccionar_un_usuario_por_nombre_y_clave($nomuser, $clave){
     $table = "terceros";
     $sql = "SELECT idterceros, nomusuario, correo, cedula, estado, idnivelacceso_fk FROM $table WHERE nomusuario = ? AND claveusuario = ?";
-    include(dirname(__FILE__, 4) . '/backend/llavesYTextos.php');
+    global $dbuserid; global $dbusername; global $dbuseremail; global $dbusercedula; global $dbuserestado; global $dbusernivelaccfk;
     $llaves = [$dbuserid, $dbusername, $dbuseremail, $dbusercedula, $dbuserestado, $dbusernivelaccfk];
-    // explode
     return retornar_seleccion_con_llaves($sql, array($nomuser, $clave), $llaves);
 }
 
@@ -60,7 +61,7 @@ function seleccionar_un_nivelacces_por_id($id){
 
 function seleccionar_tickets_por_codigobarra($codigobarra){
     $col = "idtickets";
-    $sql = "SELECT $col, monto, monedas_fk, fecha, estado, idterceros_fk, codigobarra, idsucursalventa_fk, idsucursalpago_fk FROM tickets WHERE codigobarra = ?";
+    $sql = "SELECT $col, monto, monedas_fk, fecha, jugadas, estado, idterceros_fk, codigobarra, idsucursalventa_fk, idsucursalpago_fk FROM tickets WHERE codigobarra = ?";
     return retornar_seleccion($sql, array($codigobarra), "a");
 }
 
@@ -331,8 +332,9 @@ function seleccionar_pagosrealizados_por_idterceros_fk($id){
 
 function seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($id){
     $table = "tablajugadaventadeticket";
-    $sql = "SELECT idtablajugada, jugadas, fecha FROM tablajugadaventadeticket WHERE idterceros_fk = ?";
-    include(dirname(__FILE__, 4) . '/backend/llavesYTextos.php');
+    $sql = "SELECT idtablajugada, jugadas, fecha FROM $table WHERE idterceros_fk = ?";
+
+    global $dbtablajugadaid; global $genjuglabel; global $genfeclabel;
     $llaves = [$dbtablajugadaid, $genjuglabel, $genfeclabel];
     return retornar_seleccion_con_llaves($sql, array($id), $llaves);
 }

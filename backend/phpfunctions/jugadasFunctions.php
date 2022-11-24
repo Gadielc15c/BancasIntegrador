@@ -5,12 +5,13 @@
 // https://loteriasdominicanas.com/
 // Y entre otras
 
-$path = dirname(__FILE__);
-include_once($path . "/webscraping.php");
-$path = dirname(__FILE__);
-include_once($path . "/generals.php");
+include_once(dirname(__FILE__) . "/webscraping.php");
+include_once(dirname(__FILE__) . "/generals.php");
+include_once(dirname(__FILE__) . "/sqlRelated/sqlqueryinsert.php");
 
 $todo_loteria = ["Loteria Nacional", "Leidsa", "Loteria Real", "Loteka", "Americanas", "La Primera", "La Suerte", "LoteDom", "Anguila", "King Lottery"];
+
+
 $todo_sorteo = ["Juega + Pega +", "Gana Más", "Lotería Nacional", "Pega 3 Más", "Quiniela Leidsa", "Loto Pool", "Super Kino TV", "Loto - Super Loto Más", "Loto Pool", "Quiniela Real", "Quiniela Loteka", "Mega Chances", "MegaLotto", "New York Tarde", "New York Noche", "Florida Día", "Florida Noche", "Mega Millions", "PowerBall", "Cash 4 Life", "La Primera Día", "Primera Noche", "La Suerte 12:30", "La Suerte 18:00", "Quiniela LoteDom", "El Quemaito Mayor", "Anguila Mañana", "Anguila Medio Día", "Anguila Tarde", "Anguila Noche", "King Lottery 12:30", "King Lottery 7:30"];
 
 
@@ -164,7 +165,7 @@ function premios_jugadas_main(string $lot, string $sorteo, array $ternum, int $m
         }
 
         if ($loteria == $lot && $sor == $sorteo){
-            $ternum = convertir_int_array_a_str_array($ternum);
+            $ternum = convertir_int_array_to_str_array($ternum);
             if ("la_primera_la_primera_dia" == $func){
                 return la_primera_la_primera_dia($ternum, $lotnum, $monto_jugado, $fecha_del_ticket, $lngm, $lnln);
             } else {
