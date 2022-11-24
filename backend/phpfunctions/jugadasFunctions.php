@@ -150,7 +150,7 @@ function premios_jugadas_main(string $lot, string $sorteo, array $ternum, int $m
 
     $todo = retornar_lot_numeros_live(fecha_especifica: $fecha_especifica);
     $func = limpiar_str($lot) . "_" . limpiar_str($sorteo);
-
+    
     foreach($todo as $t){
         $loteria = $t[0][0];
         $sor = $t[1][0];
