@@ -1,4 +1,4 @@
-<div class="wrapper fadeInDown">
+<div class="wrapper-fadeInDown">
     <div id="formContent">
         <!-- Tabs Titles -->
         
