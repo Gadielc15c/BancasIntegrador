@@ -1,5 +1,5 @@
 
-document.getElementById("formJ").addEventListener('submit', validation)
+document.getElementById("formJ").addEventListener('submit', Validation)
 
 
 function Validation(evt){
