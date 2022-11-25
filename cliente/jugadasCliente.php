@@ -17,7 +17,7 @@ SessionControl($nivel);
 
     <link rel="stylesheet" href="/css/cuerpoWeb.css" />
     <link rel="stylesheet" href="../css/ventas.css" />
-
+    <script  src="../js/reloj.js"></script>
 
 
 </head>
@@ -25,7 +25,7 @@ SessionControl($nivel);
 <?php include('../cliente/navCliente.php');?>
 </header>
 
-<body>
+<body onload="startTime()">
 
     <div class="container2">
         <div class="cuadrado">
