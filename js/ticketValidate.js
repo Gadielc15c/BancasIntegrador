@@ -1,24 +1,34 @@
-const numj = document.getElementById("numj");
-const formJ= document.getElementById("formJ");
-const parrafo = document.getElementById("warnings");
+const formulario = document.getElementById('formJ');
+const inputs = document.querySelectorAll('#formJ')
+const mensaje = document.getElementById('warnings')
 
 
 
-
-formJ.addEventListener("submit", e => {
+formulario.addEventListener('submit',(e)=>{
     e.preventDefault();
+    ValidarForm(); 
+
+
+});
+
+ 
+
+function ValidarForm(){
+    let regexJugada = /^[0-9]+$/
     let warnings =""
-    let entrar = false
-    let regexJugada =/^[0-9]+$/
+    let entrar =false
+    mensaje.innerHTML =""
 
-    if(!regexJugada.test(numj.value)){
-        warnings +='Uno de los numeros a jugar no es valido <br>'
-        entrar=true
-    }
-    if(entrar){
-        parrafo.innerHTML = warnings
+    inputs.forEach((input) =>{
+        if(!regexJugada.test(input.value)){
+            warnings += 'los campos solo aceptan numeros'
+            entrar=true
+            
+        }
+        if(entrar){
+            mensaje.innerHTML = warnings
+        }
+    
+    });
 
-    }
-
-
-})
+}
