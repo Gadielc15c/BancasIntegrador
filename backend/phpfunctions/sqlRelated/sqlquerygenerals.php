@@ -1,15 +1,15 @@
 <?php
 include_once('dbConstruct.php');
-$path = dirname(__FILE__, 2);
-include_once($path . "/generals.php");
+include_once(dirname(__FILE__, 4) . '/backend/phpfunctions/generals.php');
 
 function retornar_seleccion($sql, $input, $type = null){
     /* 
     * @param $sql       un SELECT query
     * @param $input     un array con las variables del WHERE o null (por defecto) si no hay un WHERE
-    * @param $type      un string con "a" o con "o". "a" significa retornar all (todos) y "o" significa retornar one (uno solo)
+    * @param $type      un string con "a" o con "o". "a" significa retornar all (todas las filas) y "o" significa retornar one (una sola fila)
     * @return           Si es "a" retorna un array de array. Si es "o" retorna un array. Si no se encontro el query, retorna false          
     */
+
     $r = ejecutarQuery($sql, $input);
     $num = $r -> rowCount();
     if ($num > 0){
@@ -22,11 +22,26 @@ function retornar_seleccion($sql, $input, $type = null){
     return false;
 }
 
+function retornar_seleccion_con_llaves(string $sql, array $input, array $llaves){
+    $v = retornar_seleccion($sql, $input, "o");
+    if ($v){
+        $t = [];
+        for ($x = 0; $x < sizeof($llaves); $x++) {
+            $t[$llaves[$x]] = $v[$x];
+          }
+        return $t;
+    }
+    return false;
+}
+
+
+
 function crear_id($idcol, $table, $maxrange = null){
     /* 
     * @param $idcol     la columna del valor deseado en la BD  
     * @param $table     el table en donde se encuentra el valor deseado de la BD
     */
+
     $r = ejecutarQuery("SELECT $idcol FROM $table", null);
     $random = crear_numero_random($maxrange);
     $r = $r -> fetchAll();
@@ -87,7 +102,6 @@ function retorno_nombre_columnas($table){
         return $r -> fetchAll(PDO::FETCH_COLUMN);
     }
     return false;
-    
 }
 
 /* $s = retorno_nombre_columnas("terceros");

@@ -14,7 +14,7 @@
   display: flex;
   margin-top: 2%;
   margin-bottom: 2%;
-  margin-left: 38%;
+
   position: relative;
   
   width: 450px;
@@ -22,6 +22,7 @@
   -webkit-box-shadow: -2px 12px 39px -6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -2px 12px 39px -6px rgba(0, 0, 0, 0.75);
 }
+
 .contLots2 {
   display: flex;
   flex-direction: row;
@@ -43,7 +44,7 @@
     #89c3eb 51%,
     #d5ebfb 100%
   );
-  display:;
+  
   text-align: center;
   color: var(--Bolas);
   line-height: 45px;
@@ -54,6 +55,50 @@
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
+}
+.bolalose {
+  background: #ebf1f6;
+  background: -moz-linear-gradient(
+    -45deg,
+    #ebf1f6 0%,
+    #eeabab 50%,
+    #eb8989 51%,
+    #d5ebfb 100%
+  );
+  border: 3px solid #a90909;
+  text-align: center;
+  color: var(--Bolas);
+  line-height: 45px;
+  font-size: 22px;
+  width: 49px;
+  margin: 4px;
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.bola2win {
+  background: #ebf1f6;
+  background: -moz-linear-gradient(
+    -45deg,
+    #ebf1f6 0%,
+    #86fd9a 50%,
+    #25fd4d 51%,
+    #d5ebfb 100%
+  );
+  
+  text-align: center;
+  color: var(--Bolas);
+  line-height: 45px;
+  font-size: 22px;
+  width: 49px;
+  margin: 4px;
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid #09a92d;
 }
 .bolasConten {
   display: block;
@@ -89,18 +134,20 @@
 .cuadradox{
     display: flex;
     flex-direction: row;   
-  height: 700px;
-  width: 500px;
+    align-content: center;
   background-color: rgb(255, 255, 255);
   margin: auto;
   margin-top: 3%;
-  margin-top: 3%;
   flex: 1;
-  margin-right: 20px;
-  margin-left: 20px;
   overflow: scroll;
   position: relative;
   z-index: 1;
   
 
 }
+.title{
+  color: var(--Principal);
+    font-weight: bolder;
+    text-decoration: underline;
+  
+  }

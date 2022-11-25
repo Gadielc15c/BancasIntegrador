@@ -1,0 +1,15 @@
+.contLot{
+	margin: 10px 20px;
+	box-shadow: 0 4px 8px 0 rgba(245, 167, 37, 1), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align:center;
+	float: left;
+	width:400px;
+	background-color:white;
+}
+
+
+.pie{
+	text-align:center;
+	padding:10px;
+}
+

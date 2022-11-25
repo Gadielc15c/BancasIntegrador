@@ -1,17 +1,8 @@
 <?php
 
-session_start();
-if(!isset($_SESSION['nivel'])){
-
-header('location:  ../index.php');
-    
-}else {
-    if($_SESSION['nivel']!=1){
-
-header('location: ../index.php');
-
-    }
-}
+include_once('../backend/phpfunctions/sessionsFunctions.php');
+$nivel=1;
+SessionControl($nivel);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +13,11 @@ header('location: ../index.php');
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
   <meta name="description" />
   <meta name="generator" content="HAPedit 3.1" />
+  <meta name="viewport" content="width=device-width,height=device-height, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimun-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/cuerpoWeb.css" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Rock+Salt|Source+Code+Pro:300,400,600" rel="stylesheet"><link rel="stylesheet" href="/css/tarjeta.css">
 
 
 </head>
@@ -46,18 +39,13 @@ header('location: ../index.php');
                 </form>
 
 
-               <!--<form action="form.php" method="post">
-                    Search: <input type="text" name="term" /><br />
-                    <input type="submit" value="Submit" />
-                </form>
-            </div>
-
-            <div class="col-md-75 col-md-offset-2"></div>-->
+               
 
 
 
 
 </body>
+
 <footer>
   <?php include("footer.php") ?>
 </footer>

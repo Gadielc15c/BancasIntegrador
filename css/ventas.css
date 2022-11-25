@@ -3,6 +3,7 @@
   --Secundario: rgb(190, 130, 27);
   --Blanco: #ffffff;
   --Gris: #dbdada;
+  --GrisOscuro: #515151;
 }
 
 .papa {
@@ -18,9 +19,9 @@
 .bebe {
   flex: 1 0 auto;
   margin: 3px;
-  box-shadow: -2px 5px 13px 1px rgba(0, 0, 0, 0.164);
-  -webkit-box-shadow: -2px 5px 13px 1px rgba(0, 0, 0, 0.184);
-  -moz-box-shadow: -2px 5px 13px 1px rgba(0, 0, 0, 0.174);
+  box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
+  -webkit-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
+  -moz-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
   justify-content: center;
   padding: 8px 16px;
   text-align: center;
@@ -29,22 +30,22 @@
 }
 
 .bebecito {
+
+
   margin: 3px;
-  height: 40px;
   text-align: center;
   border-radius: 999999px;
   border-color: var(--Principal);
   border-width: 5px;
   border-style: solid;
-  padding: 3%;
   margin: 2%;
   font-family: Verdana, sans-serif;
 }
 
 .bheder {
-  box-shadow: -2px 5px 13px 1px rgba(0, 0, 0, 0.306);
-  -webkit-box-shadow: -2px 5px 13px 1px rgba(0, 0, 0, 0.308);
-  -moz-box-shadow: -2px 5px 13px 1px rgba(0, 0, 0, 0.299);
+  box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
+  -webkit-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
+  -moz-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
   background-color: var(--Principal);
   height: 80px;
   text-align: center;
@@ -63,7 +64,9 @@
   line-height: 39px;
 }
 .bebecitoButton {
-  box-shadow: 0px 11px 16px -8px #453808;
+  box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
+  -webkit-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
+  -moz-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
   background-color: var(--Principal);
   border-radius: 12px;
   border: 4px solid #b1680881;
@@ -72,7 +75,7 @@
   color: #ffffff;
   font-family: Verdana, sans-serif;
   font-size: 20px;
-  padding: 10px 30px;
+
   text-decoration: none;
 text-align: center;
 }
@@ -86,7 +89,9 @@ text-align: center;
 }
 
 .lotsSelect {
-  box-shadow: 0px 11px 16px -8px #453808;
+  box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
+  -webkit-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
+  -moz-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
   background-color: var(--Blanco);
   border-radius: 12px;
   border: 4px solid #b1680881;

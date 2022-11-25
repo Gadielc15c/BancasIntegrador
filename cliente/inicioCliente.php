@@ -1,17 +1,8 @@
 <?php
+include_once('../backend/phpfunctions/sessionsFunctions.php');
+$nivel=4;
+SessionControl($nivel);
 
-session_start();
-if(!isset($_SESSION['nivel'])){
-
-header('location:  ../index.php');
-    
-}else {
-    if($_SESSION['nivel']!=4){
-
-header('location:  ../index.php');
-
-    }
-}
 
 ?>
 <!DOCTYPE html>
@@ -23,6 +14,7 @@ header('location:  ../index.php');
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="description" />
     <meta name="generator" content="HAPedit 3.1" />
+    <script  src="../js/reloj.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/cuerpoWeb.css" />
@@ -32,18 +24,21 @@ header('location:  ../index.php');
     <?php include('../cliente/navCliente.php');?>
 </header>
 
-<body>
+<body onload="startTime()">
     <div class="container2">
 
         <div class="cuadradox">
-            <center>
-            <h4 style="margin-top: 60px;">RESULTADOS DE LAS ULTIMAS LOTERIAS</h4>
-            </center>
-
-            
+     
+       
 
             <div class="container">
+                <center>
+            <h4 class="title" style="margin-top: 60px; ">RESULTADOS DE LAS ULTIMAS LOTERIAS</h4>
+     <br>
+     </center>
             <div class="row">
+      
+      
                 <?php include('../backend/lotsLoader.php');?>
                 </div></div>
         </div>

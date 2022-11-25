@@ -1,5 +1,7 @@
 
 <div id="container">
+<script type="module" / src="/js/validateUpdates.js"></script>
+
     <div class="top">
         <div class="nav">
             <div class="logoDiv">
@@ -8,37 +10,27 @@
                 </a>
              
             </div>
-            <!--
-            <small class"Smally"style="margin-top: 5px; margin-left: 3%; font-weight: bolder;"> Fecha: <?php
-            
-            /*GADIEL VERIFICAR RUTA  PERSONAL*/
-            /*
-            include_once('.//backend/phpfunctions/generals.php');
-    
-        $fecha=$HORA=fecha_de_hoy();
-        $newDate = date("d-M-Y", strtotime($fecha)); 
-        echo $newDate;
-        $TIME= date("h:i A", strtotime($fecha)); 
-       */
-        ?> Hora: <?php  echo $TIME; ?>
-       <small>-->
+          
         <div class="opciones">
-          <a href="/backend/phpfunctions/logOutTemporal.php" class="NavItem NavButton">
+          <a id="logout" href="/backend/phpfunctions/logOutTemporal.php" class="NavItem NavButton">
           <ion-icon name="exit"></ion-icon>
            SALIR
           </a>
-          <a href="/frontend/cuentas.php" class="NavItem NavButton">
+          <a href="/frontend/cuentas.php" class="NavItem NavButton"> <!--/frontend/cuentas.php-->
             <ion-icon name="person"></ion-icon> CUENTA
-          </a>
-          <a href="/frontend/metodoPagos.php" class="NavItem NavButton">
+          </a><!--
+          <a href="/frontend/Pagos.php" class="NavItem NavButton">
             <ion-icon name="wallet"></ion-icon> PAGOS
-          </a>
+          </a> 
+-->
           <a href="/frontend/menuMantenimiento.php" class="NavItem NavButton">
           <ion-icon name="construct"></ion-icon> MANTENIMIENTOS
           </a>
+          <!--
           <a href="/frontend/Jugada.php" class="NavItem NavButton">
             <ion-icon name="book"></ion-icon> JUGADAS
           </a>
+-->
           <a href="/frontend/dashBoard.php" class="NavItem NavButton">
             <ion-icon name="apps"></ion-icon> DASHBOARD
           </a>

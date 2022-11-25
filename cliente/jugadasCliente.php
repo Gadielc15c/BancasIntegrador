@@ -1,17 +1,7 @@
 <?php
-
-session_start();
-if(!isset($_SESSION['nivel'])){
-
-header('location:  ../index.php');
-    
-}else {
-    if($_SESSION['nivel']!=4){
-
-header('location:  ../index.php');
-
-    }
-}
+include_once('../backend/phpfunctions/sessionsFunctions.php');
+$nivel=4;
+SessionControl($nivel);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,14 +17,16 @@ header('location:  ../index.php');
 
     <link rel="stylesheet" href="/css/cuerpoWeb.css" />
     <link rel="stylesheet" href="../css/ventas.css" />
+    <script  src="../js/reloj.js"></script>
 
 
 </head>
 <header>
     <?php include('../cliente/navCliente.php');?>
+<?php include('../cliente/navCliente.php');?>
 </header>
 
-<body>
+<body onload="startTime()">
 
     <div class="container2">
         <div class="cuadrado">
@@ -53,6 +45,8 @@ header('location:  ../index.php');
     <!--Script de iconos-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--No borrar-->
+    
+
 
 </body>
 <footer>
