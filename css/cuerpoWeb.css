@@ -216,17 +216,21 @@ a {
   text-align: center;
 }
 footer {
-  margin-top: 4%;
-  padding: 10px;
+  /*margin-top: 4%;
+  padding: 10px;*/
+  display: flex;
+  align-items: center;
   font-weight: bolder;
+  justify-content: center;
   border: #d07616 solid;
   background-color: rgba(245, 167, 37, 1);
   color: rgb(255, 255, 255);
   z-index: 2;
-  position: sticky;
+  position: fixed;
   bottom: 0;
   width: 100vw;
   height: 9vh;
+  font-size: 1vw;
 }
 
 #container {
