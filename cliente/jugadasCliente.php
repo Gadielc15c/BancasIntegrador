@@ -45,7 +45,7 @@ SessionControl($nivel);
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--No borrar-->
     
-    <script type="module" src="/js/ticketValidate.js"></script>
+   <!-- <script type="module" src="/js/ticketValidate.js"></script>-->
 
 
 </body>
