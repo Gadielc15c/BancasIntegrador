@@ -25,7 +25,7 @@ SessionControl($nivel);
 <?php include('../cliente/navCliente.php');?>
 </header>
 
-<body onload="startTime()">
+<body onload="startTime(); scrollBottom()">
 
     <div class="container2">
         <div class="cuadrado">
@@ -45,7 +45,14 @@ SessionControl($nivel);
     <!--Script de iconos-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--No borrar-->
-    
+    </script>
+
+<script type="text/javascript"/>
+
+function scrollBottom() {window.scrollTo(0, 99999);}
+if (document.addEventListener) document.addEventListener("DOMContentLoaded", scrollBottom, false)
+else if (window.attachEvent) window.attachEvent("onload", scrollBottom);
+</script>
 
 
 </body>

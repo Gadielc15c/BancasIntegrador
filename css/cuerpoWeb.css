@@ -2,7 +2,7 @@
   --Principal: rgba(245, 167, 37, 1);
   --Secundario: rgb(190, 130, 27);
   --Blanco: #ffffff;
-  --Gris: #dbdada;
+  --Gris: #ffffff;
 }
 p {
   padding: 0 10px;
@@ -132,12 +132,12 @@ div#extra {
 
 body {
   background-color: var(--Principal);
-  margin-top: 10%;
+  margin-top: 12vw;
   font-family: Verdana, sans-serif;
   font-size: 15px;
   line-height: 1.5;
   font-family: "Noto Sans JP", sans-serif;
-  background-color: #d5d5d5;
+  background-color: var(--Gris);
 }
 
 .navbar-logo img {
@@ -304,9 +304,7 @@ hr {
   text-align: center;
   border-radius: 5px;
   margin-left: 2vh;
-  box-shadow: 5px 11px 23px 6px rgba(0, 0, 0, 0.53);
-  -webkit-box-shadow: 5px 11px 23px 6px rgba(0, 0, 0, 0.53);
-  -moz-box-shadow: 5px 11px 23px 6px rgba(0, 0, 0, 0.53);
+  ;
 }
 #clock {
   background-color: rgb(255, 255, 255);

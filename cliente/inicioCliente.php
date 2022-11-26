@@ -33,7 +33,7 @@ SessionControl($nivel);
 
             <div class="container">
                 <center>
-            <h4 class="title" style="margin-top: 60px; ">RESULTADOS DE LAS ULTIMAS LOTERIAS</h4>
+
      <br>
      </center>
             <div class="row">

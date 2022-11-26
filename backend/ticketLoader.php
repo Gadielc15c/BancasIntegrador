@@ -25,23 +25,18 @@ $tipo=$Arreglo[$sotipolabel];
 $jugada=$Arreglo[$gennumlabel];
 $monto=$Arreglo[$genmontolabel];
 $total=$cant*$monto;
-
-
 $tTarjeta=$metodo[0];
 $nTarjeta=$metodo[1];
 $titular="GADIEL CASCANTE";
-
 $fecha = explode(" ", fecha_de_hoy());
-$vDate= fecha_de_hoy(add_year: "1");
+$vDate= fecha_de_hoy(add_day: "1");
 $tDate= $fecha[0];
 $time= $fecha[1];
 $barCdNum = crear_tickets_codigo();
 create_simple_session($sescodigobarra, $barCdNum);
-
 $estado="PAGO";
-/*createTicket($dir,$sorteo,$lot,$tipo,$jugada,$monto,$idjugada,$total,$tTarjeta,$nTarjeta,$titular,$vDate,$tDate,$time,$barCdNum,$estado)
 
-*/
+
 
 for ($x = 0; $x < $cant; $x++) {
     $m = $Arreglo[$genmonlabel];
@@ -59,10 +54,10 @@ for ($x = 0; $x < $cant; $x++) {
 ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<div id="invoice" class="containero">
+<div id="invoices" class="containero">
 
 
-    <div id="Factura" class="receipt">
+    <div id="invoice" class="receipt">
 
         <div class="logoDivs">
             <a class="n-logo" href="#">
@@ -77,23 +72,31 @@ for ($x = 0; $x < $cant; $x++) {
 
         <div class="address"><?php echo $dir;?></div>
         <div class="break">***********************************</div>
-        <div class="address">DETALLES DE JUGADA</div>
+        <div class="address">JUGADAS</div>
         <div class="break">***********************************</div>
 
         <div class="transactionDetails">
-            <div class="detail">SORTEO:</div>
-            <div class="detail"><?php echo $sorteo;  ?></div>
-            <div class="detail"></div>
+            <div class="detail"><?php echo 'Loteria: ',$lot; ?></div>
         </div>
 
         <div class="transactionDetails">
-            <div class="detail">LOTERIA</div>
-            <div class="detail">TIPO</div>
-            <div class="detail">JUGADA</div>
-            <div class="detail">MONTO</div>
-
+            <div class="detail"><?php echo 'Sorteo: ',$sorteo; ?></div>
         </div>
-        <div class="break">***********************************</div>
+
+        <div class="transactionDetails">
+            <div class="detail"><?php echo 'Tipo: ',$tipo; ?></div>
+        </div>
+        <div class="transactionDetails">
+            <div class="detail"><?php echo 'Monto: ',$monto; ?></div>
+        </div>
+        <div class="break">**********************************</div>
+
+
+        
+            <div class="address">DETALLE DE JUGADA</div>
+
+ 
+        <div class="break">**********************************</div>
 
         <!-- DETALLES DE TICKET START-->
 
@@ -102,29 +105,31 @@ for ($x = 0; $x < $cant; $x++) {
             for ($x = 0; $x < $cant; $x++) {
             
             echo '
-            <div class="transactionDetails">
-                <div class="detail">'; echo $lot; echo '</div>
-                <div class="detail">'; echo $tipo; echo '</div>
+            
+            <div class="transactionDetails"> 
+
                 <div class="detail">'; echo $jugada; echo '</div>
-                <div class="detail">'; echo $monto; echo '</div>
             </div>
             ';  
             }
             
             ?>
 
-        <div class="transactionDetails">
-            --------------------------------
-        </div>
-
+    
+        <div class="break">**********************************</div>
 
         <!-- DETALLES DE TICKET END-->
+
+        <div class="transactionDetails"> 
+
+
 
         <div class="paymentDetails bold">
             <div class="detail">TOTAL</div>
             <div class="detail">RD$ <?php echo$total ?></div>
         </div>
-
+        
+        </div>
 
         <!-- DETALLES DE TARJETA START-->
         <div class="creditDetails">
@@ -136,20 +141,22 @@ for ($x = 0; $x < $cant; $x++) {
         <div class="returnPolicy bold">TICKET VALIDO HASTA: <?php echo$vDate ?></div>
 
         <div class="returnPolicy">
-            <div class="detail"><?php echo$tDate;?></div>
+       
             <div class="detail"><?php echo$time;?></div>
         </div>
 
         <div class="tripSummary">
-            <div class="item">
+           
+            <div class="transactionDetails"> 
                 <div class="bold" style="color:green;">Estado: <?php echo$estado ?></div>
-            </div>
             
+            </div>
                 <!-- BARCODE START-->
                 <div class="receiptBarcode" >
-                <svg id="bar" > creta </svg>
-                </div>
+                <svg  id="bar" > creta </svg>
                 
+                </div>
+           
         </div>
         <!-- BARCODE END-->
        
