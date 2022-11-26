@@ -29,6 +29,7 @@ SessionControl($nivel);
 
     <div class="container2">
         <div class="cuadrado">
+            
             <?php include('../cliente/jugadasClienteForm.php');?>
 
            
