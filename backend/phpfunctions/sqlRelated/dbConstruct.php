@@ -1,5 +1,7 @@
 <?php
 
+$herokudbname = "heroku_607c4ead21a11f6";
+
 class dbConstruct{
 
     private $host;
@@ -10,7 +12,8 @@ class dbConstruct{
 
     public function __construct(){
         $this->host = 'us-cdbr-east-06.cleardb.net';
-        $this->db = 'heroku_607c4ead21a11f6';
+        global $herokudbname;
+        $this->db =  $herokudbname;
         $this->user = 'b04805fc3016f3';
         $this->password = 'ca4df059';
         $this->charset = 'utf8mb4';
@@ -33,7 +36,7 @@ class dbConstruct{
     }
 }
 
-function ejecutarQuery($query, $inputs){
+function ejecutarQuery(string $query, array $inputs = null){
     $db_object = new dbConstruct();
     $qr = $db_object->connect()->prepare($query);
     $qr->execute($inputs);

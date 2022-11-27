@@ -8,7 +8,7 @@ include_once($path . "/phpFunctions/sqlRelated/sqlqueryupdate.php");
 function crear_mantenimientos_form($function_select, $encabezado, $table, $array_columnas_exception, $array_placeholder, $array_text, $href_editar, $href_estado){
     // array text y placeholder deben coincidir en tamaño y el orden con las columnas de la tabla en la BD
 
-    $col = retorno_nombre_columnas($table);
+    $col = return_columns_by_name($table);
     $query= $function_select;
     
     echo '
@@ -93,7 +93,7 @@ function crear_mantenimientos_form($function_select, $encabezado, $table, $array
 function crear_update_form($function_select, $function_update, $title, $encabezado, $table, $col_name, $array_columnas_exception, $array_placeholder,$form_action){
     // array text y placeholder deben coincidir en tamaño y el orden con las columnas de la tabla en la BD
 
-    $col = retorno_nombre_columnas($table);
+    $col = return_columns_by_name($table);
     function actualizar($id, $function_select, $function_update, $col, $array_columnas_exception){
         if (isset($_POST['submit'])){
             $arr = array();

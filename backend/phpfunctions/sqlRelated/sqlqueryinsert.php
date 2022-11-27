@@ -4,271 +4,294 @@ include_once('sqlqueryselect.php');
 
 // table terceros
 
-function insertar_tercero(string $nomuser, string $claveuser, string $correo){
-    $nivelacceso = 4; //4 Pertenece al cliente comun
-    $idcol = "idterceros";
-    $table = "terceros";
-    $id = crear_id($idcol, $table);
-    $sql = "INSERT INTO $table ($idcol, nomusuario, claveusuario, correo, idnivelacceso_fk) VALUES (?, ?, ?, ?, ?)";
-    return ejecutarQuery($sql, array($id, $nomuser, $claveuser, $correo, $nivelacceso));
+function insertar_tercero(string $nomusuario, string $claveusuario, int $idterdata_fk, string $correo, string $cedula, int $idtelefonos_fk, int $idnivelacceso_fk){
+    verify_correo($correo);
+    $cedula = verify_cedula($cedula);
+    return execute_insert(  "idterceros", "terceros", 
+                            "nomusuario claveusuario idterdata_fk correo cedula idtelefonos_fk idnivelacceso_fk", 
+                            func_get_args()
+                        );
 }
+
 
 // table tickets
 
-function insertar_ticket(int $monto, int $idter, int $monedas_fk = 1, array $jugadas, string $codigobarra = null, int $sucursalventa_fk = null, int $sucursalpago_fk = null){
+function insertar_ticket(int $monto, string $jugadas, int $idsorteo_fk, int $idterceros_fk, string $codigobarra, int $idsucursalventa_fk, int $idsucursalpago_fk, int $idpagometodos_fk){
+    /* 
+        @param jugadas      string      Va separada por un espacion. Ejemplo 1 2 3 4 5
+    */
+    
+    verify_monto($monto);
 
-    $idcol = "idtickets";
-    $table = "tickets";
-    $id = crear_id($idcol, $table);
-    $fecha = fecha_de_hoy();
-    if ($codigobarra == null){
-        $codigobarra = crear_tickets_codigo();
-    }
-    $jugadas = implode(" ", $jugadas);
-    
-    $sql = "INSERT INTO $table ($idcol, monto, monedas_fk, fecha, jugadas, idterceros_fk, codigobarra) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    
-    if ($monto < 0){
-        return false;
-    }
-    
-    return ejecutarQuery($sql, array($id, $monto, $monedas_fk, $fecha, $idter, $codigobarra));
+    return execute_insert(  "idtickets", "tickets", 
+                            "monto jugadas idsorteo_fk idterceros_fk codigobarra idsucursalventa_fk idsucursalpago_fk idpagometodos_fk", 
+                            func_get_args(),
+                            true, 1
+                        );
 }
+
+insertar_ticket(50, "6 6 6", 0, 0, 666, 0, 0, 0);
 
 // table terceros data
 
-function insertar_tercero_data($nomprimero = null, $nomsegundo  = null, $apeprimero  = null, $apesegundo  = null, $fechanac  = null){
-    $idcol = "idterdata";
-    $table = "tercerosdata";
-    $id = crear_id($idcol, $table);
-    $sql = "INSERT INTO $table ($idcol, nomprimero, nomsegundo, apeprimero, apesegundo, fechanac) VALUES (?, ?, ?, ?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $nomprimero, $nomsegundo, $apeprimero, $apesegundo, $fechanac));
-    if ($value){
-        return $id;
-    }
-    return $value; //false
-
+function insertar_tercero_data(string $nomprimero, string $nomsegundo, string $apeprimero, string $apesegundo, string $fechanac, int $iddireccion_fk){
+    verify_date($fechanac);
+    return execute_insert(  "idterdata", "tercerosdata", 
+                            "nomprimero nomsegundo apeprimero apesegundo fechanac iddireccion_fk", 
+                            func_get_args()
+                        );
 }
 
 // table nivel acceso
 
-function insertar_nivel_acceso($nombre, $idnivelacceso = null, $descrip = null){
-    $idcol = "idnivelacceso";
-    $table = "nivelacceso";
-    $maxrange = 100;
-    if ($idnivelacceso <= $maxrange && verificar_existencia_de_valor($idnivelacceso, $idcol, $table)){
-        $idnivelacceso =crear_id($idcol, $table, $maxrange);
-    }
-    $sql = "INSERT INTO $table ($idcol, nombre, descrip) VALUES (?, ?, ?)";
-    return ejecutarQuery($sql, array($idnivelacceso, $nombre, $descrip));
+function insertar_nivel_acceso(string $nombre, string $descrip){
+    return execute_insert(  "idnivelacceso", "nivelacceso", 
+                            "nombre descrip", 
+                            func_get_args(),
+                            false, 0, "", 100
+                        );
     
 }
 
 // table monedas
 
-function insertar_moneda($moneda, $nombre, $idmonedas = null){
-    $idcol = "idmonedas";
-    $table = "monedas";
-    $maxrange = 300;
-    if ($idmonedas <= $maxrange && verificar_existencia_de_valor($idmonedas, $idcol, $table)){
-        $idmonedas =crear_id($idcol, $table, $maxrange);
-    }
-    $sql = "INSERT INTO $table ($idcol, moneda, nombre) VALUES (?, ?, ?)";
-    return ejecutarQuery($sql, array($idmonedas, $moneda, $nombre));
-
+function insertar_moneda(string $moneda, string $nombre){
+    /* 
+        @param moneda   string      es la abreviacion de la moneda. Ejemplo US, DOP, RD
+    */
+    return execute_insert(  "idmonedas", "monedas", 
+                            "moneda nombre", 
+                            func_get_args()
+                        );
 }
 
-// table pago metodos
+// table pagometodos
 
-function insertar_metodo_de_pago($metodo_fk, $idter, $principal = 0, $estado = 0){
-
-    $idcol = "idpagometodos";
-    $table = "pagometodos";
-    $maxrange = 300;
-    $id = crear_id($idcol, $table, $maxrange);
-    $sql = "INSERT INTO $table ($idcol, metodo_fk, principal, idterceros_fk, estado) VALUES (?, ?, ?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $metodo_fk, $principal, $idter, $estado));
-
-    if ($value){
-        return $id;
-    }
-    return $value; //false
+function insertar_metodo_de_pago(int $idtipometodopago_fk, int $idterceros_fk){
+    return execute_insert(  "idpagometodos", "pagometodos", 
+                            "idtipometodopago_fk idterceros_fk", 
+                            func_get_args(),
+                            false, 0, "", 300
+                        );
 }
 
-// table tipo tarjetas
+// table tipotarjetas
 
-function insertar_tipo_tarjeta($tipo){
-    $idcol = "idtipotarjetas";
-    $table = "tipotarjetas";
-    $maxrange = 300;
-    $id = crear_id($idcol, $table, $maxrange);
-    $sql = "INSERT INTO $table ($idcol, nombre) VALUES (?, ?)";
-    $value = ejecutarQuery($sql, array($id, $tipo));
-
-    if ($value){
-        return $id;
-    }
-    return $value; //false
+function insertar_tipotarjeta(string $nombre){
+    // Ejemplo Visa, MasterCard
+    return execute_insert(  "idtipotarjetas", "tipotarjetas", 
+                            "nombre", 
+                            func_get_args()
+                        );
 }
 
-// table pago tarjetas
+// table pagotarjetas
 
-function insertar_pago_tarjeta($nombre, $numerotarj, $cvc, $fechavencimiento, $idpagometodos_fk, $idtipotarjeta_fk, $estado = 1){
-    // @param $fechavencimiento         Este valor debe estar encriptado para poder funcionar bien en la BD
-
-    $idcol = "idpagotarjetas";
-    $table = "pagotarjetas";
-    $id = crear_id($idcol, $table);
-    $sql = "INSERT INTO $table ($idcol, nombre, numerotarj, cvc, fechaven, idpagometodos_fk, idtipotarjetas_fk, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    return ejecutarQuery($sql, array($id, $nombre, $numerotarj, $cvc, $fechavencimiento, $idpagometodos_fk, $idtipotarjeta_fk, $estado));
-
+function insertar_pagotarjeta(string $nombre, int $numerotarj, int $cvc, string $fechavencimiento, int $idpagometodos_fk, int $idtipotarjetas_fk){
+    verify_date($fechavencimiento);
+    return execute_insert(  "idpagotarjetas", "pagotarjetas", 
+                            "nombre numerotarj cvc fechaven idpagometodos_fk idtipotarjetas_fk", 
+                            func_get_args()
+                        );
 }
 
-// table tipo metodo pago
+// table tipometodopago
 
-function insertar_tipometodopago($nom, $estado = 1){
-    $idcol = "idtipometodopago";
-    $table = "tipometodopago";
-    $maxrange = 300;
-    $id = crear_id($idcol, $table, $maxrange);
-    $sql = "INSERT INTO $table ($idcol, nombre, estado) VALUES (?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $nom, $estado));
-
-    if ($value){
-        return $id;
-    }
-    return $value; //false
+function insertar_tipometodopago(string $nombre){
+    // Ejemplo Crédito, Débito, Paypal
+    return execute_insert(  "idtipometodopago", "tipometodopago", 
+                            "nombre", 
+                            func_get_args(),
+                            false, 0, "", 300
+                        );
 }
 
 // table sucursal
 
-function insertar_sucuarsal($nom, $idterceros_fk = null, $idtelefonos_fk = null, $iddireccion_fk = null, $estado = 1){
-    $idcol = "idsucursal";
-    $table = "sucursal";
-    $id = crear_id($idcol, $table);
-    $sql = "INSERT INTO $table ($idcol, nombresucursal, idterceros_fk, idtelefonos_fk, iddireccion_fk, estado) VALUES (?, ?, ?, ?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $nom, $idterceros_fk, $idtelefonos_fk, $iddireccion_fk, $estado));
-
-    if ($value){
-        return $id;
-    }
-    return $value; //false
+function insertar_sucuarsal(string $nombre, int $idterceros_fk, int $idtelefonos_fk, int $iddireccion_fk){
+    return execute_insert(  "idsucursal", "sucursal", 
+                            "nombresucursal idterceros_fk idtelefonos_fk iddireccion_fk", 
+                            func_get_args()
+                        );
 }
 
 // table loterias
 
-function insertar_loterias($nom, $idterceros_fk = null, $estado = 1){
-    $idcol = "idloterias";
-    $table = "loterias";
-    $id = crear_id($idcol, $table);
-    $sql = "INSERT INTO $table ($idcol, nombre, idterceros_fk, estado) VALUES (?, ?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $nom, $idterceros_fk, $estado));
-
-    if ($value){
-        return $id;
-    }
-    return $value; //false
+function insertar_loterias(string $nombre, int $idterceros_fk){
+    return execute_insert(  "idloterias", "loterias", 
+                            "nombre idterceros_fk", 
+                            func_get_args()
+                        );
 }
 
-// table lothorarios ya no existe
+// table pagosrealizados
 
-// function insertar_lothorarios($dialaboral, $horainicio, $horacierre, $diasorteo, $horasorteo, $estado = 1){
-//     /*
-//         @param $dialaboral y diasorteo      
-//                                             poner un str en referencia al dia separado por un espacio, ej: 
-//                                             0 para domingo, 1 lunes, 2 martes, 3 miercoles, 4 jueves, 5 viernes, 6 sabado
-//                                             7 si es diario
-//                                             Ejemplo: 
-//                                             si es martes y domingo "0 2" (orden importa)
-//                                             Si es diario "7"
-//                                             Si es lunes, martes, y jueves "1 2 4" 
-//                                             El orden si importa
-//                                             Nunca combinar el 7 con otro dia
-
-//         @param $horainicio y $horacierre        en hora militar, 
-//                                                 empieza en 00:00 y termina en 23:59, 
-//                                                 format hh:mm:ss (los segundos son opcionales)
-//     */
-//     $idcol = "idlothorarios";
-//     $table = "lothorarios";
-//     $id = crear_id($idcol, $table);
-//     $sql = "INSERT INTO $table ($idcol, dialaboral, horainicio, horacierre, diasorteo, horasorteo, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
-//     $value = ejecutarQuery($sql, array($id, $dialaboral, $horainicio, $horacierre, $diasorteo, $horasorteo, $estado));
-
-//     if ($value){
-//         return $id;
-//     }
-//     return $value; //false
-// }
-
-// table tipojugadas
-
-function insertar_tipojugadas($nombre, $idloteria_fk, $estado = 1){
-    $idcol = "idtipojugadas";
-    $table = "tipojugadas";
-    $id = crear_id($idcol, $table);
-    $sql = "INSERT INTO $table ($idcol, nombre, idloteria_fk, estado) VALUES (?, ?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $nombre, $idloteria_fk, $estado));
-
-    if ($value){
-        return $id;
-    }
-    return $value; //false
+function insertar_pagosrealizados(int $montototal, int $monedas_fk, int $origen_fk, int $idterceros_fk){
+    verify_monto($montototal);
+    return execute_insert(  "idpagosrealizados", "pagosrealizados", 
+                            "montototal idmonedas_fk idpagosonline_fk idtarjeta_fk idterceros_fk", 
+                            func_get_args(),
+                            true, 1
+                        );
 }
 
-// table jugadas
+// table pagosonline
+function insertar_pagosonline(string $nombrecuenta, int $idpagometodos_fk){
+    return execute_insert(  "idpagosonline", "pagosonline", 
+                            "nombrecuenta idpagometodos_fk", 
+                            func_get_args()
+                        );
+}
 
-function insertar_jugadas($jugnumeros, $idtipojugada_fk, $idticket_fk, $estado = 1){
-    /*
-        @param $jugnumeros          debe insertar un string de numeros separados por un espacio, ejemplo 10 50 60 80 8 23 6
+// table sorteo
 
+function insert_sorteo(string $nombre, int $idloteria_fk, int $idzona_fk, int $idmoneda_fk){
+    return execute_insert(  "idsorteo", "sorteo", 
+                            "nombre idloteria_fk idzona_fk idmoneda_fk", 
+                            func_get_args()
+                        );
+}
+
+// table asuetosorteo
+
+function insert_asuetosorteo(string $mesdia){
+    /* 
+        @param mesdia   string      Formato de mesdia: 01-01, 12-25, 12-31
     */
-    $idcol = "idjugadas";
-    $table = "jugadas";
-    $id = crear_id($idcol, $table);
-    $sql = "INSERT INTO $table ($idcol, jugnumeros, idtipojugada_fk, idticket_fk, estado) VALUES (?, ?, ?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $jugnumeros, $idtipojugada_fk, $idticket_fk, $estado));
-
-    if ($value){
-        return $id;
+    if (!verify_mesdia($mesdia)){
+        throw new Exception("mesdia wrong format.");
     }
-    return $value; //false
+
+    return execute_insert(  "idmesdia", "asuetosorteo", 
+                            "mesdia", 
+                            func_get_args()
+                        );
 }
 
-// table pagos realizados
+// table vsasuetosorteo
 
-function insertar_pagosrealizados($montototal, $monedas_fk, $origen_fk, $idterceros_fk, $estado = 1){
-    $idcol = "idpagosrealizados";
-    $table = "pagosrealizados";
-    $id = crear_id($idcol, $table);
-    $fecha = fecha_de_hoy();
-    $sql = "INSERT INTO $table ($idcol, montototal, fecha, monedas_fk, origen_fk, idterceros_fk, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $montototal, $fecha, $monedas_fk, $origen_fk, $idterceros_fk, $estado));
-
-    if ($value){
-        return $id;
-    }
-    return $value; //false
+function insert_vsasuetosorteo(int $idmesdia_fk, int $idsorteo_fk){
+    return execute_insert(  "idvsasueto", "vsasuetosorteo", 
+                            "idmesdia_fk idsorteo_fk", 
+                            func_get_args()
+                        );
 }
 
-// table ticketsvspagosrealizados
+// table horamilitarsorteo
 
-function insertar_ticketsvspagosrealizados($idtickets_fk, $idpagosrealizados_fk){
-    $idcol = "idtpr";
-    $table = "ticketsvspagosrealizados";
-    $id = crear_id($idcol, $table);
-    $sql = "INSERT INTO $table ($idcol, idtickets_fk, idpagosrealizados_fk) VALUES (?, ?, ?)";
-    $value = ejecutarQuery($sql, array($id, $idtickets_fk, $idpagosrealizados_fk));
+function insert_horamilitarsorteo(string $hora){
+    /* 
+        @param hora     string      Formato hh:mm, ejemplo 10:50, 00:05, 23:58
+    
+    */
 
-    if ($value){
-        return $id;
+    if (!verify_horamilitar($hora)){
+        throw new Exception("hora wrong format.");
     }
-    return $value; //false
+
+    return execute_insert(  "idhoramilitar", "horamilitarsorteo", 
+                            "hora", 
+                            func_get_args()
+                        );
+}
+
+// table vshoramilitarsorteo
+
+function insert_vshoramilitarsorteo(string $inicioidhora_fk, string $terminaidhora_fk, string $iddias_fk, string $idsorteo_fk){
+    return execute_insert(  "idvshoramilitar", "vshoramilitarsorteo", 
+                            "inicioidhora_fk terminaidhora_fk iddias_fk idsorteo_fk", 
+                            func_get_args()
+                        );
+}
+
+// table vsdiadelsorteo
+
+function insert_vsdiadelsorteo(string $iddias_fk, string $idhoramilitar_fk, string $idsorteo_fk){
+    return execute_insert(  "idvsdia", "vsdiadelsorteo", 
+                            "iddias_fk idhoramilitar_fk idsorteo_fk", 
+                            func_get_args()
+                        );
+}
+
+// table tomborangosorteo
+
+function insert_tomborangosorteo(string $inicia, string $termina, string $cantidadbolos){
+    return execute_insert(  "idtr", "tomborangosorteo", 
+                            "inicia termina cantidadbolos", 
+                            func_get_args()
+                        );
+}
+
+// table vstomborangosorteo
+
+function insert_vstomborangosorteo(string $idtr_fk, string $idnomsorteo_fk){
+    return execute_insert(  "idvstr", "vstomborangosorteo", 
+                            "idtr_fk idnomsorteo_fk", 
+                            func_get_args()
+                        );
+}
+
+// table costosorteo
+
+function insert_costosorteo(int $costo){
+    verify_monto($costo);
+    return execute_insert(  "idcosto", "costosorteo", 
+                            "costo", 
+                            func_get_args()
+                        );
+}
+
+// table nomsorteo
+
+function insert_nomsorteo(string $nom, int $idcosto_Fk){
+    return execute_insert(  "idnomsorteo", "nomsorteo", 
+                            "nom idcosto_fk", 
+                            func_get_args()
+                        );
+}
+
+// table vsnomsorteo
+
+function insert_vsnomsorteo(int $idnomsorteo_fk, int $idsorteo_fk){
+    return execute_insert(  "idvsnom", "vsnomsorteo", 
+                            "idnomsorteo_fk idsorteo_fk", 
+                            func_get_args()
+                        );
+}
+
+// table zonahorariautc
+
+function insert_zonahorariautc(string $phptimezone){
+    if (!in_array($phptimezone, DateTimeZone::listIdentifiers())){
+        throw new Exception("Invaid TimeZone");
+    }
+    return execute_insert(  "idzona", "zonahorariautc", 
+                            "phptimezone", 
+                            func_get_args()
+                        );
+}
+
+// table tiposorteo
+
+function insert_tiposorteo(string $nomtipo){
+    return execute_insert(  "idtiposorteo", "tiposorteo", 
+                            "nomtipo", 
+                            func_get_args()
+                        );
+}
+
+// table vstiposorteo
+
+function insert_vstiposorteo(int $idtiposorteo_fk, int $idsorteo_fk){
+    return execute_insert(  "idvstiposorteo", "vstiposorteo", 
+                            "idtiposorteo_fk idsorteo_fk", 
+                            func_get_args()
+                        );
 }
 
 // table tablajugadaventadeticket
 
-function insertar_tablajugada_estoyharto(string $jugadas, $idterceros_fk){
+function insertar_tablajugada_estoyharto(string $jugadas, int $idterceros_fk){
     $idcol = "idtablajugada";
     $table = "tablajugadaventadeticket";
     $fecha = fecha_de_hoy();

@@ -45,9 +45,9 @@ for ($x = 0; $x < $cant; $x++) {
     } else {
         $m = 0;
     }
-    // insertar_ticket($monto, $_SESSION[$dbuserid], $m, $barCdNum);
+    // insertar_ticket($monto, $_SESSION[$dbtercerosid], $m, $barCdNum);
 }
-// remover_jugada_estoyharto($_SESSION[$dbuserid], $Arreglo);
+// remover_jugada_estoyharto($_SESSION[$dbtercerosid], $Arreglo);
 
 // $_SESSION[$sestabladejugadas] = [];
 // $_SESSION["filasjugadas"] = [];

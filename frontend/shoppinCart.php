@@ -10,7 +10,7 @@
     if(isset($_SESSION[$sestabladejugadas])){
         $value = $_SESSION[$sestabladejugadas];
     } else {
-        $value = seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbuserid]);
+        $value = seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbtercerosid]);
         if ($value){
             $fecha = $value[$genfeclabel];
             $value = convert_str_to_array_estoyharto($value[$genjuglabel]);

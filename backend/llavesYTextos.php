@@ -24,13 +24,13 @@ $genimagenlabel = "Imagen";
 
 // Para columnas de la base de datos
 
-$dbuserid = "dBterid";
+$dbtercerosid = "idterceros";
 $dbusername = "dBterusername";
 $dbuserpass = "dBterpassword";
 $dbusercedula = "dBtercedula";
 $dbuseremail = "dBteremail";
 $dbuserestado = "dBterestado";
-$dbusernivelaccfk = "dBternivaccfk";
+$dbtercerosnivel = "idnivelacceso_fk";
 
 $dbtablajugadaid = "dBtablajugid";
 
