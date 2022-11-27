@@ -3,7 +3,7 @@
 
 function ValidarEmpty() {
     item = getElementsById("numj");
-    var mensaje = document.getElementById("warnings");
+    formulario = document.getElementById("formJ");
     let regex = /^\d{1,2}$/;
 
     item.forEach(function iteramePapi(input) {
@@ -11,11 +11,15 @@ function ValidarEmpty() {
         input.addEventListener('keyup', function (e) {
 
             ValidarNumbers(input);
-            Validation(input);
+            
+            
         });
+            Validation(input);
+
+
     });
     function ValidarNumbers(input) {
-        if (input.value.length == 0 || input.value.length < 1 || !regex.test(input.value)) {
+        if (input.value.length == 0 || input.value.length < 1  || !regex.test(input.value)) {
             input.style.border = '0.5vh solid rgb(167, 50, 50)';
             
 
@@ -26,25 +30,18 @@ function ValidarEmpty() {
         }
     }
 
-    function Validation(evt) {
+    function Validation(input) {
+        formulario.addEventListener('submit',e=>{
 
-        let warnings = "";
-        let entrar = false;
-        mensaje.innerHTML = ""
+            if (!regex.test(input.value)) {
+                e.preventDefault();
+               
+            }
 
-        item.forEach((e) => {
-            if (!regex.test(e.value)) {
-                evt.preventDefault();
-                warnings += 'los campos solo aceptan numeros'
-                entrar = true;
-            }
-            if (entrar) {
-                mensaje.innerHTML = warnings
-            }
 
         });
-
-
+      
+        
 
     }
 
