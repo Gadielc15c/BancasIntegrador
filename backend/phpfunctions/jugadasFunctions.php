@@ -12,7 +12,7 @@ include_once(dirname(__FILE__) . "/sqlRelated/sqlqueryinsert.php");
 $todo_loteria = ["Loteria Nacional", "Leidsa", "Loteria Real", "Loteka", "Americanas", "La Primera", "La Suerte", "LoteDom", "Anguila", "King Lottery"];
 
 
-$todo_sorteo = ["Juega + Pega +", "Gana Más", "Lotería Nacional", "Pega 3 Más", "Quiniela Leidsa", "Loto Pool", "Super Kino TV", "Loto - Super Loto Más", "Loto Pool", "Quiniela Real", "Quiniela Loteka", "Mega Chances", "MegaLotto", "New York Tarde", "New York Noche", "Florida Día", "Florida Noche", "Mega Millions", "PowerBall", "Cash 4 Life", "La Primera Día", "Primera Noche", "La Suerte 12:30", "La Suerte 18:00", "Quiniela LoteDom", "El Quemaito Mayor", "Anguila Mañana", "Anguila Medio Día", "Anguila Tarde", "Anguila Noche", "King Lottery 12:30", "King Lottery 7:30"];
+$todo_sorteo = ["Juega + Pega +", "Gana Más", "Lotería Nacional", "Pega 3 Más", "Quiniela Leidsa", "Loto Pool", "Super Kino TV", "Loto - Super Loto Más", "Loto Pool", "Quiniela Real", "Loto Real", "Quiniela Loteka", "Mega Chances", "MegaLotto", "New York Tarde", "New York Noche", "Florida Día", "Florida Noche", "Mega Millions", "PowerBall", "Cash 4 Life", "La Primera Día", "Primera Noche", "La Suerte 12:30", "La Suerte 18:00", "Quiniela LoteDom", "El Quemaito Mayor", "Anguila Mañana", "Anguila Medio Día", "Anguila Tarde", "Anguila Noche", "King Lottery 12:30", "King Lottery 7:30"];
 
 
 // Estructura de la variable $todo_combinado:

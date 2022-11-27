@@ -233,6 +233,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                                                     echo '<tr>';
                                                     $temp = [];
                                                     foreach($encabezados as $e){
+                                                        
                                                         $temp[$e] = $ses[$e];
                                                         echo '<td>
                                                     '; echo $ses[$e]; echo '
