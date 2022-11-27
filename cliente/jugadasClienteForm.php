@@ -1,6 +1,5 @@
 <?php 
 
-
 include_once(dirname(__FILE__, 2) . '/backend/phpfunctions/jugadasFunctions.php');
 include_once(dirname(__FILE__, 2) . '/backend/phpfunctions/generals.php');
 include_once(dirname(__FILE__, 2) . '/backend/llavesYTextos.php');
@@ -233,6 +232,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                                                     echo '<tr>';
                                                     $temp = [];
                                                     foreach($encabezados as $e){
+                                                        
                                                         $temp[$e] = $ses[$e];
                                                         echo '<td>
                                                     '; echo $ses[$e]; echo '
@@ -276,10 +276,20 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
 $estoyharto_string = convert_array_to_str_estoyharto($_SESSION[$sestabladejugadas]);
 
 // limite de 65,535 caracteres. se debe establecer
+// var_dump($sq);
 if ($sq){
-    execute_update("tablajugadaventadeticket", ["jugadas" =>$estoyharto_string], ["idterceros_fk" => $_SESSION[$dbtercerosid]]);
+   $x= execute_update("tablajugadaventadeticket", ["jugadas" =>$estoyharto_string], ["idterceros_fk" => $_SESSION[$dbtercerosid]]);
 } else {
-    insertar_tablajugada_estoyharto($estoyharto_string, $_SESSION[$dbtercerosid]);
+    try {
+        insertar_tablajugada_estoyharto($estoyharto_string, $_SESSION[$dbtercerosid]);
+    }
+    catch (Exception $e){
+        // Como solucionar todo problema
+        // Escondiendolo
+
+
+        // Es broma
+    }
 }
 
 

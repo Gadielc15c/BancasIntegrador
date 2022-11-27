@@ -119,12 +119,13 @@ function execute_insert(string $idcol, string $table, string $col_names, array $
     return false;
 }
 
-function execute_view(string $main_table, array $where_values = [], array $select = ["*"], array $only_tables = []){
+function execute_view(string $main_table, array $where_values = [], array $select = ["*"], array $only_tables = [], string $order_by = ""){
     /* 
     @param main_table       string      La tabla principal que quieres ver
     @param where_values     array       un array con llaves con las variables del WHERE o null (por defecto) si no hay un WHERE
     @param select           array       un array sin llaves con las condiciones del select
     @param only_tables      array       un array sin llaves en la cual solo quieres las tablas especificadas
+    @param order_by         string      para ordenar, ejemplo column1 ASC, column2 DESC
     @param return           array       un array con todos los resultados. De lo contrario un array vacio
 
     EJEMPLOS DE USO:
@@ -149,6 +150,10 @@ function execute_view(string $main_table, array $where_values = [], array $selec
         $sql = $sql . " WHERE $wherecol";
         $where_values = array_values($where_values);
     }
+    if ($order_by){
+        $sql = $sql . " ORDER BY $order_by";
+    }
+
     // echo $sql;
     $r = execute_simple_sql($sql, $where_values, false);
     return $r;
@@ -470,12 +475,7 @@ function get_shared_link_between_tables(string $table1, string $table2, array $a
         $table = $table2;
     }
     
-    
     return [$v, $table];
 }
 
-
 ?>
-
-
-

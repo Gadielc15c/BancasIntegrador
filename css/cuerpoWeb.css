@@ -141,11 +141,11 @@ body {
 }
 
 .navbar-logo img {
-  margin-top: -1.5vw;
+  margin-top: -2vw;
   display: block;
-  width: 60%;
+  width: 55%;
   height: 60%;
-  margin-left: 30%;
+  margin-left: 30%; 
 }
 
 .NAV-padding {
@@ -216,10 +216,11 @@ a {
   text-align: center;
 }
 footer {
-  margin-top: 4%;
-  padding: 10px;
+  /*margin-top: 4%;
+  padding: 10px;*/
   font-weight: bolder;
   border: #d07616 solid;
+  border-width: 0.3vw;
   background-color: rgba(245, 167, 37, 1);
   color: rgb(255, 255, 255);
   z-index: 2;
@@ -227,6 +228,11 @@ footer {
   bottom: 0;
   width: 100vw;
   height: 9vh;
+  font-size: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 #container {

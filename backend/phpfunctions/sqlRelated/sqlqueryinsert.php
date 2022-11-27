@@ -30,8 +30,6 @@ function insertar_ticket(int $monto, string $jugadas, int $idsorteo_fk, int $idt
                         );
 }
 
-insertar_ticket(50, "6 6 6", 0, 0, 666, 0, 0, 0);
-
 // table terceros data
 
 function insertar_tercero_data(string $nomprimero, string $nomsegundo, string $apeprimero, string $apesegundo, string $fechanac, int $iddireccion_fk){
@@ -243,9 +241,18 @@ function insert_costosorteo(int $costo){
 
 // table nomsorteo
 
-function insert_nomsorteo(string $nom, int $idcosto_Fk){
+function insert_nomsorteo(string $nom){
     return execute_insert(  "idnomsorteo", "nomsorteo", 
-                            "nom idcosto_fk", 
+                            "nom", 
+                            func_get_args()
+                        );
+}
+
+// table vscostonomsorteo
+
+function insert_vscostonomsorteo(int $idsorteo_fk, int $idnomsorteo_fk){
+    return execute_insert(  "idnomsorteo", "vscostonomsorteo", 
+                            "idcosto_fk idnomsorteo_fk", 
                             func_get_args()
                         );
 }

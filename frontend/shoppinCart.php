@@ -18,19 +18,21 @@
             $value = false;
         }
     }
-
-    foreach ($value as $v){
+    if ($value){
+        foreach ($value as $v){
     
-        $lot = $v[$lotlabel];
-        $sort = $v[$solabel];
-        $tipo = $v[$sotipolabel];
-        $jug = $v[$gennumlabel];
-        $cant = $v[$gencantlabel];
-        $monto = $v[$genmontolabel];
-        $tot= $cant * $monto;
-        $img ="../img/Logo.png ";
-        $keyed_array = array_merge($v, [$genimagenlabel => $img]);
-        shoppingMaker($cant,$lot,$sort,$tot,$jug,$tipo,$monto,$fecha,$img,$keyed_array);
-        } 
+            $lot = $v[$lotlabel];
+            $sort = $v[$solabel];
+            $tipo = $v[$sotipolabel];
+            $jug = $v[$gennumlabel];
+            $cant = $v[$gencantlabel];
+            $monto = $v[$genmontolabel];
+            $tot= $cant * $monto;
+            $img ="../img/Logo.png ";
+            $keyed_array = array_merge($v, [$genimagenlabel => $img]);
+            shoppingMaker($cant,$lot,$sort,$tot,$jug,$tipo,$monto,$fecha,$img,$keyed_array);
+            } 
+    }
+    
 ?>
 
