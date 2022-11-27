@@ -42,7 +42,11 @@
                 <a href="../cliente/inicioCliente.php" class="NavItem NavButton">
                     <ion-icon name="home"></ion-icon> INICIO
                 </a>
-
+                
+                <a href="../cliente/ajustesCliente.php" class="NavItem NavButton">
+                    <ion-icon name="settings"> </ion-icon>
+                    </ion-icon> AJUSTES
+                </a>
 
                 <div class="opciones">
 
