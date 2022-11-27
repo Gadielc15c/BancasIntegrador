@@ -2,6 +2,7 @@
 
 include_once(dirname(__FILE__, 3) . '/backend/phpfunctions/generals.php');
 include_once(dirname(__FILE__, 3) . '/backend/phpfunctions/sqlRelated/sqlqueryselect.php');
+include_once(dirname(__FILE__, 3) . '/backend/phpfunctions/sqlRelated/sqlquerygenerals.php');
 include_once(dirname(__FILE__, 3) . '/backend/llavesYTextos.php');
 
 function lvlLogValidate(){
@@ -22,14 +23,14 @@ function lvlLogValidate(){
 
         $nomuser = $_POST["usuario"];
         $claveuser = $_POST["clave"];
-        $values = prueba_seleccionar_un_usuario_por_nombre_y_clave($nomuser, $claveuser);
-
+        $values = execute_select("terceros", ["nomusuario" => $nomuser, "claveusuario" => $claveuser])[0];
+        
         // Si el estado de la cuenta es 0, poner un aviso de que ha sido suspendido
 
         if($values){
-            global $dbusernivelaccfk; global $dbuserid;
-            $_SESSION['nivel']= $values[$dbusernivelaccfk];
-            $_SESSION[$dbuserid] = $values[$dbuserid];
+            global $dbtercerosnivel; global $dbtercerosid;
+            $_SESSION['nivel']= $values[$dbtercerosnivel];
+            $_SESSION[$dbtercerosid] = $values[$dbtercerosid];
             
             switchRol();
 

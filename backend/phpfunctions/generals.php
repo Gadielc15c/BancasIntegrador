@@ -51,6 +51,22 @@ function convertir_int_array_to_str_array($arreglo){
     return $a;
 }
 
+function array_add_value_on_index(array $a, int $index, $value){
+    $t = [];
+
+    if ($index >= sizeof($a)){
+        throw new Exception("Index is higher or equal than array size");
+    }
+
+    for ($x = 0; $x < sizeof($a); $x++){
+        if ($index == $x){
+            array_push($t, $value);
+        }
+        array_push($t, $a[$x]);
+    }
+    return $t;
+}
+
 function array_extract(array $a, int $start, int $end, array $skip){
     /* 
         @param $a y $skip
@@ -148,6 +164,22 @@ function array_remove_by_key(string $key, array $a, bool $mantener_keys = true){
     return $a;
 }
 
+function array_remove_last(array $a){
+    $t = [];
+    $s = sizeof($a)-2;
+    if ($s >= 0){
+        $count = 0;
+        foreach($a as $b => $c){
+            $t[$b] = $c;
+            if ($count >= $s){
+                break;
+            }
+            $count ++;
+        }
+    }
+    return $t;
+}
+
 function array_keep_lowest_key_array(array $a, array $b){
     $ak = array_keys($a);
     $bk = array_keys($b);
@@ -173,11 +205,114 @@ function array_keep_lowest_key_array(array $a, array $b){
 }
 
 function array_print(array $a){
-    foreach($a as $b){
+    foreach($a as $b => $c){
         echo "<br>";
-        var_dump($b);
+        echo "ColName: $b"; echo " "; var_dump($c);
         echo "<br>";
     }
+}
+
+function return_array_with_custom_keys(array $a, array $keys){
+    if (sizeof($a) != sizeof($keys)){
+        throw new Exception("Array a and Array keys need to be of same length.");
+    }
+    
+    if ($a){
+        $t = [];
+        $count = 0;
+        foreach ($a as $b){
+            $t[$keys[$count]] = $b;
+            $count ++;
+        }
+        return $t;
+    }
+    return [];
+}
+
+function verify_if_array_has_custom_keys(array $a){
+    $r = true;
+    if ($a){
+        $count = 0;
+        $keys = array_keys($a);
+        foreach($keys as $k){
+            if ($k == $count){
+                $r = false;
+                break;
+            }
+            $count ++;
+        }
+    }
+    return $r;
+}
+
+function verify_mesdia(string $mesdia){
+    $pat = "/([0-9]{2}-[0-9]{2})/";
+    if (preg_match_all($pat, $mesdia, $m)){
+        $year = explode("-", fecha_de_hoy())[0];
+        $date = $year . "-" . $mesdia;
+        return verify_date($date);
+    }
+    return false;
+}
+
+function verify_date(string $date){
+    $format = 'Y-m-d';
+    $d = DateTime::createFromFormat($format, $date);
+    if ($d->format($format) === $date){
+        return true;
+    } else {
+        throw new Exception("Invalid date.");
+    }
+    return false;
+}
+
+function verify_horamilitar(string $hora){
+    $pat = "/([0-9]{2}:[0-9]{2})/";
+    if (preg_match_all($pat, $hora, $h)){
+        $h = explode(":", $hora);
+        $horas = (int)$h[0];
+        $minutos = (int)$h[1];
+        if ($horas > 23 || $horas < 0){
+            throw new Exception("Invalid hour.");
+        }
+        if ($minutos > 59 || $minutos < 0){
+            throw new Exception("Invalid minute.");
+        }
+        return true;
+    }
+    return false;
+}
+
+function verify_existencia_de_valor($value, $col, $table){
+    // retorna falso si el id no existe, de lo contrario una array
+    $sql = "SELECT $col FROM $table WHERE $col = ?";
+    return retorno_para_un_select($col, $sql, array($value));
+}
+
+function verify_monto(int $monto){
+    if ($monto <= 0){
+        throw new Exception("Monto can't be less or equal to 0.");
+    }
+    return true;
+}
+
+function verify_cedula(string $cedula){
+    $cedula = str_replace("-", "", $cedula);
+    $pat = "/[0-9]{11}/";
+    if (preg_match_all($pat, $cedula, $c)){
+        $cedula = str_split($cedula);
+        $cedula = array_add_value_on_index($cedula, 3, "-");
+        $cedula = array_add_value_on_index($cedula, 11, "-");
+        return implode("", $cedula);
+    }
+    throw new Exception("Invalid Cedula");
+}
+
+function verify_correo(string $correo){
+    if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
+        return true;
+    }
+    throw new Exception("Invalid Email");
 }
 
 function is_included(string $include_full_dir){
@@ -356,8 +491,9 @@ function convert_str_to_array_estoyharto(string $sq){
 }
 
 function remover_jugada_estoyharto($terid, array $pago){
-    global $dbuserid; global $genjuglabel;
-    $sq = seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbuserid]);
+    global $dbtercerosid; global $genjuglabel;
+    // $sq = seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbtercerosid]);
+    $sq = execute_select("tablajugadaventadeticket", ["idterceros_fk" => $_SESSION[$dbtercerosid]]);
     if ($sq){
         $a = convert_str_to_array_estoyharto($sq[$genjuglabel]);
         $temp = [];
@@ -369,7 +505,7 @@ function remover_jugada_estoyharto($terid, array $pago){
         
         $a = array_remove_once($a, $pago);
         $a = convert_array_to_str_estoyharto($a);
-        update_tablajugadaventadeticket_estoyharto_por_idtercero($a, $terid);
+        execute_update("tablajugadaventadeticket", [$genjuglabel => $a], ["idterceros_fk" => $terid]);
         return $a;
     }
     return false;

@@ -20,7 +20,7 @@ $sortDefault = "Seleccione sorteo";
 $repetir_label = "Repetir";
 $borrar_label = "Borrar";
 
-$sq = seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbuserid]);
+$sq = seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($_SESSION[$dbtercerosid]);
 
 if ($sq){
     $tempvar = convert_str_to_array_estoyharto($sq[$genjuglabel]);
@@ -264,9 +264,9 @@ $estoyharto_string = convert_array_to_str_estoyharto($_SESSION[$sestabladejugada
 
 // limite de 65,535 caracteres. se debe establecer
 if ($sq){
-    update_tablajugadaventadeticket_estoyharto_por_idtercero($estoyharto_string, $_SESSION[$dbuserid]);
+    execute_update("tablajugadaventadeticket", ["jugadas" =>$estoyharto_string], ["idterceros_fk" => $_SESSION[$dbtercerosid]]);
 } else {
-    insertar_tablajugada_estoyharto($estoyharto_string, $_SESSION[$dbuserid]);
+    insertar_tablajugada_estoyharto($estoyharto_string, $_SESSION[$dbtercerosid]);
 }
 
 

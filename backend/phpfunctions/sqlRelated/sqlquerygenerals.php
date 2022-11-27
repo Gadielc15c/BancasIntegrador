@@ -2,7 +2,9 @@
 include_once('dbConstruct.php');
 include_once(dirname(__FILE__, 4) . '/backend/phpfunctions/generals.php');
 
-function retornar_seleccion($sql, $input, $type = null){
+function retornar_seleccion(string $sql, array $input = null, $type = null){
+    //depricated
+
     /* 
     * @param $sql       un SELECT query
     * @param $input     un array con las variables del WHERE o null (por defecto) si no hay un WHERE
@@ -23,6 +25,7 @@ function retornar_seleccion($sql, $input, $type = null){
 }
 
 function retornar_seleccion_con_llaves(string $sql, array $input, array $llaves){
+    // depricated
     $v = retornar_seleccion($sql, $input, "o");
     if ($v){
         $t = [];
@@ -33,8 +36,6 @@ function retornar_seleccion_con_llaves(string $sql, array $input, array $llaves)
     }
     return false;
 }
-
-
 
 function crear_id($idcol, $table, $maxrange = null){
     /* 
@@ -63,10 +64,217 @@ function crear_id($idcol, $table, $maxrange = null){
     return $random;
 }
 
-function verificar_existencia_de_valor($value, $col, $table){
-    // retorna falso si el id no existe, de lo contrario una array
-    $sql = "SELECT $col FROM $table WHERE $col = ?";
-    return retorno_para_un_select($col, $sql, array($value));
+function verify_where_values(array $where_values = null){
+    if ($where_values){
+        $b = verify_if_array_has_custom_keys($where_values);
+        if (!$b){
+            throw new Exception("The where_values doesn't have custom keys.");
+        }
+    }
+}
+
+function execute_simple_sql(string $sql, array $input = null, bool $pdo_col = true){
+    $r = ejecutarQuery($sql, $input);
+    $num = $r -> rowCount();
+    if ($num > 0){
+        if ($pdo_col){
+            return $r -> fetchAll(PDO::FETCH_COLUMN);
+        }
+        return $r -> fetchAll(PDO::FETCH_ASSOC);
+    } else {
+        return [];
+    }
+}
+
+function execute_insert(string $idcol, string $table, string $col_names, array $values, bool $include_date = false, int $date_pos = 0, string $date_col = "fecha", int $maxrange = null){
+    /* 
+        @param col_names    array       Ejemplos monto, nom, idterceros, etc        No incluir idcol
+        @param values       array       Ejemplos 10, Fulano, 53, etc                No incluir idcol
+        @param date_pos     int         Posicion en que quieres que vaya la fecha sin incluir el id general de las tablas.
+                                        Ejemplo usando tickets table:
+                                        idtickets monto jugadas idsorteo_fk
+                                                    0    1          2
+                                        Fecha va entre monto y jugada, por lo tanto date_pos sera 1
+        
+        @param return       int/bool    Si el cambio fue exitoso, retornara el id generado. De lo contrario false.    
+    */
+    $id = crear_id($idcol, $table, $maxrange);
+    $col_names = explode(" ", $col_names);
+
+    if ($include_date){
+        $fecha = fecha_de_hoy();
+        $values = array_add_value_on_index($values, $date_pos, $fecha);
+        $col_names = array_add_value_on_index($col_names, $date_pos, $date_col);
+    }
+
+    $all_col = "$idcol, " . implode(", ", $col_names);
+    $values = array_add_value_on_index($values, 0, $id);
+    $question_marks = generate_insert_question_marks_from_col($all_col);
+
+    $sql = "INSERT INTO $table ($all_col) VALUES ($question_marks)";
+    $v = ejecutarQuery($sql, $values);
+    if ($v){
+        return $id;
+    }
+    return false;
+}
+
+function execute_view(string $main_table, array $where_values = [], array $select = ["*"], array $only_tables = []){
+    /* 
+    @param main_table       string      La tabla principal que quieres ver
+    @param where_values     array       un array con llaves con las variables del WHERE o null (por defecto) si no hay un WHERE
+    @param select           array       un array sin llaves con las condiciones del select
+    @param only_tables      array       un array sin llaves en la cual solo quieres las tablas especificadas
+    @param return           array       un array con todos los resultados. De lo contrario un array vacio
+
+    EJEMPLOS DE USO:
+
+    con where_values, select y only_tables      execute_view("terceros", ["nivelacceso.nombre" => "admin"], ["tickets.idtickets"], ["tickets", "nivelacceso"])
+    con select y only_tables                    execute_view("terceros", [], ["tickets.idtickets"], ["tickets", "nivelacceso"])
+    con only_tables                             execute_view("terceros", only_tables: ["tickets", "nivelacceso"])
+    con where_values y only_tables              execute_view("terceros", ["idterceros" => 0], only_tables: ["tickets", "nivelacceso"])
+
+    solo con main_table                         Lo mas probable es que este te retorne algo vacio al menos que exista un tercero con vinculacion en todas las tablas
+                                                execute_view("terceros")
+    
+    */
+    verify_where_values($where_values);
+
+    $innerjoins = get_all_links_from_table($main_table, organize_database_tables_by_columns(), $only_tables);
+    
+    $select = implode(", ", $select);
+    $sql = "SELECT $select FROM $main_table $innerjoins";
+    if ($where_values){
+        $wherecol = generate_selectupdate_question_marks_from_col($where_values, true);
+        $sql = $sql . " WHERE $wherecol";
+        $where_values = array_values($where_values);
+    }
+    // echo $sql;
+    $r = execute_simple_sql($sql, $where_values, false);
+    return $r;
+}
+
+// array_print(execute_view("pagotarjetas", only_tables: ["pagosrealizados"]));
+// array_print(execute_view("terceros"));
+//["idterceros" => 0]
+
+
+function execute_select(string $table, array $where_values = null, array $with_keys = null, array $select = ["*"]){
+    /* 
+    * @param table              string      el table de la base de datos a seleccionar
+    * @param where_values       array       un array con llaves con las variables del WHERE o null (por defecto) si no hay un WHERE
+    * @param with_keys          array       un array sin llaves con las llaves (haha) con las que quiere que salga tu arreglo
+    * @param select             array       un array sin llaves especificando las columnas que quieres ver
+    * @return                   array       Un array con array o un array con array vacio
+
+    EJEMPLOS DE USO     con where_values y with_keys            execute_select("terceros", ["idterceros" => 0], [1,2,3,4,5,6,7,8,9,10])
+                        sin where_values y with_keys            execute_select("terceros", [], [1,2,3,4,5,6,7,8,9,10])
+                        con where_values y sin with_keys        execute_select("terceros", ["idterceros" => 0])
+                        sin where_values y sin with_keys        execute_select("terceros")
+                        solo con select                         execute_select("terceros", select: ["idterceros", "correo"])
+                        con where_values, with_keys y select    execute_select("terceros", ["idterceros" => 0], ["col1","col2"], ["idterceros", "correo"])
+    */
+    verify_where_values($where_values);
+
+    $select = implode(", ", $select);
+    $sql = "SELECT $select FROM $table";
+    if ($where_values){
+        $wherecol = generate_selectupdate_question_marks_from_col($where_values, true);
+        $sql = $sql . " WHERE $wherecol";
+        $where_values = array_values($where_values);
+    }
+
+    $r = execute_simple_sql($sql, $where_values, false);
+
+    if ($with_keys){
+        $tr = [];
+        foreach ($r as $a){
+            array_push($tr, return_array_with_custom_keys($a, $with_keys));
+        }
+        $r = $tr;
+    }
+
+    if (sizeof($r) == 0){
+        $r = [[]];
+    }
+    return $r;
+}
+
+// var_dump(execute_select("terceros", ["nomusuario" => "cliente", "claveusuario" => "ok"])[0]);
+// var_dump(execute_select("terceros"));
+
+function execute_update(string $table, array $update, array $where_values = null){
+    /* 
+    * @param table              string      el table de la base de datos a actualizar
+    * @param update             array       un array con llaves con las variables del update
+    * @param where_values       array       un array con llaves con las variables del where
+    * @return                   bool        True si se realizaron los cambios, False si no se realizo cambio.
+                                            Razones para que de false:
+                                            1. Ya el valor tiene con tus parametros
+                                            2. No se encontro el valor con el where
+    
+    Para actualizar los estados debes usar true or false
+
+    EJEMPLOS DE USO     con update y con where_values       execute_update("terceros", ["estado" => true], ["idterceros" => 0])
+                        con update y sin where_values       execute_update("terceros", ["estado" => false])
+                        Este ultimo es peligroso, usar con precaucion
+    */
+
+    $b = verify_if_array_has_custom_keys($update);
+    if (!$b){
+        throw new Exception("The update doesn't have custom keys.");
+    }
+    verify_where_values($where_values);
+
+    $updatecol = generate_selectupdate_question_marks_from_col($update, false);
+    $sql = "UPDATE $table SET $updatecol";
+    $update = array_values($update);
+
+    if ($where_values){
+        $wherecol = generate_selectupdate_question_marks_from_col($where_values, true);
+        $update = array_merge($update, array_values($where_values));
+        $sql = $sql . " WHERE $wherecol";
+    }
+    $r = ejecutarQuery($sql, $update);
+    return retorno_booleano_para_updates($r);
+}
+
+function generate_insert_question_marks_from_col(string $col){
+    // genera los ? que se ponene en el value de los insert
+    // ejemplo del input "idterceros, nombre, cedula, etc"
+    $s = [];
+    $cant = sizeof(explode("," , $col));
+    if ($cant < 1){ 
+        throw new Exception("There aren't any columns.");
+    }
+    for ($x = 0; $x < $cant; $x++) {
+        array_push($s, "?");
+    }
+    $s = implode(", ", $s);
+    return $s;
+}
+
+function generate_selectupdate_question_marks_from_col(array $col, bool $select){
+    // genera los ? que se ponene en el value de los select y updates
+    // ejemplo del input ["idterceros" => "0", "nombre" => "fulano", "cedula" => "000", "etc" => "etc"]
+
+    $s = "";
+    $cant = sizeof($col);
+    if ($cant < 1){ 
+        throw new Exception("There aren't any columns.");
+    }
+    if ($select){
+        $d = " AND ";
+    } else {
+        $d = ", ";
+    }
+
+    $keys = array_keys($col);
+    for ($x = 0; $x < $cant-1 ; $x++) {
+        $s = $s . $keys[$x]. " = ?$d";
+    }
+    $s = $s . $keys[$x]. " = ?";
+    return $s;
 }
 
 function retorno_para_un_select($col, $sql, $input = null){
@@ -94,22 +302,179 @@ function retorno_booleano_para_updates($ejecucion){
     return false;
 }
 
-function retorno_nombre_columnas($table){
+function return_columns_by_name($table){
     $sql = "DESCRIBE $table";
-    $r = ejecutarQuery($sql, null);
-    $num = $r -> rowCount();
-    if ($num > 0){
-        return $r -> fetchAll(PDO::FETCH_COLUMN);
-    }
-    return false;
+    return execute_simple_sql($sql);
 }
 
-/* $s = retorno_nombre_columnas("terceros");
+function organize_database_tables_by_columns(){
+    $sql = "SELECT tab.TABLE_NAME, col.COLUMN_NAME FROM INFORMATION_SCHEMA.TABLES as tab 
+            INNER JOIN INFORMATION_SCHEMA.COLUMNS as col
+            ON tab.table_name = col.table_name
+            WHERE tab.table_type = 'BASE TABLE'";
 
-foreach($s as $i){
-echo "<br>";
-print_r($i);
-} */
+    $r = execute_simple_sql($sql, null, false);
+    $t = [];
+    $tab_label = "TABLE_NAME";
+    $col_label = "COLUMN_NAME";
+    for ($x = 0; $x < sizeof($r); $x++){
+        $tab_name = $r[$x][$tab_label];
+        $col_name = $r[$x][$col_label];
+        if (in_array($tab_name, array_keys($t))){
+            array_push($t[$tab_name], $col_name);
+        } else {
+            $t[$tab_name] = [$col_name];
+        }
+    }
+    return $t;
+}
+
+function get_all_links_from_table(string $table, array $all_tables, array $only_tables = []){
+    $links = "";
+    $a_tables = array_keys($all_tables);
+
+    $include = array_unique(array_merge([$table], $only_tables));
+    if ($only_tables){
+        $exclude = array_diff($a_tables, $include);
+    } else {
+        $exclude = [];
+    }
+    
+    $linked_tables = $include;
+    $used_share_link = [$table];
+    
+    $t = [];
+    $used_tables = $exclude;
+    // echo "<BR>";
+    // var_dump($linked_tables);
+    // echo "<BR>";
+    // var_dump($exclude);
+    // echo "<BR>";
+    // echo "<BR>";
+
+    $b = true;
+    while ($b){
+        $b = false;
+        for($x = 0; $x < sizeof($linked_tables); $x++){
+            if (!in_array($linked_tables[$x], $used_tables)){
+                // echo "<BR>";
+                // echo $linked_tables[$x];
+                // echo "<BR>";
+                for($xx = 0; $xx < sizeof($a_tables); $xx++){
+                    if ($linked_tables[$x] != $a_tables[$xx] && !in_array($a_tables[$xx], $exclude)){
+                        $v = get_shared_link_between_tables($linked_tables[$x], $a_tables[$xx], $all_tables, $used_share_link);
+                        // echo "<BR>";
+                        // echo $a_tables[$xx];
+                        // echo "<BR>";
+
+                        if ($v[0] != ""){
+                            $links = $links . $v[0] . " ";
+
+                            array_push($used_tables, $linked_tables[$x]);
+                            array_push($t, $v[1]);
+                            array_push($used_share_link, $v[1]);
+
+                            $used_tables = array_unique($used_tables);
+                            $t = array_unique($t);
+                            $used_share_link = array_unique($used_share_link);
+                            $b = true;
+                        }
+                    }
+                }
+            }
+        }
+        $linked_tables = array_values(array_unique(array_merge($t, $linked_tables))); // keep outside it doesn't update the for loop while looping
+        // echo "<BR>";
+        // echo $links;
+        // echo "<BR>";
+        // var_dump($linked_tables);
+        // echo "<BR>";
+        // echo "<BR>";
+    }
+    return $links;
+}
+
+function get_foreign_keys_from_table(array $a){
+    $t = [];
+    foreach($a as $b){
+        $c = explode("_", $b);
+        if (end($c) == "fk"){
+            array_push($t, $b);
+        }
+    }
+    return $t;
+}
+
+function get_tables_by_column_name(array $all_tables, string $column_name){
+    //
+    // not in use. Keep just in case and delete in the future
+    //
+    $t = [];
+    foreach($all_tables as $a => $b){
+        if (in_array($column_name, $b)){
+            array_push($t, $a);
+        }
+    }
+    return $t;
+}
+
+function get_shared_link_between_tables(string $table1, string $table2, array $all_tables, array $used_share_link){
+    $v = "";
+    $table = "";
+    $switched = false;
+    if (in_array($table1, $used_share_link) && in_array($table2, $used_share_link)){
+        return [$v, $table]; 
+    }
+
+    if (in_array($table2, $used_share_link)){
+        $t = $table2;
+        $table1 = $table2;
+        $table2 = $t;
+        $switched = true;
+    }
+    
+    $t1fk = get_foreign_keys_from_table($all_tables[$table1]);
+    $t2fk = get_foreign_keys_from_table($all_tables[$table2]);
+    $t1id = $all_tables[$table1][0];
+    $t2id = $all_tables[$table2][0];
+    $t1idfk = $t1id . "_fk";
+    $t2idfk = $t2id . "_fk";
+
+    // $test = ["terceros", "tickets"];
+    // if (in_array($table1, $test) && in_array($table2, $test)){
+    //     var_dump($used_share_link);
+    //     echo "<BR>";
+    //     echo $table1;
+    //     echo "<BR>";
+    //     echo $table2;
+    //     echo "<BR>";
+    //     echo $t1idfk;
+    //     echo "<BR>";
+    //     echo $t2idfk;
+    //     echo "<BR>";
+    //     var_dump($switched);
+    //     echo "<BR>";
+    //     var_dump(in_array($t2idfk, $t1fk));
+    //     echo "<BR>";
+    //     var_dump(in_array($t1idfk, $t2fk));
+    //     echo "<BR>";
+
+    // }
+
+    if (in_array($t2idfk, $t1fk)){
+        // $v = "INNER JOIN $table2 ON $table1.$t2idfk = $table2.$t2id";
+        $v = "INNER JOIN $table2 ON $table1.$t2idfk = $table2.$t2id";
+        $table = $table2;
+    } elseif (in_array($t1idfk, $t2fk)){
+        $v = "INNER JOIN $table2 ON $table1.$t1id = $table2.$t1idfk";
+        $table = $table2;
+    }
+    
+    
+    return [$v, $table];
+}
+
+
 ?>
 
 
