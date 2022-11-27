@@ -17,7 +17,7 @@ SessionControl($nivel);
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/cuerpoWeb.css" />
     <link rel="stylesheet" href="/css/shoppingCart.css" />
-
+    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
 </head>
 <header>
     <?php include('../cliente/navCliente.php');?>
@@ -35,7 +35,7 @@ SessionControl($nivel);
                 </div>
                 <?php include('../frontend/shoppinCart.php');?>
 
-                <input type="submit" value="PAGAR TODO" class="boton" ">
+                
 
  </form>
 </form>

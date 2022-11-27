@@ -1,35 +1,43 @@
-<?php 
+<?php
 
 session_start();
-$metodoPago=[$metodo1=["Visa","****-****-****-**41","IVAN","MENDOZA"],$metodo2=["MASTER CARD","****-****-****-**41","IVAN","MENDOZA"]];
-$_SESSION['MDP']=$metodoPago[0];
+$metodoPago = [$metodo1 = ["PAYPAL", "****-****-****1521", "IVAN", "MENDOZA"], $metodo2 = ["MASTER CARD", "****-****-****-**41", "IVAN", "MENDOZA"]];
+$_SESSION['MDP'] = $metodoPago[0];
 if (isset($_SESSION['array'])) {
-    $_SESSION['arrayT']=$Areglo=$_SESSION['array'];
-    
-
-
+    $_SESSION['arrayT'] = $Areglo = $_SESSION['array'];
+    $Valor = 24.0 * 0.018;
+    $dolar=round($Valor,2);
 }
 
 
+if (!isset($_SESSION['nivel'])) {
 
-if(!isset($_SESSION['nivel'])){
+    header('location:  ../index.php');
+} else {
+    if ($_SESSION['nivel'] != 4) {
 
-header('location:  ../index.php');
-    
-}else {
-    if($_SESSION['nivel']!=4){
-
-header('location: ../index.php');
-
+        header('location: ../index.php');
     }
 }
+if (isset($_COOKIE["IDt"])) 
+echo $_COOKIE["fcookie"]; 
+else 
+echo "Cookie Not Set";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=ATTCNCX1HWvfZEAKw9W_oGpF0rsur6EELO0znapIyPexXdnkLvN35kB5kmtsDciRUZi2OFwlBf0sTP8I&merchant-id=9UBV4ETA9N8VY&locale=es_DO&commit=false">
+    </script>
+
+    <!-- Load the required Braintree components. -->
+    <script src="https://js.braintreegateway.com/web/3.39.0/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.39.0/js/paypal-checkout.min.js"></script>
     <meta charset="utf-8">
-    <title>Error</title>
+    <title>PAGos</title>
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="description" />
     <meta name="generator" content="HAPedit 3.1" />
@@ -40,7 +48,7 @@ header('location: ../index.php');
 
 </head>
 <header>
-<?php include('../frontend/nav.php');?>
+    <?php include('../frontend/nav.php'); ?>
 </header>
 
 <body>
@@ -52,27 +60,31 @@ header('location: ../index.php');
 
                 <center>
                     <h3 class="font-weight-bold " style=" padding: 30px; ">
-                        SELECCIONE O AGREGE UN METODO DE PAGO PARA COMPLETAR LA TRANSACCION
+                        SELECCIONE UN METODO DE PAGO PARA COMPLETAR LA TRANSACCION
                     </h3>
-                    
+                    <!--
                     <select name="lotsSelect" id="lotsSelect" class="lotsSelect" onchange="this.form.submit()">
                         <option value="" disable selected="selected">Seleccione una Metodo de pago</option>
                         <?php
-                       
-                        
+
+                        /*
                         foreach($metodoPago as $metodo){
                             echo "<option value='$metodo[0]'>$metodo[0]</option>";
                            
-                        }
-        ?>
-                    </select>
-
-                    <form action="../frontend/ticketDisplayer.php">
+                        }-*/
+                        ?> 
+                    </select><form action="../frontend/ticketDisplayer.php">
                         <input class="botoncito" type="submit" name="submit" class="btn btn-primary btn-block"
                             value="Add Metodo">
                         <input class="botoncito" type="submit" name="submit" class="btn btn-primary btn-block"
                             value="Select Metodo">
-                    </form>
+                    </form>    < -->
+                    <div id="paypal-button-container">
+
+
+                    </div>
+
+
 
                     <br>
 
@@ -81,7 +93,61 @@ header('location: ../index.php');
         </div>
     </div>
 
+    <script>
+    function UpdateAmount(amount, something) {
+        $("#hosted_button_id").val(amount); // Or whatever the input's id is.
+        // Whatever you wanna do.
+    }
 
+    paypal.Buttons({
+
+
+        createOrder: (data, actions) => {
+
+            return actions.order.create({ // iterar en caso de ser necesario xd por ahora pago unico
+
+                purchase_units: [{
+
+                    amount: {
+                        currency_code: "USD",
+                        value: "<?php echo $dolar;?>",
+                        breakdown: {
+                            item_total: {
+                                currency_code: "USD",
+                                value:"<?php echo $dolar;?>"
+                            }
+                        }
+                    }
+
+                }]
+            });
+        },
+        // Sets up the transaction when a payment button is clicked
+
+        onApprove: (data, actions) => {
+
+            return actions.order.capture().then(function(orderData) {
+                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                const transaction = orderData.purchase_units[0].payments.captures[0];
+               
+                window.location.replace('../frontend/ticketDisplayer.php');
+                
+                
+//                 alert('Transaction '+ transaction.status + 'ID :' + transaction.id + 'FECHA: ' + transaction.create_time  +'\n\nSee console for all available details');
+//                  alert(orderData);
+//                
+
+        
+
+              
+
+            });
+
+        }
+
+    }).render('#paypal-button-container');
+    
+    </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

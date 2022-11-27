@@ -79,9 +79,11 @@ echo '
   </div>
 </div>
 <div class="pagarto">
+
   <form action="../backend/MetodoPagForm.php">
     <input type="submit" value="PAGAR" class="boton" ">
   </form>
+  
   <hr />
 </div>
 
