@@ -98,7 +98,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                             if (in_array($t_label, $modalidad) || in_array($p_label, $modalidad)){
                                 $req = "";
                             }
-                            echo '<input type="text" class="bebecito" id="numj" name="jugada'; echo 0; echo '" placeholder="NUMERO A JUGAR" required></input>';
+                            echo '<input type="text" class="bebecito" id="numj" name="jugada'; echo 0; echo '" placeholder="NUMERO A JUGAR"></input>';
                             for ($x = 1; $x < $value[$cant_b_label]; $x++){
                                 
                                 echo '<input type="text" class="bebecito" id="numj" name="jugada'; echo $x; echo '" placeholder="NUMERO A JUGAR"'; echo $req; echo '></input>';

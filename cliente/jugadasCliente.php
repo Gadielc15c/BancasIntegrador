@@ -24,7 +24,7 @@ SessionControl($nivel);
     <?php include('../cliente/navCliente.php'); ?>
 </header>
 
-<body onload="startTime(); scrollBottom(); ValidarEmpty();">
+<body onload="startTime(); scrollBottom(); ">
 
     <div class="container2">
         <div class="cuadrado">

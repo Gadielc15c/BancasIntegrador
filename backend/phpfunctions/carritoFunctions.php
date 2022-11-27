@@ -69,22 +69,24 @@ echo '
       <div class="montitos">
         <div class="monto">TOTAL: RD$ '; echo $total; echo '</div>
         <div class="control-group">
-          <label class="control control-checkbox">
-            <input type="checkbox" />
+            <input type="checkbox"/> 
             <div class="control_indicator"></div>
-          </label>
+          
         </div>
+        
       </div>
+      
     </div>
-  </div>
-</div>
-<div class="pagarto">
+    <div class="pagarto">
 
-  <form action="../backend/MetodoPagForm.php">
-    <input type="submit" value="PAGAR" class="boton" ">
+  
+    <input type="submit" value="PAGAR" class="boton">
   </form>
   
   <hr />
+</div>
+
+  </div>
 </div>
 
  

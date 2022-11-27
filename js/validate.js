@@ -5,22 +5,32 @@ function ValidarEmpty() {
     item = getElementsById("numj");
     formulario = document.getElementById("formJ");
     let regex = /^\d{1,2}$/;
-
+    var a=0
     item.forEach(function iteramePapi(input) {
-
+    a=a+1;
+    if(a!=1){
+        
         input.addEventListener('keyup', function (e) {
-
             ValidarNumbers(input);
+        
+            
+        });
+        
+    }else{
+        input.addEventListener('keyup', function (e) {
+            ValidarNumbersFIrst(input)
             
             
         });
-            Validation(input);
+          
 
-
+    }
     });
-    function ValidarNumbers(input) {
+    function ValidarNumbersFIrst(input) {
         if (input.value.length == 0 || input.value.length < 1  || !regex.test(input.value)) {
             input.style.border = '0.5vh solid rgb(167, 50, 50)';
+           
+            Validation(input);
             
 
         }
@@ -30,6 +40,19 @@ function ValidarEmpty() {
         }
     }
 
+    function ValidarNumbers(input) {
+        if (!regex.test(input.value)) {
+            input.style.border = '0.5vh solid rgb(167, 50, 50)';
+           
+            Validation(input);
+            
+
+        }
+        else {
+            input.style.border = '0.5vh solid rgb(86, 221, 86)';
+
+        }
+    }
     function Validation(input) {
         formulario.addEventListener('submit',e=>{
 
