@@ -50,6 +50,6 @@ SessionControl($nivel);
 </body>
 
 <footer>
-  <?php include("footer.php") ?>
+  <?php include("../frontend/footer.php") ?>
 </footer>
 </html>
