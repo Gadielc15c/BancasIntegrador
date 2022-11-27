@@ -34,7 +34,12 @@ SessionControl($nivel);
                     <h3 class="Caco">JUGADAS REALIZADAS</h3>
                 </div>
                 <?php include('../frontend/shoppinCart.php');?>
+                <div class="pagarto">
 
+                <form action="../backend/MetodoPagForm.php">
+<input type="submit" value="PAGAR TODO" class="boton">
+</form>
+</div>
                 
 
  </form>

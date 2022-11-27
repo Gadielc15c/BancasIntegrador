@@ -22,8 +22,9 @@ $keyed_array
    
 echo '
 
-<form action="../backend/MetodoPagForm.php">
+
 <div class="col">
+<form action="../backend/MetodoPagForm.php">
   <div class="jugadaContainer">
     <div class="loteryImg">
       <img src="'; echo $img; echo '" style="height: 250px" />
@@ -87,6 +88,7 @@ echo '
 </div>
 
   </div>
+ 
 </div>
 
  
