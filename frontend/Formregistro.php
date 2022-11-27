@@ -19,7 +19,7 @@
 
 <body>
 
-    <div class="wrapper fadeInDown">
+    <div class="wrapper-fadeInDown">
       <div id="formContent">
 
       <h2 class="active"> REGISTRO </h2>
@@ -62,7 +62,7 @@
   <input type="submit" class="fadeIn fourth" value="REGISTRAR" name="login-btn">
 </form>
             <div id="formFooter">
-            <a class="underlineHover" href="/backend/phpfunctions/logOutTemporal.php"">Ya tengo una cuenta</a>
+            <a class="underlineHover" href="/backend/phpfunctions/logOutTemporal.php">Ya tengo una cuenta</a>
             </div>
 
       </div>
