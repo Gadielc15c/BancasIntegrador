@@ -41,13 +41,13 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
         </div>
     </div>
 
-    
+    <div class=" col">
     <div class=".row">
         <div class="papa">
-            <div class="bebe">
-                <h2>Selecione Su Loteria</h2>
+        <div class="papagay">
+            <div class="bebe right">
                 <form action="" method="post" class="form-grp">
-                    <select name="lotsSelect" id="lotsSelect" class="lotsSelect" onchange="this.form.submit()" place>
+                    <select name="lotsSelect" id="lotsSelect" class="lotsSelect right" onchange="this.form.submit()" place>
                         <option value="" disable selected="selected"><?php echo $_SESSION["lotsSelect"]; ?></option>
                         <?php
                             foreach($todo_loteria as $lotsitem){
@@ -58,9 +58,12 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                         ?>
                     </select>
                 </form>   
-
+            </div>
+           
+            
+            <div class="bebe left">
                 <form action="" method="post" class="form-grp">  
-                    <select name="sortSelect" id="sortSelect" class="lotsSelect" onchange="this.form.submit()" place>
+                    <select name="sortSelect" id="sortSelect" class="lotsSelect left" onchange="this.form.submit()" place>
                         <option value="" disable selected="selected"><?php echo $_SESSION["sortSelect"]; ?></option>
                         <?php
                             if ($_SESSION["lotsSelect"] != $lotsDefault){
@@ -73,6 +76,11 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                         ?>
                     </select>
                 </form>
+            
+            </div>
+                 
+          
+            </div>
             </div>
             <form action="" method="post" id="formJ" class="form-grp">  
                 <?php
@@ -113,7 +121,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                                         $m = "US";
                                     }
                                     echo "<label for='monto' >MONEDA: "; echo $m; echo "$</label>";
-                                    echo '<input type=" text" class="bebecito" name="'; echo $genmontolabel; echo '" placeholder="MONTO" required> </input>
+                                    echo '<input id="numj" "type=" text" class="bebecito" name="'; echo $genmontolabel; echo '" placeholder="MONTO" required> </input>
                                     
                                     </div>
                                     </div>
@@ -196,19 +204,23 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                                     </div>
 
                                     </div>
-                                    <div class=" bebe" style="justify-content: flex-end">
+                                    <div class="bebe" style="justify-content: flex-end">
                                     </div>
 
                                     <div class=" bebe" style="justify-content: flex-end">
-                                        <table>';
+                                       
+                                    <table class="table table-bordered">';
                                         
                                         if ($_SESSION[$sestabladejugadas]){
                                             echo '
                                             <tr>';
 
                                                 
-                                                foreach($encabezados as $e){
-                                                    echo '<th>'; echo $e; echo '</th>';
+                                                foreach($encabezados as $e => $encabezado){
+                                                    echo '<th class="th">'; echo $encabezado; echo '</th>';
+                                                    if ($e === array_key_last($encabezados)) {
+                                                        echo '<th class="th"> </th>';
+                                                    }
                                                 }
 
                                                 echo '
@@ -223,14 +235,15 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                                                     foreach($encabezados as $e){
                                                         $temp[$e] = $ses[$e];
                                                         echo '<td>
-                                                        <input type="text"  name="color_1" value="'; echo $ses[$e]; echo '" readonly/>
+                                                    '; echo $ses[$e]; echo '
                                                         </td>';
                                                     }
+                                                    
                                                     echo '
                                                     <td>
                                                     <form action="" method="post" class="form-grp">
-                                                        <input type="submit" class="" name="'; echo $repetir_label.$count; echo '" value="'; echo $repetir_label; echo '" onclick="this.form.submit()"></input>
-                                                        <input type="submit" class="" name="'; echo $borrar_label.$count; echo '" value="'; echo $borrar_label; echo '"> </input>
+                                                        <input type="submit" class="btn btn-outline-info btn-sm" name="'; echo $repetir_label.$count; echo '" value="'; echo $repetir_label; echo '" onclick="this.form.submit()"></input>
+                                                        <input type="submit" class="btn btn-outline-danger btn-sm" name="'; echo $borrar_label.$count; echo '" value="'; echo $borrar_label; echo '"> </input>
                                                     </form>
                                                     </td>
                                                     </tr>';

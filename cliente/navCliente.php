@@ -8,10 +8,14 @@
                         <div class="clockdate-wrapper">
                             <div id="clock"></div>
                             <div id="date"></div>
+
+                        </div>
+                        <div class="clockdate-wrapper">
+                           
                         </div>
                     </div>
                 </a>
-               
+
             </div>
 
             <div class="opciones">
@@ -38,12 +42,12 @@
                 <a href="../cliente/inicioCliente.php" class="NavItem NavButton">
                     <ion-icon name="home"></ion-icon> INICIO
                 </a>
-               
+
 
                 <div class="opciones">
 
 
-                   
+
 
                 </div>
 

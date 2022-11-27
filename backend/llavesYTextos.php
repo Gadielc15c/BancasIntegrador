@@ -48,7 +48,7 @@ $sescodigobarra = "seScodigobarra";
 $cookiename = "cooKsomeName";
 
 // Para las loterias
-$lotlabel = "lotería";
+$lotlabel = "Lotería";
 
 $lotnacional = "Loteria Nacional"; // no poner tilde en este
 $lotleidsa = "Leidsa";
@@ -61,8 +61,8 @@ $lotang = "Anguila";
 $loting = "King Lottery";
 
 // Para los sorteos
-$solabel = "sorteo";
-$sotipolabel = "tipo de jugada";
+$solabel = "Sorteo";
+$sotipolabel = "Tipo de Jugada";
 $sohorlabel = "horario";
 $sotimerdlabel = "hora dominicana";
 $sodialabel = "dias del sorteo";
