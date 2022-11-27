@@ -1,3 +1,4 @@
+
 :root {
   --Principal: rgba(245, 167, 37, 1);
   --Secundario: rgb(190, 130, 27);
@@ -5,33 +6,51 @@
   --Gris: #dbdada;
   --GrisOscuro: #515151;
 }
+th{
 
+  background-color: var(--Principal);
+  color: var(--Blanco);
+  font-weight: bolder;
+}
 .papa {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: stretch;
   align-items: auto;
   font-family: Verdana, sans-serif;
-  align-content: start;
 }
 
 .bebe {
   flex: 1 0 auto;
   margin: 3px;
-  box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
-  -webkit-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
-  -moz-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
   justify-content: center;
   padding: 8px 16px;
   text-align: center;
   font-weight: bold;
   font-family: Verdana, sans-serif;
+
+}
+.papagay{
+  display: flex;
+  
 }
 
+.lotsSelect.right{
+  margin-left: 8vw;
+  
+  }
+.lotsSelect.left{
+margin-left: -35vw;
+
+}
+.bebecito:hover:focus{
+  animation-name:desredondear;
+
+}
+
+
+
 .bebecito {
-
-
   margin: 3px;
   text-align: center;
   border-radius: 999999px;
@@ -40,8 +59,22 @@
   border-style: solid;
   margin: 2%;
   font-family: Verdana, sans-serif;
+  transition: margin-top 750ms;
+  will-change: margin-top;
+  animation: 1s ease-out 0s 1 slideInLeft;
+  animation-name: slidein;
+  
 }
 
+@keyframes slidein {
+  from {
+   opacity: 0%;
+  }
+
+  to {
+ opacity: 100%;
+  }
+}
 .bheder {
   box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
   -webkit-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
@@ -70,14 +103,14 @@
   background-color: var(--Principal);
   border-radius: 12px;
   border: 4px solid #b1680881;
- width: 18%;
+  width: 18%;
   cursor: pointer;
   color: #ffffff;
   font-family: Verdana, sans-serif;
   font-size: 20px;
 
   text-decoration: none;
-text-align: center;
+  text-align: center;
 }
 .bebecitoButton:hover {
   background-color: var(--Blanco);
@@ -87,8 +120,19 @@ text-align: center;
   position: relative;
   top: 1px;
 }
+.lotsSelect:hover,.lotsSelect:focus{
 
+  transform: translateY(5px);
+  color:var(--Principal);
+
+}
 .lotsSelect {
+  transition: transform 750ms;
+    will-change: transform;
+  transform: translateY(10px);
+  text-align: center;
+  width: 17vw;
+  margin-top: 10vh;
   box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
   -webkit-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
   -moz-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
@@ -111,16 +155,16 @@ option:first {
   margin-left: 4%;
 }
 
-.botoncito{
+.botoncito {
   background-color: var(--Principal);
   color: var(--Blanco);
   height: 50px;
   width: 120px;
-border: none;
-font-weight: bolder;
-margin-top: 10%;
-margin-bottom: 10%;
-border-radius: 7%;
+  border: none;
+  font-weight: bolder;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border-radius: 7%;
 }
 .cuadrais {
   border-radius: 10%;
@@ -131,9 +175,42 @@ border-radius: 7%;
   -moz-box-shadow: -2px 12px 39px -6px rgba(0, 0, 0, 0.75);
 }
 /* checkboxex */
-.t{
+.t {
   color: var(--Secundario);
 }
-.small{
+.small {
   font-weight: bolder;
+}
+.logo{height:15vw;
+  padding-left: -400vw;
+
+}
+
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+
+@keyframes borderRadial {
+	20% {
+		--gradX: 100%;
+		--gradY: 50%;
+	}
+	40% {
+		--gradX: 100%;
+		--gradY: 100%;
+	}
+	60% {
+		--gradX: 50%;
+		--gradY: 100%;
+	}
+	80% {
+		--gradX: 0%;
+		--gradY: 50%;
+	}
+	100% {
+		--gradX: 50%;
+		--gradY: 0%;
+	}
 }

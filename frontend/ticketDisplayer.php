@@ -51,10 +51,10 @@ SessionControl($nivel);
 
 
     
-<body>
+<body >
 
         
-        <div class=" cuadrado">
+        <div class="cuadrado">
         
     <?php 
         include('../backend/ticketLoader.php');
@@ -76,7 +76,7 @@ SessionControl($nivel);
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--No borrar-->
 
-    </body>
+    </body >
 
     <footer>
 
@@ -87,11 +87,17 @@ SessionControl($nivel);
     <script>
     const button = document.getElementById('download-button');
 
+  var ajustes = {
+  margin:       0,
+  filename:     'Ticket.pdf',
+  image:        { type: 'png'},
+  html2canvas:  { scale: 2},
+  jsPDF:        { unit: 'in', format: [3.3, 15], orientation: 'portrait', deletePage: 2 },
+ pagebreak: { mode: 'avoid-all', after: '#invoice' }
+};
     function generatePDF() {
-        // Choose the element that your content will be rendered to.
         const element = document.getElementById('invoice');
-        // Choose the element and save the PDF for your user.
-        html2pdf().from(element).save();
+        html2pdf().set(ajustes).from(element).save();
     }
 
     button.addEventListener('click', generatePDF);
@@ -105,5 +111,8 @@ JsBarcode("#bar",text);
 
 
 })
+function scrollBottom() {window.scrollTo(0, 99999);}
+if (document.addEventListener) document.addEventListener("DOMContentLoaded", scrollBottom, false)
+else if (window.attachEvent) window.attachEvent("onload", scrollBottom);
 </script>
 </html>
