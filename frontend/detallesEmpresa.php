@@ -35,6 +35,13 @@ SessionControl($nivel);
             <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
                                     NOSOTROS
             </h2>
+            <br>
+            <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
+                ¿Quienes somos?
+              </h3>
+             <p class="font-weight-Normal"style="font-size:16px; padding-left: 25px; padding-bottom: 20px; text-align: justify; ">
+                La Banca Integrador, es una es una empresa de proceder privado, cimentada bajo el orden de una sociedad colectiva y regido bajo el concepto de sociedad de responsabilidad limitada. Nuestro sistema en línea ofrece los servicios al cliente las 24 horas del día a través del internet, también la empresa cuenta con sucursales físicas, que se utilizan para poder acceder a los pagos de los tickets ganadores y realizar jugadas en la forma habitual. 
+              </p>
            
                 <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
                     Mision 
@@ -47,6 +54,13 @@ SessionControl($nivel);
                 </h3>
                 <p class="font-weight-Normal" style="font-size:16px; padding-left: 25px; padding-bottom: 20px;">
                      Ofrecer el servicio de más alta calidad en cada jugada, creando fidelidad en nuestros clientes y oportunidad de crecimiento a nuestros empleados, colaborando con recursos para el bienestar social.
+                </p>
+
+                <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
+                    Objetivo General
+                </h3>
+                <p class="font-weight-Normal" style="font-size:16px; padding-left: 25px; padding-bottom: 20px;">
+                Controlar y asegurar la calidad y el funcionamiento de los juegos, procurando la entrega inmediata de las recompensas hacia el cliente.
                 </p>
                 <h3 class="font-weight-bold" style=" padding-top: 10px; padding-left: 25px; color:rgba(245, 167, 37, 1) ">
                   Valores 
@@ -72,354 +86,37 @@ SessionControl($nivel);
 
         <section>
          <h3 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
-                                    Horarios de Loterías
+                                    Horarios de sucursales
           </h3>
 
-
+             
               <div class="contLot">
-                <h4 class="font-weight-bold">Juega + Pega +</h4>
+              <h3 class="font-weight-bold" style="color:rgba(245, 167, 37, 1) ">Lunes a Viernes </h3>
                   <div class="pie">
-                    <p class="font-weight-bold">Lunes-Sabados </p>
-                    <p>7:00am - 2:25pm </p>
-                    <p><b>Sorteos:</b>Lunes a Sabados</p>
-                    <p>2:30pm</p>                 
+                    <p>8:00am - 10:00pm </p>               
                   </div>
               </div>
 
-              <div class="contLot">
-                <h4 class="font-weight-bold">Gana Más</h4>
-                  <div class="pie">
-                  <p class="font-weight-bold">Lunes-Sabados </p>
-                    <p>7:00am - 2:25pm  </p>
-                    <p><b>Sorteos:</b> Lunes-Sabados</p>
-                    <p>2:30pm</p>
-                 </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Lotería Nacional Noche</h4>
-                  <div class="pie">
-                  <p class="font-weight-bold">Lunes-Domingos </p>
-                    <p>L-D 7:00am - 8:45pm D 7:00am - 5:55pm</p>
-                    <p><b>Sorteos:</b> Lunes-Domingos</p>
-                     <p>L-S 8:50pm - D: 6:00pm</p>
-                  </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Pega 3 Más</h4>
-                  <div class="pie">
-                  <p class="font-weight-bold">Lunes-Domingos</p>
-                    <p>L-S 7:00am - 8:50pm - 7:00am - 3:50pm </p>
-                    <p><b>Sorteos:</b>Lunes a Domingos</p>
-                    <p>L-S 8:55pm - D 3:55pm</p>
-                  </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Quiniela Leidsa</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes-Domingo</p>
-                  <p>7:00am - 8:50pm - D 7:00am - 3:50pm </p>
-                  <p><b>Sorteos:</b> Lunes-Domingo</p>
-                  <p>L-S 8:55pm - D 3:55pm</p>
-                </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Loto Pool</h4>
-                 <div class="pie">
-                 <p class="font-weight-bold">Lunes a Domingos</p>
-                    <p>L-S: 7:00am - 8:50pm - D: 7:00am - 3:50pm </p>
-                    <p><b>Sorteos:</b> Lunes a Domingos</p>
-                    <p> L-S 8:55pm - D 3:55pm</p>
-                  </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Super Kino TV</h4>
-                  <div class="pie">
-                  <p class="font-weight-bold">Lunes a Domingos</p>
-                    <p>L-S: 7:00am - 8:50pm -- D: 7:00am - 3:50pm </p>
-                    <p><b>Sorteos:</b> Lunes a Domingos </p>
-                    <p>L-S 8:55pm - D 3:55pm</p>
-                  </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Super Loto Más</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am - 8:50pm </p>
-                  <p><b>Sorteos:</b> Miercoles Y Sabados</p>
-                  <p>8:55pm</p>
-                </div>
-              </div>
-
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Loto Pool Real</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am - 12:55pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>1:00pm </p>
-                </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Quiniela Real</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am - 12:50pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p> 12:55pm</p>
-                </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Loto Real</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am - 12:50pm</p>
-                  <p><b>Sorteos:</b> Martes y Viernes </p>
-                  <p>12:55pm</p>
-                </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Quiniela Loteka</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am - 7:50pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>7:55pm </p>
-                </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Mega Chances Loteka</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am - 7:50pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>7:55pm</p>
-                </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">New York Tarde</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am-2:25pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>2:30pm USA 3:30pm RD</p> 
-                </div>          
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">New York Noche</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am-10:25pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>10:30pm USA 11:30pm RD</p>           
-                 </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">New York Noche</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am-10:25pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>10:30pm USA 11:30pm RD</p>
-                </div>           
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Florida Dia</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am-1:25pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>1:30pm USA 2:30pm RD</p>  
-                </div>         
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Florida Noche</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                <p>7:00-9:40pm </p>
-                <p><b>Sorteos:</b> Lunes a Domingos</p>
-                <p>9:45 USA 10:45 RD</p> 
-                </div>          
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Mega Million</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Martes y Viernes</p> 
-                <p>7:00am-10:55pm</p>
-                  <p><b>Sorteos:</b> Martes y Viernes</p>  
-                  <p>11:00pm</p> 
-                </div>         
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">PowerBall</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p> 
-                <p>7:00am-8:55pm</p>
-                <p><b>Sorteos:</b> Miercoles y Sabados</p>  
-                <p>10:59pm</p> 
-     
-                
-                </div>         
-              </div> 
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Cash 4 Life</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a viernes</p>
-                 <p>7:00am-8:55pm</p>
-                 <p><b>Sorteos:</b> Lunes a Viernes</p> 
-                 <p>9:00pm</p>
-                </div>       
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">La primera Día</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Dommingos</p>
-                  <p>7:00am - 11:55am </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>12:00pm </p>
-                </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">La primera NOCHE</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Dommingos</p>
-                  <p>7:00am - 7:55pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>8:00pm </p>
-                </div>
-              </div>
-
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">La Suerte 12:30</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Dommingos</p>
-                 <p>7:00am - 12:25pm </p>
-                 <p><b>Sorteos:</b> Lunes a Domingos</p>
-                 <p>12:30pm </p>
-
-                </div>
-              </div>
-
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">La Suerte 18:00</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Dommingos</p>
-                 <p>7:00am - 5:55PM </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>6:00pm</p>
-                </div>
-              </div>
-
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Quiniela LoteDom</h4>
-                <div class="pie">
-                  <p class="font-weight-bold">Lunes a Dommingos</p>
-                  <p>7:00am - 1:50pm </p>
-                  <p><b>Sorteos:</b> Lunes a Dommingos </p>
-                  <p>1:55pm </p>
-                </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Quemaito Mayor</h4>
-                <div class="pie">
-                  <p class="font-weight-bold">Lunes a Dommingos</p>
-                  <p>7:00am - 1:50pm </p>
-                  <p><b>Sorteos:</b> Lunes a Dommingos</p>
-                  <p>1:55pm </p>
-                </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Anguila Mañana</h4>
-                <div class="pie">
-                  <p class="font-weight-bold">Lunes a Dommingos</p>
-                  <p>7:00am - 9:55am </p>
-                  <p><b>Sorteos:</b> Lunes a Dommingos</p>
-                  <p>10:00am </p>
-                </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">Anguila Medio Dia</h4>
-                <div class="pie">
-                  <p class="font-weight-bold">Lunes a Dommingos</p>
-                  <p>7:00am - 12:55pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos </p>
-                  <p>1:00pm </p>
               
-                </div>
-              </div>
-
               <div class="contLot">
-                <h4 class="font-weight-bold">Anguila Tarde</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Dommingos</p>
-                  <p>7:00am - 5:55pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>6:00pm </p>
-
-                </div>
+              <h3 class="font-weight-bold" style="color:rgba(245, 167, 37, 1) ">Sabados </h3>
+                  <div class="pie">
+                    <p>8:00am - 8:00pm </p>               
+                  </div>
               </div>
 
+                            
               <div class="contLot">
-                <h4 class="font-weight-bold">Anguila Noche</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Dommingos</p>
-                  <p>7:00am - 8:55pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>9:00pm </p>
-
-                </div>
+              <h3 class="font-weight-bold" style="color:rgba(245, 167, 37, 1) ">Domingos </h3>
+                  <div class="pie">
+                    <p>8:00am - 5:00pm </p>               
+                  </div>
               </div>
-
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">King Lottery 12:30</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am - 12:25pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos </p>
-                  <p>12:30pm </p>
-                
-                </div>
-              </div>
-
-              <div class="contLot">
-                <h4 class="font-weight-bold">King Lottery 7:30</h4>
-                <div class="pie">
-                <p class="font-weight-bold">Lunes a Domingos</p>
-                  <p>7:00am - 7:25pm </p>
-                  <p><b>Sorteos:</b> Lunes a Domingos</p>
-                  <p>7:30pm </p>
-                </div>
-              </div>
-
 
             
+
+
+            </section>  
           
 
     </div>
