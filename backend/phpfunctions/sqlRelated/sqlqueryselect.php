@@ -363,13 +363,17 @@
 
 // table tablajugadaventadeticket
 
+include_once(dirname(__FILE__, 4) . '/backend/phpfunctions/sqlRelated/sqlquerygenerals.php');
+include_once(dirname(__FILE__, 4) . '/backend/llavesYTextos.php');
+
 function seleccionar_tablajugadaventadeticket_estoyharto_por_idterceros_fk($id){
     $table = "tablajugadaventadeticket";
     $sql = "SELECT idtablajugada, jugadas, fecha FROM $table WHERE idterceros_fk = ?";
 
-    global $dbtablajugadaid; global $genjuglabel; global $genfeclabel;
-    $llaves = [$dbtablajugadaid, $genjuglabel, $genfeclabel];
-    return retornar_seleccion_con_llaves($sql, array($id), $llaves);
+    global $idgenericlabel; global $genjuglabel; global $genfeclabel; global $dbtercerosidfk;
+    $llaves = [$idgenericlabel, $genjuglabel, $genfeclabel, $dbtercerosidfk];
+    // return retornar_seleccion_con_llaves($sql, array($id), $llaves);
+    return execute_select($table, ["idterceros_fk" => $id], $llaves)[0];
 }
 
 ?>

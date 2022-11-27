@@ -13,6 +13,7 @@
 
 // Generales
 
+$idgenericlabel = "IdIdId";
 $gencantlabel = "Cantidad";
 $genmonlabel = "Moneda";
 $genmontolabel = "Monto";
@@ -25,6 +26,7 @@ $genimagenlabel = "Imagen";
 // Para columnas de la base de datos
 
 $dbtercerosid = "idterceros";
+$dbtercerosidfk = "idterceros_fk";
 $dbusername = "dBterusername";
 $dbuserpass = "dBterpassword";
 $dbusercedula = "dBtercedula";
@@ -32,7 +34,6 @@ $dbuseremail = "dBteremail";
 $dbuserestado = "dBterestado";
 $dbtercerosnivel = "idnivelacceso_fk";
 
-$dbtablajugadaid = "dBtablajugid";
 
 
 // Para $_POST, $_SESSION, etc

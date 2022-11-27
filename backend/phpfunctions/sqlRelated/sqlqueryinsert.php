@@ -257,8 +257,6 @@ function insert_vscostonomsorteo(int $idsorteo_fk, int $idnomsorteo_fk){
                         );
 }
 
-//insert_vscostonomsorteo
-
 // table vsnomsorteo
 
 function insert_vsnomsorteo(int $idnomsorteo_fk, int $idsorteo_fk){

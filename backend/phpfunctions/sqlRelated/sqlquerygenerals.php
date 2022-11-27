@@ -475,12 +475,7 @@ function get_shared_link_between_tables(string $table1, string $table2, array $a
         $table = $table2;
     }
     
-    
     return [$v, $table];
 }
 
-
 ?>
-
-
-
