@@ -54,7 +54,7 @@ SessionControl($nivel);
 <body >
 
         
-        <div class=" cuadrado">
+        <div class="cuadrado">
         
     <?php 
         include('../backend/ticketLoader.php');

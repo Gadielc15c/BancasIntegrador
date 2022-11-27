@@ -121,7 +121,7 @@ many_persistent_sessions([$sestabladejugadas, "filasjugadas", "conteojugadas"], 
                                         $m = "US";
                                     }
                                     echo "<label for='monto' >MONEDA: "; echo $m; echo "$</label>";
-                                    echo '<input type=" text" class="bebecito" name="'; echo $genmontolabel; echo '" placeholder="MONTO" required> </input>
+                                    echo '<input id="numj" "type=" text" class="bebecito" name="'; echo $genmontolabel; echo '" placeholder="MONTO" required> </input>
                                     
                                     </div>
                                     </div>

@@ -7,15 +7,13 @@ export {ValidarEmpty};
         item.addEventListener('keyup', function () {
           
             if (item.value.length == 0 || item.value.length < 1) {
+
                 item.style.border = '1px solid rgb(167, 50, 50)';
-                u_times.style.display = 'block';
-                u_check.style.display = 'none';
-               
+            
             }
             else {
                 item.style.border = '1px solid rgb(86, 221, 86)';
-                u_times.style.display = 'none';
-                u_check.style.display = 'block';
+                
             }
        
             validate();
