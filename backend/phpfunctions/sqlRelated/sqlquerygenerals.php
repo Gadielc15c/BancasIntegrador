@@ -1,5 +1,6 @@
 <?php
 include_once('dbConstruct.php');
+include_once('sqlqueryinsert.php');
 include_once(dirname(__FILE__, 4) . '/backend/phpfunctions/generals.php');
 
 function retornar_seleccion(string $sql, array $input = null, $type = null){
@@ -112,6 +113,8 @@ function execute_insert(string $idcol, string $table, string $col_names, array $
     $question_marks = generate_insert_question_marks_from_col($all_col);
 
     $sql = "INSERT INTO $table ($all_col) VALUES ($question_marks)";
+    // echo $sql;
+    // var_dump($values);
     $v = ejecutarQuery($sql, $values);
     if ($v){
         return $id;
@@ -494,6 +497,28 @@ function get_shared_link_between_tables(string $table1, string $table2, array $a
     // echo "<BR>";
     
     return [$v, $table];
+}
+
+function update_tabledata(){
+    // NO USAR ESTA FUNCION
+    // Hablen con el dev de backend en todo caso
+
+    execute_simple_sql("DELETE FROM tabledata");
+    $v = organize_database_tables_by_columns();
+    foreach($v as $a => $b){
+        insert_tabledata($a, $b[0]);
+    }
+}
+
+function organize_tabledata(){
+    $tabledata = execute_select("tabledata");
+    $t = [];
+    $col1 = "tablename";
+    $col2 = "tableidcol";
+    foreach($tabledata as $td){
+        $t[$td[$col1]] = $td[$col2];
+    }
+    return $t;
 }
 
 ?>

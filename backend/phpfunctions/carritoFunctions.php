@@ -16,15 +16,13 @@ $keyed_array
 )
 {
 
+    $_SESSION['arrayT']=$keyed_array;
 
-    $_SESSION['array']=$keyed_array;
-  
-   
 echo '
-
-
 <div class="col">
+
 <form action="../backend/MetodoPagForm.php">
+
   <div class="jugadaContainer">
     <div class="loteryImg">
       <img src="'; echo $img; echo '" style="height: 250px" />
@@ -82,13 +80,13 @@ echo '
 
   
     <input type="submit" value="PAGAR" class="boton">
+    
   </form>
   
   <hr />
 </div>
 
   </div>
- 
 </div>
 
  

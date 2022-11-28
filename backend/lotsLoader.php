@@ -5,7 +5,7 @@ $path = dirname(__FILE__);
 
 include_once($path . "./phpfunctions/webscraping.php");
 include_once($path . "./lotsLoaderFunction.php");
-$lotosR = retornar_lot_numeros_live();
+$lotosR = return_lot_numbers_live();
 
 foreach ($lotosR as $l){
 $nom= $l[0][0];

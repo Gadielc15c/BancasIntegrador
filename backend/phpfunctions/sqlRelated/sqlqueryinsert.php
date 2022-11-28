@@ -233,7 +233,7 @@ function insert_costosorteo(int $costo){
 
 function insert_nomsorteo(string $nom){
     return execute_insert(  "idnomsorteo", "nomsorteo", 
-                            "nom", 
+                            "nombre", 
                             func_get_args()
                         );
 }
@@ -273,6 +273,15 @@ function insert_tiposorteo(string $nomtipo){
 function insert_vstiposorteo(int $idtiposorteo_fk, int $idsorteo_fk){
     return execute_insert(  "idvstiposorteo", "vstiposorteo", 
                             "idtiposorteo_fk idsorteo_fk", 
+                            func_get_args()
+                        );
+}
+
+// tabledata
+
+function insert_tabledata(string $tablename, string $tableidcol){
+    return execute_insert(  "idtabledata", "tabledata", 
+                            "tablename tableidcol", 
                             func_get_args()
                         );
 }

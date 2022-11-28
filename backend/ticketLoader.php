@@ -36,8 +36,6 @@ $barCdNum = crear_tickets_codigo();
 create_simple_session($sescodigobarra, $barCdNum);
 $estado="PAGO";
 
-
-
 for ($x = 0; $x < $cant; $x++) {
     $m = $Arreglo[$genmonlabel];
     if ($m == "RD"){

@@ -16,7 +16,7 @@ SessionControl($nivel);
     <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script nomodule src="../js/tarjeta.js"></script>
     <meta charset="utf-8">
-    <title>INICIO</title>
+    <title>RECIBO</title>
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="description" />
     <meta name="generator" content="HAPedit 3.1" />
