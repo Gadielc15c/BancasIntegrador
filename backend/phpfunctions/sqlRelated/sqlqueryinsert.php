@@ -13,7 +13,6 @@ function insertar_tercero(string $nomusuario, string $claveusuario, int $idterda
                         );
 }
 
-
 // table tickets
 
 function insertar_ticket(int $monto, string $jugadas, int $idsorteo_fk, int $idterceros_fk, string $codigobarra, int $idsucursalventa_fk, int $idsucursalpago_fk, int $idpagometodos_fk){
@@ -143,9 +142,9 @@ function insertar_pagosonline(string $nombrecuenta, int $idpagometodos_fk){
 
 // table sorteo
 
-function insert_sorteo(string $nombre, int $idloteria_fk, int $idzona_fk, int $idmoneda_fk){
+function insert_sorteo(int $idnomsorteo_fk, int $idloteria_fk, int $idzona_fk, int $idmoneda_fk){
     return execute_insert(  "idsorteo", "sorteo", 
-                            "nombre idloteria_fk idzona_fk idmoneda_fk", 
+                            "idnomsorteo_fk idloteria_fk idzona_fk idmonedas_fk", 
                             func_get_args()
                         );
 }
@@ -193,20 +192,11 @@ function insert_horamilitarsorteo(string $hora){
                         );
 }
 
-// table vshoramilitarsorteo
+// table horariosorteo
 
-function insert_vshoramilitarsorteo(string $inicioidhora_fk, string $terminaidhora_fk, string $iddias_fk, string $idsorteo_fk){
-    return execute_insert(  "idvshoramilitar", "vshoramilitarsorteo", 
-                            "inicioidhora_fk terminaidhora_fk iddias_fk idsorteo_fk", 
-                            func_get_args()
-                        );
-}
-
-// table vsdiadelsorteo
-
-function insert_vsdiadelsorteo(string $iddias_fk, string $idhoramilitar_fk, string $idsorteo_fk){
-    return execute_insert(  "idvsdia", "vsdiadelsorteo", 
-                            "iddias_fk idhoramilitar_fk idsorteo_fk", 
+function insert_horariosorteo(int $idhoramilitar_fk, int $iddias_fk, int $idsorteo_fk){
+    return execute_insert(  "idhorariosorteo", "horariosorteo", 
+                            "idhoramilitar_fk iddias_fk idsorteo_fk", 
                             func_get_args()
                         );
 }
@@ -253,15 +243,6 @@ function insert_nomsorteo(string $nom){
 function insert_vscostonomsorteo(int $idsorteo_fk, int $idnomsorteo_fk){
     return execute_insert(  "idnomsorteo", "vscostonomsorteo", 
                             "idcosto_fk idnomsorteo_fk", 
-                            func_get_args()
-                        );
-}
-
-// table vsnomsorteo
-
-function insert_vsnomsorteo(int $idnomsorteo_fk, int $idsorteo_fk){
-    return execute_insert(  "idvsnom", "vsnomsorteo", 
-                            "idnomsorteo_fk idsorteo_fk", 
                             func_get_args()
                         );
 }

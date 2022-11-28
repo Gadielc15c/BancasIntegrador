@@ -149,6 +149,17 @@ function array_remove_empty_string(array $a){
     return $t;
 }
 
+function array_remove_dupe(array $a){
+    $t = [];
+    foreach($a as $b){
+        if (!in_array($b, $t)){
+            array_push($t, $b);
+        }
+    }
+    
+    return $t;
+}
+
 function array_remove_by_key(string $key, array $a, bool $mantener_keys = true){
     $i = array_search($key, array_keys($a));
     $all_keys = array_keys($a);
