@@ -23,7 +23,7 @@ SessionControl($nivel);
     <?php include('../cliente/navCliente.php');?>
 </header>
 
-<body>
+<body onload="startTime()">
 
     <div class="container2">
         <div class="cuadrado">
@@ -36,15 +36,15 @@ SessionControl($nivel);
                 <?php include('../frontend/shoppinCart.php');?>
                 <div class="pagarto">
 
-                <form action="../backend/MetodoPagForm.php">
-<input type="submit" value="PAGAR TODO" class="boton">
-</form>
-</div>
-                
+                    <form action="../backend/MetodoPagForm.php">
+                        <input type="submit" value="PAGAR TODO" class="boton">
+                    </form>
+                </div>
 
- </form>
-</form>
-</div>
+
+                </form>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -52,10 +52,12 @@ SessionControl($nivel);
 
     <!--No borrar-->
     <script nomodule src=" https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-                <!--Script de iconos-->
-                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-                <!--No borrar-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!--Script de iconos-->
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!--No borrar-->
+    <script src="/js/darkmode.js"></script>
+    <script src="../js/reloj.js"></script>
 
 </body>
 <footer>

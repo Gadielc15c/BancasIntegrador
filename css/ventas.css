@@ -5,6 +5,7 @@
   --Blanco: #ffffff;
   --Gris: #dbdada;
   --GrisOscuro: #515151;
+  --negro: #39393a;
 }
 th{
 
@@ -131,7 +132,7 @@ margin-left: -35vw;
     will-change: transform;
   transform: translateY(10px);
   text-align: center;
-  width: 17vw;
+  /*width: 17vw;*/
   margin-top: 10vh;
   box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
   -webkit-box-shadow: 2px 8px 6px -8px var(--GrisOscuro);
@@ -145,7 +146,7 @@ margin-left: -35vw;
   font-family: Verdana, sans-serif;
   font-size: 20px;
   padding: 10px 30px;
-  text-decoration: none;
+  text-decoration: none; 
 }
 option:first {
   color: rgb(174, 96, 12);
@@ -213,4 +214,14 @@ option:first {
 		--gradX: 50%;
 		--gradY: 0%;
 	}
+}
+
+/*dark mode*/
+
+body.dark td{
+  color: var(--Blanco);
+}
+body.dark .lotsSelect{
+  background-color: var(--negro);
+  color: var(--Blanco);
 }

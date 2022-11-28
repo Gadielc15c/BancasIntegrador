@@ -3,13 +3,14 @@
   --Secundario: rgb(190, 130, 27);
   --Blanco: #ffffff;
   --Gris: #dbdada;
+  --negro: #39393a;
 }
 .Carrito {
   padding: 8px;
   margin-left: 15%;
   width: 70%;
   height: 80%;
-  background-color: #ffffff;
+  /*background-color: #ffffff;*/
   border-radius: 20px;
   box-shadow: 0px 25px 40px var(--Secundario);
   overflow: scroll;
@@ -313,4 +314,32 @@ hr{
 }
 .control-checkbox input:checked + .control_indicator::before {
     animation-name: s-ripple-dup;
+}
+
+/*dark mode*/
+
+body.dark .Carrito{
+  background-color: var(--negro);
+  border: var(--Principal) solid;
+  border-width: .1vw;
+}
+
+body.dark .jugadaContainer{
+  background-color: var(--negro);
+}
+
+body.dark .monto{
+    color:var(--Blanco);
+}
+
+body.dark .Fecha {
+    color: var(--Blanco);
+}
+
+body.dark .sorteo{
+    color: var(--Blanco);
+}
+
+body.dark .loteria{
+    color: var(--Blanco);
 }

@@ -23,9 +23,11 @@ SessionControl($nivel);
     <?php include('../cliente/navCliente.php');?>
 </header>
 
-<body>
+<body onload="startTime()">
 
     <div class="container2">
+
+
         <div class="cuadrado">
 
 
@@ -61,6 +63,8 @@ SessionControl($nivel);
     <!--Script de iconos-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--No borrar-->
+    <script src="/js/darkmode.js"></script>
+    <script src="../js/reloj.js"></script>
 
 </body>
 <footer>
