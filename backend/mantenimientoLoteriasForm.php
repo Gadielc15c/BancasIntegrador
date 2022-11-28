@@ -2,8 +2,9 @@
 
 $path = dirname(__FILE__);
 include_once($path . "/phpFunctions/mantenimientosFunctions.php");
+include_once(dirname(__FILE__) . "/phpFunctions/sqlRelated/sqlquerygenerals.php");
 
-$function_select = seleccionar_todas_loterias();
+$function_select = execute_select("loterias");
 $encabezado = "Mantenimientos Loterias";
 $table = "loterias";
 $array_columnas_exception = array("idterceros_fk", "idlothorarios_fk");

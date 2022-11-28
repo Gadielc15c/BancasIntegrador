@@ -4,10 +4,10 @@
   --Blanco: #ffffff;
   --Gris: #dbdada;
   --Bolas: #07316b;
+  --negro: #39393a;
 }
 .contLots {
-  
-    flex: 1;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-content: center;
@@ -16,7 +16,7 @@
   margin-bottom: 2%;
 
   position: relative;
-  
+
   width: 450px;
   box-shadow: -2px 12px 39px -6px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -2px 12px 39px -6px rgba(0, 0, 0, 0.75);
@@ -44,7 +44,7 @@
     #89c3eb 51%,
     #d5ebfb 100%
   );
-  
+
   text-align: center;
   color: var(--Bolas);
   line-height: 45px;
@@ -87,7 +87,7 @@
     #25fd4d 51%,
     #d5ebfb 100%
   );
-  
+
   text-align: center;
   color: var(--Bolas);
   line-height: 45px;
@@ -119,6 +119,7 @@
   height: 70px;
   width: 70px;
 }
+
 .lotsnName {
   font-size: 24px;
   text-align: center;
@@ -131,10 +132,11 @@
   text-transform: uppercase;
   font-weight: bolder;
 }
-.cuadradox{
-    display: flex;
-    flex-direction: row;   
-    align-content: center;
+
+.cuadradox {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
   background-color: rgb(255, 255, 255);
   margin: auto;
   margin-top: 3%;
@@ -142,12 +144,21 @@
   overflow: scroll;
   position: relative;
   z-index: 1;
-  
-
 }
-.title{
+
+.title {
   color: var(--Principal);
-    font-weight: bolder;
-    text-decoration: underline;
-  
-  }
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+/*css darkmode*/
+body.dark .imgLots{
+  background-color: rgb(255, 255, 255);
+}
+body.dark .cuadradox {
+  background-color: var(--negro);
+}
+body.dark .nomjugada{
+  color: rgb(255, 255, 255);
+}

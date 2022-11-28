@@ -1,11 +1,14 @@
 <?php
 
+include_once(dirname(__FILE__, 2) . '/backend/phpfunctions/webscraping.php');
+include_once(dirname(__FILE__, 2) . '/backend/phpfunctions/generals.php');
+
 session_start();
 $metodoPago = [$metodo1 = ["PAYPAL", "****-****-****1521", "IVAN", "MENDOZA"], $metodo2 = ["MASTER CARD", "****-****-****-**41", "IVAN", "MENDOZA"]];
 $_SESSION['MDP'] = $metodoPago[0];
-if (isset($_SESSION['array'])) {
-    $_SESSION['arrayT'] = $Areglo = $_SESSION['array'];
-    $Valor = 24.0 * 0.018;
+if (isset($_SESSION['arrayT'])) {
+    $Areglo = $_SESSION['arrayT'];
+    $Valor = 24.0 * return_usd_to_dop_pesos_rate();
     $dolar=round($Valor,2);
 }
 
@@ -37,7 +40,7 @@ echo "Cookie Not Set";
     <script src="https://js.braintreegateway.com/web/3.39.0/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.39.0/js/paypal-checkout.min.js"></script>
     <meta charset="utf-8">
-    <title>PAGos</title>
+    <title>PAGOS</title>
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="description" />
     <meta name="generator" content="HAPedit 3.1" />
@@ -48,7 +51,7 @@ echo "Cookie Not Set";
 
 </head>
 <header>
-<?php include('../cliente/navCliente.php');?>
+    <?php include(dirname(__FILE__, 2) . '/cliente/navCliente.php'); ?>
 </header>
 
 <body>

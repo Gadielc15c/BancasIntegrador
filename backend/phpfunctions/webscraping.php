@@ -1,17 +1,17 @@
 <?php
 
-function retornar_lot_numeros_live(string $fecha_especifica = null, bool $modo_debug = false){
+function return_lot_numbers_live(string $fecha_especifica = null, bool $modo_debug = false){
     /* 
         @param $fecha_especifica        un string en el formato dd-mm-yyyy
         Retorna un arreglo con la loteria, sorteo, fecha, numeros y un checkmark, de lo contrario retornara false
     */
     if ($fecha_especifica){
-        $url = "https://loteriasdominicanas.com/    =" . $fecha_especifica;
+        $url = "https://loteriasdominicanas.com/?date=" . $fecha_especifica;
     } else {
         $url = "https://loteriasdominicanas.com/";
     }
     
-    header("Content-Type: text/plain");
+    // header("Content-Type: text/plain");      // NO BORRAR
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $response = curl_exec($ch);
@@ -23,10 +23,10 @@ function retornar_lot_numeros_live(string $fecha_especifica = null, bool $modo_d
     } else {
         function imprimir($msg, $arreglo){
             // Funcion para modo_debug  
-            echo "\n";
-            print_r($msg);
-            echo "\n";
-            print_r($arreglo);
+            echo "<BR>";
+            var_dump($msg);
+            echo "<BR>";
+            var_dump($arreglo);
         }
 
         $response = trim(preg_replace('/\s\s+/', ' ', $response));
@@ -76,14 +76,39 @@ function retornar_lot_numeros_live(string $fecha_especifica = null, bool $modo_d
         }
     }
     if (!$modo_debug){
-        header("Content-Type: text/html; charset=UTF-8");    
+        // header("Content-Type: text/html; charset=UTF-8");    // NO BORRAR
     }
     curl_close($ch);
     return $a;
 }
 
 
-// $x = retornar_lot_numeros_live();
+function return_usd_to_dop_pesos_rate(){
+    
+    $url = "https://www.google.com/finance/quote/DOP-USD";
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+
+    if (curl_error($ch)) {
+        echo curl_error($ch);
+    } else {
+        $response = trim(preg_replace('/\s\s+/', ' ', $response));
+        $pattern = "/timestamp.*?>([0-9.]{2,})</";
+        if(preg_match_all($pattern, $response, $matches)) {
+            $matches = end($matches)[0];
+            return floatval($matches);
+        }
+    }
+}
+
+
+// $y = return_usd_to_dop_pesos_rate();
+// var_dump($y);
+
+
+// $x = return_lot_numbers_live();
+// $x = return_lot_numbers_live("01-11-2022");
 
 // print_r(sizeof($x)); // Son 33 jugadas pero a veces solo salen 31 por ser domingo
 

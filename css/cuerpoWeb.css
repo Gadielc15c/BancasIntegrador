@@ -3,7 +3,9 @@
   --Secundario: rgb(190, 130, 27);
   --Blanco: #ffffff;
   --Gris: #ffffff;
+  --negro : #39393a;
 }
+
 p {
   padding: 0 10px;
   line-height: 1.8;
@@ -138,6 +140,7 @@ body {
   line-height: 1.5;
   font-family: "Noto Sans JP", sans-serif;
   background-color: var(--Gris);
+  transition: 0.3s ease all;
 }
 
 .navbar-logo img {
@@ -145,7 +148,7 @@ body {
   display: block;
   width: 55%;
   height: 60%;
-  margin-left: 30%; 
+  /*margin-left: 30%;*/
 }
 
 .NAV-padding {
@@ -220,7 +223,7 @@ footer {
   padding: 10px;*/
   font-weight: bolder;
   border: #d07616 solid;
-  border-width: 0.3vw;
+  border-width: 0.2vw;
   background-color: rgba(245, 167, 37, 1);
   color: rgb(255, 255, 255);
   z-index: 2;
@@ -232,7 +235,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 #container {
@@ -310,7 +312,6 @@ hr {
   text-align: center;
   border-radius: 5px;
   margin-left: 2vh;
-  ;
 }
 #clock {
   background-color: rgb(255, 255, 255);
@@ -330,3 +331,158 @@ hr {
   font-family: arial, sans-serif;
   color: #fff;
 }
+
+/*menu desplegable de ajustes*/
+
+.cont-ul {
+  display: flex;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.5vw;
+}
+
+li:hover {
+  color: rgba(245, 167, 37, 1);
+}
+
+.develop {
+  position: relative;
+  font-size: 1vw;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.ul-second {
+  display: none;
+  position: absolute;
+  margin-top: 1.5vw;
+}
+
+.ul-second > li {
+  width: 180px;
+  transform: translateX(-20px);
+  border-bottom: solid 0.2vw #fff;
+  background-color: rgba(245, 167, 37, 1);
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1vw;
+  border-radius: 10px;
+  height: 3.2rem;
+  justify-content: left;
+}
+
+.ul-second > li:hover a {
+  background-color: rgba(245, 167, 37, 1);
+  color: rgb(255, 255, 255);
+}
+
+.develop:hover > .ul-second {
+  display: block;
+}
+
+.ul-third {
+  position: absolute;
+  transform: translateX(100%);
+  right: 0;
+  top: 40%;
+  display: none;
+  background-color: #24252a;
+}
+
+.ul-third > li {
+  padding: 1.5vw;
+  border-bottom: solid 1px #fff;
+}
+
+.front:hover > .ul-third {
+  display: block;
+}
+/*menu desplegable de ajustes*/
+
+/*btn darkmode*/
+.switchDark {
+  background-color: #3494b1;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.switchDark span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  color: rgb(14, 13, 13);
+  background: none;
+}
+.switchDark::after {
+  display: block;
+  background: #fffbf5;
+  width: 1.8rem;
+  height: 1.8rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 1.5px 1.5px rgba(0, 0, 0, 0.5);
+  content: "";
+}
+.switchDark.active {
+  background: rgb(163, 116, 33);
+}
+.switchDark.active::after {
+  left: unset;
+  right: 0;
+}
+/*btn darkmode*/
+
+/*css darkmode*/
+body.dark .nav{
+
+  background-color: var(--negro);
+  box-shadow: none;
+}
+body.dark {
+  background-color:var(--negro);
+}
+body.dark .NavButton:hover{
+  color: var(--Principal);
+}
+body.dark .NavButton{
+  color: rgb(255, 255, 255);
+}
+body.dark footer{
+  background-color:var(--negro);
+  }
+  body.dark #clock{
+    background-color:var(--negro);
+    border: #d07616 solid;
+    border-width: 0.1vw;
+  }
+  body.dark #clock span{
+    color: #d07616;
+  }
+  body.dark .develop{
+    color: rgb(255, 255, 255);
+  }
+
+  body.dark .cuadrado{
+    background-color: var(--negro);
+    border: var(--Principal) solid;
+    border-width: .1vw;
+  }
+body.dark h2{
+  color: rgb(255, 255, 255);
+}
+  /*css darkmode*/

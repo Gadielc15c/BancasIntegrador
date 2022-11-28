@@ -90,6 +90,12 @@ SessionControl($nivel);
                                                 </a>    
                                             </div>
 
+                                            <div class="row">
+                                                <a href="../backend/mantenimientosG.php" class="NavItem NavButton">
+                                                    <ion-icon name="card"></ion-icon> TEST
+                                                </a>    
+                                            </div>
+
 
 
                                         </div>

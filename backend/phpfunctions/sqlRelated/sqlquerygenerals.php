@@ -1,5 +1,6 @@
 <?php
 include_once('dbConstruct.php');
+include_once('sqlqueryinsert.php');
 include_once(dirname(__FILE__, 4) . '/backend/phpfunctions/generals.php');
 
 function retornar_seleccion(string $sql, array $input = null, $type = null){
@@ -112,6 +113,8 @@ function execute_insert(string $idcol, string $table, string $col_names, array $
     $question_marks = generate_insert_question_marks_from_col($all_col);
 
     $sql = "INSERT INTO $table ($all_col) VALUES ($question_marks)";
+    // echo $sql;
+    // var_dump($values);
     $v = ejecutarQuery($sql, $values);
     if ($v){
         return $id;
@@ -336,16 +339,16 @@ function organize_database_tables_by_columns(){
 
 function get_all_links_from_table(string $table, array $all_tables, array $only_tables = []){
     $links = "";
-    $a_tables = array_keys($all_tables);
+    $a_tables = array_values(array_keys($all_tables));
 
-    $include = array_unique(array_merge([$table], $only_tables));
+    $include = array_values(array_unique(array_merge([$table], $only_tables)));
     if ($only_tables){
-        $exclude = array_diff($a_tables, $include);
+        $exclude = array_values(array_diff($a_tables, $include));
     } else {
         $exclude = [];
     }
     
-    $linked_tables = $include;
+    $linked_tables = array_values($include);
     $used_share_link = [$table];
     
     $t = [];
@@ -427,12 +430,12 @@ function get_shared_link_between_tables(string $table1, string $table2, array $a
     $v = "";
     $table = "";
     $switched = false;
+
     if (in_array($table1, $used_share_link) && in_array($table2, $used_share_link)){
         return [$v, $table]; 
     }
-
     if (in_array($table2, $used_share_link)){
-        $t = $table2;
+        $t = $table1;
         $table1 = $table2;
         $table2 = $t;
         $switched = true;
@@ -440,18 +443,29 @@ function get_shared_link_between_tables(string $table1, string $table2, array $a
     
     $t1fk = get_foreign_keys_from_table($all_tables[$table1]);
     $t2fk = get_foreign_keys_from_table($all_tables[$table2]);
+
     $t1id = $all_tables[$table1][0];
     $t2id = $all_tables[$table2][0];
     $t1idfk = $t1id . "_fk";
     $t2idfk = $t2id . "_fk";
 
-    // $test = ["terceros", "tickets"];
+    // $test = ["nomsorteo", "vscostonomsorteo"];
     // if (in_array($table1, $test) && in_array($table2, $test)){
+    //     echo "START_DEBUG";
+    //     echo "<BR>";
     //     var_dump($used_share_link);
     //     echo "<BR>";
     //     echo $table1;
     //     echo "<BR>";
     //     echo $table2;
+    //     echo "<BR>";
+    //     var_dump($all_tables[$table1]);
+    //     echo "<BR>";
+    //     var_dump($all_tables[$table2]);
+    //     echo "<BR>";
+    //     echo $t1id;
+    //     echo "<BR>";
+    //     echo $t2id;
     //     echo "<BR>";
     //     echo $t1idfk;
     //     echo "<BR>";
@@ -463,19 +477,48 @@ function get_shared_link_between_tables(string $table1, string $table2, array $a
     //     echo "<BR>";
     //     var_dump(in_array($t1idfk, $t2fk));
     //     echo "<BR>";
-
     // }
 
     if (in_array($t2idfk, $t1fk)){
-        // $v = "INNER JOIN $table2 ON $table1.$t2idfk = $table2.$t2id";
+        // echo "<BR>";
+        // echo "Here1";
+        // echo "<BR>";
         $v = "INNER JOIN $table2 ON $table1.$t2idfk = $table2.$t2id";
         $table = $table2;
     } elseif (in_array($t1idfk, $t2fk)){
+        // echo "<BR>";
+        // echo "Here2";
+        // echo "<BR>";
         $v = "INNER JOIN $table2 ON $table1.$t1id = $table2.$t1idfk";
         $table = $table2;
     }
+    // echo "<BR>";
+    // var_dump([$v, $table]);
+    // echo "<BR>";
     
     return [$v, $table];
+}
+
+function update_tabledata(){
+    // NO USAR ESTA FUNCION
+    // Hablen con el dev de backend en todo caso
+
+    execute_simple_sql("DELETE FROM tabledata");
+    $v = organize_database_tables_by_columns();
+    foreach($v as $a => $b){
+        insert_tabledata($a, $b[0]);
+    }
+}
+
+function organize_tabledata(){
+    $tabledata = execute_select("tabledata");
+    $t = [];
+    $col1 = "tablename";
+    $col2 = "tableidcol";
+    foreach($tabledata as $td){
+        $t[$td[$col1]] = $td[$col2];
+    }
+    return $t;
 }
 
 ?>
