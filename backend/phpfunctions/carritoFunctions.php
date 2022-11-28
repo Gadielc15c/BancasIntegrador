@@ -22,8 +22,9 @@ $keyed_array
    
 echo '
 
-<form action="../backend/MetodoPagForm.php">
+
 <div class="col">
+<form action="../backend/MetodoPagForm.php">
   <div class="jugadaContainer">
     <div class="loteryImg">
       <img src="'; echo $img; echo '" style="height: 250px" />
@@ -69,20 +70,25 @@ echo '
       <div class="montitos">
         <div class="monto">TOTAL: RD$ '; echo $total; echo '</div>
         <div class="control-group">
-          <label class="control control-checkbox">
-            <input type="checkbox" />
+            <input type="checkbox"/> 
             <div class="control_indicator"></div>
-          </label>
+          
         </div>
+        
       </div>
+      
     </div>
-  </div>
-</div>
-<div class="pagarto">
-  <form action="../backend/MetodoPagForm.php">
-    <input type="submit" value="PAGAR" class="boton" ">
+    <div class="pagarto">
+
+  
+    <input type="submit" value="PAGAR" class="boton">
   </form>
+  
   <hr />
+</div>
+
+  </div>
+ 
 </div>
 
  

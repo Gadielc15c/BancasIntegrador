@@ -17,17 +17,23 @@ function winners($nombreLoteria, $jugada, $fecha, $img, $resultado,$premiado){
         </div>
       
         <div class="bolasConten"> ';  
-        
+
+        $Nopre=array_diff($resultado,$premiado); // el orden importa para determinar el reciduop
+       
+
+
+        foreach ($premiado as $prem){
         foreach ($resultado as $val) {
-            foreach ($premiado as $prem){
+       
                
             if ($val==$prem){
             echo '<span class="bola2win">'; echo $val; echo '</span>'
             ;$buttonMaker=true;
         }else{
-                echo '<span class="bolalose">'; echo $val; echo '</span>'
-
-            ;}
+            foreach(  $Nopre as $perdidos){
+                echo '<span class="bolalose">'; echo $perdidos; echo '</span>'
+                    ;}
+            ;}  
             }
         ;}if ($buttonMaker!=true){
 
@@ -44,5 +50,5 @@ function winners($nombreLoteria, $jugada, $fecha, $img, $resultado,$premiado){
         
 </div></div>
 ';}
-echo 'PHP version'.phpversion();
+
 ?>
