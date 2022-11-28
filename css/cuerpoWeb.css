@@ -330,3 +330,76 @@ hr {
   font-family: arial, sans-serif;
   color: #fff;
 }
+
+/*menu desplegable de ajustes*/
+
+.cont-ul {
+  display: flex;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.5vw;
+  
+}
+
+li:hover {
+  color:  rgba(245, 167, 37, 1);
+}
+
+.develop {
+  position: relative;
+  font-size: 1vw;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.ul-second {
+  display: none;
+  position: absolute;
+  margin-top: 1.5vw;
+}
+
+.ul-second > li {
+  width: 180px;
+  transform: translateX(-20px);
+  border-bottom:solid 0.2vw #fff ;
+  background-color: rgba(245, 167, 37, 1);
+  color:  rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1vw;
+  border-radius: 10px;
+  height: 3.2rem;
+  justify-content: left;
+}
+
+.ul-second > li:hover a {
+  background-color: rgba(245, 167, 37, 1);
+  color:  rgb(255, 255, 255);
+}
+
+.develop:hover > .ul-second {
+  display: block;
+}
+
+.ul-third {
+  position: absolute;
+  transform: translateX(100%);
+  right: 0;
+  top: 40%;
+  display: none;
+  background-color: #24252a;
+}
+
+.ul-third > li {
+  padding: 1.5vw;
+  border-bottom: solid 1px #fff;
+}
+
+.front:hover > .ul-third {
+  display: block;
+}
+/*menu desplegable de ajustes*/
