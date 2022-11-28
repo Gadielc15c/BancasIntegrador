@@ -232,7 +232,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 #container {
@@ -310,7 +309,6 @@ hr {
   text-align: center;
   border-radius: 5px;
   margin-left: 2vh;
-  ;
 }
 #clock {
   background-color: rgb(255, 255, 255);
@@ -342,7 +340,6 @@ li {
   list-style: none;
   cursor: pointer;
   padding: 1.5vw;
-  
 }
 
 li:hover {

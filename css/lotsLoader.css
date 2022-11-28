@@ -6,7 +6,6 @@
   --Bolas: #07316b;
 }
 .contLots {
-  
     flex: 1;
   flex-direction: column;
   justify-content: center;
@@ -142,8 +141,6 @@
   overflow: scroll;
   position: relative;
   z-index: 1;
-  
-
 }
 .title{
   color: var(--Principal);
