@@ -48,7 +48,7 @@ echo "Cookie Not Set";
 
 </head>
 <header>
-    <?php include('../frontend/nav.php'); ?>
+<?php include('../cliente/navCliente.php');?>
 </header>
 
 <body>
