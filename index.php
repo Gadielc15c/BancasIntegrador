@@ -40,7 +40,10 @@ lvlLogValidate();
 
 </body>
 <footer>
-    <?php include("./frontend/footer.php") ?>
+    <?php
+include('./frontend/footer.php');
+?>
+
 </footer>
 
 </html>
