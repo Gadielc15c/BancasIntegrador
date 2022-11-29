@@ -136,21 +136,9 @@ function premios_jugadas_main(string $lot, string $sorteo, array $ternum, int $m
                                         4 array con los numeros ganadores
 
     */
-    function limpiar_str($s){
-        $ch_special = array("+", ":", "-", " ");
-        $s = strtolower($s);
-        $s = str_replace($ch_special, "_", $s);
-        $s = str_replace("á", "a", $s);
-        $s = str_replace("é", "e", $s);
-        $s = str_replace("í", "i", $s);
-        $s = str_replace("ó", "o", $s);
-        $s = str_replace("ú", "u", $s);
-        $s = str_replace("ñ", "n", $s);
-        return $s;
-    }
 
     $todo = return_lot_numbers_live(fecha_especifica: $fecha_especifica);
-    $func = limpiar_str($lot) . "_" . limpiar_str($sorteo);
+    $func = clean_str($lot) . "_" . clean_str($sorteo);
     
     foreach($todo as $t){
         $loteria = $t[0][0];
@@ -190,7 +178,7 @@ function num_ganadores(array $ternum, array $lotnum){
             array_push($ganadores, $t);
         }
     }
-    return $ganadores;
+    return [$ganadores, $temp];
 }
 
 
@@ -272,7 +260,7 @@ function las_3_jugadas(array $ternum, array $lotnum,
             $v[4] = []; 
         }
     } else {                                                                // Tripleta
-        $n = num_ganadores($ternum, $lotnum);
+        $n = num_ganadores($ternum, $lotnum)[0];
         $v = [$t_label, true, $moneda, 0, $n];                              // 3 aciertos
         if (sizeof($n) == 3){
             $v[3] = $t1*$monto_jugado;
@@ -313,7 +301,7 @@ function mega_millions_y_powerball(array $ternum, array $lotnum, int $sorteo){
         $mb = true;
     }
 
-    $n = num_ganadores(array_slice($ternum, 0, 5), array_slice($lotnum, 0, 5)); // Los primeros 5 numeros. Que no incluye mb ni megaplier
+    $n = num_ganadores(array_slice($ternum, 0, 5), array_slice($lotnum, 0, 5))[0]; // Los primeros 5 numeros. Que no incluye mb ni megaplier
     $s = sizeof($n);
 
     if ($s == 5 && $mb){
@@ -490,7 +478,7 @@ function loteria_nacional_loteria_nacional(array $ternum, array $lotnum, int $mo
 }
 
 function leidsa_pega_3_mas(array $ternum, array $lotnum, int $monto_jugado = 0){
-    $n = num_ganadores($ternum, $lotnum);
+    $n = num_ganadores($ternum, $lotnum)[0];
     $s = sizeof($n);
     $m = (string)$monto_jugado;
     $m = (int)substr_replace($m,"0",-1);
@@ -513,7 +501,7 @@ function leidsa_quiniela_leidsa(array $ternum, array $lotnum, int $monto_jugado)
 }
 
 function leidsa_loto_pool(array $ternum, array $lotnum, int $monto_jugado){
-    $n = num_ganadores($ternum, $lotnum);
+    $n = num_ganadores($ternum, $lotnum)[0];
     $s = sizeof($n);
 
     if ($s == 5){
@@ -529,7 +517,7 @@ function leidsa_loto_pool(array $ternum, array $lotnum, int $monto_jugado){
 }
 
 function leidsa_super_kino_tv(array $ternum, array $lotnum, int $monto_jugado){
-    $n = num_ganadores($ternum, $lotnum);
+    $n = num_ganadores($ternum, $lotnum)[0];
     $s = sizeof($n);
 
     if ($s == 10){
@@ -555,7 +543,7 @@ function leidsa_super_kino_tv(array $ternum, array $lotnum, int $monto_jugado){
 function leidsa_loto_super_loto_mas(array $ternum, array $lotnum, int $monto_jugado){
     $ts = sizeof($ternum);
     $tn = array_slice($ternum, 0, 6);
-    $n = num_ganadores($tn, $lotnum);
+    $n = num_ganadores($tn, $lotnum)[0];
     $s = sizeof($n);
 
     if ($s == 6){                                                                       // loto 
@@ -582,7 +570,7 @@ function leidsa_loto_super_loto_mas(array $ternum, array $lotnum, int $monto_jug
 }
 
 function loteria_real_loto_pool(array $ternum, array $lotnum, int $monto_jugado){
-    $n = num_ganadores($ternum, $lotnum);
+    $n = num_ganadores($ternum, $lotnum)[0];
     $s = sizeof($n);
 
     if ($s == 4){
@@ -604,7 +592,7 @@ function loteria_real_quiniela_real(array $ternum, array $lotnum, int $monto_jug
 }
 
 function loteria_real_loto_real(array $ternum, array $lotnum, int $monto_jugado){
-    $n = num_ganadores($ternum, $lotnum);
+    $n = num_ganadores($ternum, $lotnum)[0];
     $s = sizeof($n);
 
     if ($s == 6){
@@ -626,7 +614,7 @@ function loteka_quiniela_loteka(array $ternum, array $lotnum, int $monto_jugado)
 }
 
 function loteka_mega_chances(array $ternum, array $lotnum, int $monto_jugado){
-    $n = num_ganadores($ternum, $lotnum);
+    $n = num_ganadores($ternum, $lotnum)[0];
     $s = sizeof($n);
 
     if ($s == 5){
@@ -644,7 +632,7 @@ function loteka_mega_chances(array $ternum, array $lotnum, int $monto_jugado){
 }
 
 function loteka_megalotto(array $ternum, array $lotnum, int $monto_jugado){
-    $n = num_ganadores($ternum, $lotnum);
+    $n = num_ganadores($ternum, $lotnum)[0];
     $s = sizeof($n);
 
     if ($s == 6){
@@ -691,7 +679,7 @@ function americanas_cash_4_life(array $ternum, array $lotnum, int $monto_jugado)
         $cb = true;
     }
 
-    $n = num_ganadores(array_slice($ternum, 0, 5), $lotnum);
+    $n = num_ganadores(array_slice($ternum, 0, 5), $lotnum)[0];
     $s = sizeof($n);
 
     if ($s == 5 && $cb){
@@ -753,7 +741,7 @@ function la_primera_la_primera_dia(array $ternum, array $lotnum, int $monto_juga
     return $r;
 }
 
-function la_primera_la_primera_noche(array $ternum, array $lotnum, int $monto_jugado){
+function la_primera_primera_noche(array $ternum, array $lotnum, int $monto_jugado){
     return las_3_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado);
 }
 

@@ -2,6 +2,7 @@
 include_once('dbConstruct.php');
 include_once('sqlqueryinsert.php');
 include_once(dirname(__FILE__, 4) . '/backend/phpfunctions/generals.php');
+include_once(dirname(__FILE__, 4) . '/backend/llavesYTextos.php');
 
 function retornar_seleccion(string $sql, array $input = null, $type = null){
     //depricated
@@ -74,6 +75,48 @@ function verify_where_values(array $where_values = null){
     }
 }
 
+function verify_ticket_content(array $ticket){
+    global $lotlabel; global $solabel; global $genjuglabel; global $genmonlabel;
+    $colkeys = [$lotlabel, $solabel, $genjuglabel, $genmonlabel];
+    $coltype = ["is_string", "is_string", "is_array", "is_int"];
+
+    
+    if (!verify_if_array_has_custom_keys($ticket)){
+        throw new Exception("Ticket array isn't keyed.");
+    }
+    if (sizeof($ticket) != sizeof($colkeys)){
+        throw new Exception("Size of tickets doesn't match. Expected " . sizeof($colkeys) ." but received " . sizeof($ticket));
+    }
+
+    $ticketkeys = array_keys($ticket);
+
+    $count = 0;
+    foreach($colkeys as $ck){
+        if (!in_array($ck, $ticketkeys)){
+            throw new Exception("Key not found in Tickets: $ck");
+        }
+        if (!$coltype[$count]($ticket[$ck])){
+            $z = explode("_", $coltype[$count])[1];
+            throw new Exception("Incorrect value type in Tickets: $ck. Expected: $z");
+        }
+        $count ++;
+    }
+    $jug = array_values($ticket[$genjuglabel]);
+
+    foreach($jug as $ju => $j){
+        if (!is_int($j)){
+            throw new Exception("Incorrect value type in $genjuglabel: '$j'. Position: $ju. Expected: int");
+        }
+    }
+
+    $v = execute_view("sorteo", ["nomsorteo.nombre" => $ticket[$solabel], "loterias.nombre" => $ticket[$lotlabel]], only_tables: ["loterias", "nomsorteo"], select: ["loterias.nombre as Nom", "nomsorteo.nombre"]);
+    if ($v){
+        return true;
+    } else {
+        throw new Exception("Loteria or Sorteo not found. Or lottery game isn't from the same company.");
+    }
+}
+
 function execute_simple_sql(string $sql, array $input = null, bool $pdo_col = true){
     $r = ejecutarQuery($sql, $input);
     $num = $r -> rowCount();
@@ -122,7 +165,7 @@ function execute_insert(string $idcol, string $table, string $col_names, array $
     return false;
 }
 
-function execute_view(string $main_table, array $where_values = [], array $select = ["*"], array $only_tables = [], string $order_by = ""){
+function execute_view(string $main_table, array $where_values = [], array $select = ["*"], array $only_tables = [], string $order_by = "", bool $print_sql = false){
     /* 
     @param main_table       string      La tabla principal que quieres ver
     @param where_values     array       un array con llaves con las variables del WHERE o null (por defecto) si no hay un WHERE
@@ -157,7 +200,12 @@ function execute_view(string $main_table, array $where_values = [], array $selec
         $sql = $sql . " ORDER BY $order_by";
     }
 
-    // echo $sql;
+    if ($print_sql){
+        echo "<BR>";
+        echo $sql;
+        echo "<BR>";
+    }
+    
     $r = execute_simple_sql($sql, $where_values, false);
     return $r;
 }
@@ -286,7 +334,7 @@ function generate_selectupdate_question_marks_from_col(array $col, bool $select)
 }
 
 function retorno_para_un_select($col, $sql, $input = null){
-    /* 
+    /*      
     * Retorna un solo valor de 1 sola columna, no retorna varios valores si hay varias columnas, para eso utiliza retornar_seleccion
     * @param $col       la columna del valor deseado en la BD
     * @param $sql       un SELECT query
@@ -336,6 +384,18 @@ function organize_database_tables_by_columns(){
     }
     return $t;
 }
+
+// array_print(organize_database_tables_by_columns());
+
+
+// $x = organize_database_tables_by_columns();
+// foreach($x as $y => $z){
+
+
+// }
+
+
+
 
 function get_all_links_from_table(string $table, array $all_tables, array $only_tables = []){
     $links = "";
@@ -402,12 +462,16 @@ function get_all_links_from_table(string $table, array $all_tables, array $only_
     return $links;
 }
 
-function get_foreign_keys_from_table(array $a){
+function get_foreign_keys_or_id_from_table(array $a, bool $return_id = false){
     $t = [];
     foreach($a as $b){
         $c = explode("_", $b);
         if (end($c) == "fk"){
-            array_push($t, $b);
+            if ($return_id){
+                array_push($t, $c[0]);
+            } else {
+                array_push($t, $b);
+            }
         }
     }
     return $t;
@@ -441,8 +505,8 @@ function get_shared_link_between_tables(string $table1, string $table2, array $a
         $switched = true;
     }
     
-    $t1fk = get_foreign_keys_from_table($all_tables[$table1]);
-    $t2fk = get_foreign_keys_from_table($all_tables[$table2]);
+    $t1fk = get_foreign_keys_or_id_from_table($all_tables[$table1]);
+    $t2fk = get_foreign_keys_or_id_from_table($all_tables[$table2]);
 
     $t1id = $all_tables[$table1][0];
     $t2id = $all_tables[$table2][0];
@@ -513,8 +577,10 @@ function update_tabledata(){
 function organize_tabledata(){
     $tabledata = execute_select("tabledata");
     $t = [];
-    $col1 = "tablename";
-    $col2 = "tableidcol";
+
+    global $db_tabledata_tablename; global$db_tabledata_tableidcol;
+    $col1 = $db_tabledata_tablename;
+    $col2 = $db_tabledata_tableidcol;
     foreach($tabledata as $td){
         $t[$td[$col1]] = $td[$col2];
     }

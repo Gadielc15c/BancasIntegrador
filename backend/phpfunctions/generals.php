@@ -107,23 +107,13 @@ function array_remove_once(array $a, $value){
     
     */
     $count = 0;
-    // array_print($a);
-    // var_dump($value);
     foreach ($a as $b){
-        // echo "<br>";
-        // var_dump($b == $value);
-        // echo "<br>";
         if ($b == $value){
             break;
         } else {
             $count ++;
         }
     }
-    // array_print($a);
-    // echo "<br>";
-    // echo sizeof($a)-1;
-    // echo "<br>";
-    // echo $count;
     return array_extract($a , 0, sizeof($a)-1, [$count]);
 }
 
@@ -162,16 +152,18 @@ function array_remove_dupe(array $a){
 
 function array_remove_by_key(string $key, array $a, bool $mantener_keys = true){
     $i = array_search($key, array_keys($a));
-    $all_keys = array_keys($a);
-    $all_keys = array_extract($all_keys, 0, sizeof($a)-1, [$i]);
-    $a = array_extract($a, 0, sizeof($a)-1, [$i]);
+    if ($i !== false){
+        $all_keys = array_keys($a);
+        $all_keys = array_extract($all_keys, 0, sizeof($a)-1, [$i]);
+        $a = array_extract($a, 0, sizeof($a)-1, [$i]);
 
-    if ($mantener_keys){
-        $temp = []; // Para mantener las llaves originales
-        for ($x = 0; $x < sizeof($all_keys); $x++){
-            $temp[$all_keys[$x]] = $a[$x];
+        if ($mantener_keys){
+            $temp = []; // Para mantener las llaves originales
+            for ($x = 0; $x < sizeof($all_keys); $x++){
+                $temp[$all_keys[$x]] = $a[$x];
+            }
+            return $temp;
         }
-        return $temp;
     }
     return $a;
 }
@@ -241,13 +233,22 @@ function return_array_with_custom_keys(array $a, array $keys){
     return [];
 }
 
+function verify_if_string_is_json(string $json_){
+    $r = json_decode($json_);
+    if (json_last_error() === JSON_ERROR_NONE) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function verify_if_array_has_custom_keys(array $a){
     $r = true;
     if ($a){
         $count = 0;
         $keys = array_keys($a);
         foreach($keys as $k){
-            if ($k == $count){
+            if ($k == $count || is_int($k)){
                 $r = false;
                 break;
             }
@@ -332,6 +333,19 @@ function is_included(string $include_full_dir){
         return true;
     }
     return false;
+}
+
+function clean_str($s){
+    $ch_special = array("+", ":", "-", " ");
+    $s = strtolower($s);
+    $s = str_replace($ch_special, "_", $s);
+    $s = str_replace("á", "a", $s);
+    $s = str_replace("é", "e", $s);
+    $s = str_replace("í", "i", $s);
+    $s = str_replace("ó", "o", $s);
+    $s = str_replace("ú", "u", $s);
+    $s = str_replace("ñ", "n", $s);
+    return $s;
 }
 
 function save_post_in_session(string $session_key, $session_default, string $post_key, string $session_mantener_key = "", $session_mantener_var = null){

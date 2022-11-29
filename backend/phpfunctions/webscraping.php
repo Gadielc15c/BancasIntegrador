@@ -21,14 +21,6 @@ function return_lot_numbers_live(string $fecha_especifica = null, bool $modo_deb
             echo curl_error($ch);
         }
     } else {
-        function imprimir($msg, $arreglo){
-            // Funcion para modo_debug  
-            echo "<BR>";
-            var_dump($msg);
-            echo "<BR>";
-            var_dump($arreglo);
-        }
-
         $response = trim(preg_replace('/\s\s+/', ' ', $response));
         $pattern = "/start game .+? end game /i";
         
@@ -101,6 +93,15 @@ function return_usd_to_dop_pesos_rate(){
         }
     }
 }
+
+function imprimir($msg, $arreglo){
+    // Funcion para modo_debug  
+    echo "<BR>";
+    var_dump($msg);
+    echo "<BR>";
+    var_dump($arreglo);
+}
+
 
 
 // $y = return_usd_to_dop_pesos_rate();
