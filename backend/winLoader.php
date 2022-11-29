@@ -19,7 +19,7 @@ foreach($select as $bb){
     $mon=$dingdong["Moneda"];
     $mont=$dingdong["Monto"];
     $num  = explode (",", $dingdong["Números"]);;
-    premios_jugadas_main($lot,$sort, $num, $mont, $fecha);
+    premios_jugadas_main($lot,$sort, $num, $mont, $fecha,$fecha);
     }
 }
 
