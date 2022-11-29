@@ -385,14 +385,14 @@ function organize_database_tables_by_columns(){
     return $t;
 }
 
-array_print(organize_database_tables_by_columns());
+// array_print(organize_database_tables_by_columns());
 
 
-$x = organize_database_tables_by_columns();
-foreach($x as $y => $z){
-    
+// $x = organize_database_tables_by_columns();
+// foreach($x as $y => $z){
 
-}
+
+// }
 
 
 
