@@ -215,7 +215,7 @@ function execute_view(string $main_table, array $where_values = [], array $selec
 //["idterceros" => 0]
 
 
-function execute_select(string $table, array $where_values = null, array $with_keys = null, array $select = ["*"]){
+function execute_select(string $table, array $where_values = null, array $with_keys = null, array $select = ["*"], int $limit = 0){
     /* 
     * @param table              string      el table de la base de datos a seleccionar
     * @param where_values       array       un array con llaves con las variables del WHERE o null (por defecto) si no hay un WHERE
@@ -238,6 +238,10 @@ function execute_select(string $table, array $where_values = null, array $with_k
         $wherecol = generate_selectupdate_question_marks_from_col($where_values, true);
         $sql = $sql . " WHERE $wherecol";
         $where_values = array_values($where_values);
+    }
+
+    if ($limit){
+        $sql = $sql . " LIMIT $limit";
     }
 
     $r = execute_simple_sql($sql, $where_values, false);

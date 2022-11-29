@@ -683,9 +683,9 @@ function americanas_cash_4_life(array $ternum, array $lotnum, int $monto_jugado)
     $s = sizeof($n);
 
     if ($s == 5 && $cb){
-        $v = "1000 dolares cada dia, de por vida o 7000000";
+        $v = "1000 dolares cada dia, de por vida o 7000000 millones de dolares";
     } elseif ($s == 5){
-        $v = "1000 dolares cada semana, de por vida o 1000000";
+        $v = "1000 dolares cada semana, de por vida o 1000000 millones de dolares";
     } elseif ($s == 4 && $cb){
         $v = 2500;
     } elseif ($s == 4){

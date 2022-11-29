@@ -14,9 +14,10 @@ $tables_col = organize_tabledata();
 $table_keys = array_keys($tables_col);
 sort($table_keys);
 
+$col_checkbox = ["recibirpago"];
 
-
-
+$default_msg = "Seleccione una tabla";
+save_post_in_session("mantenselect", $default_msg, "mantenselect");
 
 
 ?> 
@@ -31,15 +32,11 @@ sort($table_keys);
                     </div>
                     <form action="" method="post" class="form-grp">
                         <select name="mantenselect" id="mantenselect" class="lotsSelect right" onchange="this.form.submit()" place>
-                            <option value="" disable selected="selected"><?php if(isset($_POST["mantenselect"])){echo ucfirst($_POST["mantenselect"]);} ?></option>
+                            <option value="" disable selected="selected"><?php echo ucfirst($_SESSION["mantenselect"]) ?></option>
                                 <?php
                                     foreach($table_keys as $t){
-                                        $b = true;
-                                        if(isset($_POST["mantenselect"]) && $t == $_POST["mantenselect"]){
-                                            $b = false;
-                                        }
-                                        if ($b){
-                                            echo "<option value='$t'>"; echo ucfirst($t); echo "</option>";
+                                        if ($t != $_SESSION["mantenselect"]){
+                                        echo "<option value='$t'>"; echo ucfirst($t); echo "</option>";
                                         }
                                     }
                                 ?>
@@ -53,25 +50,40 @@ sort($table_keys);
 
 <?php
 
-if(isset($_POST["mantenselect"])){
-    $v = $_POST["mantenselect"];
-    $resultados = get_fk_related_tables($v, $tables_col);
+if(isset($_SESSION["mantenselect"])){
 
-    if ($resultados){
-        $head_ = "Mantenimientos";
-    } else {
-        $head_ = "Esta tabla no tiene contenido.";
-    }
-    // echo "<BR>";
-    // echo "<BR>";
-    // var_dump($resultados);
-    // echo "<BR>";
-    // echo "<BR>";
-    // foreach($resultados as $r){
-    //     echo "<BR>";
-    //     var_dump($r);
-    //     echo "<BR>";
-    // }
+    $v = $_SESSION["mantenselect"];
+    if ($v != $default_msg){
+        $arr = get_fk_related_tables($v, $tables_col);
+        $resultados = $arr[0];
+
+        if (isset($_POST) && !in_array("mantenselect", array_keys($_POST))){
+            $data = (explode("_", end($_POST)));
+            $idcol = $data[0];
+            $spec_id = $data[1];
+            
+            $retrieve_cols = [];
+
+            foreach($arr[1] as $tab){
+                $x = execute_select($tab, limit: 1);
+                $retrieve_cols[$tab] = array_keys($x[0]);
+            }
+
+
+
+            // var_dump($retrieve_cols);
+
+
+            // I have the IDs, now I need the columns for the where statement and combine it with the values
+        }
+
+
+
+
+
+
+
+        
 
 
 ?>
@@ -80,14 +92,16 @@ if(isset($_POST["mantenselect"])){
     <div class="row">
         <div class="col-md-6">
             <?php 
-                // <h1> Mantenimientos </h1>
-                // <form action=" " method="POST"> 
-                //     <input type="text" class="form-control mb-3" name="" placeholder="">
-                //     <input type="submit" class="btn btn-primary" value="Buscar">
-                // </form>
+                if ($resultados[0]){
+                    echo '<h1> Mantenimientos </h1>
+                    <form action=" " method="POST">
+                        <input type="text" class="form-control mb-3" name="" placeholder="">
+                        <input type="submit" class="btn btn-primary" value="Buscar">
+                    </form>';
+                } else {
+                    echo '<h1>Esta tabla no tiene contenido.</h1>';
+                }
             ?>
-        
-
         <div class="col-md-7 col-md-offset-2"></div>
         <div class="row-md-7">
             <table class="table">
@@ -96,9 +110,13 @@ if(isset($_POST["mantenselect"])){
                         <?php 
                             $count = 0;
                             $rkey = array_keys($resultados[0]);
+                            $estado_pos = [];
                             foreach($rkey as $r){
                                 if ($count != 0){
                                     echo '<th>'; echo ucfirst($r); echo '</th>';
+                                }
+                                if (in_array($r, $col_checkbox) || str_contains($r, "estado")){
+                                    array_push($estado_pos, $count);
                                 }
                                 $count ++;
                             }
@@ -110,25 +128,41 @@ if(isset($_POST["mantenselect"])){
                     
                         <?php 
                             $count = 0;
+                            $tnouc = 0;
                             $hay_filas = false;
+
                             foreach($resultados as $resu){
-                                echo '<tr>';
-                                foreach($resu as $r){
-                                    if ($count != 0){
-                                        echo '<td>'; echo ucfirst($r); echo '</td>';
-                                        $hay_filas = true;
+                                if ($resu){
+                                    //             idcol                 idvalue
+                                    $tableidcol = $rkey[0] . "_" . array_values($resu)[0];
+                                    echo "<form action='' method='post'> <tr>";
+                                    foreach($resu as $r){
+                                        $id = "$count" . "_" . "$tnouc";
+                                        if ($count != 0){
+                                            if (in_array($count, $estado_pos)){
+                                                $c = "";
+                                                if ($r){
+                                                    $c = "checked";
+                                                }
+                                                echo "<td style='text-align:center;'>
+                                                <input type='checkbox' name='"; echo $rkey[$count]; echo "' value='1' $c></td>
+                                                ";
+                                            } else {
+                                                echo "<td><input type='text' name='"; echo $rkey[$count] ;echo "' value='"; echo ucfirst($r); echo "'></td></td>";
+                                            }
+                                            
+                                            $hay_filas = true;
+                                        }
+                                        $count ++;
                                     }
-                                    $count ++;
+                                    $count = 0;
+                                    $tnouc++;
+
+                                    if ($hay_filas){
+                                        echo "<td><button name='editar_$id' value='$tableidcol' class='btn btn-warning'>EDITAR</button></td></form>";
+                                    }
+                                    echo '</tr>';
                                 }
-                                $count = 0;
-                                
-                                if ($hay_filas){
-                                    echo '<td><a href="" class="btn btn-warning">EDITAR</a></td>
-                                    ';
-                                }
-                                echo '</tr>';
-                                
-                                
                             }
                         ?>
                     <style>
@@ -144,14 +178,10 @@ if(isset($_POST["mantenselect"])){
     </div>
 </div>
 </div>
+
 <?php
+    }
 }
-
-
-
-
-
-
 
 
 
@@ -168,12 +198,14 @@ function get_fk_related_tables($table, $all_tables_with_col){
             array_push($related_tables, $t);
         }
     }
-
+    
     if ($related_tables){
-        $values = execute_view($table, only_tables: $related_tables, order_by: $rkey[1], print_sql: true);
+        $values = execute_view($table, only_tables: $related_tables, print_sql: false);
     } else {
         $result = execute_select($table);
     }
+
+    $ids = [];
 
     if ($related_tables){
         $a = array_keys($values[0]);
@@ -182,6 +214,8 @@ function get_fk_related_tables($table, $all_tables_with_col){
         $fkkey = array_merge($a1, $a2, $fkkey);
         $fkkey = array_remove_dupe(array_values($fkkey));
 
+        $id_col = get_foreign_keys_or_id_from_table($rkey, true);
+
         $result = [];
         foreach($values as $v){
             $temp = $v;
@@ -189,9 +223,16 @@ function get_fk_related_tables($table, $all_tables_with_col){
                 $temp = array_remove_by_key($fk, $temp);
             }
             array_push($result, $temp);
+            
+            $t = [];
+            foreach($id_col as $id){
+                $t[$id] = $v[$id];
+            }
+            array_push($ids, $t);
         }
+     
     }
-    return $result;
+    return [$result, $related_tables, $ids];
 }
 
 
