@@ -17,6 +17,7 @@ SessionControl($nivel);
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/cuerpoWeb.css" />
     <link rel="stylesheet" href="/css/shoppingCart.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
 </head>
 <header>
@@ -50,6 +51,18 @@ SessionControl($nivel);
 
     </div>
 
+<script type="text/javascript">
+  function idsender(clicked_id)
+  {
+    var  id=clicked_id
+      
+      var x  = document.getElementById("input-"+id).value;
+      if (x != undefined && x != null) {
+        window.location = '/backend/MetodoPagForm.php?data=' + x;
+    }
+     
+  }
+</script>
     <!--No borrar-->
     <script nomodule src=" https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

@@ -12,7 +12,9 @@ $tipo,
 $monto,
 $fec,
 $img,
-$keyed_array
+$keyed_array,
+$id,
+$poster
 )
 {
 
@@ -50,6 +52,9 @@ echo '
           <div class="row">
             <div class="col">
               <h3 class="Jugada">'; echo $cant; echo '</h3>
+              
+ '; echo '
+
             </div>
             <div class="col">
               <h3 class="Jugada">'; echo $jugad; echo '</h3>
@@ -75,11 +80,18 @@ echo '
         
       </div>
       
-    </div>
-    <div class="pagarto">
+    </div>   
+    <input type="hidden" id="input-';echo strval($id); echo'" name="title" value="';
 
+     foreach($poster as $array){
+      echo$array;
+      echo"-";
+      
+          }
+          echo '">
+    <div class="pagarto">
   
-    <input type="submit" value="PAGAR" class="boton">
+    <input id="'; echo $id; echo '" onClick="idsender(this.id)"value=" PAGAR" class="boton" >
     
   </form>
   

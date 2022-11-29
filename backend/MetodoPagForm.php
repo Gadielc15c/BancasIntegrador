@@ -26,6 +26,26 @@ if (isset($_COOKIE["IDt"]))
 echo $_COOKIE["fcookie"]; 
 else 
 echo "Cookie Not Set";
+
+$data=$_GET['data'];
+
+/* RETORNA UN ARRAY CON DELIMITADOR -  
+EJEM 1-Loteria Nacional-Juega Pega -100-14, 13, 25, 5, 89-Propia-100-2022-11-29-../img/Logo.png -
+
+POSICIONES
+ [0] TIENE LA CANTIDAD
+ [1] NOMBRE LOT
+ [2] SORTEO
+ [3] MONTO
+ [4] JUGADA 
+ [5] TIPO DE JUGADA
+ [6] TOTAL
+ [7] FECHA (OJO CUIDADO CON EL TRIM LA FECHA VUELVE CON ESTOS DATOS 2022-11-29 )
+ [8] VINCULO DE IMAGEN
+
+
+
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,24 +84,9 @@ echo "Cookie Not Set";
                 <center>
                     <h3 class="font-weight-bold " style=" padding: 30px; ">
                         SELECCIONE UN METODO DE PAGO PARA COMPLETAR LA TRANSACCION
+                       
                     </h3>
-                    <!--
-                    <select name="lotsSelect" id="lotsSelect" class="lotsSelect" onchange="this.form.submit()">
-                        <option value="" disable selected="selected">Seleccione una Metodo de pago</option>
-                        <?php
-
-                        /*
-                        foreach($metodoPago as $metodo){
-                            echo "<option value='$metodo[0]'>$metodo[0]</option>";
-                           
-                        }-*/
-                        ?> 
-                    </select><form action="../frontend/ticketDisplayer.php">
-                        <input class="botoncito" type="submit" name="submit" class="btn btn-primary btn-block"
-                            value="Add Metodo">
-                        <input class="botoncito" type="submit" name="submit" class="btn btn-primary btn-block"
-                            value="Select Metodo">
-                    </form>    < -->
+                    <?php echo $data;?>
                     <div id="paypal-button-container">
 
 
