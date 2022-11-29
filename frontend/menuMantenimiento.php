@@ -35,8 +35,6 @@ SessionControl($nivel);
        
    
          <!-- <div class="d-flex">
-
-               
                 <div class="w-100">
                     <div id="content">
                         <section>

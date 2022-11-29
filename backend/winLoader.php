@@ -1,7 +1,8 @@
 <?php 
 
 
-//include_once($path . "./winnersFunctions.php");
+
+include_once(dirname(__FILE__, 2) . '\backend\winnersFunctions.php');
 include_once(dirname(__FILE__, 2) . '\backend\phpfunctions\sqlRelated\sqlquerygenerals.php');
 include_once(dirname(__FILE__, 2) . '\backend\phpfunctions\generals.php');
 include_once(dirname(__FILE__, 2) . '\backend\phpfunctions\jugadasFunctions.php');
@@ -19,27 +20,27 @@ foreach($select as $bb){
     $mon=$dingdong["Moneda"];
     $mont=$dingdong["Monto"];
     $num  = explode (",", $dingdong["Números"]);;
-    premios_jugadas_main($lot,$sort, $num, $mont, $fecha,$fecha);
+    $premio=premios_jugadas_main($lot,$sort, $num, $mont, $fecha,$fecha);
+ 
     }
 }
 
-/*
-idtablajugada
-jugadas
-fecha
-idterceros_fk
 
+// idtablajugada
+// jugadas
+// fecha
+// idterceros_fk
+foreach($premio as $waos){
 
+$jug =  $waos[0];
+var_dump($jug);
+// $fec = "15/10/2021";
+// $img =
+// $num = [1, 2, 3];
+// $win = [7,2,7,9];
+// winners($nom, $jug, $fec, $img, $num, $win);
+}
 
-$nom= "nacional";
-$jug = "Waos";  
-$fec = "15/10/2021";
-$img =
-$num = [1, 2, 3];
-$win = [7,2,7,9];
-winners($nom, $jug, $fec, $img, $num, $win);
- 
-*/
 // array(1) {
 //      [0]=> array(4) { ["idtablajugada"]=> int(626342605) ["jugadas"]=> string(1066) "-Cantidad-7--Lotería-La
 //     Primera--Sorteo-La Primera Día--Tipo de Jugada-Palé--Moneda-RD--Monto-4--Números-12, 12--Cantidad-1--Lotería-La
