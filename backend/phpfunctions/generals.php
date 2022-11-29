@@ -152,16 +152,18 @@ function array_remove_dupe(array $a){
 
 function array_remove_by_key(string $key, array $a, bool $mantener_keys = true){
     $i = array_search($key, array_keys($a));
-    $all_keys = array_keys($a);
-    $all_keys = array_extract($all_keys, 0, sizeof($a)-1, [$i]);
-    $a = array_extract($a, 0, sizeof($a)-1, [$i]);
+    if ($i !== false){
+        $all_keys = array_keys($a);
+        $all_keys = array_extract($all_keys, 0, sizeof($a)-1, [$i]);
+        $a = array_extract($a, 0, sizeof($a)-1, [$i]);
 
-    if ($mantener_keys){
-        $temp = []; // Para mantener las llaves originales
-        for ($x = 0; $x < sizeof($all_keys); $x++){
-            $temp[$all_keys[$x]] = $a[$x];
+        if ($mantener_keys){
+            $temp = []; // Para mantener las llaves originales
+            for ($x = 0; $x < sizeof($all_keys); $x++){
+                $temp[$all_keys[$x]] = $a[$x];
+            }
+            return $temp;
         }
-        return $temp;
     }
     return $a;
 }

@@ -25,10 +25,10 @@ sort($table_keys);
     <div class=".row">
         <div class="papa">
             <div class="papagay">
-                <div class="bebe right"> <div class="bheder">
-            <h1 style="text-align:center; "> SELECCIONE SU MANTENIMIENTO</h1>
-            
-        </div>
+                <div class="bebe right"> 
+                    <div class="bheder">
+                        <h1 style="text-align:center; "> SELECCIONE SU MANTENIMIENTO</h1>
+                    </div>
                     <form action="" method="post" class="form-grp">
                         <select name="mantenselect" id="mantenselect" class="lotsSelect right" onchange="this.form.submit()" place>
                             <option value="" disable selected="selected"><?php if(isset($_POST["mantenselect"])){echo ucfirst($_POST["mantenselect"]);} ?></option>
@@ -56,6 +56,12 @@ sort($table_keys);
 if(isset($_POST["mantenselect"])){
     $v = $_POST["mantenselect"];
     $resultados = get_fk_related_tables($v, $tables_col);
+
+    if ($resultados){
+        $head_ = "Mantenimientos";
+    } else {
+        $head_ = "Esta tabla no tiene contenido.";
+    }
     // echo "<BR>";
     // echo "<BR>";
     // var_dump($resultados);
@@ -73,11 +79,13 @@ if(isset($_POST["mantenselect"])){
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6">
-            <h1> Mantenimientos </h1>
-            <form action=" " method="POST"> 
-                <input type="text" class="form-control mb-3" name="" placeholder="">
-                <input type="submit" class="btn btn-primary" value="Buscar">
-            </form>
+            <?php 
+                // <h1> Mantenimientos </h1>
+                // <form action=" " method="POST"> 
+                //     <input type="text" class="form-control mb-3" name="" placeholder="">
+                //     <input type="submit" class="btn btn-primary" value="Buscar">
+                // </form>
+            ?>
         
 
         <div class="col-md-7 col-md-offset-2"></div>
@@ -162,8 +170,7 @@ function get_fk_related_tables($table, $all_tables_with_col){
     }
 
     if ($related_tables){
-        $values = execute_view($table, only_tables: $related_tables, print_sql: false);
-        // array_print($values);
+        $values = execute_view($table, only_tables: $related_tables, order_by: $rkey[1], print_sql: true);
     } else {
         $result = execute_select($table);
     }
@@ -175,7 +182,6 @@ function get_fk_related_tables($table, $all_tables_with_col){
         $fkkey = array_merge($a1, $a2, $fkkey);
         $fkkey = array_remove_dupe(array_values($fkkey));
 
-
         $result = [];
         foreach($values as $v){
             $temp = $v;
@@ -185,7 +191,6 @@ function get_fk_related_tables($table, $all_tables_with_col){
             array_push($result, $temp);
         }
     }
-    
     return $result;
 }
 
