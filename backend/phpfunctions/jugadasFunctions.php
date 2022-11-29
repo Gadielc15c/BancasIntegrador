@@ -136,21 +136,9 @@ function premios_jugadas_main(string $lot, string $sorteo, array $ternum, int $m
                                         4 array con los numeros ganadores
 
     */
-    function limpiar_str($s){
-        $ch_special = array("+", ":", "-", " ");
-        $s = strtolower($s);
-        $s = str_replace($ch_special, "_", $s);
-        $s = str_replace("á", "a", $s);
-        $s = str_replace("é", "e", $s);
-        $s = str_replace("í", "i", $s);
-        $s = str_replace("ó", "o", $s);
-        $s = str_replace("ú", "u", $s);
-        $s = str_replace("ñ", "n", $s);
-        return $s;
-    }
 
     $todo = return_lot_numbers_live(fecha_especifica: $fecha_especifica);
-    $func = limpiar_str($lot) . "_" . limpiar_str($sorteo);
+    $func = clean_str($lot) . "_" . clean_str($sorteo);
     
     foreach($todo as $t){
         $loteria = $t[0][0];

@@ -2,6 +2,35 @@
 include_once('sqlquerygenerals.php');
 include_once('sqlqueryselect.php');
 
+// 
+// Inserts combinados
+// 
+
+function insertar_combo_pagos_paypal(int $tercerosid, array $ticket_info){
+    /* 
+        @param ticket_info      array       
+                                            estructura: [
+                                                            $lotlabel => string nombre_de_la_loteria
+                                                            $solabel => string nombre_del_sorteo
+                                                            $genjuglabel => arreglo cada_numero_jugado_como_int
+                                                            $genmontolabel => int monto_del_ticket
+                                                        ]
+    
+    */
+
+    // verify_ticket_content();
+    // insertar_pagosrealizados();
+    // crear_tickets_codigo();
+
+
+}
+
+
+
+// 
+// Inserts individuales
+// 
+
 // table terceros
 
 function insertar_tercero(string $nomusuario, string $claveusuario, int $idterdata_fk, string $correo, string $cedula, int $idtelefonos_fk, int $idnivelacceso_fk){
@@ -15,7 +44,7 @@ function insertar_tercero(string $nomusuario, string $claveusuario, int $idterda
 
 // table tickets
 
-function insertar_ticket(int $monto, string $jugadas, int $idsorteo_fk, int $idterceros_fk, string $codigobarra, int $idsucursalventa_fk, int $idsucursalpago_fk, int $idpagometodos_fk){
+function insertar_ticket(int $monto, string $jugadas, int $idsorteo_fk, bool $estado, int $idterceros_fk, string $codigobarra, int $idsucursalventa_fk, int $idsucursalpago_fk, int $idpagometodos_fk){
     /* 
         @param jugadas      string      Va separada por un espacion. Ejemplo 1 2 3 4 5
     */
@@ -23,7 +52,7 @@ function insertar_ticket(int $monto, string $jugadas, int $idsorteo_fk, int $idt
     verify_monto($monto);
 
     return execute_insert(  "idtickets", "tickets", 
-                            "monto jugadas idsorteo_fk idterceros_fk codigobarra idsucursalventa_fk idsucursalpago_fk idpagometodos_fk", 
+                            "monto jugadas idsorteo_fk estado idterceros_fk codigobarra idsucursalventa_fk idsucursalpago_fk idpagometodos_fk", 
                             func_get_args(),
                             true, 1
                         );
@@ -43,7 +72,7 @@ function insertar_tercero_data(string $nomprimero, string $nomsegundo, string $a
 
 function insertar_nivel_acceso(string $nombre, string $descrip){
     return execute_insert(  "idnivelacceso", "nivelacceso", 
-                            "nombre descrip", 
+                            "nivelnombre descrip", 
                             func_get_args(),
                             false, 0, "", 100
                         );
@@ -77,7 +106,7 @@ function insertar_metodo_de_pago(int $idtipometodopago_fk, int $idterceros_fk){
 function insertar_tipotarjeta(string $nombre){
     // Ejemplo Visa, MasterCard
     return execute_insert(  "idtipotarjetas", "tipotarjetas", 
-                            "nombre", 
+                            "tipotarjnombre", 
                             func_get_args()
                         );
 }
@@ -87,7 +116,7 @@ function insertar_tipotarjeta(string $nombre){
 function insertar_pagotarjeta(string $nombre, int $numerotarj, int $cvc, string $fechavencimiento, int $idpagometodos_fk, int $idtipotarjetas_fk){
     verify_date($fechavencimiento);
     return execute_insert(  "idpagotarjetas", "pagotarjetas", 
-                            "nombre numerotarj cvc fechaven idpagometodos_fk idtipotarjetas_fk", 
+                            "tarjnombre tarjnumero cvc fechaven idpagometodos_fk idtipotarjetas_fk", 
                             func_get_args()
                         );
 }
@@ -97,7 +126,7 @@ function insertar_pagotarjeta(string $nombre, int $numerotarj, int $cvc, string 
 function insertar_tipometodopago(string $nombre){
     // Ejemplo Crédito, Débito, Paypal
     return execute_insert(  "idtipometodopago", "tipometodopago", 
-                            "nombre", 
+                            "metnombre", 
                             func_get_args(),
                             false, 0, "", 300
                         );
@@ -133,9 +162,13 @@ function insertar_pagosrealizados(int $montototal, int $monedas_fk, int $origen_
 }
 
 // table pagosonline
-function insertar_pagosonline(string $nombrecuenta, int $idpagometodos_fk){
+function insertar_pagosonline(string $jsoncontent, int $idpagometodos_fk){
+    $v = verify_if_string_is_json($jsoncontent);
+    if (!$v){
+        throw new Exception("The content isn't json");
+    }
     return execute_insert(  "idpagosonline", "pagosonline", 
-                            "nombrecuenta idpagometodos_fk", 
+                            "jsoncontent idpagometodos_fk", 
                             func_get_args()
                         );
 }
@@ -233,7 +266,7 @@ function insert_costosorteo(int $costo){
 
 function insert_nomsorteo(string $nom){
     return execute_insert(  "idnomsorteo", "nomsorteo", 
-                            "nombre", 
+                            "sorteonom", 
                             func_get_args()
                         );
 }

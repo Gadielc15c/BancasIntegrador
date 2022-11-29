@@ -14,6 +14,11 @@ $tables_col = organize_tabledata();
 $table_keys = array_keys($tables_col);
 sort($table_keys);
 
+
+
+
+
+
 ?> 
 
 <div class="col">
@@ -47,7 +52,7 @@ sort($table_keys);
 
 if(isset($_POST["mantenselect"])){
     $v = $_POST["mantenselect"];
-    $resultados = execute_select($v);
+    $resultados = get_fk_related_tables($v, $tables_col);
     // echo "<BR>";
     // echo "<BR>";
     // var_dump($resultados);
@@ -129,4 +134,56 @@ if(isset($_POST["mantenselect"])){
 
 <?php
 }
+
+
+
+
+
+
+
+
+
+
+function get_fk_related_tables($table, $all_tables_with_col){
+    $sql_result = execute_select($table);
+    $rkey = array_keys($sql_result[0]);
+    $fkkey = get_foreign_keys_or_id_from_table($rkey, true);
+
+    $related_tables = [];
+    foreach($fkkey as $fk){
+        $t = array_search($fk, $all_tables_with_col);
+        if ($t){
+            array_push($related_tables, $t);
+        }
+    }
+
+    if ($related_tables){
+        $values = execute_view($table, only_tables: $related_tables, print_sql: true);
+        array_print($values);
+    } else {
+        $result = execute_select($table);
+    }
+
+    if ($related_tables){
+        $a = array_keys($values[0]);
+        $a1 = get_foreign_keys_or_id_from_table($a);
+        $a2 = get_foreign_keys_or_id_from_table($a, true);
+        $fkkey = array_merge($a1, $a2, $fkkey);
+        $fkkey = array_remove_dupe(array_values($fkkey));
+
+
+        $result = [];
+        foreach($values as $v){
+            $temp = $v;
+            foreach($fkkey as $fk){
+                $temp = array_remove_by_key($fk, $temp);
+            }
+            array_push($result, $temp);
+        }
+    }
+    
+    return $result;
+}
+
+
 ?>
