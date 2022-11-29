@@ -141,6 +141,8 @@ body {
   font-family: "Noto Sans JP", sans-serif;
   background-color: var(--Gris);
   transition: 0.3s ease all;
+  position: relative;
+  min-height: 100vh;
 }
 
 .navbar-logo img {
@@ -227,9 +229,9 @@ footer {
   background-color: rgba(245, 167, 37, 1);
   color: rgb(255, 255, 255);
   z-index: 2;
-  position: sticky;
+  position: fixed;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
   height: 9vh;
   font-size: 1vw;
   display: flex;
@@ -479,10 +481,25 @@ body.dark footer{
 
   body.dark .cuadrado{
     background-color: var(--negro);
-    border: var(--Principal) solid;
-    border-width: .1vw;
+    -webkit-box-shadow: 0 10px 30px 0 var(--Secundario);
+    box-shadow: 0 10px 30px 0 var(--Secundario);
   }
 body.dark h2{
   color: rgb(255, 255, 255);
 }
   /*css darkmode*/
+
+  /*css darkmode admin*/
+
+  body.dark p{
+    color: var(--Blanco);
+  }
+  body.dark li{
+    color: var(--Blanco);
+  }
+
+  body.dark li:hover{
+    color: var(--Principal);
+  }
+
+  /*css darkmode* admin/
