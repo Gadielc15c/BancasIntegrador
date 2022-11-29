@@ -481,8 +481,8 @@ body.dark footer{
 
   body.dark .cuadrado{
     background-color: var(--negro);
-    -webkit-box-shadow: 0 10px 30px 0 var(--Secundario);
-    box-shadow: 0 10px 30px 0 var(--Secundario);
+    /*-webkit-box-shadow: 0 10px 30px 0 var(--Secundario);
+     box-shadow: 0 10px 30px 0 var(--Secundario); */
   }
 body.dark h2{
   color: rgb(255, 255, 255);
@@ -519,4 +519,4 @@ body.dark .pie p{
   color: black;
 }
 
-  /*css darkmode* admin/
+  /*css darkmode* admin*/

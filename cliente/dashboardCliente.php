@@ -29,19 +29,23 @@ SessionControl($nivel);
 
 
         <div class="cuadrado">
-        <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
-                Recuento de Jugadas Realizadas
-            </h2>
+            <center>
+                <h2 class="font-weight-bold ">
+                    Recuento de Jugadas Realizadas
+                </h2>
+            </center>
 
             <?php include('../backend/winLoader.php');?>
 
         </div>
 
         <div class="cuadrado">
-            <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
-                RESULTADO DE LOTERIAS
-                <?php include('../backend/lotsLoader.php');?>
-            </h2>
+            <center>
+                <h2 class="font-weight-bold ">
+                    RESULTADO DE LOTERIAS
+                    <?php include('../backend/lotsLoader.php');?>
+                </h2>
+            </center>
 
         </div>
     </div>

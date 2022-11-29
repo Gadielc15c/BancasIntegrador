@@ -9,13 +9,14 @@
             <div class="opciones">
 
                 <div class="position">
-                    <button class="switchDark" id="switch">
+
+                    <!--<button class="switchDark" id="switch">
                         <span>
                             <ion-icon name="sunny-sharp"></ion-icon>
                         </span>
                         <span>
                             <ion-icon name="moon"></ion-icon>
-                        </span>
+                        </span>-->
                 </div>
 
 

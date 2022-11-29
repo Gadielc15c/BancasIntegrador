@@ -320,8 +320,8 @@ hr{
 
 body.dark .Carrito{
   background-color: var(--negro);
-  border: var(--Principal) solid;
-  border-width: .1vw;
+  /* border: var(--Principal) solid;
+  border-width: .1vw; */
 }
 
 body.dark .jugadaContainer{
