@@ -86,7 +86,7 @@ function insertar_moneda(string $moneda, string $nombre){
         @param moneda   string      es la abreviacion de la moneda. Ejemplo US, DOP, RD
     */
     return execute_insert(  "idmonedas", "monedas", 
-                            "moneda nombre", 
+                            "moneda monombre", 
                             func_get_args()
                         );
 }
@@ -145,7 +145,7 @@ function insertar_sucuarsal(string $nombre, int $idterceros_fk, int $idtelefonos
 
 function insertar_loterias(string $nombre, int $idterceros_fk){
     return execute_insert(  "idloterias", "loterias", 
-                            "nombre idterceros_fk", 
+                            "lotnombre idterceros_fk", 
                             func_get_args()
                         );
 }
@@ -238,7 +238,7 @@ function insert_horariosorteo(int $idhoramilitar_fk, int $iddias_fk, int $idsort
 
 function insert_tomborangosorteo(string $inicia, string $termina, string $cantidadbolos){
     return execute_insert(  "idtr", "tomborangosorteo", 
-                            "inicia termina cantidadbolos", 
+                            "tomboinicia tombotermina cantidadbolos", 
                             func_get_args()
                         );
 }

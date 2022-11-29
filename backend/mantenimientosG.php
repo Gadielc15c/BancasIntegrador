@@ -159,8 +159,8 @@ function get_fk_related_tables($table, $all_tables_with_col){
     }
 
     if ($related_tables){
-        $values = execute_view($table, only_tables: $related_tables, print_sql: true);
-        array_print($values);
+        $values = execute_view($table, only_tables: $related_tables, print_sql: false);
+        // array_print($values);
     } else {
         $result = execute_select($table);
     }
