@@ -34,19 +34,21 @@ if (!empty($bbs)) {
             if (sizeof($premio) == 0) {
                 $var1 = " ";
                 $estado = " ";
-                
-                winners($premio[0], $premio = " ", $fecha, $img, $var1, $estado);
+                $size=0;
+                winners($premio[0], $premio = " ", $fecha, $img, $var1, $estado,$size);
 
             } elseif (sizeof($premio) == 2) {
                 $var1 = $premio[1];
+                $size=2;
                 if (!empty($premio[1])) {
                     $gano = true;
-                    winners($lot, $premio[0], $fecha, $img, $var1, $gano);
+                    winners($lot, $premio[0], $fecha, $img, $var1, $gano,$size);
                 }
             } elseif (sizeof($premio) == 5) {
-                $var1 = $premio[4];
+                $size=3;
+                $ganadores = $premio[4];
                 $estado = $premio[1];
-                winners($lot, $premio[0], $fecha, $img, $var1, $estado);
+                winners($lot, $premio[0], $fecha, $img, $ganadores, $estado,$size);
             }
         }
     }
