@@ -741,7 +741,7 @@ function la_primera_la_primera_dia(array $ternum, array $lotnum, int $monto_juga
     return $r;
 }
 
-function la_primera_la_primera_noche(array $ternum, array $lotnum, int $monto_jugado){
+function la_primera_primera_noche(array $ternum, array $lotnum, int $monto_jugado){
     return las_3_jugadas($ternum, $lotnum, monto_jugado: $monto_jugado);
 }
 
