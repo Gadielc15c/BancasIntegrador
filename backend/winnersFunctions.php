@@ -1,10 +1,10 @@
 <?php /*Cambio a ver klk */
-function winners($nombreLoteria, $jugada, $fecha, $img, $resultado,$premiado){
-    $buttonMaker=false;
+function winners($nombreLoteria, $jugada, $fecha, $img, $numeros,$ver,$size){
+    
     echo '
     
-            <div class="col">
-<div class="contLots">
+         
+<div class="contLots" style="margin-left:8vw;">
     <form action="#">
         <div class="contLots1">
             <h1 class="lotsnName">';echo $nombreLoteria;  echo '</h1>
@@ -17,38 +17,68 @@ function winners($nombreLoteria, $jugada, $fecha, $img, $resultado,$premiado){
         </div>
       
         <div class="bolasConten"> ';  
+       if($size==0){
+        echo '<div class="contLots1">
+        <h1 class="lotsnName">UPS ESTO HA SALIDO MAL</h1>
+        <h3 class="lotsnName">CONTACTE AL SOPORTE O REALICE UN TICKET</h3>
+        <h3 class="lotsnName">EN EL APARTADO DE AYUDA</h3>
 
-        $Nopre=array_diff($resultado,$premiado); // el orden importa para determinar el reciduop
-       
+    </div>'
 
 
-        foreach ($premiado as $prem){
-        foreach ($resultado as $val) {
-       
+
+       ;}elseif($size==2){
+        foreach ($numeros as $val) {
+  
+                if($val[0]!=" "){
+            echo '<span class="bolalose">'; echo $val[0]; echo '</span>'
                
-            if ($val==$prem){
-            echo '<span class="bola2win">'; echo $val; echo '</span>'
-            ;$buttonMaker=true;
-        }else{
-            foreach(  $Nopre as $perdidos){
-                echo '<span class="bolalose">'; echo $perdidos; echo '</span>'
-                    ;}
-            ;}  
-            }
-        ;}if ($buttonMaker!=true){
-
-        }else{
+        ;}if($ver){
+           
+            echo '<span class="bola2win">'; echo $val[1]; echo '</span>';
             echo '<input type="submit" class="btn btn-success" value="COBRAR" style="margin-left:20px">
             </form>'
             
-        ;}
-        echo 
+                ;}else{
+                    echo '<div class="contLots1">
+                    <h1 class="lotsnName">NO SE HA SACADO NADA</h1>
+                </div>'
+                ;}
+    }
+}elseif($size==1){
+
+    foreach ($numeros as $val) {
+
+        if(!empty($val[0])){
+        foreach ($val as$win ) {
         
-        '
+
+    echo '<span class="bolalose">'; echo $win; echo '</span>'
+       
+;}
+}if($ver){
+    if(!empty($val[0])){
+        foreach ($val as$lose ) {
+                echo '<span class="bola2win">'; echo $lose; echo '</span>';
+                echo '<input type="submit" class="btn btn-success" value="COBRAR" style="margin-left:20px">
+                </form>'
+    
+        ;}}else{
+                        echo '<div class="contLots1">
+                        <h1 class="lotsnName">NO SE HA SACADO NADA</h1>
+                    </div>'
+        ;}
+}
+
+
+}
+}
+        echo'
 
         </div>
         
-</div></div>
-';}
+</div>
+'
+;}
 
 ?>
