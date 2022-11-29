@@ -6,6 +6,7 @@ lvlLogValidate();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>INICIO</title>
@@ -35,6 +36,7 @@ lvlLogValidate();
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--No borrar-->
     <script type="module" src="/js/loginValidate.js"></script>
+    <script src="/js/darkmode.js"></script>
 
 </body>
 <footer>

@@ -40,7 +40,14 @@
                     <li><a href="#"><ion-icon name="person"></ion-icon>PERFIL</a></li>
                     <li><a href="#"><ion-icon name="wallet"></ion-icon>METODO DE PAGO</a></li>
                     <li><a href="#"><ion-icon name="information-circle"></ion-icon></ion-icon>AYUDA</a></li>
-                    <li><a href="#"><ion-icon name="moon-sharp"></ion-icon>MODO OSCURO</a></li>
+                    <li>
+                        
+                    <button class="switchDark" id="switch">
+                    <span><ion-icon name="sunny-sharp"></ion-icon></span>
+                    <span><ion-icon name="moon"></ion-icon></span>
+                    
+
+                    </li>
                 </ul>
             </li>
             <a href="/backend/phpfunctions/logOutTemporal.php" class="NavItem NavButton">

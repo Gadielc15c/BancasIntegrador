@@ -12,7 +12,8 @@ SessionControl($nivel);
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="description" />
     <meta name="generator" content="HAPedit 3.1" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="../js/validate.js"></script>
     <link rel="stylesheet" href="/css/cuerpoWeb.css" />
     <link rel="stylesheet" href="../css/ventas.css" />
@@ -30,7 +31,7 @@ SessionControl($nivel);
         <div class="cuadrado">
 
             <?php include('../cliente/jugadasClienteForm.php'); ?>
-         
+
 
         </div>
     </div>
@@ -46,15 +47,15 @@ SessionControl($nivel);
     </script>
     <script type="module" src="/js/validate.js"></script>
     <script type="text/javascript" />
-       window.onload =   ValidarEmpty("#numj");{
-            console.log(' ');
-        }
-  
+       window.onload = ValidarEmpty("#numj");{
+                console.log(' ');
+            }
+
     function scrollBottom() {window.scrollTo(0, 99999);}
     if (document.addEventListener) document.addEventListener("DOMContentLoaded", scrollBottom, false)
     else if (window.attachEvent) window.attachEvent("onload", scrollBottom);
     </script>
-
+    <script src="/js/darkmode.js"></script>
 
 </body>
 <footer>
