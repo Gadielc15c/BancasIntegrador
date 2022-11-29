@@ -107,23 +107,13 @@ function array_remove_once(array $a, $value){
     
     */
     $count = 0;
-    // array_print($a);
-    // var_dump($value);
     foreach ($a as $b){
-        // echo "<br>";
-        // var_dump($b == $value);
-        // echo "<br>";
         if ($b == $value){
             break;
         } else {
             $count ++;
         }
     }
-    // array_print($a);
-    // echo "<br>";
-    // echo sizeof($a)-1;
-    // echo "<br>";
-    // echo $count;
     return array_extract($a , 0, sizeof($a)-1, [$count]);
 }
 
@@ -241,13 +231,22 @@ function return_array_with_custom_keys(array $a, array $keys){
     return [];
 }
 
+function verify_if_string_is_json(string $json_){
+    $r = json_decode($json_);
+    if (json_last_error() === JSON_ERROR_NONE) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function verify_if_array_has_custom_keys(array $a){
     $r = true;
     if ($a){
         $count = 0;
         $keys = array_keys($a);
         foreach($keys as $k){
-            if ($k == $count){
+            if ($k == $count || is_int($k)){
                 $r = false;
                 break;
             }
@@ -332,6 +331,19 @@ function is_included(string $include_full_dir){
         return true;
     }
     return false;
+}
+
+function clean_str($s){
+    $ch_special = array("+", ":", "-", " ");
+    $s = strtolower($s);
+    $s = str_replace($ch_special, "_", $s);
+    $s = str_replace("á", "a", $s);
+    $s = str_replace("é", "e", $s);
+    $s = str_replace("í", "i", $s);
+    $s = str_replace("ó", "o", $s);
+    $s = str_replace("ú", "u", $s);
+    $s = str_replace("ñ", "n", $s);
+    return $s;
 }
 
 function save_post_in_session(string $session_key, $session_default, string $post_key, string $session_mantener_key = "", $session_mantener_var = null){

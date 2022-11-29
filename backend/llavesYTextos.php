@@ -23,19 +23,6 @@ $genjuglabel = "Jugadas";
 $gentotalabel = "Total";
 $genimagenlabel = "Imagen";
 
-// Para columnas de la base de datos
-
-$dbtercerosid = "idterceros";
-$dbtercerosidfk = "idterceros_fk";
-$dbusername = "dBterusername";
-$dbuserpass = "dBterpassword";
-$dbusercedula = "dBtercedula";
-$dbuseremail = "dBteremail";
-$dbuserestado = "dBterestado";
-$dbtercerosnivel = "idnivelacceso_fk";
-
-
-
 // Para $_POST, $_SESSION, etc
 
 $sesuserid = "seSterid";
@@ -123,6 +110,23 @@ $soking7 = "King Lottery 7:30";
 //
 //      ARRAYS
 //
+
+
+// 
+// Para columnas de la base de datos
+// 
+
+$dbtercerosid = "idterceros";
+$dbtercerosidfk = "idterceros_fk";
+$dbusername = "dBterusername";
+$dbuserpass = "dBterpassword";
+$dbusercedula = "dBtercedula";
+$dbuseremail = "dBteremail";
+$dbuserestado = "dBterestado";
+$dbtercerosnivel = "idnivelacceso_fk";
+
+$db_tabledata_tablename = "tablename";
+$db_tabledata_tableidcol = "tableidcol";
 
 // Para venta de ticket, jugadasClienteForm, etc
 $encabezados = [$gencantlabel, $lotlabel, $solabel, $sotipolabel, $genmonlabel, $genmontolabel, $gennumlabel];
