@@ -6,7 +6,7 @@
     include_once(dirname(__FILE__, 2) . '/backend/phpfunctions/carritoFunctions.php');
 
     $fecha = explode(" ", fecha_de_hoy())[0];
-
+    $id=0;
     if(isset($_SESSION[$sestabladejugadas])){
         $value = $_SESSION[$sestabladejugadas];
     } else {
@@ -30,7 +30,9 @@
             $tot= $cant * $monto;
             $img ="../img/Logo.png ";
             $keyed_array = array_merge($v, [$genimagenlabel => $img]);
-            shoppingMaker($cant,$lot,$sort,$tot,$jug,$tipo,$monto,$fecha,$img,$keyed_array);
+            $id=$id+1;
+            $poster=[$cant,$lot,$sort,$tot,$jug,$tipo,$monto,$fecha,$img];
+            shoppingMaker($cant,$lot,$sort,$tot,$jug,$tipo,$monto,$fecha,$img,$keyed_array,$id,$poster);
             } 
     }
     
