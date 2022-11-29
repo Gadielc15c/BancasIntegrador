@@ -178,3 +178,7 @@
   body.dark .underlineHover{
     color: rgb(255, 255, 255);
   }
+
+  body.dark a .underlineHover:hover{
+    color: var(--Principal)
+  }

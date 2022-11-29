@@ -467,14 +467,14 @@ body.dark .NavButton{
 body.dark footer{
   background-color:var(--negro);
   }
-  body.dark #clock{
+  /*body.dark #clock{
     background-color:var(--negro);
     border: #d07616 solid;
     border-width: 0.1vw;
   }
   body.dark #clock span{
     color: #d07616;
-  }
+  }*/
   body.dark .develop{
     color: rgb(255, 255, 255);
   }
@@ -501,5 +501,22 @@ body.dark h2{
   body.dark li:hover{
     color: var(--Principal);
   }
+  body.dark th{
+    color: var(--Blanco);
+  }
+  body.dark label{
+    color: var(--Blanco);
+  }
+  body.dark  a{
+    color: black;
+  }
+
+  body.dark  h3{
+    color: rgb(255, 255, 255);
+  }
+
+body.dark .pie p{
+  color: black;
+}
 
   /*css darkmode* admin/

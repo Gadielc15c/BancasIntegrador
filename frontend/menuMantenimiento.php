@@ -30,11 +30,11 @@ SessionControl($nivel);
     <div class="container2">
 
         <div class="cuadrado">
-           
-    <div class=".row">
-       
-   
-         <!-- <div class="d-flex">
+
+            <div class=".row">
+
+
+                <!-- <div class="d-flex">
                 <div class="w-100">
                     <div id="content">
                         <section>
@@ -127,10 +127,10 @@ SessionControl($nivel);
 
             </div>
             -->
-            <?php   include_once(dirname(__FILE__, 2) . ' ../backend/mantenimientosG.php');?>
-           
+                <?php   include_once(dirname(__FILE__, 2) . ' ../backend/mantenimientosG.php');?>
+
+            </div>
         </div>
-    </div>
     </div>
     </div>
 
@@ -142,6 +142,7 @@ SessionControl($nivel);
     <!--Script de iconos-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--No borrar-->
+    <script src="/js/darkmode.js"></script>
 </body>
 
 <footer>

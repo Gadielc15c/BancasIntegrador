@@ -37,16 +37,27 @@
                     <li class="develop">
                         <ion-icon name="settings"> </ion-icon> AJUSTES
                         <ul class="ul-second">
-                            <li><a href="../cliente/cuentasCliente.php">
+
+                            <li>
+                                <a href="../cliente/cuentasCliente.php">
                                     <ion-icon name="person"></ion-icon>PERFIL
-                                </a></li>
-                            <li><a href="../cliente/metodoPagosCliente.php">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../cliente/metodoPagosCliente.php">
                                     <ion-icon name="wallet"></ion-icon>METODO DE PAGO
-                                </a></li>
-                            <li><a href="../frontend/formError.php">
-                                    <ion-icon name="information-circle"></ion-icon>
-                                    </ion-icon>AYUDA
-                                </a></li>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../frontend/formError.php">
+                                    <ion-icon name="information-circle"></ion-icon>AYUDA
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../frontend/detallesEmpresa.php">
+                                    <ion-icon name="book"></ion-icon>CONOCENOS
+                                </a>
+                            </li>
                             <li>
 
                                 <button class="switchDark" id="switch">

@@ -1,7 +1,7 @@
 <?php
 
 include_once('../backend/phpfunctions/sessionsFunctions.php');
-$nivel=1;
+$nivel=4;
 SessionControl($nivel);
 ?>
 <!DOCTYPE html>
@@ -20,46 +20,52 @@ SessionControl($nivel);
     <link rel="stylesheet" href="/css/login.css" />
 </head>
 <header>
-    <?php include('..\frontend\nav.php');?>
+    <?php include('../cliente/navCliente.php');?>
 </header>
 
- <body>
- 
-<div class="container2">
-   <div class="cuadrado" >
+<body>
 
-    <form action="" style="margin:10% ;">
+    <div class="container2">
+        <div class="cuadrado">
 
-     <h2>Formulario de Error</h2>
-     <input type="text" class="form-control mb-2" name="nombre" placeholder="Nombre">
-     <input type="mail" class="form-control mb-2" placeholder="Correo" name="correo"required>
-     <input type="phone" class="form-control mb-2" placeholder="Celular" name="cel" maxlength="10" size="10" required>
-    
+            <form action="" style="margin:10% ;">
 
-     <center>
-     <textarea name="queja" id="queja" cols="50" rows="10" class="form-control mb-3" placeholder="Escriba su Queja"></textarea>
-    
-    
-     <div class="row">
-     <input type="submit" class="btn btn-primary" Value="Enviar" name="send">
-     <input type="button" class="btn btn-primary" onclick="location.href='index.php';" value="Inicio">
-      <input type="file" class="" placeholder="Insertar Archivo..." name="archivo"required style="margin-top: 1%;">
-     </div>
-     </center>
-    </form>
-        </div>  
-</div>
+                <h2>Formulario de Error</h2>
+                <input type="text" class="form-control mb-2" name="nombre" placeholder="Nombre">
+                <input type="mail" class="form-control mb-2" placeholder="Correo" name="correo" required>
+                <input type="phone" class="form-control mb-2" placeholder="Celular" name="cel" maxlength="10" size="10"
+                    required>
+
+
+                <center>
+                    <textarea name="queja" id="queja" cols="50" rows="10" class="form-control mb-3"
+                        placeholder="Escriba su Queja"></textarea>
+
+
+                    <div class="row">
+                        <input type="submit" class="btn btn-primary" Value="Enviar" name="send">
+                        <input type="button" class="btn btn-primary" onclick="location.href='index.php';"
+                            value="Inicio">
+                        <input type="file" class="" placeholder="Insertar Archivo..." name="archivo" required
+                            style="margin-top: 1%;">
+                    </div>
+                </center>
+            </form>
+        </div>
+    </div>
     <!--No borrar-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!--Script de iconos-->
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!--No borrar-->
+    <script src="/js/darkmode.js"></script>
+
 
 </body>
 
 <footer>
-<?php include('../frontend/footer.php');?>
+    <?php include('../frontend/footer.php');?>
 </footer>
 
 </html>
