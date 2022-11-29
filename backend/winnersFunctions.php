@@ -1,10 +1,10 @@
 <?php /*Cambio a ver klk */
-function winners($nombreLoteria, $jugada, $fecha, $img, $resultado,$premiado){
-    $buttonMaker=false;
+function winners($nombreLoteria, $jugada, $fecha, $img, $numeros,$ver){
+    
     echo '
     
-            <div class="col">
-<div class="contLots">
+         
+<div class="contLots" style="margin-left:8vw;">
     <form action="#">
         <div class="contLots1">
             <h1 class="lotsnName">';echo $nombreLoteria;  echo '</h1>
@@ -18,37 +18,35 @@ function winners($nombreLoteria, $jugada, $fecha, $img, $resultado,$premiado){
       
         <div class="bolasConten"> ';  
 
-        $Nopre=array_diff($resultado,$premiado); // el orden importa para determinar el reciduop
+        // $Nopre=array_diff($resultado,$premiado); // el orden importa para determinar el reciduop
        
-
-
-        foreach ($premiado as $prem){
-        foreach ($resultado as $val) {
-       
-               
-            if ($val==$prem){
-            echo '<span class="bola2win">'; echo $val; echo '</span>'
-            ;$buttonMaker=true;
-        }else{
-            foreach(  $Nopre as $perdidos){
-                echo '<span class="bolalose">'; echo $perdidos; echo '</span>'
-                    ;}
-            ;}  
-            }
-        ;}if ($buttonMaker!=true){
-
-        }else{
+        foreach ($numeros as $val) {
+  
+                if($val[0]!=" "){
+            echo '<span class="bolalose">'; echo $val[0]; echo '</span>'
+            
+            
+      
+                
+                  
+            
+        ;}if($ver){
+           
+            echo '<span class="bola2win">'; echo $val[1]; echo '</span>';
             echo '<input type="submit" class="btn btn-success" value="COBRAR" style="margin-left:20px">
             </form>'
             
-        ;}
-        echo 
-        
-        '
+        ;}else{
+            echo '<div class="contLots1">
+            <h1 class="lotsnName">NO SE HA SACADO NADA</h1>
+        </div>'
+        ;}}
+        echo'
 
         </div>
         
-</div></div>
-';}
+</div>
+'
+;}
 
 ?>

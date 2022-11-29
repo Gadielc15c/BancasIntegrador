@@ -29,19 +29,10 @@ SessionControl($nivel);
 
 
         <div class="cuadrado">
-
-
-            <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
+        <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
                 Recuento de Jugadas Realizadas
             </h2>
 
-        </div>
-        <div class="cuadrado">
-
-
-            <h2 class="font-weight-bold " style=" padding-top: 55px; padding-left: 25px">
-
-            </h2>
             <?php include('../backend/winLoader.php');?>
 
         </div>

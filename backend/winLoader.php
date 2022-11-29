@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 
@@ -6,41 +6,56 @@ include_once(dirname(__FILE__, 2) . '\backend\winnersFunctions.php');
 include_once(dirname(__FILE__, 2) . '\backend\phpfunctions\sqlRelated\sqlquerygenerals.php');
 include_once(dirname(__FILE__, 2) . '\backend\phpfunctions\generals.php');
 include_once(dirname(__FILE__, 2) . '\backend\phpfunctions\jugadasFunctions.php');
+
 $table = "tablajugadaventadeticket";
-$select=execute_select($table);
-foreach($select as $bb){
-    $fecha=$bb["fecha"];
-    var_dump($fecha);
-    $nicedickbro = convert_str_to_array_estoyharto($bb["jugadas"]);
-    foreach($nicedickbro as $dingdong){
-    $c=$dingdong["Cantidad"];
-    $lot=$dingdong["Lotería"];
-    $sort=$dingdong["Sorteo"];
-    $jugt=$dingdong["Tipo de Jugada"];
-    $mon=$dingdong["Moneda"];
-    $mont=$dingdong["Monto"];
-    $num  = explode (",", $dingdong["Números"]);;
-    $premio=premios_jugadas_main($lot,$sort, $num, $mont, $fecha,$fecha);
- 
+$select = execute_select($table);
+$img = "/img/Logo.png";
+$bbs = $select[0];
+
+
+
+if (!empty($bbs)) {
+
+    foreach ($bbs as $bb) {
+
+        $fecha = $bbs["fecha"];
+
+        $nicedickbro = convert_str_to_array_estoyharto($bbs["jugadas"]);
+
+        foreach ($nicedickbro as $dingdong) {
+            $lot = $dingdong["Lotería"];
+            $sort = $dingdong["Sorteo"];
+            $jugt = $dingdong["Tipo de Jugada"];
+            $mon = $dingdong["Moneda"];
+            $mont = $dingdong["Monto"];
+            $num  = explode(",", $dingdong["Números"]);
+            $premio = premios_jugadas_main($lot, $sort, $num, $mont, $fecha, $fecha);
+
+            if (sizeof($premio) == 0) {
+                $var1 = " ";
+                $estado = " ";
+                
+                winners($premio[0], $premio = " ", $fecha, $img, $var1, $estado);
+
+            } elseif (sizeof($premio) == 2) {
+                $var1 = $premio[1];
+                if (!empty($premio[1])) {
+                    $gano = true;
+                    winners($lot, $premio[0], $fecha, $img, $var1, $gano);
+                }
+            } elseif (sizeof($premio) == 5) {
+                $var1 = $premio[4];
+                $estado = $premio[1];
+                winners($lot, $premio[0], $fecha, $img, $var1, $estado);
+            }
+        }
     }
 }
-
 
 // idtablajugada
 // jugadas
 // fecha
 // idterceros_fk
-foreach($premio as $waos){
-
-$jug =  $waos[0];
-var_dump($jug);
-// $fec = "15/10/2021";
-// $img =
-// $num = [1, 2, 3];
-// $win = [7,2,7,9];
-// winners($nom, $jug, $fec, $img, $num, $win);
-}
-
 // array(1) {
 //      [0]=> array(4) { ["idtablajugada"]=> int(626342605) ["jugadas"]=> string(1066) "-Cantidad-7--Lotería-La
 //     Primera--Sorteo-La Primera Día--Tipo de Jugada-Palé--Moneda-RD--Monto-4--Números-12, 12--Cantidad-1--Lotería-La
@@ -59,4 +74,3 @@ var_dump($jug);
 //     int(936137193) } } 
 //     array(6) { [0]=> string(1) "5" [1]=> string(2) " 5" [2]=> string(2) " 5" [3]=> string(2) " 5" [4]=>
 //     string(2) " 5" [5]=> string(2) " 5" }
-?>
