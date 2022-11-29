@@ -263,7 +263,7 @@ function execute_select(string $table, array $where_values = null, array $with_k
 // var_dump(execute_select("terceros", ["nomusuario" => "cliente", "claveusuario" => "ok"])[0]);
 // var_dump(execute_select("terceros"));
 
-function execute_update(string $table, array $update, array $where_values = null){
+function execute_update(string $table, array $update, array $where_values = null, bool $print_sql = false){
     /* 
     * @param table              string      el table de la base de datos a actualizar
     * @param update             array       un array con llaves con las variables del update
@@ -295,6 +295,15 @@ function execute_update(string $table, array $update, array $where_values = null
         $update = array_merge($update, array_values($where_values));
         $sql = $sql . " WHERE $wherecol";
     }
+
+    if ($print_sql){
+        echo "<BR>";
+        echo $sql;
+        echo "<BR>";
+        var_dump($update);
+        echo "<BR>";
+    }
+
     $r = ejecutarQuery($sql, $update);
     return retorno_booleano_para_updates($r);
 }

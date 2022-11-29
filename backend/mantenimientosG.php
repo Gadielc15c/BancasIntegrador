@@ -58,24 +58,110 @@ if(isset($_SESSION["mantenselect"])){
         $resultados = $arr[0];
 
         if (isset($_POST) && !in_array("mantenselect", array_keys($_POST))){
-            $data = (explode("_", end($_POST)));
+            $t = array_keys($_POST);
+            $data = (explode("_", end($t)));
             $idcol = $data[0];
             $spec_id = $data[1];
             
-            $retrieve_cols = [];
+            $ids = [];
+            // var_dump($_POST);
+            foreach($arr[2] as $zz){
+                if ((int)$spec_id == $zz[$idcol]){
+                    $ids = $zz;
+                    break;
+                }
+            }
+            if ($ids == []){
+                $x = execute_select($arr[1][0], limit: 1)[0];
+                $tab = array_keys($x);
 
-            foreach($arr[1] as $tab){
-                $x = execute_select($tab, limit: 1);
-                $retrieve_cols[$tab] = array_keys($x[0]);
+                $set_values = [];
+                foreach($tab as $col){
+                    if (str_contains($col, "_fk")){
+                        // Do nothing
+                    } elseif (str_contains($col, "estado")){
+                        if(in_array($col,array_keys($_POST))){
+                            $set_values[$col] = true;
+                        } else {
+                            $set_values[$col] = false;
+                        }
+
+                    } elseif (in_array($col, array_keys($ids))){
+                        // Do nothing
+                    } else {
+                        if (in_array($col, array_keys($_POST))){
+                            $set_values[$col] = $_POST[$col];
+                        }
+                    }
+                }
+
+                $x = execute_update($arr[1][0], $set_values, [$idcol => $spec_id]);
+            } else {
+                $retrieve_cols = [];
+                foreach($arr[1] as $tab){
+                    $x = execute_select($tab, limit: 1);
+                    $retrieve_cols[$tab] = array_keys($x[0]);
+                }
+
+                $to_update = [];
+                foreach($retrieve_cols as $z => $tab){
+                    $t = ["table" => $z];
+                    $tt = [];
+                    foreach($tab as $col){
+                        if (str_contains($col, "_fk")){
+                            // Do nothing
+                        } elseif (str_contains($col, "estado")){
+                            if(in_array($col,array_keys($_POST))){
+                                $tt[$col] = true;
+                            } else {
+                                $tt[$col] = false;
+                            }
+
+                        } elseif (in_array($col, array_keys($ids))){
+                            $t["id"] = [$col => $ids[$col]];
+                        } else {
+                            if (in_array($col, array_keys($_POST))){
+                                $tt[$col] = $_POST[$col];
+                            } elseif (str_contains($col, "id")){
+                                $t["id"] = [$col => $spec_id];
+                            }
+                        }
+                    }
+                    $t["sets"] = $tt;
+                    array_push($to_update, $t);
+                }
+                $ids[$idcol] = $spec_id;
+
+                foreach($to_update as $upd){
+                    $x = execute_update($upd["table"], $upd["sets"], $upd["id"]);
+                }
             }
 
+            // execute_update()
+
+            // $temp = array_remove_by_key($fk, $temp);
+            // str_contains($r, "estado")
 
 
+            // echo "<BR>";
+            // var_dump($to_update);
+            // echo "<BR>";
+            // echo "<BR>";
+            // echo "<BR>";
+            // var_dump($ids);
+            // echo "<BR>";
+            // echo "<BR>";
             // var_dump($retrieve_cols);
-
-
-            // I have the IDs, now I need the columns for the where statement and combine it with the values
+            // echo "<BR>";
+            // echo "<BR>";
+            // var_dump($data);
+            // echo "<BR>";
+            // echo "<BR>";
+            // var_dump($_POST);
         }
+
+        $arr = get_fk_related_tables($v, $tables_col);
+        $resultados = $arr[0];
 
 
 
@@ -128,16 +214,17 @@ if(isset($_SESSION["mantenselect"])){
                     
                         <?php 
                             $count = 0;
-                            $tnouc = 0;
                             $hay_filas = false;
 
                             foreach($resultados as $resu){
                                 if ($resu){
                                     //             idcol                 idvalue
                                     $tableidcol = $rkey[0] . "_" . array_values($resu)[0];
+
                                     echo "<form action='' method='post'> <tr>";
+
                                     foreach($resu as $r){
-                                        $id = "$count" . "_" . "$tnouc";
+
                                         if ($count != 0){
                                             if (in_array($count, $estado_pos)){
                                                 $c = "";
@@ -155,13 +242,13 @@ if(isset($_SESSION["mantenselect"])){
                                         }
                                         $count ++;
                                     }
-                                    $count = 0;
-                                    $tnouc++;
-
                                     if ($hay_filas){
-                                        echo "<td><button name='editar_$id' value='$tableidcol' class='btn btn-warning'>EDITAR</button></td></form>";
+                                        echo "<td><button name='$tableidcol' class='btn btn-warning'>EDITAR</button></td></form>";
                                     }
                                     echo '</tr>';
+
+                                    $count = 0;
+
                                 }
                             }
                         ?>
@@ -215,6 +302,7 @@ function get_fk_related_tables($table, $all_tables_with_col){
         $fkkey = array_remove_dupe(array_values($fkkey));
 
         $id_col = get_foreign_keys_or_id_from_table($rkey, true);
+        $id_col = array_merge([$rkey[0]], $id_col);
 
         $result = [];
         foreach($values as $v){
@@ -230,9 +318,10 @@ function get_fk_related_tables($table, $all_tables_with_col){
             }
             array_push($ids, $t);
         }
+        // var_dump($id_col);
      
     }
-    return [$result, $related_tables, $ids];
+    return [$result, array_merge($related_tables, [$table]), $ids];
 }
 
 
