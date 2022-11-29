@@ -44,7 +44,7 @@ function insertar_tercero(string $nomusuario, string $claveusuario, int $idterda
 
 // table tickets
 
-function insertar_ticket(int $monto, string $jugadas, int $idsorteo_fk, bool $estado, int $idterceros_fk, string $codigobarra, int $idsucursalventa_fk, int $idsucursalpago_fk, int $idpagometodos_fk){
+function insertar_ticket(int $monto, string $jugadas, int $idsorteo_fk, bool $tickestado, int $idterceros_fk, string $codigobarra, int $idsucursalventa_fk, int $idsucursalpago_fk, int $idpagometodos_fk){
     /* 
         @param jugadas      string      Va separada por un espacion. Ejemplo 1 2 3 4 5
     */
@@ -52,9 +52,9 @@ function insertar_ticket(int $monto, string $jugadas, int $idsorteo_fk, bool $es
     verify_monto($monto);
 
     return execute_insert(  "idtickets", "tickets", 
-                            "monto jugadas idsorteo_fk estado idterceros_fk codigobarra idsucursalventa_fk idsucursalpago_fk idpagometodos_fk", 
+                            "tickmonto tickjugadas idsorteo_fk tickestado idterceros_fk codigobarra idsucursalventa_fk idsucursalpago_fk idpagometodos_fk", 
                             func_get_args(),
-                            true, 1
+                            true, 1, "tickfecha"
                         );
 }
 
