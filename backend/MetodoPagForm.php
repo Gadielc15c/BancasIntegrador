@@ -28,6 +28,24 @@ else
 echo "Cookie Not Set";
 
 $data=$_GET['data'];
+
+/* RETORNA UN ARRAY CON DELIMITADOR -  
+EJEM 1-Loteria Nacional-Juega Pega -100-14, 13, 25, 5, 89-Propia-100-2022-11-29-../img/Logo.png -
+
+POSICIONES
+ [0] TIENE LA CANTIDAD
+ [1] NOMBRE LOT
+ [2] SORTEO
+ [3] MONTO
+ [4] JUGADA 
+ [5] TIPO DE JUGADA
+ [6] TOTAL
+ [7] FECHA (OJO CUIDADO CON EL TRIM LA FECHA VUELVE CON ESTOS DATOS 2022-11-29 )
+ [8] VINCULO DE IMAGEN
+
+
+
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
