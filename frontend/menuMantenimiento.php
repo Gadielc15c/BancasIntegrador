@@ -32,9 +32,7 @@ SessionControl($nivel);
         <div class="cuadrado">
            
     <div class=".row">
-        <div class="bheder">
-            <h1 style="text-align:center; "> SELECCIONE SU MANTENIMIENTO</h1>
-        </div>
+       
    
          <!-- <div class="d-flex">
 

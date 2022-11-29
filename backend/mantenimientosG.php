@@ -25,7 +25,10 @@ sort($table_keys);
     <div class=".row">
         <div class="papa">
             <div class="papagay">
-                <div class="bebe right">
+                <div class="bebe right"> <div class="bheder">
+            <h1 style="text-align:center; "> SELECCIONE SU MANTENIMIENTO</h1>
+            
+        </div>
                     <form action="" method="post" class="form-grp">
                         <select name="mantenselect" id="mantenselect" class="lotsSelect right" onchange="this.form.submit()" place>
                             <option value="" disable selected="selected"><?php if(isset($_POST["mantenselect"])){echo ucfirst($_POST["mantenselect"]);} ?></option>
