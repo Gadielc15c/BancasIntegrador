@@ -70,10 +70,9 @@ if(isset($_POST["mantenselect"])){
                 <input type="text" class="form-control mb-3" name="" placeholder="">
                 <input type="submit" class="btn btn-primary" value="Buscar">
             </form>
-        </div>
+        
 
         <div class="col-md-7 col-md-offset-2"></div>
-
         <div class="row-md-7">
             <table class="table">
                 <thead class="table-warning table-striped">
@@ -100,7 +99,7 @@ if(isset($_POST["mantenselect"])){
                                 echo '<tr>';
                                 foreach($resu as $r){
                                     if ($count != 0){
-                                        echo '<th>'; echo ucfirst($r); echo '</th>';
+                                        echo '<td>'; echo ucfirst($r); echo '</td>';
                                         $hay_filas = true;
                                     }
                                     $count ++;
@@ -108,7 +107,7 @@ if(isset($_POST["mantenselect"])){
                                 $count = 0;
                                 
                                 if ($hay_filas){
-                                    echo '<th><a href="" class="btn btn-warning">EDITAR</a></th>
+                                    echo '<td><a href="" class="btn btn-warning">EDITAR</a></td>
                                     ';
                                 }
                                 echo '</tr>';
@@ -123,10 +122,12 @@ if(isset($_POST["mantenselect"])){
                     </style>
                 </tbody>
             </table>
+            </div>
+            </div>
         </div>
     </div>
 </div>
-
+</div>
 <?php
 }
 ?>

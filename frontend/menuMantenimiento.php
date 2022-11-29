@@ -12,12 +12,13 @@ SessionControl($nivel);
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     <meta name="description" />
     <meta name="generator" content="HAPedit 3.1" />
-    
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimun-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimun-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/cuerpoWeb.css" />
-
+    <link rel="stylesheet" href="../css/ventas.css" />
 
 </head>
 <header>
@@ -29,9 +30,15 @@ SessionControl($nivel);
     <div class="container2">
 
         <div class="cuadrado">
-            <div class="d-flex">
+           
+    <div class=".row">
+        <div class="bheder">
+            <h1 style="text-align:center; "> SELECCIONE SU MANTENIMIENTO</h1>
+        </div>
+   
+         <!-- <div class="d-flex">
 
-
+               
                 <div class="w-100">
                     <div id="content">
                         <section>
@@ -50,7 +57,6 @@ SessionControl($nivel);
                             </div>
                         </section>
 
-                        <!--seccion -->
                         <section style="margin-bottom: 40PX;display: block;margin-left: auto;margin-right: auto">
 
                             <div class="container" style="margin-left: 35%; margin-TOP: 2%;">
@@ -70,10 +76,10 @@ SessionControl($nivel);
                                                     class="NavItem NavButton">
                                                     <ion-icon name="book"></ion-icon> LOTERIAS
                                                 </a>
-                                                <!--
+                                           
                                                 <a href="./mantenimientoJugadas.php" class="NavItem NavButton">
                                                     <ion-icon name="game-controller"></ion-icon> JUGADAS
-                                                </a>-->
+                                                </a>
                                             </div>
                                             <div class="row">
                                             </div>
@@ -101,7 +107,7 @@ SessionControl($nivel);
                                         </div>
 
                                         <div class="top">
-                                            <!-- COLUMNA 2-->
+                                          
                                             <div class="opciones">
                                             <H4 style="margin-top:8%; font-weight:bold">MISCELANEOS</H4>
                                                 <div class="row">
@@ -120,13 +126,16 @@ SessionControl($nivel);
 
                             </div>
                         </section>
-                        <!--Seccion 2-->
+                        
 
 
-                    </div>
-                </div>
             </div>
+            -->
+            <?php   include_once(dirname(__FILE__, 2) . ' ../backend/mantenimientosG.php');?>
+           
         </div>
+    </div>
+    </div>
     </div>
 
 
